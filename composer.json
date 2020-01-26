@@ -1,0 +1,18 @@
+{
+    "name": "cts/agilent_cts_microservice",
+    "description": "dev",
+    "type": "swoft-cts-common",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chenhong",
+            "email": "hong.chen5@cognizant.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload":{
+		"psr-4":{
+			"Cts\\Common\\":"src/Cts/Common"
+		}
+	}
+}
