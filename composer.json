@@ -10,6 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
+	"require":{
+		"aws/aws-sdk-php": "^3.133"
+	},
     "autoload":{
 		"psr-4":{
 			"Cts\\Common\\":"src/Cts/Common"
