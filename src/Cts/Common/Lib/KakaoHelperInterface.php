@@ -24,7 +24,7 @@ interface KakaoHelperInterface
      *
      * @return ResponseObjData
      */
-    public function getUserInfoWithCode(KakaoTokenData $kakaoTokenData): ResponseObjData;
+    public function getUserInfoWithToken(KakaoTokenData $kakaoTokenData): ResponseObjData;
 
     /**
      * @param int  $kakao_uid
