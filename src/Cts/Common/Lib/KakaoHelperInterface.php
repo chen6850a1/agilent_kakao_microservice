@@ -20,7 +20,7 @@ use Cts\Common\Data\ResponseObjData;
 interface KakaoHelperInterface
 {
     /**
-     * @param string  $code
+     * @param KakaoTokenData $kakaoTokenData
      *
      * @return ResponseObjData
      */
