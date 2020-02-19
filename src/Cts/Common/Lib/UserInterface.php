@@ -17,5 +17,5 @@ namespace Cts\Common\Lib;
  */
 interface UserInterface
 {
-  
+
 }

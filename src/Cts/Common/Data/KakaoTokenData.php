@@ -10,7 +10,7 @@ namespace Cts\Common\Data;
 
 /**
  * Class KakaoTokenData
- *  @exmple {"access_token":"2r0mHEwFqzNB5SHbe4wZD7VBLYSHwxMBFCQGcQopb1QAAAFwWI0LVw","token_type":"bearer","refresh_token":"rdUqV9E9BuPeEiFQiLjsCwRQwAXePuE_wfsEnQopb1QAAAFwWI0LVQ",
+ *  exmple {"access_token":"2r0mHEwFqzNB5SHbe4wZD7VBLYSHwxMBFCQGcQopb1QAAAFwWI0LVw","token_type":"bearer","refresh_token":"rdUqV9E9BuPeEiFQiLjsCwRQwAXePuE_wfsEnQopb1QAAAFwWI0LVQ",
  * "expires_in":7199,"scope":"talk_message profile","refresh_token_expires_in":5183999}
  *
  */
