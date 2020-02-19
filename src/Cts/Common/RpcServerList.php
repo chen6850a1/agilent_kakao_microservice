@@ -8,6 +8,7 @@
 
 namespace Cts\Common;
 
+use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\UserInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
@@ -27,6 +28,13 @@ class RpcServerList
      * @var UserInterface
      */
     public $service_user;
+
+    /**
+     * @Reference(pool="kakao.pool")
+     *
+     * @var KakaoHelperInterface
+     */
+    public $service_kakao;
 
 
 }
