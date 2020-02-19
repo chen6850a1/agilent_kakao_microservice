@@ -9,8 +9,6 @@
  */
 
 namespace Cts\Common\Lib;
-use Cts\Common\Data\KakaoTokenData;
-use Cts\Common\Data\ResponseObjData;
 
 /**
  * Class UserInterface
@@ -20,11 +18,11 @@ use Cts\Common\Data\ResponseObjData;
 interface KakaoHelperInterface
 {
     /**
-     * @param KakaoTokenData $kakaoTokenData
+     * @param array $kakaoTokenData
      *
-     * @return ResponseObjData
+     * @return array
      */
-    public function getUserInfoWithToken(KakaoTokenData $kakaoTokenData): ResponseObjData;
+    public function getUserInfoWithToken(array $kakaoTokenData): array;
 
     /**
      * @param int  $kakao_uid
