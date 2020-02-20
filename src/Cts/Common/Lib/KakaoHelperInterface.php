@@ -26,9 +26,9 @@ interface KakaoHelperInterface
 
     /**
      * @param int  $kakao_uid
-     * @param string $message
+     * @param array $messageData
      *
      * @return bool
      */
-    public function sendMessage(int $kakao_uid,string $message):bool;
+    public function sendMessage(int $kakao_uid,array $messageData):bool;
 }
