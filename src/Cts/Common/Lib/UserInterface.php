@@ -17,5 +17,22 @@ namespace Cts\Common\Lib;
  */
 interface UserInterface
 {
-
+    /**
+     * 前端用户登录
+     * @param string $type
+     * @param array $userData
+     * @example:kakao:{
+     *      access_token:string,
+     *      refresh_token:string,
+     *      refresh_token_expires_in:int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function login(string $type,array $userData): array;
 }
