@@ -19,16 +19,33 @@ interface KakaoHelperInterface
 {
     /**
      * @param array $kakaoTokenData
-     *
+     * @example:{
+     *      access_token:string,
+     *      refresh_token:string,
+     *      refresh_token_expires_in:int
+     * }
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function getUserInfoWithToken(array $kakaoTokenData): array;
 
     /**
-     * @param int  $kakao_uid
+     * @param string  $kakao_uid
      * @param array $messageData
-     *
-     * @return bool
+     * @example:{
+     *      text:string,
+     *      url:string
+     * }
+     * @return array
+     * @example{
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
-    public function sendMessage(int $kakao_uid,array $messageData):bool;
+    public function sendMessage(string $kakao_uid,array $messageData):array;
 }
