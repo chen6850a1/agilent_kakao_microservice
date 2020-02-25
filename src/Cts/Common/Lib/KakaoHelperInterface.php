@@ -18,6 +18,7 @@ namespace Cts\Common\Lib;
 interface KakaoHelperInterface
 {
     /**
+     * 获取Kakao用户信息
      * @param array $kakaoTokenData
      * @example:{
      *      access_token:string,
@@ -34,6 +35,7 @@ interface KakaoHelperInterface
     public function getUserInfoWithToken(array $kakaoTokenData): array;
 
     /**
+     * 推送Kakao消息
      * @param string  $kakao_uid
      * @param array $messageData
      * @example:{

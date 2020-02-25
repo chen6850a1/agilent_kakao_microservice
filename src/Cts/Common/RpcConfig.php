@@ -17,7 +17,7 @@ class RpcConfig
         return [
             'user'              => [
                 'class'   => ServiceClient::class,
-                'host'    => '172.17.0.1',
+                'host'    => 'service-user.kakao-eservice-local',
                 'port'    => '19999',
                 'setting' => [
                     'timeout'         => 0.5,
@@ -33,8 +33,8 @@ class RpcConfig
             ],
             'kakao'              => [
                 'class'   => ServiceClient::class,
-                'host'    => '172.17.0.1',
-                'port'    => '19998',
+                'host'    => 'service-kakao.kakao-eservice-local',
+                'port'    => '19999',
                 'setting' => [
                     'timeout'         => 0.5,
                     'connect_timeout' => 1.0,
