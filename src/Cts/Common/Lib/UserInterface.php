@@ -35,4 +35,24 @@ interface UserInterface
      * }
      */
     public function login(string $type,array $userData): array;
+
+    /**
+     * 创建建档信息
+     * @param array $fillInfo
+     * @example:kakao:{
+     *      name:string,
+     *      mobile:string,
+     *      company:string,
+     *      sn:string,
+     *      remark:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createFillInfo(array $fillInfo):array;
 }
