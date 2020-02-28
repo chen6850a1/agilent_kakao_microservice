@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 
-namespace Cts\Common;
+namespace Cts\Common\User;
 
 
 use Swoft\Bean\Annotation\Mapping\Bean;
