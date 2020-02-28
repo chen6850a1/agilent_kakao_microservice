@@ -25,7 +25,8 @@ class RpcConfig
                     'write_timeout'   => 10.0,
                     'read_timeout'    => 0.5,
                 ],
-                'packet'  => bean('rpcClientPacket')
+                'packet'  => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'user.pool'         => [
                 'class'  => ServicePool::class,
@@ -41,7 +42,8 @@ class RpcConfig
                     'write_timeout'   => 10.0,
                     'read_timeout'    => 0.5,
                 ],
-                'packet'  => bean('rpcClientPacket')
+                'packet'  => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'kakao.pool'         => [
                 'class'  => ServicePool::class,
