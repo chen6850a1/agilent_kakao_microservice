@@ -17,10 +17,6 @@ namespace Cts\Common\Lib;
  */
 interface UserInterface
 {
-    const TYPE_KAKAO="tyoe_kakao_user";
-    const TYPE_ADMIN="type_admin_user";
-
-
     /**
      * 前端用户登录
      * @param string $type
