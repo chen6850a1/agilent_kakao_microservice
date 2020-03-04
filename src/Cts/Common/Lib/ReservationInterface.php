@@ -29,26 +29,23 @@ interface ReservationInterface {
 
     /**
      * 
-     * @param int $kakaoUid
      * @param array $params
      * @return array
      */
-    public function create(int $kakaoUid, array $params): array;
+    public function create(array $params): array;
 
     /**
      * 
      * @param string $name
      * @param int $id
-     * @param int $adminUid
      * @param array $params
      * @return array
      */
-    public function update(string $name, int $id, int $adminUid, array $params): array;
+    public function update(string $name, int $id, array $params): array;
 
     /**
      * 
-     * @param int $uid
      * @return array
      */
-    public function getMyReservation(int $uid): array;
+    public function getMyReservation(): array;
 }
