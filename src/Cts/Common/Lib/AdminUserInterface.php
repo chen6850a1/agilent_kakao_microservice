@@ -41,6 +41,12 @@ interface AdminUserInterface {
 
     /**
      * 
+     * @return array
+     */
+    public function getAuthority(): array;
+
+    /**
+     * 
      * @param array $params
      * @return array
      */
