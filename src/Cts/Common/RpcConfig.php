@@ -98,6 +98,22 @@ class RpcConfig
             'reservation.pool' => [
                 'class' => ServicePool::class,
                 'client' => bean('reservation'),
+            ],
+            'slider' => [
+                'class' => ServiceClient::class,
+                'host' => 'service-kakao.kakao-eservice-local',
+                'port' => '19999',
+                'setting' => [
+                    'timeout' => 0.5,
+                    'connect_timeout' => 1.0,
+                    'write_timeout' => 10.0,
+                    'read_timeout' => 0.5,
+                ],
+                'packet' => bean('rpcClientPacket')
+            ],
+            'slider.pool' => [
+                'class' => ServicePool::class,
+                'client' => bean('slider'),
             ]
         ];
     }
