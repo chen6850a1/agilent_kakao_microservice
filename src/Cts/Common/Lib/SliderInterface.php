@@ -20,6 +20,17 @@ interface SliderInterface {
      *      error:string
      * }
      */
+    public function fetch(): array;
+    
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function getList(): array;
 
     /**
