@@ -39,7 +39,7 @@ interface UserInterface
     /**
      * 创建建档信息
      * @param array $fillInfo
-     * @example:kakao:{
+     * @example:{
      *      name:string,
      *      mobile:string,
      *      company:string,
@@ -55,4 +55,25 @@ interface UserInterface
      * }
      */
     public function createFillInfo(array $fillInfo):array;
+
+
+    /**
+     * 查看建档信息
+     * @param array $params
+     * @example:{
+     *      name:string,
+     *      mobile:string,
+     *      company:string,
+     *      sn:string,
+     *      remark:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getFillList(array $params):array;
 }

@@ -21,12 +21,15 @@ class DistributedEvent implements EventHandlerInterface
      */
     public function handle(EventInterface $event): void
     {
-        echo "start reg event";
+        //不在AWS 环境里  关闭注册事件
+        if(empty(config("aws.name"))){
+            return;
+        }
         //注册事件
         $this->regEvent();
 
         //监听事件
-        $this->listenEvent();
+//        $this->listenEvent();
 
 //        $swooleServer = $event->target->getSwooleServer();
 //
