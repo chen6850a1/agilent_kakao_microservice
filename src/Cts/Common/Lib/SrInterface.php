@@ -13,78 +13,179 @@ interface SrInterface {
 
     /**
      * @param array $params
+     * @example {
+     *      ContactId:string
+     * }
      * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function get(array $params): array;
 
     /**
      * @param array $params
+     * @example {
+     *      sr_status:string
+     *      sr_detection:string|int
+     *      sr_category:string|int
+     *      customer_name:string
+     *      ContactId:string
+     *      AccountId:string
+     *      IobjectId:string
+     *      service_team_id:string
+     *      tier2_specialist_id:string
+     *      description:string
+     *      notes:string
+     * }
      * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function create(array $params): array;
 
     /**
      * @param int $id
      * @param array $params
+     * @example {
+     *      serial_no:string
+     * }
      * 
-     * @return bool
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function getHistory(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      keyword:string
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function historyFilter(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      SrId:string
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function historyDetails(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      survey_id:string,
+     *      service_request_id:string
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function getSurvey(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      d:{}
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function submitSurvey(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      service_request_id:string,
+     *      object_id:string
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function getBqInfo(array $params): array;
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      object_id:string
+     * }
+     * 
+     * @return string pdf
      */
     public function getBqPdf(array $params);
 
     /**
      * 
      * @param array $params
+     * @example {
+     *      bq_id:string
+     * }
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function bqConfirm(array $params): array;
 
     /**
      * 
      * @param array $params
+     * 
      * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
     public function pushNotification(array $params): array;
 }

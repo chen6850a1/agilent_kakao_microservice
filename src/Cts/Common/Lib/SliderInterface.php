@@ -5,75 +5,11 @@ declare(strict_types=1);
 namespace Cts\Common\Lib;
 
 /**
- * Class AdminUserInterface
+ * Class ReservationInterface
  *
  * @since 2.0
  */
-interface AdminUserInterface {
-
-    /**
-     * 
-     * @param array $param
-     * @example:{
-     *      account:string,
-     *      password:string
-     * }
-     * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function login(array $param): array;
-
-    /**
-     * 
-     * @param array $params
-     * @example:{
-     *      password:string
-     * }
-     * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function changePassword(array $params): array;
-
-    /**
-     * 
-     * @param array $params
-     * @example:{
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      keyword:string
-     * }
-     * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getList(array $params): array;
-
-    /**
-     * 
-     * @param int $uid
-     * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function get(int $uid): array;
+interface SliderInterface {
 
     /**
      * 
@@ -84,14 +20,39 @@ interface AdminUserInterface {
      *      error:string
      * }
      */
-    public function getAuthority(): array;
+    public function fetch(): array;
+    
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getList(): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function get(int $id): array;
 
     /**
      * 
      * @param array $params
      * @example {
-     *      account:string,
-     *      access:string eg.[1,4,8,11]
+     *      title:string,
+     *      src:file,
+     *      link:string
      * }
      * 
      * @return array
@@ -105,10 +66,12 @@ interface AdminUserInterface {
 
     /**
      * 
-     * @param int $uid
+     * @param int $id
      * @param array $params
      * @example {
-     *      access:string eg.[1,4,8,11]
+     *      title:string,
+     *      src:file,
+     *      link:string
      * }
      * 
      * @return array
@@ -118,11 +81,16 @@ interface AdminUserInterface {
      *      error:string
      * }
      */
-    public function update(int $uid, array $params): array;
+    public function update(int $id, array $params): array;
 
     /**
      * 
-     * @param int $uid
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      order:string|int,
+     *      operator:string eg. +|-
+     * }
      * 
      * @return array
      * @example {
@@ -131,5 +99,29 @@ interface AdminUserInterface {
      *      error:string
      * }
      */
-    public function delete(int $uid): array;
+    public function updateOrder(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function delete(int $id): array;
+
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function publish(): array;
 }

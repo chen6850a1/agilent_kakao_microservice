@@ -7,6 +7,7 @@ use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
 use Cts\Common\Lib\SrInterface;
 use Cts\Common\Lib\ReservationInterface;
+use Cts\Common\Lib\SliderInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -53,5 +54,12 @@ class RpcServerList {
      * @var ReservationInterface
      */
     public $service_reservation;
+
+    /**
+     * @Reference(pool="slider.pool")
+     *
+     * @var SliderInterface
+     */
+    public $service_slider;
 
 }
