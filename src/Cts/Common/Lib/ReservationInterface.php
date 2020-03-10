@@ -101,5 +101,16 @@ interface ReservationInterface {
      *      error:string
      * }
      */
+    public function countMyReservation(): array;
+    
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function getMyReservation(): array;
 }
