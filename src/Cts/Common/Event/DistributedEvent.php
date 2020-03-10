@@ -4,9 +4,11 @@ namespace Cts\Common\Event;
 
 use Cts\Common\Aws\AwsSns;
 use Cts\Common\Aws\AwsSqs;
+use Swoft\Bean\BeanFactory;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Event\EventHandlerInterface;
 use Swoft\Event\EventInterface;
+use Swoft\Log\Helper\CLog;
 use Swoft\Server\ServerEvent;
 
 /**
@@ -21,39 +23,45 @@ class DistributedEvent implements EventHandlerInterface
      */
     public function handle(EventInterface $event): void
     {
-        echo "start reg event";
+        //不在AWS 环境里  关闭注册事件
+        if(empty(config("aws.name"))){
+            return;
+        }
         //注册事件
         $this->regEvent();
 
         //监听事件
-        $this->listenEvent();
-
-//        $swooleServer = $event->target->getSwooleServer();
-//
-//        $process = bean(MyProcess::class);
-//
-//        $swooleServer->addProcess($process->create());
+        $this->listenEvent($event);
     }
 
     public function regEvent(){
-        $distributed_event=config("distributed_event",[]);
+        CLog::info("start regEvent");
+        $distributed_event=config("distributed_event",false);
         $self_service_name=config("service","no_def");
-        $awsSns=new AwsSns();
-        foreach($distributed_event as $service){
-            $awsSns->create($self_service_name."_".$service);
+        $awsSns=BeanFactory::getBean("AwsSns");
+        if($distributed_event){
+            $awsSns->create($self_service_name);
         }
     }
 
-    public function listenEvent(){
+    public function listenEvent(EventInterface $event){
+        CLog::info("start listenEvent");
         $distributed_event_listen=config("distributed_event_listen",[]);
         $self_service_name=config("service","no_def");
-        $awsSqs=new AwsSqs();
+        $awsSqs=BeanFactory::getBean("AwsSqs");
 
+        $swooleServer =  $event->getTarget()->getSwooleServer();
+        //创建队列
         foreach ($distributed_event_listen as $service_name=>$service){
             foreach ($service as $event_type=>$handle){
-                $topicName="agilent_aws_dev_service_".$self_service_name."_";
-                $awsSqs->create($self_service_name."_".$service_name."_".$event_type,$topicName.$service_name,$event_type);
+                CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
+                $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
+                if(!empty($queueUrl)){
+                    $process =DistributedProcess::new($queueUrl);
+                    $swooleServer->addProcess($process->create());
+                }
             }
         }
+        //创建进程监听队列消息
     }
 }

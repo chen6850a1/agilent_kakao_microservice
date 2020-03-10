@@ -19,6 +19,7 @@ class RpcExtender implements ExtenderInterface
 {
     public function getExt(): array
     {
+
         if (!$traceid = context()->get('traceid', '')) {
             $traceid = uniqid(config('app_name', ''));
             context()->set('traceid', $traceid);
@@ -31,13 +32,16 @@ class RpcExtender implements ExtenderInterface
 
         $parentid = context()->get('parentid', '');
 
+        //user
         $user = context()->get('user');
 
-        return [
+        $return=[
             'traceid' => $traceid,
             'spanid' => $spanid,
             'parentid' => $parentid,
             'user'=>$user
         ];
+
+        return $return;
     }
 }
