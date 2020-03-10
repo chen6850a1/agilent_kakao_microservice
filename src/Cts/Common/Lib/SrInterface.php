@@ -178,6 +178,17 @@ interface SrInterface {
 
     /**
      * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getLatestService(): array;
+
+    /**
+     * 
      * @param array $params
      * 
      * @return array
