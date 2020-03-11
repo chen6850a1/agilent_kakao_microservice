@@ -102,8 +102,14 @@ interface ReservationInterface {
      * }
      */
     public function countMyReservation(): array;
-    
+
     /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      tab:0|1
+     * }
      * 
      * @return array
      * @example {
@@ -112,5 +118,18 @@ interface ReservationInterface {
      *      error:string
      * }
      */
-    public function getMyReservation(): array;
+    public function getMyReservation(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getMyReservationDetails(int $id): array;
 }
