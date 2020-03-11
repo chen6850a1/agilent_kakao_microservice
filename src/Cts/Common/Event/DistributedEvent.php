@@ -4,6 +4,7 @@ namespace Cts\Common\Event;
 
 use Cts\Common\Aws\AwsSns;
 use Cts\Common\Aws\AwsSqs;
+use Cts\Common\ConstParam;
 use Swoft\Bean\BeanFactory;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Event\EventHandlerInterface;
@@ -32,6 +33,7 @@ class DistributedEvent implements EventHandlerInterface
 
         //监听事件
         $this->listenEvent($event);
+
     }
 
     public function regEvent(){
@@ -57,7 +59,7 @@ class DistributedEvent implements EventHandlerInterface
                 CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
                 $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
                 if(!empty($queueUrl)){
-                    $process =DistributedProcess::new($queueUrl);
+                    $process =DistributedProcess::new($queueUrl,$handle);
                     $swooleServer->addProcess($process->create());
                 }
             }

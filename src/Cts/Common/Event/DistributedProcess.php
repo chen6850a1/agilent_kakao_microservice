@@ -22,18 +22,21 @@ class DistributedProcess
     use PrototypeTrait;
 
     private $queueUrl;
+    private $eventHandle;
 
     /**
      * Create a new collection.
      *
      * @param string $sqsTopic
+     * @param $handle
      *
      * @return static
      */
-    public static function new(string $queueUrl): self
+    public static function new(string $queueUrl,$handle): self
     {
         $self        = self::__instance();
         $self->queueUrl = $queueUrl;
+        $self->eventHandle=$handle;
         return $self;
     }
 
@@ -52,7 +55,9 @@ class DistributedProcess
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
             if(!empty($messages)){
                 foreach ($messages as $message){
-                    CLog::info(\GuzzleHttp\json_encode($message));
+                    $body=\GuzzleHttp\json_decode($message["Body"],true);
+                    $data=\GuzzleHttp\json_decode($body["Message"],true);
+                    call_user_func($this->eventHandle,$data);
                     $awsSqs->deleteMessage($this->queueUrl,$message);
                 }
             }

@@ -9,6 +9,7 @@
 namespace Cts\Common\Aws;
 
 use Aws\Exception\AwsException;
+use Cts\Common\ConstParam;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Aws\Sns\SnsClient;
 use Swoft\Log\Helper\CLog;
@@ -24,6 +25,7 @@ use Swoole\Exception;
 class AwsSns
 {
     private $client;
+    private $aws_acount;
 
     public function __construct()
     {
@@ -31,6 +33,7 @@ class AwsSns
             'version'=> '2010-03-31',
             'region' => 'ap-northeast-1'
         ]);
+        $this->aws_acount=config("aws.arn");
     }
 
     public function create($name){
@@ -60,11 +63,23 @@ class AwsSns
         }
     }
 
-    public function getTopic($name){
-        $result=$this->client->getTopicAttributes([
-            "TopicArn"=>config("aws.name").$name
+
+    public function trigger($event_type,$data){
+        $messageData=["data"=>$data];
+        $jsonData=\GuzzleHttp\json_encode($messageData);
+
+        $targetArn="arn:aws:sns:".$this->aws_acount.config("aws.name").config("service");
+
+        $result=$this->client->publish([
+            'Message'=>$jsonData,
+            "TargetArn"=>$targetArn,
+            "MessageAttributes"=>[
+                "event_type"=>[
+                    "DataType"=>"String",
+                    "StringValue"=>$event_type
+                ]
+            ]
         ]);
-        CLog::info($result);
     }
 
 }

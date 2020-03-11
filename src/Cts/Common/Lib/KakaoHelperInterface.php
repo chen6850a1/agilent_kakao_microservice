@@ -50,4 +50,23 @@ interface KakaoHelperInterface
      * }
      */
     public function sendMessage(string $kakao_uid,array $messageData):array;
+
+
+    /**
+     * 推送Kakao消息
+     * @param string  $kakao_uid
+     * @param array $messageData
+     * @example:{
+     *      text:string,
+     *      url:string
+     * }
+     * @return array
+     * @example{
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserChatInfoForTck(string $dataAes):array;
+
 }
