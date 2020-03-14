@@ -45,9 +45,8 @@ class AwsConfigCommand
     {
         /** @var AwsSsm $AwsSsm */
         $AwsSsm = BeanFactory::getBean("AwsSsm");
-        $data = $AwsSsm->getParmas("dev-26-kakao-eservice-config", true);
+        $data = $AwsSsm->getParmas(config("aws_params_name","dev-26-kakao-eservice-config"), true);
         CLog::info($data[0]["Value"]);
-
         $configArrData=\GuzzleHttp\json_decode($data[0]['Value'],true);
         $this->updateConfigFile($configArrData);
     }
@@ -65,11 +64,11 @@ class AwsConfigCommand
         $content = '<?php return ' . var_export($data, true) . ';';
         Co::writeFile(alias($configFile), $content, FILE_NO_DEFAULT_CONTEXT);
 
-        CLog::info('Apollo update success！');
+        CLog::info('Aws Parmas update success！');
 
         /** @var HttpServer $server */
-        $server = bean('httpServer');
-        $server->restart();
+//        $server = bean('httpServer');
+//        $server->restart();
 
         //            /** @var ServiceServer $server */
         //            $server = bean('rpcServer');
