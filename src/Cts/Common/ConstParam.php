@@ -26,8 +26,11 @@ class ConstParam
     const SERVICE_USER = "service_users";
     const SERVICE_KAKAO = "service_kakao";
     const SERVICE_NOTIFICATION = "service_notification";
+    const SERVICE_JITTERBIT = "service_jitterbit";
+
     const SERVICE_SR="service_sr";
     const SERVICE_SLIDER="service_slider";
+    const SERVICE_RESERVATION="service_reservation";
 
 
 }
