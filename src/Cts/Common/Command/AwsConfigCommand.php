@@ -45,6 +45,7 @@ class AwsConfigCommand
     {
         /** @var AwsSsm $AwsSsm */
         $AwsSsm = BeanFactory::getBean("AwsSsm");
+        CLog::info(config("aws_params_name").config("service"));
         $data = $AwsSsm->getParmas(config("aws_params_name").config("service"), true);
         CLog::info($data[0]["Value"]);
         $configArrData=\GuzzleHttp\json_decode($data[0]['Value'],true);
@@ -67,16 +68,5 @@ class AwsConfigCommand
         CLog::info('Aws Parmas update success！');
 
         /** @var HttpServer $server */
-//        $server = bean('httpServer');
-//        $server->restart();
-
-        //            /** @var ServiceServer $server */
-        //            $server = bean('rpcServer');
-        //            $server->restart();
-
-//        /** @var WebSocketServer $server */
-//        $server = bean('wsServer');
-//        $server->restart();
-
     }
 }
