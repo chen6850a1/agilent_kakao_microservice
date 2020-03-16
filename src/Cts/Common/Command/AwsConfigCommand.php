@@ -45,7 +45,7 @@ class AwsConfigCommand
     {
         /** @var AwsSsm $AwsSsm */
         $AwsSsm = BeanFactory::getBean("AwsSsm");
-        $data = $AwsSsm->getParmas(config("aws_params_name","dev-26-kakao-eservice-config"), true);
+        $data = $AwsSsm->getParmas(config("aws_params_name").config("service"), true);
         CLog::info($data[0]["Value"]);
         $configArrData=\GuzzleHttp\json_decode($data[0]['Value'],true);
         $this->updateConfigFile($configArrData);
