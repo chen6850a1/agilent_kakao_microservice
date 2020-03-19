@@ -51,7 +51,7 @@ class RpcConfig
             ],
             'admin_user' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-kakao.kakao-eservice-local',
+                'host' => 'service-admin-user.kakao-eservice-local',
                 'port' => '19999',
                 'setting' => [
                     'timeout' => 0.5,
@@ -67,7 +67,7 @@ class RpcConfig
             ],
             'sr' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-kakao.kakao-eservice-local',
+                'host' => 'service-sr.kakao-eservice-local',
                 'port' => '19999',
                 'setting' => [
                     'timeout' => 0.5,
@@ -83,9 +83,7 @@ class RpcConfig
             ],
             'reservation' => [
                 'class' => ServiceClient::class,
-//                'host' => env('SWOFT_DOMAIN', '127.0.0.1'),
-//                'port' => env('SWOFT_PORT', 19999),
-                'host' => 'service-kakao.kakao-eservice-local',
+                'host' => 'service-reservation.kakao-eservice-local',
                 'port' => '19999',
                 'setting' => [
                     'timeout' => 0.5,
@@ -101,7 +99,7 @@ class RpcConfig
             ],
             'slider' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-kakao.kakao-eservice-local',
+                'host' => 'service-slider.kakao-eservice-local',
                 'port' => '19999',
                 'setting' => [
                     'timeout' => 0.5,
