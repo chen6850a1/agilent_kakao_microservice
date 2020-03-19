@@ -60,7 +60,7 @@ interface ReservationInterface {
      *      order_no:string,
      *      instrument_type:string,
      *      additional_information:string,
-     *      images:string,
+     *      images:array,
      *      serial_no:string,
      *      configration_information:string
      * }
