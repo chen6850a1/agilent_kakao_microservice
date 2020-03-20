@@ -53,7 +53,7 @@ interface KakaoHelperInterface
 
 
     /**
-     * 推送Kakao消息
+     * 获取用户聊天前的信息
      * @param string  $dataAes  Aes Data
      * @example:{
      *      text:string,
