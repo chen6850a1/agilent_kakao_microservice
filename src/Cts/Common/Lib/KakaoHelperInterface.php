@@ -54,6 +54,23 @@ interface KakaoHelperInterface
 
     /**
      * 推送Kakao消息
+     * @param string  $dataAes  Aes Data
+     * @example:{
+     *      text:string,
+     *      url:string
+     * }
+     * @return array
+     * @example{
+     *      status:true|false,
+     *      GroupId:XXXX
+     *      data:{Name:XXXX,sessionFrom:XXX},
+     *      error:string
+     * }
+     */
+    public function getUserChatInfoForTck(string $dataAes):array;
+
+    /**
+     * 获取iframe信息
      * @param string  $kakao_uid
      * @param array $messageData
      * @example:{
@@ -67,6 +84,6 @@ interface KakaoHelperInterface
      *      error:string
      * }
      */
-    public function getUserChatInfoForTck(string $dataAes):array;
+    public function getIframeInfo(string $dataAes):array;
 
 }
