@@ -2,6 +2,7 @@
 
 namespace Cts\Common;
 
+use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
@@ -33,6 +34,13 @@ class RpcServerList {
      * @var KakaoHelperInterface
      */
     public $service_kakao;
+
+    /**
+     * @Reference(pool="jitterbit.pool")
+     *
+     * @var JitterbitInterface
+     */
+    public $service_jitterbit;
 
     /**
      * @Reference(pool="admin_user.pool")

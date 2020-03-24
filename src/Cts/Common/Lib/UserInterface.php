@@ -76,4 +76,19 @@ interface UserInterface
      * }
      */
     public function getFillList(array $params):array;
+
+    /**
+     * 查看建档信息
+     * @param string $mobile
+     * @example:"13774494474"
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function sendTelCode(string $mobile):array;
+
 }

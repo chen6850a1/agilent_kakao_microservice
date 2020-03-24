@@ -82,4 +82,28 @@ class AwsSns
         ]);
     }
 
+    public function pushSmsMessage($tel,$message){
+        $info = $this->client->publish([
+            'Message' => "[agilent]".$message, //必填
+            'MessageAttributes' => [
+                'AWS.SNS.SMS.SenderID' => [
+                    'DataType' => 'String', // REQUIRED
+                    'StringValue' => 'mySenderID',
+                ],
+                'AWS.SNS.SMS.MaxPrice' => [
+                    'DataType' => 'Number', // REQUIRED
+                    'StringValue' => '0.50',
+                ],
+                'AWS.SNS.SMS.SMSType' => [
+                    'DataType' => 'String', // REQUIRED
+                    'StringValue' => 'Transactional',
+                ]
+            ],
+            //'MessageStructure' => 'MessageStructure', //参数可选
+            'PhoneNumber' => $tel, //必填
+        ]);
+        CLog::info($info->__toString());
+        return $info;
+    }
+
 }

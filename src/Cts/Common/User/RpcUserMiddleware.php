@@ -30,6 +30,7 @@ class RpcUserMiddleware implements MiddlewareInterface
     {
         $this->startRpc($request);
         $response = $requestHandler->handle($request);
+        $response=$this->endRpc($response);
 
         return $response;
     }
@@ -38,5 +39,13 @@ class RpcUserMiddleware implements MiddlewareInterface
     {
         $user= $request->getExtKey('user',["type"=>"","uid"=>0]);
         context()->set('user', $user);
+    }
+
+    public function endRpc($response){
+        if($response){
+            return ["status"=>true,"data"=>$response];
+        }else{
+            return ["status"=>false];
+        }
     }
 }
