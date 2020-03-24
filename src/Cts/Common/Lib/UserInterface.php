@@ -78,9 +78,11 @@ interface UserInterface
     public function getFillList(array $params):array;
 
     /**
-     * 查看建档信息
-     * @param string $mobile
-     * @example:"13774494474"
+     * 发送验证码
+     * @param array $params
+     * @example {
+     *      mobile:XXXXXXXXXXXXXX
+     * }
      *
      * @return array
      * @example {
@@ -89,6 +91,36 @@ interface UserInterface
      *      error:string
      * }
      */
-    public function sendTelCode(string $mobile):array;
+    public function sendTelCode(array $params):array;
+
+    /**
+     * 绑定手机
+     * @param array $params
+     * @example {
+     *      mobile:XXXXXXXXXXXXXX,
+     *      code:XXXXXXX
+     * }
+     *
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function bindUser(array $params):array;
+
+    /**
+     * 解绑手机
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function unbindUser():array;
 
 }

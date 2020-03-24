@@ -10,6 +10,7 @@ use Swoft\Rpc\Server\Contract\MiddlewareInterface;
 use Swoft\Rpc\Server\Contract\RequestHandlerInterface;
 use Swoft\Rpc\Server\Contract\RequestInterface;
 use Swoft\Rpc\Server\Contract\ResponseInterface;
+use Swoft\Stdlib\Helper\ArrayHelper;
 
 /**
  * Class RpcTraceMiddleware
@@ -42,10 +43,13 @@ class RpcUserMiddleware implements MiddlewareInterface
     }
 
     public function endRpc($response){
-        if($response){
-            return ["status"=>true,"data"=>$response];
-        }else{
-            return ["status"=>false];
+        if(!ArrayHelper::get($response,"status")){
+            if($response){
+                return ["status"=>true,"data"=>$response];
+            }else{
+                return ["status"=>false];
+            }
         }
+        return $response;
     }
 }
