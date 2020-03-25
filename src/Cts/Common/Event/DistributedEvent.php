@@ -48,7 +48,7 @@ class DistributedEvent implements EventHandlerInterface
 
     public function listenEvent(EventInterface $event){
         CLog::info("start listenEvent");
-        $distributed_event_listen=config("distributed_event_listen",[]);
+        $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
         $awsSqs=BeanFactory::getBean("AwsSqs");
 

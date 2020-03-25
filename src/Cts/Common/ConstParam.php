@@ -20,6 +20,7 @@ class ConstParam
     const USER_TYPE_ADMIN = "user_type_admin";
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
+    const EVENT_USER_GEN_TELCODE="event_user_gen_telcode";
 
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
