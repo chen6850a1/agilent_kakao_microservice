@@ -38,12 +38,9 @@ class DistributedEvent implements EventHandlerInterface
 
     public function regEvent(){
         CLog::info("start regEvent");
-        $distributed_event=config("distributed_event",false);
         $self_service_name=config("service","no_def");
         $awsSns=BeanFactory::getBean("AwsSns");
-        if($distributed_event){
-            $awsSns->create($self_service_name);
-        }
+        $awsSns->create($self_service_name);
     }
 
     public function listenEvent(EventInterface $event){
