@@ -65,11 +65,15 @@ class AwsSns
 
 
     public function trigger($event_type,$data){
+        if(!config("aws.name")){
+            return false;
+        }
+
         $messageData=["data"=>$data];
         $jsonData=\GuzzleHttp\json_encode($messageData);
 
         $targetArn="arn:aws:sns:".$this->aws_acount.config("aws.name").config("service");
-
+        CLog::info($targetArn);
         $result=$this->client->publish([
             'Message'=>$jsonData,
             "TargetArn"=>$targetArn,
@@ -80,6 +84,7 @@ class AwsSns
                 ]
             ]
         ]);
+        return $result;
     }
 
     public function pushSmsMessage($tel,$message){

@@ -52,6 +52,13 @@ class CacheRepository
         $this->redis->set($this->cache_key.$cache_id,ArrayHelper::toArray($this),$expirt_time);
     }
 
+    public function load($cache_id){
+        $cacheData=$this->redis->get($this->cache_key.$cache_id);
+        if($cacheData){
+            $this->setAttr($cacheData);
+        }
+    }
+
     public function clear($cache_id){
         $this->redis->del($this->cache_key.$cache_id);
     }

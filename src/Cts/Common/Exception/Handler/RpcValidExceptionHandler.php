@@ -16,16 +16,17 @@ use Swoft\Log\Helper\CLog;
 use Swoft\Rpc\Error;
 use Swoft\Rpc\Server\Exception\Handler\RpcErrorHandler;
 use Swoft\Rpc\Server\Response;
+use Swoft\Validator\Exception\ValidatorException;
 use Throwable;
 
 /**
- * Class RpcExceptionHandler
+ * Class RpcValidExceptionHandler
  *
  * @since 2.0
  *
- * @ExceptionHandler(\Throwable::class)
+ * @ExceptionHandler(ValidatorException::class)
  */
-class RpcExceptionHandler extends RpcErrorHandler
+class RpcValidExceptionHandler extends RpcErrorHandler
 {
     /**
      * @param Throwable $e
@@ -35,19 +36,7 @@ class RpcExceptionHandler extends RpcErrorHandler
      */
     public function handle(Throwable $e, Response $response): Response
     {
-        // Debug is false
-        if (!APP_DEBUG) {
-            // just show error message
-            $error = Error::new($e->getCode(), $e->getMessage(), null);
-        } else {
-            $message = sprintf(' %s At %s line %d', $e->getMessage(), $e->getFile(), $e->getLine());
-            $error   = Error::new($e->getCode(), $message, null);
-        }
-
-        Debug::log('Rpc server error(%s)', $e->getMessage());
-
-        $response->setError($error);
-
+        $response->setData(["status"=>false,"error"=>$e->getMessage()]);
         // Debug is true
         return $response;
     }
