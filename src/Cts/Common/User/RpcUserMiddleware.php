@@ -42,8 +42,9 @@ class RpcUserMiddleware implements MiddlewareInterface
         context()->set('user', $user);
     }
 
-    public function endRpc($response){
-        if(!ArrayHelper::get($response,"status")){
+    public function endRpc(ResponseInterface $response){
+        $data=$response->getData();
+        if(!ArrayHelper::get($data,"status")){
             if($response){
                 return ["status"=>true,"data"=>$response];
             }else{
