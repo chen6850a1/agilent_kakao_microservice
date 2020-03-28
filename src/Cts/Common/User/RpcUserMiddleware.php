@@ -5,6 +5,7 @@ namespace Cts\Common\User;
 
 
 use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Log\Helper\CLog;
 use Swoft\Log\Helper\Log;
 use Swoft\Rpc\Server\Contract\MiddlewareInterface;
 use Swoft\Rpc\Server\Contract\RequestHandlerInterface;
@@ -44,11 +45,13 @@ class RpcUserMiddleware implements MiddlewareInterface
 
     public function endRpc(ResponseInterface $response){
         $data=$response->getData();
-        if(!ArrayHelper::get($data,"status")){
+        CLog::info(serialize($data));
+
+        if(!ArrayHelper::has($data,"status")){
             if($response){
-                return ["status"=>true,"data"=>$response];
+                $response->setData(["status"=>true,"data"=>$response]);
             }else{
-                return ["status"=>false];
+                $response->setData(["status"=>false]);
             }
         }
         return $response;
