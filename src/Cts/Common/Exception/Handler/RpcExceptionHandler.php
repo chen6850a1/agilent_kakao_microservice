@@ -35,6 +35,7 @@ class RpcExceptionHandler extends RpcErrorHandler
      */
     public function handle(Throwable $e, Response $response): Response
     {
+        CLog::info(sprintf(' %s At %s line %d', $e->getMessage(), $e->getFile(), $e->getLine()));
         // Debug is false
         if (!APP_DEBUG) {
             // just show error message
