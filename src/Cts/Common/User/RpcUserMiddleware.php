@@ -4,6 +4,7 @@
 namespace Cts\Common\User;
 
 
+use Swlib\Http\Exception\ClientException;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\CLog;
 use Swoft\Log\Helper\Log;
@@ -48,11 +49,8 @@ class RpcUserMiddleware implements MiddlewareInterface
         CLog::info(serialize($data));
 
         if(!ArrayHelper::has($data,"status")){
-            if($response){
-                $response->setData(["status"=>true,"data"=>$response]);
-            }else{
-                $response->setData(["status"=>false]);
-            }
+            CLog::info(serialize($data));
+            $response->setData(["status"=>true,"data"=>$data]);
         }
         return $response;
     }
