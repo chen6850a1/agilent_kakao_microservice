@@ -76,7 +76,8 @@ class RpcConfig
                     'write_timeout' => 10.0,
                     'read_timeout' => 0.5,
                 ],
-                'packet' => bean('rpcClientPacket')
+                'packet' => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'admin_user.pool' => [
                 'class' => ServicePool::class,
@@ -92,7 +93,8 @@ class RpcConfig
                     'write_timeout' => 10.0,
                     'read_timeout' => 0.5,
                 ],
-                'packet' => bean('rpcClientPacket')
+                'packet' => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'sr.pool' => [
                 'class' => ServicePool::class,
@@ -108,7 +110,8 @@ class RpcConfig
                     'write_timeout' => 10.0,
                     'read_timeout' => 0.5,
                 ],
-                'packet' => bean('rpcClientPacket')
+                'packet' => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'reservation.pool' => [
                 'class' => ServicePool::class,
@@ -124,7 +127,8 @@ class RpcConfig
                     'write_timeout' => 10.0,
                     'read_timeout' => 0.5,
                 ],
-                'packet' => bean('rpcClientPacket')
+                'packet' => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
             ],
             'slider.pool' => [
                 'class' => ServicePool::class,
