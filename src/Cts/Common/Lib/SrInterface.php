@@ -136,7 +136,6 @@ interface SrInterface {
      * 
      * @param array $params
      * @example {
-     *      service_request_id:string,
      *      object_id:string
      * }
      * 
