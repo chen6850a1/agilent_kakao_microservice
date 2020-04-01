@@ -48,7 +48,7 @@ class RpcUserMiddleware implements MiddlewareInterface
         $data=$response->getData();
         CLog::info(serialize($data));
 
-        if(!ArrayHelper::has($data,"status")){
+        if(!is_array($data)||!ArrayHelper::has($data,"status")){
             CLog::info(serialize($data));
             $response->setData(["status"=>true,"data"=>$data]);
         }
