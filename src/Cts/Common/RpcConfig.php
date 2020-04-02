@@ -35,7 +35,7 @@ class RpcConfig
             'jitterbit'              => [
                 'class'   => ServiceClient::class,
                 'host'    => 'service-jitterbit.kakao-eservice-local',
-                'port'    => '19999',
+                'port'    => '19998',
                 'setting' => [
                     'timeout'         => 0.5,
                     'connect_timeout' => 1.0,
@@ -52,7 +52,7 @@ class RpcConfig
             'kakao'              => [
                 'class'   => ServiceClient::class,
                 'host'    => 'service-kakao.kakao-eservice-local',
-                'port'    => '19999',
+                'port'    => '19997',
                 'setting' => [
                     'timeout'         => 0.5,
                     'connect_timeout' => 1.0,
@@ -69,7 +69,7 @@ class RpcConfig
             'admin_user' => [
                 'class' => ServiceClient::class,
                 'host' => 'service-admin-user.kakao-eservice-local',
-                'port' => '19999',
+                'port' => '19996',
                 'setting' => [
                     'timeout' => 0.5,
                     'connect_timeout' => 1.0,
@@ -86,7 +86,7 @@ class RpcConfig
             'sr' => [
                 'class' => ServiceClient::class,
                 'host' => 'service-sr.kakao-eservice-local',
-                'port' => '19999',
+                'port' => '19995',
                 'setting' => [
                     'timeout' => 0.5,
                     'connect_timeout' => 1.0,
@@ -103,7 +103,7 @@ class RpcConfig
             'reservation' => [
                 'class' => ServiceClient::class,
                 'host' => 'service-reservation.kakao-eservice-local',
-                'port' => '19999',
+                'port' => '19994',
                 'setting' => [
                     'timeout' => 0.5,
                     'connect_timeout' => 1.0,
@@ -120,7 +120,7 @@ class RpcConfig
             'slider' => [
                 'class' => ServiceClient::class,
                 'host' => 'service-slider.kakao-eservice-local',
-                'port' => '19999',
+                'port' => '19993',
                 'setting' => [
                     'timeout' => 0.5,
                     'connect_timeout' => 1.0,
