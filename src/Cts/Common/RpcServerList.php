@@ -2,6 +2,7 @@
 
 namespace Cts\Common;
 
+use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\UserInterface;
@@ -69,5 +70,12 @@ class RpcServerList {
      * @var SliderInterface
      */
     public $service_slider;
+
+    /**
+     * @Reference(pool="instrument.pool")
+     *
+     * @var InstrumentInterface
+     */
+    public $service_instrument;
 
 }

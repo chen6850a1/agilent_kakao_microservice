@@ -32,5 +32,6 @@ class ConstParam {
     const SERVICE_SR = "service_sr";
     const SERVICE_SLIDER = "service_slider";
     const SERVICE_RESERVATION = "service_reservation";
+    const SERVICE_INSTRUMENT="service_instrument";
 
 }

@@ -133,7 +133,24 @@ class RpcConfig
             'slider.pool' => [
                 'class' => ServicePool::class,
                 'client' => bean('slider'),
-            ]
+            ],
+            'instrument'              => [
+                'class'   => ServiceClient::class,
+                'host'    => 'service-instrument.kakao-eservice-local',
+                'port'    => '19992',
+                'setting' => [
+                    'timeout'         => 0.5,
+                    'connect_timeout' => 1.0,
+                    'write_timeout'   => 10.0,
+                    'read_timeout'    => 0.5,
+                ],
+                'packet'  => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
+            ],
+            'instrument.pool'         => [
+                'class'  => ServicePool::class,
+                'client' => bean('instrument'),
+            ],
         ];
     }
 }
