@@ -480,7 +480,7 @@ interface JitterbitInterface
      * @param array $data
      * @example:[
      * "budgetoryquoteId" => "3000202879",
-     * "uniondid" => "o4b3ejqpp-zsAaIYG87J_BCoSDS4",
+     * "unionid" => "o4b3ejqpp-zsAaIYG87J_BCoSDS4",
      * "accountId"=>"0070366204",
      * "contactId"=>"0102230462"
      * ]
