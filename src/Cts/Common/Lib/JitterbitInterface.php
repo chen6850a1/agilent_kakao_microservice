@@ -480,7 +480,7 @@ interface JitterbitInterface
      * @param array $data
      * @example:[
      * "budgetoryquoteId" => "3000202879",
-     * "unionid" => "o4b3ejqpp-zsAaIYG87J_BCoSDS4",
+     * "uniondid" => "o4b3ejqpp-zsAaIYG87J_BCoSDS4",
      * "accountId"=>"0070366204",
      * "contactId"=>"0102230462"
      * ]
@@ -615,4 +615,53 @@ interface JitterbitInterface
      * }
      */
     public function submitSrSuvery(array $data): array;
+
+    /**
+     * 检测序列号
+     * @param array $data
+     * @example:[
+     * "sn"=>"DEBAY00405",
+     * "ContactGuid"=>"462046B086021EEA9BB23F5BF2D8CC22",
+     * "contactId"=>"0102660499",
+     * "AccountGuid"=>"4C0DA7DE9AC61403E1000000821D946B",
+     * "accountId"=>"0070240577"
+     * ]
+     *
+     * @return array
+     * @example error:{
+     *      status:false,
+     *      error:string
+     * }
+     *
+     * @example success: [
+     * status:true,
+     * data:{
+     * "d": {
+     * "Response": {
+     * "City": null,
+     * "IobjectGuid": "0025B5A331A91EE5ACD4F771867751DE",
+     * "PostalCode": null,
+     * "RegionDesc": null,
+     * "ReturnStatus": "SV001",
+     * "ProductGuid": "D8FFFD5328B3F804E1000000821D20CE",
+     * "SerialNo": "DEBAY00405",
+     * "IobjectId": "0000000000000000000000000000400001590307",
+     * "ProductId": "G7120A",
+     * "ProductDesc": "1290 Infinity II 高速泵",
+     * "CpName": null,
+     * "ShipToId": null,
+     * "ShipToName": null,
+     * "CustomerRating": null,
+     * "Street": null
+     * },
+     * "AccountGuid": "4C0DA7DE9AC61403E1000000821D946B",
+     * "ContactGuid": "462046B086021EEA9BB23F5BF2D8CC22",
+     * "ContactId": "0102660499",
+     * "SerialNo": "DEBAY00405",
+     * "AccountId": "0070240577"
+     * }
+     * }
+     * ]
+     */
+    public function checkSn(array $data): array;
 }
