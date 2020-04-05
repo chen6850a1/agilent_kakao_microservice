@@ -11,5 +11,18 @@ namespace Cts\Common\Lib;
  */
 interface InstrumentInterface {
 
-
+    /**
+     * 获取suvery
+     * @param array $data
+     * @example:[
+     *      image_data:base64 字符串
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function ocr(array $data): array;
 }
