@@ -57,7 +57,10 @@ class DistributedProcess
                 foreach ($messages as $message){
                     $body=\GuzzleHttp\json_decode($message["Body"],true);
                     $data=\GuzzleHttp\json_decode($body["Message"],true);
-                    call_user_func($this->eventHandle,$data);
+                    $handle=$this->eventHandle;
+                    sgo(function () use ($handle,$data) {
+                        call_user_func($handle,$data);
+                    });
                     $awsSqs->deleteMessage($this->queueUrl,$message);
                 }
             }
