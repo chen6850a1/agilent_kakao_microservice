@@ -66,7 +66,7 @@ interface InstrumentInterface {
      *      data:XXXX
      * ]
      */
-    public function getSnList(): array;
+    public function getSnList(array $data): array;
 
     /**
      * 获取suvery
@@ -82,4 +82,21 @@ interface InstrumentInterface {
      * ]
      */
     public function getSnDetail(array $data): array;
+
+
+    /**
+     * 更新备注
+     * @param array $data
+     * @example:[
+     *      id:XXXX ,
+     *      remark:XXXX
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function updateSnRemark(array $data): array;
 }
