@@ -42,7 +42,7 @@ class DistributedProcess
 
     public function create(): Process
     {
-        return new Process([$this, 'handle']);
+        return new Process([$this, 'handle'],false,1,true);
     }
 
     public function handle(Process $process)
