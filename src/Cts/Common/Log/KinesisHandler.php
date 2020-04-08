@@ -19,7 +19,7 @@ use Swoft\Log\Helper\Log;
 use Swoft\Log\Logger as SwoftLogger;
 
 /**
- * Class RedisHandler
+ * Class KinesisHandler
  *
  * @since 2.0
  */
@@ -37,11 +37,6 @@ class KinesisHandler extends AbstractProcessingHandler
      */
     protected $levelValues = [];
 
-    /**
-     * 连接池名称
-     * @var string
-     */
-    protected $redisPool = '';
 
     /**
      * Will exec on construct
@@ -57,10 +52,6 @@ class KinesisHandler extends AbstractProcessingHandler
         if (is_string($this->levels)) {
             $levelNames        = explode(',', $this->levels);
             $this->levelValues = SwoftLogger::getLevelByNames($levelNames);
-        }
-
-        if (is_string($this->redisPool)) {
-            $this->redisPool = trim($this->redisPool);
         }
     }
 
