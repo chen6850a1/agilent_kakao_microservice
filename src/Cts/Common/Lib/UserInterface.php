@@ -173,7 +173,7 @@ interface UserInterface
 
     /**
      * 获取用户信息
-     * @param int $uid
+     * @param string $uuid
      *
      * @return array
      * @emample{
@@ -217,7 +217,7 @@ interface UserInterface
      * }
      *
      */
-    public function getInfoByUuid(int $uid): array;
+    public function getInfoByUuid(string $uuid): array;
 
 
     /**
