@@ -16,10 +16,11 @@ use ReflectionException;
 use Swoft\Bean\Exception\ContainerException;
 use Swoft\Co;
 use Swoft\Log\Helper\Log;
+use Swoft\Log\Helper\CLog;
 use Swoft\Log\Logger as SwoftLogger;
 
 /**
- * Class RedisHandler
+ * Class KinesisHandler
  *
  * @since 2.0
  */
@@ -37,11 +38,6 @@ class KinesisHandler extends AbstractProcessingHandler
      */
     protected $levelValues = [];
 
-    /**
-     * 连接池名称
-     * @var string
-     */
-    protected $redisPool = '';
 
     /**
      * Will exec on construct
@@ -57,10 +53,6 @@ class KinesisHandler extends AbstractProcessingHandler
         if (is_string($this->levels)) {
             $levelNames        = explode(',', $this->levels);
             $this->levelValues = SwoftLogger::getLevelByNames($levelNames);
-        }
-
-        if (is_string($this->redisPool)) {
-            $this->redisPool = trim($this->redisPool);
         }
     }
 
@@ -106,8 +98,13 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
         sgo(function () use ($messageText) {
-            $kinesisFirehose=BeanFactory::getBean("AwsKinesis");
-            $kinesisFirehose->put($messageText);
+
+            Log::getLogger();
+
+
+            CLog::info($messageText);
+//            $kinesisFirehose=BeanFactory::getBean("AwsKinesis");
+//            $kinesisFirehose->put($messageText);
         });
     }
 

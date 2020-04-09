@@ -664,4 +664,25 @@ interface JitterbitInterface
      * ]
      */
     public function checkSn(array $data): array;
+
+
+    /**
+     * 检测序列号
+     * @param array $data
+     * @example:[
+     * "data"=>"XXXXXXX",
+     * ]
+     *
+     * @return array
+     * @example error:{
+     *      status:false,
+     *      error:string
+     * }
+     *
+     * @example success: [
+     * status:true,
+     * }
+     * ]
+     */
+    public function notificationHandle(array $data): array;
 }
