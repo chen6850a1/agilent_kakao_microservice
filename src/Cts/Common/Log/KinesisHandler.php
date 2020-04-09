@@ -16,6 +16,7 @@ use ReflectionException;
 use Swoft\Bean\Exception\ContainerException;
 use Swoft\Co;
 use Swoft\Log\Helper\Log;
+use Swoft\Log\Helper\CLog;
 use Swoft\Log\Logger as SwoftLogger;
 
 /**
