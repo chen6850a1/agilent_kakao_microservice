@@ -86,4 +86,23 @@ interface KakaoHelperInterface
      */
     public function getIframeInfo(string $dataAes):array;
 
+
+    /**
+     * 获取iframe信息
+     * @param string  $kakao_uid
+     * @param array $messageData
+     * @example:{
+     *      group_id:string,
+     *      cur_page:string,
+     *      extend:string   //json string
+     * }
+     * @return array
+     * @example{
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function saveChatInfo(array $data):array;
+
 }
