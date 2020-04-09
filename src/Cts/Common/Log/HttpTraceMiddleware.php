@@ -6,6 +6,7 @@ namespace Cts\Common\Log;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Log\Helper\CLog;
 use Swoft\Log\Helper\Log;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -39,12 +40,16 @@ class HttpTraceMiddleware implements MiddlewareInterface
         context()->set('startTime', microtime(true));
         context()->set('interface', $request->getUri()->getPath());
         context()->set('method', $request->getMethod());
+        $traceid = uniqid(config('app_name', ''));
+        context()->set('traceid', $traceid);
+
 
         context()->set('appInfo', [
             'env'     => config('env'),
-            'name'    => config('name'),
+            'name'    => config('service'),
             'version' => config('version'),
         ]);
+        Log::info('Http接口请求开始');
     }
 
     public function endRequest() {

@@ -97,8 +97,13 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
         sgo(function () use ($messageText) {
-            $kinesisFirehose=BeanFactory::getBean("AwsKinesis");
-            $kinesisFirehose->put($messageText);
+
+            Log::getLogger();
+
+
+            CLog::info($messageText);
+//            $kinesisFirehose=BeanFactory::getBean("AwsKinesis");
+//            $kinesisFirehose->put($messageText);
         });
     }
 
