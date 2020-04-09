@@ -36,7 +36,7 @@ class RpcValidExceptionHandler extends RpcErrorHandler
      */
     public function handle(Throwable $e, Response $response): Response
     {
-        $response->setData(["status"=>false,"error"=>$e->getMessage()]);
+        $response->setData(["status"=>false,"error"=> config("service").":".$e->getMessage()]);
         // Debug is true
         return $response;
     }
