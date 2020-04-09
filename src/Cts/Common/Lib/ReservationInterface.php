@@ -132,4 +132,15 @@ interface ReservationInterface {
      * }
      */
     public function getMyReservationDetails(int $id): array;
+
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getCalendar(): array;
 }
