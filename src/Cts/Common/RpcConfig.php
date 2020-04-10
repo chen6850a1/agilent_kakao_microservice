@@ -151,6 +151,23 @@ class RpcConfig
                 'class'  => ServicePool::class,
                 'client' => bean('instrument'),
             ],
+            'notification'              => [
+                'class'   => ServiceClient::class,
+                'host'    => 'service-instrument.kakao-eservice-local',
+                'port'    => '19991',
+                'setting' => [
+                    'timeout'         => 0.5,
+                    'connect_timeout' => 1.0,
+                    'write_timeout'   => 10.0,
+                    'read_timeout'    => 0.5,
+                ],
+                'packet'  => bean('rpcClientPacket'),
+                'extender' =>bean(\Cts\Common\RpcExtender::class)
+            ],
+            'notification.pool'         => [
+                'class'  => ServicePool::class,
+                'client' => bean('notification'),
+            ],
         ];
     }
 }

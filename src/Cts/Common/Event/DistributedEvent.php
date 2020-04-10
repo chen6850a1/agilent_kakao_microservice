@@ -9,8 +9,15 @@ use Swoft\Bean\BeanFactory;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Event\EventHandlerInterface;
 use Swoft\Event\EventInterface;
+use Swoft\Log\Error;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
+use Swoft\Process\Process;
+use Swoft\Process\ProcessEvent;
+use Swoft\Process\UserProcess;
 use Swoft\Server\ServerEvent;
+use Swoft\Stdlib\Helper\PhpHelper;
+use Swoole\Process as SwooleProcess;
 
 /**
  * Class AttachMyProcessHandler
@@ -37,30 +44,54 @@ class DistributedEvent implements EventHandlerInterface
     }
 
     public function regEvent(){
-        CLog::info("start regEvent");
+        Log::info("start regEvent");
         $self_service_name=config("service","no_def");
         $awsSns=BeanFactory::getBean("AwsSns");
         $awsSns->create($self_service_name);
     }
 
     public function listenEvent(EventInterface $event){
-        CLog::info("start listenEvent");
+        Log::info("start listenEvent");
         $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
         $awsSqs=BeanFactory::getBean("AwsSqs");
 
-        $swooleServer =  $event->getTarget()->getSwooleServer();
+        $server = $event->getTarget();
+        $swooleServer =  $server->getSwooleServer();
+
         //创建队列
         foreach ($distributed_event_listen as $service_name=>$service){
             foreach ($service as $event_type=>$handle){
-                CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
+                Log::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
                 $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
                 if(!empty($queueUrl)){
-                    $process =DistributedProcess::new($queueUrl,$handle);
-                    $swooleServer->addProcess($process->create());
+                    $process =DistributedProcess::new($queueUrl,$handle,$server);
+                    $callBack=[$process,"run"];
+                    $this->addProcess($callBack,$server,"AwsEventProcess");
                 }
             }
         }
         //创建进程监听队列消息
+    }
+
+    public function addProcess($callback, $server, $name){
+        $function = function (SwooleProcess $swProcess) use ($callback, $server, $name) {
+            $process = Process::new($swProcess);
+
+            // Before
+            \Swoft::trigger(ProcessEvent::BEFORE_USER_PROCESS, null, $server, $process, $name);
+
+            try {// Run
+                PhpHelper::call($callback, $process);
+            } catch (\Throwable $e) {
+                Log::error('User process fail(%s %s %d)!', $e->getFile(), $e->getMessage(), $e->getLine());
+            }
+
+            // After
+            \Swoft::trigger(ProcessEvent::AFTER_USER_PROCESS);
+        };
+
+        $process = new SwooleProcess($function, false, 1, true);
+        $server->getSwooleServer()->addProcess($process);
     }
 }

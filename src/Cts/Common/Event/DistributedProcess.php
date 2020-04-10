@@ -6,6 +6,9 @@ use Cts\Common\Aws\AwsSqs;
 use Swoft\Bean\BeanFactory;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Log\Helper\CLog;
+use Swoft\Process\ProcessEvent;
+use Swoft\Process\Contract\ProcessInterface;
+use Swoft\Process\UserProcess;
 use Swoole\Process;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Bean\Concern\PrototypeTrait;
@@ -17,12 +20,13 @@ use Swoft\Bean\Concern\PrototypeTrait;
  *
  * @since 2.0
  */
-class DistributedProcess
+class DistributedProcess extends UserProcess
 {
     use PrototypeTrait;
 
     private $queueUrl;
     private $eventHandle;
+    private $server;
 
     /**
      * Create a new collection.
@@ -32,20 +36,16 @@ class DistributedProcess
      *
      * @return static
      */
-    public static function new(string $queueUrl,$handle): self
+    public static function new(string $queueUrl,$handle,$server): self
     {
         $self        = self::__instance();
         $self->queueUrl = $queueUrl;
         $self->eventHandle=$handle;
+        $self->server=$server;
         return $self;
     }
 
-    public function create(): Process
-    {
-        return new Process([$this, 'handle'],false,1,true);
-    }
-
-    public function handle(Process $process)
+    public function run(\Swoft\Process\Process $process): void
     {
         CLog::info('Aws sqs :started ('.$this->queueUrl.")");
         $awsSqs=BeanFactory::getBean("AwsSqs");
@@ -58,9 +58,7 @@ class DistributedProcess
                     $body=\GuzzleHttp\json_decode($message["Body"],true);
                     $data=\GuzzleHttp\json_decode($body["Message"],true);
                     $handle=$this->eventHandle;
-                    sgo(function () use ($handle,$data) {
-                        call_user_func($handle,$data);
-                    });
+                    call_user_func($handle,$data);
                     $awsSqs->deleteMessage($this->queueUrl,$message);
                 }
             }

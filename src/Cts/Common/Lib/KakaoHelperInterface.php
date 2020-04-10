@@ -104,5 +104,4 @@ interface KakaoHelperInterface
      * }
      */
     public function saveChatInfo(array $data):array;
-
 }
