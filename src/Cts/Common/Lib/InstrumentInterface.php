@@ -58,7 +58,7 @@ interface InstrumentInterface {
     public function delSn(array $data): array;
 
     /**
-     * 获取suvery
+     * 获取序列号列表,我的仪器展示
      *
      * @return array
      * @example {
@@ -67,6 +67,17 @@ interface InstrumentInterface {
      * ]
      */
     public function getSnList(array $data): array;
+
+    /**
+     * 获取所有序列号,
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:["DE123456","DE123134341"]
+     * ]
+     */
+    public function getAllSn(array $data): array;
 
     /**
      * 获取suvery
