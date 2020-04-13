@@ -20,10 +20,7 @@ class RpcConfig
                 'host'    => 'service-user.kakao-eservice-local',
                 'port'    => '19999',
                 'setting' => [
-                    'timeout'         => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout'   => 10.0,
-                    'read_timeout'    => 10.0,
+                    'timeout'         => 120.0,
                 ],
                 'packet'  => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -37,10 +34,7 @@ class RpcConfig
                 'host'    => 'service-jitterbit.kakao-eservice-local',
                 'port'    => '19998',
                 'setting' => [
-                    'timeout'         => 120.0,
-                    'connect_timeout' => 120.0,
-                    'write_timeout'   => 120.0,
-                    'read_timeout'    => 120.0,
+                    'timeout'         => 300.0,
                 ],
                 'packet'  => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -54,10 +48,7 @@ class RpcConfig
                 'host'    => 'service-kakao.kakao-eservice-local',
                 'port'    => '19997',
                 'setting' => [
-                    'timeout'         => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout'   => 10.0,
-                    'read_timeout'    => 10.0,
+                    'timeout'         => 120.0
                 ],
                 'packet'  => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -71,10 +62,7 @@ class RpcConfig
                 'host' => 'service-admin-user.kakao-eservice-local',
                 'port' => '19996',
                 'setting' => [
-                    'timeout' => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout' => 10.0,
-                    'read_timeout' => 10.0,
+                    'timeout' => 120.0,
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -88,10 +76,7 @@ class RpcConfig
                 'host' => 'service-sr.kakao-eservice-local',
                 'port' => '19995',
                 'setting' => [
-                    'timeout' => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout' => 10.0,
-                    'read_timeout' => 10.0,
+                    'timeout' => 120.0
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -105,10 +90,7 @@ class RpcConfig
                 'host' => 'service-reservation.kakao-eservice-local',
                 'port' => '19994',
                 'setting' => [
-                    'timeout' => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout' => 10.0,
-                    'read_timeout' => 10.0,
+                    'timeout' => 120.0
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -122,10 +104,7 @@ class RpcConfig
                 'host' => 'service-slider.kakao-eservice-local',
                 'port' => '19993',
                 'setting' => [
-                    'timeout' => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout' => 10.0,
-                    'read_timeout' => 10.0,
+                    'timeout' => 120.0
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -139,10 +118,7 @@ class RpcConfig
                 'host'    => 'service-instrument.kakao-eservice-local',
                 'port'    => '19992',
                 'setting' => [
-                    'timeout'         => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout'   => 10.0,
-                    'read_timeout'    => 10.0,
+                    'timeout'         => 120.0
                 ],
                 'packet'  => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
@@ -156,10 +132,7 @@ class RpcConfig
                 'host'    => 'service-instrument.kakao-eservice-local',
                 'port'    => '19991',
                 'setting' => [
-                    'timeout'         => 10.0,
-                    'connect_timeout' => 10.0,
-                    'write_timeout'   => 10.0,
-                    'read_timeout'    => 10.0,
+                    'timeout'         => 120.0
                 ],
                 'packet'  => bean('rpcClientPacket'),
                 'extender' =>bean(\Cts\Common\RpcExtender::class)
