@@ -69,17 +69,6 @@ interface InstrumentInterface {
     public function getSnList(array $data): array;
 
     /**
-     * 获取所有序列号,
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:["DE123456","DE123134341"]
-     * ]
-     */
-    public function getAllSn(array $data): array;
-
-    /**
      * 获取suvery
      * @param array $data
      * @example:[
