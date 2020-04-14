@@ -99,4 +99,16 @@ interface InstrumentInterface {
      * ]
      */
     public function updateSnRemark(array $data): array;
+
+    /**
+     * 更新备注
+     * @param array $data
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function countMyInstrument(array $data): array;
 }
