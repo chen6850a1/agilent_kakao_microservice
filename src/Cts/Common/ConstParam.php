@@ -19,6 +19,9 @@ class ConstParam {
 
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_ADMIN = "user_type_admin";
+    const USER_TYPE_TCK="user_type_tck";
+
+
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
