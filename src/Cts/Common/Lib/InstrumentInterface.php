@@ -101,8 +101,7 @@ interface InstrumentInterface {
     public function updateSnRemark(array $data): array;
 
     /**
-     * 更新备注
-     * @param array $data
+     * 获取我的仪器数数量
      *
      * @return array
      * @example {
@@ -110,5 +109,5 @@ interface InstrumentInterface {
      *      data:XXXX
      * ]
      */
-    public function countMyInstrument(array $data): array;
+    public function countMyInstrument(): array;
 }
