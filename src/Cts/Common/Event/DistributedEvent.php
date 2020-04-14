@@ -44,14 +44,14 @@ class DistributedEvent implements EventHandlerInterface
     }
 
     public function regEvent(){
-        Log::info("start regEvent");
+        CLog::info("start regEvent");
         $self_service_name=config("service","no_def");
         $awsSns=BeanFactory::getBean("AwsSns");
         $awsSns->create($self_service_name);
     }
 
     public function listenEvent(EventInterface $event){
-        Log::info("start listenEvent");
+        CLog::info("start listenEvent");
         $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
         $awsSqs=BeanFactory::getBean("AwsSqs");
@@ -62,7 +62,7 @@ class DistributedEvent implements EventHandlerInterface
         //创建队列
         foreach ($distributed_event_listen as $service_name=>$service){
             foreach ($service as $event_type=>$handle){
-                Log::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
+                CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
                 $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
                 if(!empty($queueUrl)){
                     $process =DistributedProcess::new($queueUrl,$handle,$server);
@@ -84,7 +84,7 @@ class DistributedEvent implements EventHandlerInterface
             try {// Run
                 PhpHelper::call($callback, $process);
             } catch (\Throwable $e) {
-                Log::error('User process fail(%s %s %d)!', $e->getFile(), $e->getMessage(), $e->getLine());
+                CLog::error('User process fail(%s %s %d)!', $e->getFile(), $e->getMessage(), $e->getLine());
             }
 
             // After
