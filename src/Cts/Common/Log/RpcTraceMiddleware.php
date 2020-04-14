@@ -37,6 +37,7 @@ class RpcTraceMiddleware implements MiddlewareInterface
 
     public function startRpc(RequestInterface $request)
     {
+        Log::info(sprintf("【%s】服务，RPC 请求开始", config('name', 'swoft')));
         context()->set('startTime', microtime(true));
         context()->set('version', $request->getVersion());
         context()->set('interface', $request->getInterface());

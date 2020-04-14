@@ -112,6 +112,25 @@ interface UserInterface
     public function bindUser(array $params): array;
 
     /**
+     * 绑定手机
+     * @param array $params
+     * @example {
+     *      id:XXXX
+     *      remark:XXXXXXXXXXXXXX,
+     *      email:XXXXXXX
+     * }
+     *
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function UpdateUser(array $params): array;
+
+    /**
      * 解绑手机
      *
      * @return array
