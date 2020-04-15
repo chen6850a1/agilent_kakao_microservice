@@ -42,7 +42,7 @@ class RpcResponseAspect {
         /** @var Response $response */
         $response = $joinPoint->getReturn();
         $data=$response->getResult();
-        if(ArrayHelper::getValue($data,"status",true)===false){
+        if(ArrayHelper::getValue($data,"status",true)===false&& !ArrayHelper::getValue($data,"no_error",false)){
             throw new ValidatorException(ArrayHelper::getValue($data,"error","error info"));
         }
         return $response;
