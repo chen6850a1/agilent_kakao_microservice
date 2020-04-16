@@ -43,12 +43,18 @@ class HttpTraceMiddleware implements MiddlewareInterface
         $traceid = uniqid(config('app_name', ''));
         context()->set('traceid', $traceid);
 
+        $data=$request->input();
+        $params = [
+            'query' => $data
+        ];
+        context()->set('params', $params);
 
         context()->set('appInfo', [
             'env'     => config('env'),
             'name'    => config('service'),
             'version' => config('version'),
         ]);
+
         Log::info('Http接口请求开始');
     }
 
