@@ -685,4 +685,12 @@ interface JitterbitInterface
      * ]
      */
     public function notificationHandle(array $data): array;
+    
+    /**
+     * 一键开单
+     * @param array $data
+     * @return array
+     */
+    public function createSr(array $data): array;
+
 }
