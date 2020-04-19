@@ -26,6 +26,7 @@ class ConstParam {
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND="event_user_unbind";
+    const EVENT_ADMIN_CREATE="event_admin_create";
 
 
     //统一各个微服务名
