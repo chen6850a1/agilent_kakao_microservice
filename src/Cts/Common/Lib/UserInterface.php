@@ -58,22 +58,23 @@ interface UserInterface
 
 
     /**
-     * 查看建档信息
-     * @param array $params
-     * @example:{
-     *      name:string,
-     *      mobile:string,
-     *      company:string,
-     *      sn:string,
-     *      remark:string
+     * 获取仪器列表
+     * @param array $data
+     *@example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      status:string|int,
+     *      responseFormat:string eg. csv|json
      * }
      *
      * @return array
      * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
+     *      status:true,
+     *      data:XXXX
+     * ]
      */
     public function getFillList(array $params): array;
 
@@ -141,6 +142,32 @@ interface UserInterface
      * }
      */
     public function unbindUser(): array;
+
+    /**
+     * 解绑手机通过contactid
+     * @param string $contactId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function unbindUserByContactId(string $contactId): array;
+
+    /**
+     * 解绑手机通过mobile
+     * @param string $mobile
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function unbindUserByMobile(string $mobile): array;
 
     /**
      * 获取用户信息
@@ -339,4 +366,22 @@ interface UserInterface
      *
      */
     public function getInfoByKakaoid(string $kakaoId): array;
+
+
+
+    /**
+     * 更新状态
+     * @param array $data
+     *  @example:{
+     *     id:XX,
+     *      status:XX
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function updateStatusFillInfo(array $data):array;
 }
