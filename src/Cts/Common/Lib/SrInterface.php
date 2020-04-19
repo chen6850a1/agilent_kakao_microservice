@@ -136,6 +136,7 @@ interface SrInterface {
      * 
      * @param array $params
      * @example {
+     *      service_request_id:string,
      *      object_id:string
      * }
      * 
@@ -174,6 +175,30 @@ interface SrInterface {
      * }
      */
     public function bqConfirm(array $params): array;
+
+    /**
+     * 
+     * @param int $notificationId
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getIframeDataByNotificationId($notificationId): array;
+
+    /**
+     * 
+     * @param string $srId
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getIframeDataBySrId($srId): array;
 
     /**
      * 
