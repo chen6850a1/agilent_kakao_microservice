@@ -145,4 +145,18 @@ interface AdminUserInterface {
      * }
      */
     public function getInfoByUid(int $uid): array;
+
+
+    /**
+     *
+     * @param array $uidArr
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getArrInfoByUid(array $uidArr): array;
 }
