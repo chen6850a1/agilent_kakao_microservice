@@ -62,7 +62,7 @@ class RpcTraceMiddleware implements MiddlewareInterface
         $cost = sprintf('%.2f', (microtime(true) - context()->get('startTime')) * 1000);
         context()->set('cost', $cost . 'ms');
 
-        Log::info(sprintf("【%s】服务，输出结果【%s】", config('service', 'swoft'),serialize($response->getData())));
-        Log::info(sprintf("【%s】服务，RPC 请求结束", config('service', 'swoft')));
+        Log::info(sprintf("【%s】服务服务器，输出结果【%s】", config('service', 'swoft'),serialize($response->getData())));
+        Log::info(sprintf("【%s】服务服务器，RPC 请求结束", config('service', 'swoft')));
     }
 }
