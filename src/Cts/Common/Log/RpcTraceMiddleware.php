@@ -30,41 +30,39 @@ class RpcTraceMiddleware implements MiddlewareInterface
     {
         $this->startRpc($request);
         $response = $requestHandler->handle($request);
-        $this->endRpc();
+        $this->endRpc($response);
 
         return $response;
     }
 
     public function startRpc(RequestInterface $request)
     {
-        Log::info(sprintf("【%s】服务，RPC 请求开始", config('name', 'swoft')));
+
         context()->set('startTime', microtime(true));
         context()->set('version', $request->getVersion());
         context()->set('interface', $request->getInterface());
         context()->set('method', $request->getMethod());
         $params = [
             'query' => $request->getParams(),
-            'sql' => context()->get('sql', '')
         ];
         context()->set('params', $params);
+        $user= $request->getExtKey('user',["type"=>"","uid"=>0]);
         context()->set('appInfo', [
             'env' => config('env'),
             'name' => config('name'),
             'version' => config('version'),
+            "user"=>$user
         ]);
+        Log::info(sprintf("【%s】服务，RPC 请求开始", config('name', 'swoft')));
     }
 
-    public function endRpc()
+    public function endRpc(ResponseInterface $response)
     {
         //计算耗时时间
         $cost = sprintf('%.2f', (microtime(true) - context()->get('startTime')) * 1000);
         context()->set('cost', $cost . 'ms');
 
-        //获取执行sql
-        $params = context()->get('params');
-        $params['sql'] = context()->get('sql', '');
-        context()->set('params', $params);
-
+        Log::info(sprintf("【%s】服务，输出结果【%s】", config('name', 'swoft'),serialize($response->getData())));
         Log::info(sprintf("【%s】服务，RPC 请求结束", config('name', 'swoft')));
     }
 }

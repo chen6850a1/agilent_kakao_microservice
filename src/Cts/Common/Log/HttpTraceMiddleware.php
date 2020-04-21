@@ -66,8 +66,7 @@ class HttpTraceMiddleware implements MiddlewareInterface
         //记录请求参数
         $params = [
             'query' => context()->getRequest()->input(),
-            'header' => context()->getRequest()->getHeaders(),
-            'sql'  => context()->get('sql', '无')
+            'header' => context()->getRequest()->getHeaders()
         ];
         context()->set('params', $params);
 
