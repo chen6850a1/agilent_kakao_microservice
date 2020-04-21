@@ -11,6 +11,7 @@ use Swoft\Aop\Annotation\Mapping\AfterReturning;
 use Swoft\Aop\Annotation\Mapping\AfterThrowing;
 use Swoft\Aop\Point\JoinPoint;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 use Swoft\Rpc\Packet;
 use Swoft\Rpc\Response;
 use Swoft\Stdlib\Helper\ArrayHelper;
