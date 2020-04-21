@@ -53,7 +53,7 @@ class RpcTraceMiddleware implements MiddlewareInterface
             'version' => config('version'),
             "user"=>$user
         ]);
-        Log::info(sprintf("【%s】服务，RPC 请求开始", config('name', 'swoft')));
+        Log::info(sprintf("【%s】服务，RPC 请求开始", config('service', 'swoft')));
     }
 
     public function endRpc(ResponseInterface $response)
@@ -62,7 +62,7 @@ class RpcTraceMiddleware implements MiddlewareInterface
         $cost = sprintf('%.2f', (microtime(true) - context()->get('startTime')) * 1000);
         context()->set('cost', $cost . 'ms');
 
-        Log::info(sprintf("【%s】服务，输出结果【%s】", config('name', 'swoft'),serialize($response->getData())));
-        Log::info(sprintf("【%s】服务，RPC 请求结束", config('name', 'swoft')));
+        Log::info(sprintf("【%s】服务，输出结果【%s】", config('service', 'swoft'),serialize($response->getData())));
+        Log::info(sprintf("【%s】服务，RPC 请求结束", config('service', 'swoft')));
     }
 }
