@@ -143,7 +143,7 @@ class RpcConfig
             ],
             'guide'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-instrument.kakao-eservice-local',
+                'host'    => 'service-guide.kakao-eservice-local',
                 'port'    => '19990',
                 'setting' => [
                     'timeout'         => 120.0

@@ -57,8 +57,8 @@ class DistributedProcess extends UserProcess
             Log::info(serialize($messages));
             if(!empty($messages)){
                 foreach ($messages as $message){
-                    $body=\GuzzleHttp\json_decode($message["Body"],true);
-                    $data=\GuzzleHttp\json_decode($body["Message"],true);
+                    $body=json_decode($message["Body"],true);
+                    $data=json_decode($body["Message"],true);
                     $handle=$this->eventHandle;
                     call_user_func($handle,$data);
                     $awsSqs->deleteMessage($this->queueUrl,$message);
