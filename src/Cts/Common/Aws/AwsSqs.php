@@ -96,7 +96,7 @@ class AwsSqs
             'MaxNumberOfMessages' => 1,
             'MessageAttributeNames' => ['All'],
             'QueueUrl' => $queueUrl, // REQUIRED
-            'WaitTimeSeconds' => 60,
+            'WaitTimeSeconds' => 20,
         ));
         return $result->get('Messages');
     }
