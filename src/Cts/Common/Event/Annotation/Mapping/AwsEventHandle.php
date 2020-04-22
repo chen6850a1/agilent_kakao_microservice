@@ -46,7 +46,6 @@ class AwsEventHandle
      */
     public function __construct(array $values)
     {
-        CLog::info("333333333333333");
         if (isset($values['event_type'])) {
             $this->event_type = $values['event_type'];
         }

@@ -6,6 +6,7 @@ use Cts\Common\Aws\AwsSqs;
 use Swoft\Bean\BeanFactory;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 use Swoft\Process\ProcessEvent;
 use Swoft\Process\Contract\ProcessInterface;
 use Swoft\Process\UserProcess;
@@ -53,6 +54,7 @@ class DistributedProcess extends UserProcess
         while (true) {
             /** @var AwsSqs $awsSqs */
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
+            Log::info(serialize($messages));
             if(!empty($messages)){
                 foreach ($messages as $message){
                     $body=\GuzzleHttp\json_decode($message["Body"],true);
