@@ -18,7 +18,7 @@ use Swoft\Log\Helper\CLog;
  *
  * @since 2.0
  *
- * @Bean("AwsSqs")
+ * @Bean(name="AwsSqs",scope=Bean::PROTOTYPE)
  */
 class AwsSqs
 {
@@ -96,7 +96,7 @@ class AwsSqs
             'MaxNumberOfMessages' => 1,
             'MessageAttributeNames' => ['All'],
             'QueueUrl' => $queueUrl, // REQUIRED
-            'WaitTimeSeconds' => 60,
+            'WaitTimeSeconds' => 20,
         ));
         return $result->get('Messages');
     }

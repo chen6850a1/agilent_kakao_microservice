@@ -15,7 +15,7 @@ use Swoft\Bean\Annotation\Mapping\Bean;
  *
  * @since 2.0
  *
- * @Bean("AwsKinesis")
+ * @Bean(name="AwsKinesisFirehose",scope=Bean::PROTOTYPE)
  */
 class AwsKinesisFirehose
 {

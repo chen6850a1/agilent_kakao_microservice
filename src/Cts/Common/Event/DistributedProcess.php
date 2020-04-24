@@ -54,6 +54,7 @@ class DistributedProcess extends UserProcess
         while (true) {
             /** @var AwsSqs $awsSqs */
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
+            Log::info('Aws sqs :started ('.$this->queueUrl.")");
             Log::info(serialize($messages));
             if(!empty($messages)){
                 foreach ($messages as $message){

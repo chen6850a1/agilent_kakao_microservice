@@ -20,7 +20,7 @@ use Swoole\Exception;
  *
  * @since 2.0
  *
- * @Bean("AwsSns")
+ * @Bean(name="AwsSns",scope=Bean::PROTOTYPE)
  */
 class AwsSns
 {
