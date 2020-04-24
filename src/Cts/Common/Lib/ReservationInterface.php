@@ -143,4 +143,11 @@ interface ReservationInterface {
      * }
      */
     public function getCalendar(): array;
+
+    /**
+     * 
+     * @param string $date
+     * @return array
+     */
+    public function checkWorkingDay(string $date): array;
 }
