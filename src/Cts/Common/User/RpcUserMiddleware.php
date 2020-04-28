@@ -46,10 +46,9 @@ class RpcUserMiddleware implements MiddlewareInterface
 
     public function endRpc(ResponseInterface $response){
         $data=$response->getData();
-        CLog::info(serialize($data));
+        Log::info(serialize($data));
 
-        if(!is_array($data)||!ArrayHelper::has($data,"status")){
-            CLog::info(serialize($data));
+        if(!is_array($data)||!ArrayHelper::has($data,"status")||$data["status"]!==true){
             $response->setData(["status"=>true,"data"=>$data]);
         }
         return $response;

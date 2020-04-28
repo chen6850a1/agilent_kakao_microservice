@@ -7,19 +7,22 @@
  */
 
 namespace Cts\Common\Aws;
+use Aws\Exception\AwsException;
 use Aws\Firehose\FirehoseClient;
 use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Log\Helper\CLog;
 
 /**
  * Aws sns helper
  *
  * @since 2.0
  *
- * @Bean(name="AwsKinesisFirehose",scope=Bean::PROTOTYPE)
+ * @Bean("AwsKinesis")
  */
 class AwsKinesisFirehose
 {
     private $client;
+    private $kinesis_name="";
 
     public function __construct()
     {
@@ -27,23 +30,25 @@ class AwsKinesisFirehose
             'version'=> '2015-08-04',
             'region' => 'ap-southeast-1'
         ]);
+        $this->kinesis_name=config("aws.kinesis","");
     }
 
     public function put($content){
-        $name = "chen-kakao-kinesis-firehose";
-        echo $content."\r\n";
-        try {
-            $result = $this->client->putRecord([
-                'DeliveryStreamName' => $name,
-                'Record' => [
-                    'Data' => $content,
-                ],
-            ]);
-            var_dump($result);
-        } catch (AwsException $e) {
-            // output error message if fails
-            echo $e->getMessage();
-            echo "\n";
+        if(!empty($this->kinesis_name)){
+            try {
+                $result = $this->client->putRecord([
+                    'DeliveryStreamName' => $this->kinesis_name,
+                    'Record' => [
+                        'Data' => $content,
+                    ],
+                ]);
+            } catch (AwsException $e) {
+                // output error message if fails
+                echo $e->getMessage();
+                echo "\n";
+            }
+        }else{
+            CLog::info($content);
         }
     }
 

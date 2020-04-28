@@ -12,7 +12,7 @@ namespace Cts\Common\Exception\Handler;
 
 use Swoft\Error\Annotation\Mapping\ExceptionHandler;
 use Swoft\Log\Debug;
-use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 use Swoft\Rpc\Error;
 use Swoft\Rpc\Server\Exception\Handler\RpcErrorHandler;
 use Swoft\Rpc\Server\Response;
@@ -35,7 +35,7 @@ class RpcExceptionHandler extends RpcErrorHandler
      */
     public function handle(Throwable $e, Response $response): Response
     {
-        CLog::info(sprintf(' %s At %s line %d', $e->getMessage(), $e->getFile(), $e->getLine()));
+        Log::error(sprintf(' %s At %s line %d', $e->getMessage(), $e->getFile(), $e->getLine()));
         // Debug is false
         if (!APP_DEBUG) {
             // just show error message
