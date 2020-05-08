@@ -13,6 +13,7 @@ use Cts\Common\ConstParam;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Aws\Sns\SnsClient;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 use Swoole\Exception;
 
 /**
@@ -84,6 +85,7 @@ class AwsSns
                 ]
             ]
         ]);
+        Log::info($result);
         return $result;
     }
 
