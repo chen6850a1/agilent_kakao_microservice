@@ -15,7 +15,10 @@
 	},
     "autoload":{
 		"psr-4":{
-			"Cts\\Common\\":"src/Cts/Common"
-		}
+			"Cts\\Common\\":"src/Cts/Common",
+            "Yurun\\Util\\Swoole\\PHPMailer\\" : "src/",
+            "PHPMailer\\PHPMailer\\" : "src/PHPMailer"
+		},
+        "files": ["src/PHPMailer/functions.php"]
 	}
 }
