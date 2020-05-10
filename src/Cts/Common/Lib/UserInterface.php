@@ -218,6 +218,25 @@ interface UserInterface
     public function getInfoByUid(int $uid): array;
 
     /**
+     * 获取H5需要的用户信息
+     * @param string $type
+     * @param array $userData
+     * @example:kakao:{
+     *      access_token:string,
+     *      refresh_token:string,
+     *      refresh_token_expires_in:int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getInfoFormatH5ByUid(int $uid):array;
+
+    /**
      * 获取用户信息
      * @param string $uuid
      *
