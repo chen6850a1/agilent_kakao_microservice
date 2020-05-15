@@ -53,10 +53,10 @@ class AwsSqs
                 "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
                 'DelaySeconds' => 5,
                 'MaximumMessageSize' => 4096, // 4 KB
-                "RedrivePolicy"=>[
+                "RedrivePolicy"=>json_encode([
                     "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                     "maxReceiveCount"=>3
-                ]
+                ])
             ]
         ]);
         Clog::info($topicName);
@@ -136,22 +136,6 @@ class AwsSqs
     }
 
     public function getDieName(){
-        $env=env("SWOFT_ENV","local");
-        $pre_name="";
-        switch ($env){
-            case "dev":
-                $pre_name="dev";
-                break;
-            case "qa":
-                $pre_name="tst";
-                break;
-            case "stg":
-                $pre_name="stg";
-                break;
-            case "prd":
-                $pre_name="prd";
-                break;
-        }
-        return $pre_name."-26-eservice-diequeue";
+        return config("aws.name")."-diequeue";
     }
 }
