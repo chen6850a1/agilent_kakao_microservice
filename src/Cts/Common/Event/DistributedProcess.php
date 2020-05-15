@@ -10,6 +10,7 @@ use Swoft\Log\Helper\Log;
 use Swoft\Process\ProcessEvent;
 use Swoft\Process\Contract\ProcessInterface;
 use Swoft\Process\UserProcess;
+use Swoft\Stdlib\Helper\ArrayHelper;
 use Swoole\Process;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Bean\Concern\PrototypeTrait;
@@ -54,13 +55,14 @@ class DistributedProcess extends UserProcess
         while (true) {
             /** @var AwsSqs $awsSqs */
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
-            Log::info('Aws sqs :started ('.$this->queueUrl.")");
-            Log::info(serialize($messages));
             if(!empty($messages)){
+                Log::info(serialize($messages));
                 foreach ($messages as $message){
                     $body=json_decode($message["Body"],true);
                     $data=json_decode($body["Message"],true);
                     $handle=$this->eventHandle;
+                    $traceid=ArrayHelper::get($data,"traceid","");
+                    context()->set("traceid",$traceid);
                     call_user_func($handle,$data);
                     $awsSqs->deleteMessage($this->queueUrl,$message);
                 }

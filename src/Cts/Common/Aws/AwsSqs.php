@@ -44,13 +44,19 @@ class AwsSqs
         $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
         $topicName=config("aws.name").$service_name;
         CLog::info("queueName=$queueName");
+
+        $dieQueue=$this->getDieName();
         $result=$this->client->createQueue([
             "QueueName"=>$queueName,
             'Attributes' => [
                 "Policy"=>$this->createPolicy($queueName,$topicName),
                 "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
                 'DelaySeconds' => 5,
-                'MaximumMessageSize' => 4096 // 4 KB
+                'MaximumMessageSize' => 4096, // 4 KB
+                "RedrivePolicy"=>[
+                    "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+                    "maxReceiveCount"=>3
+                ]
             ]
         ]);
         Clog::info($topicName);
@@ -106,5 +112,46 @@ class AwsSqs
             'QueueUrl' => $queueUrl, // REQUIRED
             'ReceiptHandle' =>$message['ReceiptHandle'] // REQUIRED
         ]);
+    }
+
+
+    /**
+     * @param $self_service_name
+     * @param $service_name
+     * @param $event_type
+     * @return string||null
+     */
+    public function createDieQueue(){
+        $queueName=$this->getDieName();
+        $result=$this->client->createQueue([
+            "QueueName"=>$queueName,
+            'Attributes' => [
+                "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
+                'DelaySeconds' => 5,
+                'MaximumMessageSize' => 4096 // 4 KB
+            ]
+        ]);
+        CLog::info($result);
+        CLog::info("Create AWS SQS:".$queueName);
+    }
+
+    public function getDieName(){
+        $env=env("SWOFT_ENV","local");
+        $pre_name="";
+        switch ($env){
+            case "dev":
+                $pre_name="dev";
+                break;
+            case "qa":
+                $pre_name="tst";
+                break;
+            case "stg":
+                $pre_name="stg";
+                break;
+            case "prd":
+                $pre_name="prd";
+                break;
+        }
+        return $pre_name."-26-eservice-diequeue";
     }
 }

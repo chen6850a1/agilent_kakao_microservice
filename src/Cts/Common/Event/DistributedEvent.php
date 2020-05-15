@@ -39,8 +39,16 @@ class DistributedEvent implements EventHandlerInterface
         $this->regEvent();
 
         //监听事件
+        $this->createDieQueue($event);
+
+        //监听事件
         $this->listenEvent($event);
 
+    }
+
+    public function createDieQueue(){
+        $awsSqs=BeanFactory::getBean("AwsSqs");
+        $awsSqs->createDieQueue();
     }
 
     public function regEvent(){
@@ -55,12 +63,14 @@ class DistributedEvent implements EventHandlerInterface
         $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
         $awsSqs=BeanFactory::getBean("AwsSqs");
+        $awsSns=BeanFactory::getBean("AwsSns");
 
         $server = $event->getTarget();
         $swooleServer =  $server->getSwooleServer();
 
         //创建队列
         foreach ($distributed_event_listen as $service_name=>$service){
+            $awsSns->create($service_name);
             foreach ($service as $event_type=>$handle){
                 CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
                 $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
