@@ -14,10 +14,31 @@ use Swoft\Rpc\Client\Pool as ServicePool;
 class RpcConfig
 {
     public static function getConfig(){
+        $env=env("SWOFT_ENV","local");
+        $rpc_domain="";
+        switch ($env){
+            case "dev":
+                $rpc_domain="rpc.dev.kakao.service.agilent.com";
+                break;
+            case "qa":
+                $rpc_domain="rpc.tst.kakao.service.agilent.com";
+                break;
+            case "stg":
+                $rpc_domain="rpc.stg.kakao.service.agilent.com";
+                break;
+            case "prd":
+                $rpc_domain="rpc.prd.kakao.service.agilent.com";
+                break;
+            default:
+                $rpc_domain="localhost";
+                break;
+        }
+
+
         return [
             'user'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-user.kakao-eservice-local',
+                'host'    => $rpc_domain,
                 'port'    => '19999',
                 'setting' => [
                     'timeout'         => 120.0,
@@ -31,7 +52,7 @@ class RpcConfig
             ],
             'jitterbit'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-jitterbit.kakao-eservice-local',
+                'host'    => $rpc_domain,
                 'port'    => '19998',
                 'setting' => [
                     'timeout'         => 300.0,
@@ -45,7 +66,7 @@ class RpcConfig
             ],
             'kakao'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-kakao.kakao-eservice-local',
+                'host'    =>$rpc_domain,
                 'port'    => '19997',
                 'setting' => [
                     'timeout'         => 120.0
@@ -59,7 +80,7 @@ class RpcConfig
             ],
             'admin_user' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-admin-user.kakao-eservice-local',
+                'host' =>$rpc_domain,
                 'port' => '19996',
                 'setting' => [
                     'timeout' => 120.0,
@@ -73,7 +94,7 @@ class RpcConfig
             ],
             'sr' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-sr.kakao-eservice-local',
+                'host' =>$rpc_domain,
                 'port' => '19995',
                 'setting' => [
                     'timeout' => 120.0
@@ -87,7 +108,7 @@ class RpcConfig
             ],
             'reservation' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-reservation.kakao-eservice-local',
+                'host' => $rpc_domain,
                 'port' => '19994',
                 'setting' => [
                     'timeout' => 120.0
@@ -101,7 +122,7 @@ class RpcConfig
             ],
             'slider' => [
                 'class' => ServiceClient::class,
-                'host' => 'service-slider.kakao-eservice-local',
+                'host' =>$rpc_domain,
                 'port' => '19993',
                 'setting' => [
                     'timeout' => 120.0
@@ -115,7 +136,7 @@ class RpcConfig
             ],
             'instrument'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-instrument.kakao-eservice-local',
+                'host'    => $rpc_domain,
                 'port'    => '19992',
                 'setting' => [
                     'timeout'         => 120.0
@@ -129,7 +150,7 @@ class RpcConfig
             ],
             'notification'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-instrument.kakao-eservice-local',
+                'host'    => $rpc_domain,
                 'port'    => '19991',
                 'setting' => [
                     'timeout'         => 120.0
@@ -143,7 +164,7 @@ class RpcConfig
             ],
             'guide'              => [
                 'class'   => ServiceClient::class,
-                'host'    => 'service-guide.kakao-eservice-local',
+                'host'    => $rpc_domain,
                 'port'    => '19990',
                 'setting' => [
                     'timeout'         => 120.0
