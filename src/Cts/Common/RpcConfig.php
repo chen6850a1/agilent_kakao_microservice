@@ -21,7 +21,7 @@ class RpcConfig
                 $rpc_domain="rpc.dev.kakao.service.agilent.com";
                 break;
             case "qa":
-                $rpc_domain="agilent-aws-tst-26-service-rpc-0d37df162a2213f7.elb.ap-northeast-1.amazonaws.com";
+                $rpc_domain="rpc.tst.kakao.service.agilent.com";
                 break;
             case "stg":
                 $rpc_domain="rpc.stg.kakao.service.agilent.com";
