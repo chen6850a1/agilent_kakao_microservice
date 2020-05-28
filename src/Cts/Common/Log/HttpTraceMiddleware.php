@@ -4,8 +4,10 @@
 namespace Cts\Common\Log;
 
 
+
 use Psr\Http\Message\ServerRequestInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Http\Message\Response;
 use Swoft\Log\Helper\CLog;
 use Swoft\Log\Helper\Log;
 use Psr\Http\Message\ResponseInterface;
@@ -31,7 +33,7 @@ class HttpTraceMiddleware implements MiddlewareInterface
     {
         $this->startRequest($request);
         $response = $requestHandler->handle($request);
-        $this->endRequest();
+        $this->endRequest($response);
 
         return $response;
     }
@@ -58,7 +60,7 @@ class HttpTraceMiddleware implements MiddlewareInterface
         Log::info('Http接口请求开始');
     }
 
-    public function endRequest() {
+    public function endRequest(Response $response) {
         //计算整个请求耗时
         $cost         = sprintf('%.2f', (microtime(true)-context()->get('startTime')) * 1000);
         context()->set('cost', $cost . 'ms');
@@ -70,6 +72,6 @@ class HttpTraceMiddleware implements MiddlewareInterface
         ];
         context()->set('params', $params);
 
-        Log::info('Http接口请求结束');
+        Log::info('Http接口请求结束:'.serialize($response->getData()));
     }
 }
