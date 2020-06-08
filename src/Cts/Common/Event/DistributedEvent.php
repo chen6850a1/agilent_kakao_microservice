@@ -6,6 +6,7 @@ use Cts\Common\Aws\AwsSns;
 use Cts\Common\Aws\AwsSqs;
 use Cts\Common\ConstParam;
 use Swoft\Bean\BeanFactory;
+use Swoft\Co;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Event\EventHandlerInterface;
 use Swoft\Event\EventInterface;
@@ -54,7 +55,7 @@ class DistributedEvent implements EventHandlerInterface
     public function regEvent(){
         CLog::info("start regEvent");
         $self_service_name=config("service","no_def");
-        $awsSns=BeanFactory::getBean("AwsSns");
+        $awsSns=BeanFactory::getRequestBean("AwsSns",(string)Co::tid());
         $awsSns->create($self_service_name);
     }
 
@@ -63,7 +64,7 @@ class DistributedEvent implements EventHandlerInterface
         $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
         $awsSqs=BeanFactory::getBean("AwsSqs");
-        $awsSns=BeanFactory::getBean("AwsSns");
+        $awsSns=BeanFactory::getRequestBean("AwsSns",(string)Co::tid());
 
         $server = $event->getTarget();
         $swooleServer =  $server->getSwooleServer();

@@ -18,7 +18,7 @@ use Swoft\Log\Helper\CLog;
  *
  * @since 2.0
  *
- * @Bean(name="AwsS3",scope=Bean::PROTOTYPE)
+ * @Bean(name="AwsS3",scope=Bean::REQUEST)
  */
 class AwsS3
 {
