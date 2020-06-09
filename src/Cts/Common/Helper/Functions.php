@@ -8,7 +8,3 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-function user_func(): string
-{
-    return 'hello';
-}
