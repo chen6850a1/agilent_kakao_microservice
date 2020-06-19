@@ -38,12 +38,13 @@ class AwsS3
         $this->domainName=config("aws.s3_domain");
     }
 
-    public function upoloadFile($fileName,$url){
+    public function upoloadFile($fileName,$url,$content_type="application/octet-stream"){
         CLog::info($fileName);
         CLog::info($url);
         $result=$this->client->putObject([
             'Bucket' => $this->bucketName,
             'Key'    => self::UPLOAD_DIR.$fileName,
+            'ContentType'=>$content_type,
             'SourceFile'   => $url
         ]);
         CLog::info($result);
