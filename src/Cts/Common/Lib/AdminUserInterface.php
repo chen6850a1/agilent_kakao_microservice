@@ -146,7 +146,6 @@ interface AdminUserInterface {
      */
     public function getInfoByUid(int $uid): array;
 
-
     /**
      *
      * @param array $uidArr
@@ -159,4 +158,80 @@ interface AdminUserInterface {
      * }
      */
     public function getArrInfoByUid(array $uidArr): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:1,
+     *      pageSize:10,
+     *      keyword:test,
+     *      orderBy:created_at,
+     *      direction:asc|desc,
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getEngineerApplicationList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getEngineerApplication(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      name:zhang san,
+     *      account:mail address
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function engineerApply(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function engineerApprove(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function engineerRefuse(int $id): array;
 }

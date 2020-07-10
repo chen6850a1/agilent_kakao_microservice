@@ -134,6 +134,20 @@ interface SrInterface {
 
     /**
      * 
+     * @param string $startDate
+     * @param string $endDate
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function surveyExport(string $startDate, string $endDate): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      service_request_id:string,
@@ -175,6 +189,20 @@ interface SrInterface {
      * }
      */
     public function bqConfirm(array $params): array;
+
+    /**
+     * 
+     * @param string $startDate
+     * @param string $endDate
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function bqExport(string $startDate, string $endDate): array;
 
     /**
      * 
@@ -223,4 +251,106 @@ interface SrInterface {
      * }
      */
     public function pushNotification(array $params): array;
+
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getProductIdListForRepair(): array;
+
+    /**
+     * 
+     * @param string $startDate
+     * @param string $endDate
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function notificationExport(string $startDate, string $endDate, int $type): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:1,
+     *      pageSize:10,
+     *      keyword:test,
+     *      orderBy:created_at,
+     *      direction:asc|desc,
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getInstrumentListForRepair(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getInstrumentForRepair(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      productId:G1315AR,
+     *      productDesc:test
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createInstrumentForRepair(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param string $productDesc
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateInstrumentForRepair(int $id, string $productDesc): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteInstrumentForRepair(int $id): array;
 }
