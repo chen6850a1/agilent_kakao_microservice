@@ -9,6 +9,7 @@ use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
 use Cts\Common\Lib\SrInterface;
+use Cts\Common\Lib\NotificationInterface;
 use Cts\Common\Lib\ReservationInterface;
 use Cts\Common\Lib\SliderInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
@@ -57,6 +58,13 @@ class RpcServerList {
      * @var SrInterface
      */
     public $service_sr;
+
+    /**
+     * @Reference(pool="notification.pool")
+     *
+     * @var NotificationInterface
+     */
+    public $service_notification;
 
     /**
      * @Reference(pool="reservation.pool")
