@@ -131,6 +131,19 @@ interface AdminUserInterface {
      *      error:string
      * }
      */
+    public function reset(int $uid): array;
+
+    /**
+     * 
+     * @param int $uid
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function delete(int $uid): array;
 
     /**
