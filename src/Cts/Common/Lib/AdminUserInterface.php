@@ -247,4 +247,16 @@ interface AdminUserInterface {
      * }
      */
     public function engineerRefuse(int $id): array;
+
+    /**
+     * 检查微信用户是否为工程师
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function checkUserIsEngineer(): array;
 }
