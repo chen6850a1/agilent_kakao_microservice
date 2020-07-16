@@ -12,6 +12,7 @@ use Cts\Common\Lib\SrInterface;
 use Cts\Common\Lib\NotificationInterface;
 use Cts\Common\Lib\ReservationInterface;
 use Cts\Common\Lib\SliderInterface;
+use Cts\Common\Lib\LabInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -93,5 +94,12 @@ class RpcServerList {
      * @var ArticleInterface
      */
     public $service_guide;
+
+    /**
+     * @Reference(pool="lab.pool")
+     *
+     * @var LabInterface
+     */
+    public $service_lab;
 
 }
