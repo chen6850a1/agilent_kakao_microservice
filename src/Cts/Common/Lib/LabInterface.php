@@ -109,17 +109,36 @@ interface LabInterface {
      *              department:string,
      *              job:string,
      *              mobile:string,
-     *              email:string
+     *              email:string,
+     *              is_deleted:int 0|1
      *          ],
      *          [
-     *              id:int, id字段如果没有是新增
+     *              id:int,
      *              lab_id:int,
      *              name:string,
      *              department:string,
      *              job:string,
      *              mobile:string,
-     *              email:string
+     *              email:string,
+     *              is_deleted:int 0|1
      *          ] 第二组可选
+     *      ],
+     *      attachments:array [
+     *          [
+     *              id:int, id字段如果没有是新增
+     *              lab_id:int,
+     *              name:string,
+     *              url:string,
+     *              is_deleted:int 0|1
+     *          ],
+     *          [
+     *              id:int,
+     *              lab_id:int,
+     *              name:string,
+     *              url:string,
+     *              is_deleted:int 0|1
+     *          ],
+     *          ...
      *      ]
      * }
      * 
