@@ -10,6 +10,10 @@ namespace Cts\Common;
  */
 class ConstParam {
 
+    //国家
+    const COUNTRY_KOREA = 0;
+    const COUNTRY_CHINA = 1;
+    //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
