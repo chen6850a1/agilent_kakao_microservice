@@ -147,6 +147,7 @@ interface GuideInterface {
      * @example:{
      *      name:string,
      *      content:string,
+     *      category_id:int,
      *      hot_spot:int 0|1,
      *      sort:int 0-10,
      *      type:int 0|1
