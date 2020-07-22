@@ -16,6 +16,7 @@ interface GuideInterface {
      * @example:{
      *      page:string|int,
      *      pageSize:string|int,
+     *      parent_id:int,
      *      keyword:string,
      *      orderBy:string,
      *      direction:string eg.asc|desc
