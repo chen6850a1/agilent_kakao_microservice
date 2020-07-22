@@ -15,6 +15,7 @@ class ConstParam {
     const COUNTRY_CHINA = 1;
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
+    const USER_TYPE_WECHAT = "user_type_wechat";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
     //AWS 队列 异步事件名称

@@ -13,6 +13,7 @@ use Cts\Common\Lib\NotificationInterface;
 use Cts\Common\Lib\ReservationInterface;
 use Cts\Common\Lib\SliderInterface;
 use Cts\Common\Lib\LabInterface;
+use Cts\Common\Lib\WechatInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -38,6 +39,13 @@ class RpcServerList {
      * @var KakaoHelperInterface
      */
     public $service_kakao;
+
+    /**
+     * @Reference(pool="wechat.pool")
+     *
+     * @var WechatInterface
+     */
+    public $service_wechat;
 
     /**
      * @Reference(pool="jitterbit.pool")
