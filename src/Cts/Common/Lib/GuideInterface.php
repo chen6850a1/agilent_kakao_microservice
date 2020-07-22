@@ -146,8 +146,10 @@ interface GuideInterface {
      * @param array $params
      * @example:{
      *      name:string,
-     *      category_id:int,
-     *      content:string
+     *      content:string,
+     *      hot_spot:int 0|1,
+     *      sort:int 0-10,
+     *      type:int 0|1
      * }
      *
      * @return array
