@@ -2,7 +2,7 @@
 
 namespace Cts\Common;
 
-use Cts\Common\Lib\ArticleInterface;
+use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
@@ -99,7 +99,7 @@ class RpcServerList {
     /**
      * @Reference(pool="guide.pool")
      *
-     * @var ArticleInterface
+     * @var GuideInterface
      */
     public $service_guide;
 
