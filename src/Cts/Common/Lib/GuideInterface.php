@@ -12,6 +12,19 @@ namespace Cts\Common\Lib;
 interface GuideInterface {
 
     /**
+     * 
+     * @param int $categoryId
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getChildrenCategory(int $categoryId): array;
+
+    /**
      * @param array $params
      * @example:{
      *      page:string|int,
@@ -173,4 +186,15 @@ interface GuideInterface {
      * }
      */
     public function deleteArticle(int $id): array;
+
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function export(): array;
 }
