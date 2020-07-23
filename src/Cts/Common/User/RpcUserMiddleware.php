@@ -4,6 +4,7 @@
 namespace Cts\Common\User;
 
 
+use Cts\Common\ConstParam;
 use Swlib\Http\Exception\ClientException;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\CLog;
@@ -40,7 +41,7 @@ class RpcUserMiddleware implements MiddlewareInterface
 
     public function startRpc(RequestInterface $request)
     {
-        $user= $request->getExtKey('user',["type"=>"","uid"=>0]);
+        $user= $request->getExtKey('user',["type"=>"","uid"=>0,"country"=>""]);
         context()->set('user', $user);
     }
 
