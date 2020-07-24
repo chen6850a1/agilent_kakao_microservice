@@ -197,4 +197,17 @@ interface GuideInterface {
      * }
      */
     public function export(): array;
+
+    /**
+     * 
+     * @param string $keyword
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function search(string $keyword): array;
 }
