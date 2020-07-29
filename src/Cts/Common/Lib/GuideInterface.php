@@ -202,6 +202,19 @@ interface GuideInterface {
 
     /**
      * 
+     * @param int $type
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getTree(int $type): array;
+
+    /**
+     * 
      * @param string $keyword
      * 
      * @return array
