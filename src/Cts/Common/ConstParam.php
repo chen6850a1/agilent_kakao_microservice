@@ -41,5 +41,6 @@ class ConstParam {
     const SERVICE_INSTRUMENT = "service_instrument";
     const SERVICE_GUIDE = "service_guide";
     const SERVICE_EXTENSION = "service_extension";
+    const SERVICE_WECHAT = "service_wechat";
 
 }

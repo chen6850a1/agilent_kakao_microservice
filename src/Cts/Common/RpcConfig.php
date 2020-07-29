@@ -183,6 +183,20 @@ class RpcConfig {
             'lab.pool' => [
                 'class' => ServicePool::class,
                 'client' => bean('lab'),
+            ],
+            'wechat' => [
+                'class' => ServiceClient::class,
+                'host' => $rpc_domain,
+                'port' => '19988',
+                'setting' => [
+                    'timeout' => 120.0
+                ],
+                'packet' => bean('rpcClientPacket'),
+                'extender' => bean(\Cts\Common\RpcExtender::class)
+            ],
+            'wechat.pool' => [
+                'class' => ServicePool::class,
+                'client' => bean('wechat'),
             ]
         ];
     }
