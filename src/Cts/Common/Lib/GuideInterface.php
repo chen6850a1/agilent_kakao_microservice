@@ -29,6 +29,7 @@ interface GuideInterface {
      * @example:{
      *      page:string|int,
      *      pageSize:string|int,
+     *      type:int 0-自主服务 1-场地准备 2-现场培训教材,
      *      parent_id:int,
      *      keyword:string,
      *      orderBy:string,
@@ -59,6 +60,7 @@ interface GuideInterface {
     /**
      * @param array $params
      * @example:{
+     *      type:int 0-自主服务 1-场地准备 2-现场培训教材,
      *      name:string,
      *      parent_id:int,
      *      icon:string
