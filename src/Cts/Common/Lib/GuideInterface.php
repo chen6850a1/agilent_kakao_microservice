@@ -29,7 +29,7 @@ interface GuideInterface {
      * @example:{
      *      page:string|int,
      *      pageSize:string|int,
-     *      type:int 0-自主服务 1-场地准备 2-现场培训教材,
+     *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
      *      parent_id:int,
      *      keyword:string,
      *      orderBy:string,
@@ -60,7 +60,7 @@ interface GuideInterface {
     /**
      * @param array $params
      * @example:{
-     *      type:int 0-自主服务 1-场地准备 2-现场培训教材,
+     *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
      *      name:string,
      *      parent_id:int,
      *      icon:string
@@ -191,6 +191,8 @@ interface GuideInterface {
 
     /**
      * 
+     * @param int $type
+     * 
      * @return array
      * @example {
      *      status:true|false,
@@ -198,7 +200,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function export(): array;
+    public function export(int $type = 0): array;
 
     /**
      * 
@@ -215,6 +217,7 @@ interface GuideInterface {
 
     /**
      * 
+     * @param int $type
      * @param string $keyword
      * 
      * @return array
@@ -224,5 +227,5 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function search(string $keyword): array;
+    public function search(int $type = 0, string $keyword = ''): array;
 }
