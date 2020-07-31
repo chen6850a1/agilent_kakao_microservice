@@ -125,7 +125,9 @@ interface GuideInterface {
      *      category_id:int,
      *      hot_spot:int 0|1,
      *      sort:int 1-10,
-     *      type:int 0|1
+     *      type:int 0|1,
+     *      video_no:string,
+     *      video_size:string
      * }
      *
      * @return array
@@ -146,7 +148,9 @@ interface GuideInterface {
      *      category_id:int,
      *      hot_spot:int 0|1,
      *      sort:int 0-10,
-     *      type:int 0|1
+     *      type:int 0|1,
+     *      video_no:string,
+     *      video_size:string
      * }
      *
      * @return array
