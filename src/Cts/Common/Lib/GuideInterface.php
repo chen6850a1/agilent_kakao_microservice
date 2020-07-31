@@ -13,6 +13,29 @@ interface GuideInterface {
 
     /**
      * 
+     * @param array $params
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
+     *      category_id:int,
+     *      parent_id:int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getGuideList(array $params): array;
+
+    /**
+     * 
      * @param int $categoryId
      * 
      * @return array
@@ -23,27 +46,6 @@ interface GuideInterface {
      * }
      */
     public function getChildrenCategory(int $categoryId): array;
-
-    /**
-     * @param array $params
-     * @example:{
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
-     *      parent_id:int,
-     *      keyword:string,
-     *      orderBy:string,
-     *      direction:string eg.asc|desc
-     * }
-     *
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getCategoryList(array $params): array;
 
     /**
      * @param int $id
@@ -103,26 +105,6 @@ interface GuideInterface {
      * }
      */
     public function deleteCategory(int $id): array;
-
-    /**
-     * @param array $params
-     * @example:{
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      category_id:int,
-     *      keyword:string,
-     *      orderBy:string,
-     *      direction:string eg.asc|desc
-     * }
-     *
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getArticleList(array $params): array;
 
     /**
      * @param int $id
