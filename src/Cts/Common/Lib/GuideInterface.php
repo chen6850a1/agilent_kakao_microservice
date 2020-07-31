@@ -18,8 +18,7 @@ interface GuideInterface {
      *      page:string|int,
      *      pageSize:string|int,
      *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
-     *      category_id:int,
-     *      parent_id:int,
+     *      id:int,
      *      keyword:string,
      *      orderBy:string,
      *      direction:string eg.asc|desc
