@@ -203,6 +203,7 @@ interface GuideInterface {
     /**
      * 
      * @param int $type
+     * @param int $categoryId
      * 
      * @return array
      * @example {
@@ -211,7 +212,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getTree(int $type): array;
+    public function getTree(int $type = 0, int $categoryId = 0): array;
 
     /**
      * 
