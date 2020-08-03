@@ -176,6 +176,19 @@ interface GuideInterface {
 
     /**
      * 
+     * @param array $excelData
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function import(array $excelData): array;
+
+    /**
+     * 
      * @param int $type
      * 
      * @return array
