@@ -129,6 +129,7 @@ interface LabInterface {
      *              lab_id:int,
      *              name:string,
      *              url:string,
+     *              size:string, 单位MB
      *              is_deleted:int 0|1
      *          ],
      *          [
@@ -136,6 +137,7 @@ interface LabInterface {
      *              lab_id:int,
      *              name:string,
      *              url:string,
+     *              size:string,
      *              is_deleted:int 0|1
      *          ],
      *          ...
