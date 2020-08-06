@@ -25,7 +25,7 @@ class ConstParam
 
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
-    const EVENT_RESERVATION_CREATE = "event_reservation_change";
+    const EVENT_RESERVATION_CREATE = "event_res_create";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND = "event_user_unbind";
     const EVENT_ADMIN_CREATE = "event_admin_create";
