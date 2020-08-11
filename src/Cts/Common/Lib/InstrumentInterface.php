@@ -110,4 +110,128 @@ interface InstrumentInterface {
      * ]
      */
     public function countMyInstrument(): array;
+
+
+    /**
+     * 创建仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function createInsGroup(array $data): array;
+
+    /**
+     * 编辑仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function editInsGroup(array $data): array;
+
+    /**
+     * 显示仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsGroup(): array;
+
+    /**
+     * 带仪器数量显示仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsGroupWithInsNum(): array;
+
+    /**
+     * 设置仪器进组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function setInsGroup(array $data): array;
+
+
+    /**
+     * 创建仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function createInsLabel(array $data): array;
+
+    /**
+     * 编辑仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     * ]
+     */
+    public function editInsLabel(array $data): array;
+
+    /**
+     * 删除仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     * ]
+     */
+    public function delInsLabel(array $data): array;
+
+    /**
+     * 显示仪器标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsLabel(): array;
+
+    /**
+     * 给仪器添加标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function setInsLabel(array $data): array;
+
+
+    /**
+     * 设置仪器的
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getRepairList():array;
+
+
 }
