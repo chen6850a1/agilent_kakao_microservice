@@ -167,6 +167,17 @@ interface InstrumentInterface {
      */
     public function setInsGroup(array $data): array;
 
+    /**
+     * 设置仪器的
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getInsGroupDetail(array $data):array;
+
 
     /**
      * 创建仪器label
