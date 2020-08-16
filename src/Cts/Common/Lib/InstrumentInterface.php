@@ -245,4 +245,26 @@ interface InstrumentInterface {
     public function getRepairList():array;
 
 
+    /**
+     * agl仪器导入
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function aglExcelImport():array;
+
+    /**
+     * agl仪器导入
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getAglList():array;
+
 }

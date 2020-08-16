@@ -47,4 +47,22 @@ interface WechatInterface
      * }
      */
     public function getUserInfoWithH5Code(array $wechatData): array;
+
+
+    /**
+     * 生成二维码
+     * @param array $wechatData
+     * @example:{
+     *      url:string,
+     *      sences:string,
+     *      width:int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function genCodeImg(array $wechatData): array;
 }
