@@ -254,7 +254,7 @@ interface InstrumentInterface {
      *      data:XXXX
      * ]
      */
-    public function aglExcelImport():array;
+    public function aglExcelImport(array $data):array;
 
     /**
      * agl仪器导入
@@ -265,6 +265,6 @@ interface InstrumentInterface {
      *      data:XXXX
      * ]
      */
-    public function getAglList():array;
+    public function getAglList(array $data):array;
 
 }
