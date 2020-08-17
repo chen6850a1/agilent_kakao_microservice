@@ -267,4 +267,53 @@ interface InstrumentInterface {
      */
     public function getAglList(array $data):array;
 
+
+
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSecondHandList(array $data):array;
+
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandEdit(array $data):array;
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandDel(array $data):array;
+
+
+    /**
+     * 导入二手仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandExcelImport(array $data):array;
+
 }
