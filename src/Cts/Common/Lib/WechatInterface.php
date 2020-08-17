@@ -65,4 +65,20 @@ interface WechatInterface
      * }
      */
     public function genCodeImg(array $wechatData): array;
+
+
+    /**
+     * 生成二维码
+     * @param array $params
+     * @example:{
+     *      type:h5|mini,
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getAccessToken(array $params): array;
 }
