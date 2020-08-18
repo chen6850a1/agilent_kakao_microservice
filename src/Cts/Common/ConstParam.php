@@ -27,7 +27,7 @@ class ConstParam {
     const EVENT_ADMIN_CREATE = "event_admin_create";
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
-    const EVENT_DIRECTIONAL_NOTIFICATION = "event_directional_notification";
+    const EVENT_DPUSH = "event_dpush"; //定向推送
     const EVENT_BQ_CONFIRMED = "event_bq_confirmed";
     const EVENT_SURVEY_SUBMITTED = "event_survey_submitted";
     //统一各个微服务名
