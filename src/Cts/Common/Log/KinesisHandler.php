@@ -143,6 +143,14 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
         $record["params"]=\GuzzleHttp\json_encode($record["params"]);
+        //太大参数，影响性能，暂不记录
+        if(strlen($record["params"])>1000){
+            $params = [
+                'query' => [],
+            ];
+            context()->set('params', $params);
+        }
+
 
         return JsonHelper::encode($record, JSON_UNESCAPED_UNICODE);
     }
