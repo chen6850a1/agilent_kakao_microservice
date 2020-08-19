@@ -234,7 +234,7 @@ interface InstrumentInterface {
 
 
     /**
-     * 设置仪器的
+     * 获取送修的产品id列
      *
      * @return array
      * @example {
@@ -242,7 +242,64 @@ interface InstrumentInterface {
      *      data:XXXX
      * ]
      */
-    public function getRepairList():array;
+    public function getRepairProductIdList():array;
+
+    /**
+     * 获取送修机器的列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getRepairList(array $data):array;
+
+    /**
+     * 添加送修
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairAdd(array $data):array;
+
+
+    /**
+     * 编辑送修仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairEdit(array $data):array;
+
+
+    /**
+     * 删除送修仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairDel(array $data):array;
+
+    /**
+     * 检测产品ID是否已存在
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairlIsExistProjectId(array $data):array;
 
 
     /**
