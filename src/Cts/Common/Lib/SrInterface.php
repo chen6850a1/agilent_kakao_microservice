@@ -265,17 +265,6 @@ interface SrInterface {
 
     /**
      * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getProductIdListForRepair(): array;
-
-    /**
-     * 
      * @param string $startDate
      * @param string $endDate
      * 
