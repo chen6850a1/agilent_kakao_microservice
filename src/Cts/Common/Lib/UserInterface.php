@@ -538,4 +538,44 @@ interface UserInterface
      * ]
      */
     public function updateStatusFillInfo(array $data):array;
+
+
+
+    /**
+     * 检测excel里数据是否在sap
+     * @param array $wechatData
+     * @example:{
+     *      union_id:string,
+     *      file_name:string,
+     *      excel_list:array
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function checkMobileExistWithExcelData(array $excelData): array;
+
+    /**
+     * 获取仪器列表
+     * @param array $data
+     *@example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      status:string|int,
+     *      responseFormat:string eg. csv|json
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getCheckMobilelist(array $params): array;
 }
