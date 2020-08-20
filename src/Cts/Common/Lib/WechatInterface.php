@@ -81,4 +81,23 @@ interface WechatInterface
      * }
      */
     public function getAccessToken(array $params): array;
+
+    /**
+     * 推送消息
+     * @param array $params
+     * @example:{
+     *      uid:XXXX,
+     *      template:XXXX,
+     *      h5_url:XXXX,
+     *      params:["first"=>XXX,"keyword1"=>XXXX,"keyword2"=>XXXX],
+     *      miniapp_url:XXXXXX,
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function pushMessage(array $params): array;
 }

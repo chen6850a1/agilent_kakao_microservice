@@ -10,7 +10,7 @@ namespace Cts\Common\Aws;
 
 use Aws\S3\S3Client;
 use Swoft\Bean\Annotation\Mapping\Bean;
-use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 
 
 /**
@@ -39,15 +39,15 @@ class AwsS3
     }
 
     public function upoloadFile($fileName,$url,$content_type="application/octet-stream"){
-        CLog::info($fileName);
-        CLog::info($url);
+        Log::info($fileName);
+        Log::info($url);
         $result=$this->client->putObject([
             'Bucket' => $this->bucketName,
             'Key'    => self::UPLOAD_DIR.$fileName,
             'ContentType'=>$content_type,
             'SourceFile'   => $url
         ]);
-        CLog::info($result);
+        Log::info($result);
         return $this->getDomainUrl().$fileName;
     }
 

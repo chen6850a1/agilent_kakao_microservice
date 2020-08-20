@@ -46,4 +46,14 @@ class ConstParam {
     const SERVICE_EXTENSION = "service_extension";
     const SERVICE_WECHAT = "service_wechat";
 
+
+    //推送模板
+    const WECHAT_PUSH_TEMPLATE_INFOSETUP="infoSetup";
+    const WECHAT_PUSH_TEMPLATE_LEAVEMESSAGE="leaveMessage";
+    const WECHAT_PUSH_TEMPLATE_INSTALL="install";
+    const WECHAT_PUSH_TEMPLATE_LEGALCERTIFICATION="legalCertification";
+    const WECHAT_PUSH_TEMPLATE_PREVENTIVEMAINTENANCE="preventiveMaintenance";
+    const WECHAT_PUSH_TEMPLATE_SOOPEN="soopen";
+    const WECHAT_PUSH_TEMPLATE_BQ_DP_PUSH="BQ_DP_PUSH";
+
 }
