@@ -578,4 +578,65 @@ interface UserInterface
      * ]
      */
     public function getCheckMobilelist(array $params): array;
+
+
+
+    /**
+     * 获取VIP列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getVipList(array $data):array;
+
+
+    /**
+     * 编辑VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function vipEdit(array $data):array;
+
+    /**
+     * 删除VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function vipDel(array $data):array;
+
+
+    /**
+     * 导入VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function vipExcelImport(array $data):array;
+
+
+    /**
+     * 导入VIP
+     * @param string $account_id
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function vipCheckExist(string $account_id):array;
 }
