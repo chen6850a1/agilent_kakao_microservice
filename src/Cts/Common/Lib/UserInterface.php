@@ -630,7 +630,7 @@ interface UserInterface
 
     /**
      * 导入VIP
-     * @param string $account_id
+     * @param int $uid
      *
      * @return array
      * @example {
@@ -638,5 +638,52 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function vipCheckExist(string $account_id):array;
+    public function vipCheckExist(int $uid):array;
+
+
+    /**
+     * 获取VIP列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getCompetitorList(array $data):array;
+
+
+    /**
+     * 编辑VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function competitorEdit(array $data):array;
+
+    /**
+     * 删除VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function competitorDel(array $data):array;
+
+
+    /**
+     * 导入VIP
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function competitorExcelImport(array $data):array;
 }
