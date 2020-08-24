@@ -52,6 +52,20 @@ interface SrInterface {
     public function create(array $params): array;
 
     /**
+     * 
+     * @param int $uid
+     * @param string $srId
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserHistory(int $uid = 0, string $srId = ''): array;
+
+    /**
      * @param int $id
      * @param array $params
      * @example {
