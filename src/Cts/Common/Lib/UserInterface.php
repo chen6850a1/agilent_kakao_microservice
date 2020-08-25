@@ -79,6 +79,21 @@ interface UserInterface
     public function getFillList(array $params): array;
 
     /**
+     * 获取仪器列表
+     * @param array $data
+     *@example:{
+     *      uid:int,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getFillInfoByUid(int $uid): array;
+
+    /**
      * 发送验证码
      * @param array $params
      * @example {
@@ -317,6 +332,72 @@ interface UserInterface
      *
      */
     public function getInfoByUuid(string $uuid): array;
+
+
+    /**
+     * 获取用户信息
+     * @param string $uuid
+     *
+     * @return array
+     * @emample{
+     *  status:true,
+     * data:Array
+     * (
+     * [id] => 1
+     * [kakao_info_id] => 1
+     * [created_at] => 0
+     * [updated_at] => 0
+     * [uuid] => 2002AAAAAA
+     * [kakao_info] => Array
+     * (
+     * [id] => 1
+     * [kakao_id] => 1289736999
+     * [nickname] => ccna
+     * [profile_image] => http://k.kakaocdn.net/dn/QLSbO/btqCcCvTmWK/OWnQkwdYYavrILpqUqQ6O0/img_640x640.jpg
+     * [thumbnail_image] => http://k.kakaocdn.net/dn/QLSbO/btqCcCvTmWK/OWnQkwdYYavrILpqUqQ6O0/img_110x110.jpg
+     * [created_at] => 1583135624
+     * [updated_at] => 1583135624
+     * )
+     *
+     * [wechat_info]=>Array
+     * (
+     * [id] => 1
+     * [open_id] => 1289736999
+     * [mini_open_id] => 123354335
+     * [unionid] => XXXX
+     * [nickname] => XXX
+     * [profile_image] => 1289736999
+     * [country] => 123354335
+     * [province] => XXXX
+     * [city] => XXX
+     * [sex] => XXXX
+     * [language] => XXX
+     * [created_at] => 1583135624
+     * [updated_at] => 1583135624
+     * )
+     *
+     * [auth_info] => Array
+     * (
+     * [uid] => 1
+     * [okta_id] => 00ummhsm35cDp866r0h7
+     * [telphone] => 13774494464
+     * [ContactGuid] => 462046B086021ED9ABD474F934EBCA3F
+     * [ContactName] => 陈 hong
+     * [ContactId] => 0102660157
+     * [AccountGuid] => 0025B5A3305A1ED590B14B646B9799B6
+     * [AccountName] => 杭州宇田科技有限公司
+     * [AccountId] => 0070484237
+     * [is_del] => 0
+     * [from] =>
+     * [created_at] => 1585362437
+     * [updated_at] => 1585362437
+     * )
+     *
+     * )
+     * }
+     *
+     */
+    public function getInfoByMiniOpenid(string $uuid): array;
 
 
     /**
@@ -686,4 +767,16 @@ interface UserInterface
      * ]
      */
     public function competitorExcelImport(array $data):array;
+
+
+    /**
+     * 通过手机检索
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function competitorCheckExist(string $mobile): array;
 }
