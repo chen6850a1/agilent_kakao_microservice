@@ -673,6 +673,17 @@ interface UserInterface
      */
     public function getVipList(array $data):array;
 
+    /**
+     * 导出vip
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function exportVip(array $data):array;
+
 
     /**
      * 编辑VIP
