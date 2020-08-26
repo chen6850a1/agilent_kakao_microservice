@@ -186,7 +186,7 @@ interface PurchaseInterface {
 
     /**
      * 获取单个产品信息
-     * @param string $name
+     * @param int $id
      *
      * @return array
      * @example {
@@ -195,5 +195,5 @@ interface PurchaseInterface {
      *      error:string
      * }
      */
-    public function getProductInfo($name): array;
+    public function getProductInfo(int $id): array;
 }
