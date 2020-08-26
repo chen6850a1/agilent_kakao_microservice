@@ -406,5 +406,15 @@ interface InstrumentInterface {
      */
     public function instumentExport(array $data):array;
 
+    /**
+     * 根据用户uid获取最后一个序列号详情
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getLastSnDetailByUid(int $uid):array;
 
 }
