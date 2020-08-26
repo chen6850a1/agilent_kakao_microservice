@@ -157,5 +157,5 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotUserInfo(): array;
+    public function getSobotUserInfo(array $params): array;
 }

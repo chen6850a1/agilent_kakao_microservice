@@ -187,7 +187,7 @@ class RpcConfig {
             'purchase' => [
                 'class' => ServiceClient::class,
                 'host' => $rpc_domain,
-                'port' => '19989',
+                'port' => '19993',
                 'setting' => [
                     'timeout' => 120.0
                 ],
