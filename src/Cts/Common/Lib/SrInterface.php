@@ -266,6 +266,19 @@ interface SrInterface {
 
     /**
      * 
+     * @param string $objectId
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function checkIfSrClosedHasBeenPushed(string $objectId): array;
+
+    /**
+     * 
      * @param array $params
      * 
      * @return array
