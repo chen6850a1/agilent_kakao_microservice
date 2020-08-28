@@ -111,5 +111,51 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
+    public function getSobotIframeData(array $params):array;
+
+
+    /**
+     * 获取全局会话组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
     public function getSobotGlobalGroup():array;
+
+    /**
+     * 保存备注
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveSobotNote(array $params): array;
+
+
+    /**
+     * 保存聊天组提交的信息
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveSobotPostData(array $params): array;
+
+    /**
+     * 获取智齿显示的用户信息
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSobotUserInfo(array $params): array;
 }

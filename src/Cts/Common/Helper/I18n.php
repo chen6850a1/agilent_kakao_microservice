@@ -18,6 +18,6 @@ class I18n
 
     public static function getLanguage(){
         $user=context()->get("user");
-        return ArrayHelper::get($user,"language","kr");
+        return ArrayHelper::get($user,"language",context()->get("default_language","kr"));
     }
 }

@@ -6,6 +6,7 @@ use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
+use Cts\Common\Lib\PurchaseInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
 use Cts\Common\Lib\SrInterface;
@@ -109,5 +110,13 @@ class RpcServerList {
      * @var LabInterface
      */
     public $service_lab;
+
+    /**
+     * @Reference(pool="purchase.pool")
+     *
+     * @var PurchaseInterface
+     */
+    public $service_purchase;
+
 
 }
