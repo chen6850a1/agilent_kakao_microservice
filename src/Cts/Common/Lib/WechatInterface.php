@@ -158,4 +158,37 @@ interface WechatInterface
      * ]
      */
     public function getSobotUserInfo(array $params): array;
+
+    /**
+     * 保存智齿iframe缓存信息
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveSobotSrCache(array $params): array;
+
+    /**
+     * 保存标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveTags(array $params): array;
+
+    /**
+     * 保存标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveNotes(array $params): array;
 }
