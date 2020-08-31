@@ -113,6 +113,17 @@ interface WechatInterface
      */
     public function getSobotIframeData(array $params):array;
 
+    /**
+     * 匹配序列号返回聊天组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getGroupMatchSerialNo(array $params):array;
+
 
     /**
      * 获取全局会话组
