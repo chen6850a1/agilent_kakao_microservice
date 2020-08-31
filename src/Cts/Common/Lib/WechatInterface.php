@@ -123,6 +123,17 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
+    public function getSobotTicketIframeData(array $params):array;
+
+    /**
+     * 获取全局会话组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
     public function getSobotGlobalGroup():array;
 
     /**
