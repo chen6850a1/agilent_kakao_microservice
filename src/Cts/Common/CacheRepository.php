@@ -56,7 +56,9 @@ class CacheRepository
         $cacheData=$this->redis->get($this->cache_key.$cache_id);
         if($cacheData){
             $this->setAttr($cacheData);
+            return true;
         }
+        return false;
     }
 
     public function clear($cache_id){
