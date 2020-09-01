@@ -218,6 +218,7 @@ interface GuideInterface {
     /**
      * 
      * @param int $type
+     * @param int $categoryId
      * @param string $keyword
      * 
      * @return array
@@ -227,5 +228,5 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function search(int $type = 0, string $keyword = ''): array;
+    public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
 }
