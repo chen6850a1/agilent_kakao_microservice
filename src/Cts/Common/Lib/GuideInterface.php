@@ -35,6 +35,7 @@ interface GuideInterface {
 
     /**
      * 
+     * @param int $type
      * @param int $categoryId
      * 
      * @return array
@@ -44,7 +45,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getChildrenCategory(int $categoryId): array;
+    public function getChildrenCategory(int $type, int $categoryId): array;
 
     /**
      * @param int $id
