@@ -44,7 +44,7 @@ interface PurchaseInterface {
      *      error:string
      * }
      */
-    public function getMenuList(): array;
+    public function getMenuList(array $params): array;
 
     /**
      * 添加菜单
@@ -119,7 +119,7 @@ interface PurchaseInterface {
      *      error:string
      * }
      */
-    public function getProductList(): array;
+    public function getProductList(array $params): array;
 
     /**
      *
