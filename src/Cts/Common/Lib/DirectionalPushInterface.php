@@ -13,6 +13,7 @@ interface DirectionalPushInterface {
 
     /**
      *  推送列表
+     * @param array $param
      * @return array
      * @example {
      *      status:true|false,
@@ -20,7 +21,7 @@ interface DirectionalPushInterface {
      *      error:string
      * }
      */
-    public function list(): array;
+    public function list(array $param): array;
 
     /**
      *  推送详情
@@ -84,6 +85,7 @@ interface DirectionalPushInterface {
 
     /**
      * 自动推送list
+     * @param array $param
      * @return array
      * @example {
      *      status:true|false,
@@ -91,14 +93,13 @@ interface DirectionalPushInterface {
      *      error:string
      * }
      */
-    public function autoPushList(): array;
+    public function autoPushList(array $param): array;
 
     /**
      * 导入excel
-     * @param int $type 类型：0:普通推送导入excel，1：自动推送导入excel
-     * @param array $excelData  导入的excel数组文件
+     * @param array $param  
      * @return array
      */
-    public function importExcel(int $type, array $excelData):array ;
+    public function importExcel($param):array ;
 
 }
