@@ -35,6 +35,7 @@ interface GuideInterface {
 
     /**
      * 
+     * @param int $type
      * @param int $categoryId
      * 
      * @return array
@@ -44,7 +45,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getChildrenCategory(int $categoryId): array;
+    public function getChildrenCategory(int $type, int $categoryId): array;
 
     /**
      * @param int $id
@@ -217,6 +218,7 @@ interface GuideInterface {
     /**
      * 
      * @param int $type
+     * @param int $categoryId
      * @param string $keyword
      * 
      * @return array
@@ -226,5 +228,5 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function search(int $type = 0, string $keyword = ''): array;
+    public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
 }
