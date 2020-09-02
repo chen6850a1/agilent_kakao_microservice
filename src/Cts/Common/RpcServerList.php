@@ -2,6 +2,7 @@
 
 namespace Cts\Common;
 
+use Cts\Common\Lib\DirectionalPushInterface;
 use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
@@ -117,6 +118,13 @@ class RpcServerList {
      * @var PurchaseInterface
      */
     public $service_purchase;
+
+    /**
+     * @Reference(pool="purchase.pool")
+     *
+     * @var DirectionalPushInterface
+     */
+    public $service_directionalpust;
 
 
 }
