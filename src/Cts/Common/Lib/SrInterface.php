@@ -244,7 +244,7 @@ interface SrInterface {
 
     /**
      * 
-     * @param string $objectId
+     * @param string $srId
      * @param string $headerStatus
      * 
      * @return array
@@ -254,7 +254,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function getByObjectIdAndHeaderStatus(string $objectId, string $headerStatus): array;
+    public function getBySrIdAndHeaderStatus(string $srId, string $headerStatus): array;
 
     /**
      * 
