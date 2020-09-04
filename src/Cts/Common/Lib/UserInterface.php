@@ -401,6 +401,14 @@ interface UserInterface
 
 
     /**
+     * 同上
+     * @param string $mobile
+     * @return array
+     */
+    public function getInfoByMobile(string $mobile):array;
+
+
+    /**
      * 获取用户信息
      * @param string $uuid
      *
