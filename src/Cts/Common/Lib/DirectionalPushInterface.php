@@ -97,9 +97,45 @@ interface DirectionalPushInterface {
 
     /**
      * 导入excel
-     * @param array $param  
+     * @param array $param
      * @return array
      */
     public function importExcel($param):array ;
+
+    /**
+     *  获取推送状态
+     *  @param int $pushId  推送id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getOfferStatus(int $pushId): array;
+
+    /**
+     * 提交确认
+     * @param array $param
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function submitConfirm(array $param): array;
+
+    /**
+     * 是否确认解决
+     * @param  int $pushId
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function isIssueSolve(int $pushId): array;
 
 }
