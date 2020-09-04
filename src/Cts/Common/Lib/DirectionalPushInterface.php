@@ -49,7 +49,7 @@ interface DirectionalPushInterface {
 
     /**
      *  归档
-     *  @param array $recordIds
+     *  @param array $param
      * @return array
      * @example {
      *      status:true|false,
@@ -57,7 +57,7 @@ interface DirectionalPushInterface {
      *      error:string
      * }
      */
-    public function filedData(array $recordIds): array;
+    public function filedData(array $param): array;
 
     /**
      *  获取树形结构
