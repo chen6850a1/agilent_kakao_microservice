@@ -244,6 +244,20 @@ interface SrInterface {
 
     /**
      * 
+     * @param string $objectId
+     * @param string $headerStatus
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getByObjectIdAndHeaderStatus(string $objectId, string $headerStatus): array;
+
+    /**
+     * 
      * @return array
      * @example {
      *      status:true|false,
