@@ -213,4 +213,15 @@ interface WechatInterface
      * ]
      */
     public function saveNotes(array $params): array;
+
+    /**
+     * 保存离线记录
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function saveLeaveMsg(array $params):array;
 }
