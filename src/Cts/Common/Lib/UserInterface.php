@@ -407,6 +407,13 @@ interface UserInterface
      */
     public function getInfoByMobile(string $mobile):array;
 
+    /**
+     * 同上
+     * @param string $openid
+     * @return array
+     */
+    public function getInfoByH5OpenId(string $openid):array;
+
 
     /**
      * 获取用户信息
