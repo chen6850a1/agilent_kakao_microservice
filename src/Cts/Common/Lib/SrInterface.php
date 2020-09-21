@@ -244,6 +244,21 @@ interface SrInterface {
 
     /**
      * 
+     * @param string $headerStatus
+     * @param string $startDate
+     * @param string $endDate
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getByHeaderStatusAndTimeInterval(string $headerStatus, string $startDate, string $endDate): array;
+    
+    /**
+     * 
      * @param string $srId
      * @param string $headerStatus
      * 
