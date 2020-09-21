@@ -230,20 +230,6 @@ interface SrInterface {
      */
     public function getIframeDataByNotificationId($notificationId): array;
 
-
-    /**
-     *
-     * 根据contactID返回最后一次创建的SR
-     * @param string $contactId
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getLastSrInfoByContactId(string $contactId):array;
-
     /**
      *
      * @param string $srId
@@ -258,7 +244,22 @@ interface SrInterface {
 
     /**
      *
-     * @param string $objectId
+     * @param string $headerStatus
+     * @param string $startDate
+     * @param string $endDate
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getByHeaderStatusAndTimeInterval(string $headerStatus, string $startDate, string $endDate): array;
+
+    /**
+     *
+     * @param string $srId
      * @param string $headerStatus
      *
      * @return array
@@ -268,7 +269,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function getByObjectIdAndHeaderStatus(string $objectId, string $headerStatus): array;
+    public function getBySrIdAndHeaderStatus(string $srId, string $headerStatus): array;
 
     /**
      *
@@ -331,4 +332,18 @@ interface SrInterface {
      * }
      */
     public function notificationExport(string $startDate, string $endDate, int $type): array;
+
+
+    /**
+     *
+     * @param string $contactId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getLastSrInfoByContactId(string $contactId):array;
 }
