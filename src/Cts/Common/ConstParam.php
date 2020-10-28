@@ -19,8 +19,6 @@ class ConstParam {
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
-
-
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
@@ -29,6 +27,7 @@ class ConstParam {
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
     const EVENT_DPUSH = "event_dpush"; //定向推送
+    const EVENT_SOBOT_OFFLINE_MESSAGE = "event_sobot_offline_message"; //智齿离线消息推送
     const EVENT_BQ_CONFIRMED = "event_bq_confirmed";
     const EVENT_SURVEY_SUBMITTED = "event_survey_submitted";
     //统一各个微服务名
