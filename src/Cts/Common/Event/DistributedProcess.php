@@ -66,6 +66,7 @@ class DistributedProcess extends UserProcess
                     call_user_func($handle,$data);
                     $awsSqs->deleteMessage($this->queueUrl,$message);
                 }
+                Log::info("Sns complute");
             }
         }
     }
