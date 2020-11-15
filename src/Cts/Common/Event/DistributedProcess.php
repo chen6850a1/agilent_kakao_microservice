@@ -67,9 +67,9 @@ class DistributedProcess extends UserProcess
                         $traceid=ArrayHelper::get($data,"traceid","");
                         context()->set("traceid",$traceid);
                         call_user_func($handle,$data);
-                        $awsSqs->deleteMessage($queueUrl,$message);
                     }
                 });
+                $awsSqs->deleteMessage($queueUrl,$message);
                 Log::info("Sns complute");
             }
         }
