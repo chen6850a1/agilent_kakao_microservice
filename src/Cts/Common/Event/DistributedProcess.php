@@ -57,15 +57,19 @@ class DistributedProcess extends UserProcess
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
             if(!empty($messages)){
                 Log::info(serialize($messages));
-                foreach ($messages as $message){
-                    $body=json_decode($message["Body"],true);
-                    $data=json_decode($body["Message"],true);
-                    $handle=$this->eventHandle;
-                    $traceid=ArrayHelper::get($data,"traceid","");
-                    context()->set("traceid",$traceid);
-                    call_user_func($handle,$data);
-                    $awsSqs->deleteMessage($this->queueUrl,$message);
-                }
+                $eventHandle=$this->eventHandle;
+                $queueUrl=$this->queueUrl;
+                sgo(function() use ($messages,$awsSqs,$eventHandle,$queueUrl){
+                    foreach ($messages as $message){
+                        $body=json_decode($message["Body"],true);
+                        $data=json_decode($body["Message"],true);
+                        $handle=$eventHandle;
+                        $traceid=ArrayHelper::get($data,"traceid","");
+                        context()->set("traceid",$traceid);
+                        call_user_func($handle,$data);
+                        $awsSqs->deleteMessage($queueUrl,$message);
+                    }
+                });
                 Log::info("Sns complute");
             }
         }

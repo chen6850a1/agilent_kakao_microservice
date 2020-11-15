@@ -69,7 +69,7 @@ class AwsSns
         if(!config("aws.name")){
             return false;
         }
-        
+
         $messageData=["data"=>$data,"traceid"=>context()->get('traceid', '')];
         $jsonData=\GuzzleHttp\json_encode($messageData);
 
