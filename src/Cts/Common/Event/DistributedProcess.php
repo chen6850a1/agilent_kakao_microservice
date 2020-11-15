@@ -51,26 +51,27 @@ class DistributedProcess extends UserProcess
     {
         CLog::info('Aws sqs :started ('.$this->queueUrl.")");
         $awsSqs=BeanFactory::getBean("AwsSqs");
+        $time=0;
         // 用户进程实现了广播功能，循环接收管道消息，并发给服务器的所有连接
         while (true) {
             /** @var AwsSqs $awsSqs */
             $messages=$awsSqs->ReceiveMessage($this->queueUrl);
             if(!empty($messages)){
                 Log::info(serialize($messages));
-                $eventHandle=$this->eventHandle;
-                $queueUrl=$this->queueUrl;
-                sgo(function() use ($messages,$awsSqs,$eventHandle,$queueUrl){
-                    foreach ($messages as $message){
-                        $body=json_decode($message["Body"],true);
-                        $data=json_decode($body["Message"],true);
-                        $handle=$eventHandle;
-                        $traceid=ArrayHelper::get($data,"traceid","");
-                        context()->set("traceid",$traceid);
-                        call_user_func($handle,$data);
-                    }
-                });
-                $awsSqs->deleteMessage($queueUrl,$message);
+                foreach ($messages as $message){
+                    $body=json_decode($message["Body"],true);
+                    $data=json_decode($body["Message"],true);
+                    $handle=$this->eventHandle;
+                    $traceid=ArrayHelper::get($data,"traceid","");
+                    context()->set("traceid",$traceid);
+                    call_user_func($handle,$data);
+                    $awsSqs->deleteMessage($this->queueUrl,$message);
+                }
                 Log::info("Sns complute");
+                if(memory_get_usage()>120*1024*1024){
+                    Log::info("Memory big,restart process.");
+                    break;
+                }
             }
         }
     }
