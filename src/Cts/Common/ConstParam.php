@@ -30,6 +30,7 @@ class ConstParam {
     const EVENT_SOBOT_OFFLINE_MESSAGE = "event_sobot_offline_message"; //智齿离线消息推送
     const EVENT_BQ_CONFIRMED = "event_bq_confirmed";
     const EVENT_SURVEY_SUBMITTED = "event_survey_submitted";
+    const EVENT_BQ_PDF_REMIND = "event_bq_pdf_remind";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
