@@ -333,7 +333,6 @@ interface SrInterface {
      */
     public function notificationExport(string $startDate, string $endDate, int $type): array;
 
-
     /**
      *
      * @param string $contactId
@@ -345,5 +344,18 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function getLastSrInfoByContactId(string $contactId):array;
+    public function getLastSrInfoByContactId(string $contactId): array;
+
+    /**
+     * 
+     * @param string $mailNo
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getTracking(string $mailNo): array;
 }
