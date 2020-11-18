@@ -345,4 +345,17 @@ interface SrInterface {
      * }
      */
     public function getLastSrInfoByContactId(string $contactId): array;
+
+    /**
+     * 
+     * @param string $mailNo
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getTracking(string $mailNo): array;
 }
