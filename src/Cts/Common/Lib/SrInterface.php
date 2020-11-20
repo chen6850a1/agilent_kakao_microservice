@@ -219,6 +219,27 @@ interface SrInterface {
     public function bqExport(string $startDate, string $endDate): array;
 
     /**
+     * 
+     * @param array $params
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      srId:string,
+     *      bqId:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBqPdfList(array $params): array;
+    
+    /**
      *
      * @param int $notificationId
      * @return array
