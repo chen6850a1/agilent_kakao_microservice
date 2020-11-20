@@ -189,6 +189,37 @@ interface SrInterface {
     public function getBqPdf(array $params);
 
     /**
+     * 
+     * @param array $params
+     * @example {
+     *      bq_id:string,
+     *      signature:string,
+     *      safety_statement:array
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function genPdf(array $params): array;
+
+    /**
+     * 
+     * @param string $bqId
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function previewPdf(string $bqId): array;
+
+    /**
      *
      * @param array $params
      * @example {
@@ -238,7 +269,7 @@ interface SrInterface {
      * }
      */
     public function getBqPdfList(array $params): array;
-    
+
     /**
      *
      * @param int $notificationId
