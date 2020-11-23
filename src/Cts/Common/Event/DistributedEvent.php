@@ -39,7 +39,7 @@ class DistributedEvent implements EventHandlerInterface
         //注册事件
         $this->regEvent();
 
-        //监听事件
+        //创建死信队列
         $this->createDieQueue($event);
 
         //监听事件
