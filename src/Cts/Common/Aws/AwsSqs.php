@@ -35,6 +35,7 @@ class AwsSqs
     }
 
     /**
+     * 创建事件对应处理的队列
      * @param $self_service_name
      * @param $service_name
      * @param $event_type
@@ -46,20 +47,27 @@ class AwsSqs
         $topicName=config("aws.name").$service_name;
         CLog::info("queueName=$queueName");
 
-        $dieQueue=$this->getDieName();
-        $result=$this->client->createQueue([
+
+        $config=[
             "QueueName"=>$queueName,
             'Attributes' => [
                 "Policy"=>$this->createPolicy($queueName,$topicName),
                 "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
                 'DelaySeconds' => 5,
-                'MaximumMessageSize' => 4096, // 4 KB
-                "RedrivePolicy"=>json_encode([
-                    "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
-                    "maxReceiveCount"=>3
-                ])
+                'MaximumMessageSize' => 4096 // 4 KB
             ]
-        ]);
+        ];
+        $dieQueue=$this->getDieName();
+
+        //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
+        if(strpos("self_sqs_",$event_type)!==0){
+            $config["RedrivePolicy"]=json_encode([
+                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+                "maxReceiveCount"=>3
+            ]);
+        }
+
+        $result=$this->client->createQueue($config);
         Clog::info($topicName);
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
@@ -69,6 +77,10 @@ class AwsSqs
             return $result->get("QueueUrl");
         }
         return false;
+    }
+
+    public function push(){
+
     }
 
     public function createPolicy($queueName,$topicName){
