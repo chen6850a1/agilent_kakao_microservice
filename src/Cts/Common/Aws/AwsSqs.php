@@ -165,6 +165,6 @@ class AwsSqs
     }
 
     public function getQueueHttpsUrl($self_service_name,$service_name,$event_type){
-        return "https://sqs.ap-northeast-1.amazonaws.com/".config("aws.id")."/".$this->getQueueUrl();
+        return "https://sqs.ap-northeast-1.amazonaws.com/".config("aws.id")."/".$this->getQueueUrl($self_service_name,$service_name,$event_type);
     }
 }
