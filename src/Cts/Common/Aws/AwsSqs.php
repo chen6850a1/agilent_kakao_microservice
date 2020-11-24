@@ -84,7 +84,7 @@ class AwsSqs
         $this->client->SendMessage([
             'DelaySeconds' => $delay,
             "MessageBody"=>$message,
-            "QueueUrl"=>$queueUrl
+            "QueueUrl"=> $queueUrl
         ]);
     }
 
@@ -162,5 +162,9 @@ class AwsSqs
         $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
         $queueName=str_replace("service_","-",$queueName);
         return $queueName;
+    }
+
+    public function getQueueHttpsUrl($self_service_name,$service_name,$event_type){
+        return "https://sqs.ap-northeast-1.amazonaws.com/".config("aws.id")."/".$this->getQueueUrl();
     }
 }
