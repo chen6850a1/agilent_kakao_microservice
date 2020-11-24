@@ -236,6 +236,20 @@ interface SrInterface {
     public function bqConfirm(array $params): array;
 
     /**
+     * 
+     * @param string $bqId
+     * @param array $invoice
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function fillInvoice(string $bqId, array $invoice): array;
+
+    /**
      *
      * @param string $startDate
      * @param string $endDate
