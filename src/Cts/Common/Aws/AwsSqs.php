@@ -79,8 +79,12 @@ class AwsSqs
         return false;
     }
 
-    public function push(){
-
+    public function push($queueUrl,$message,$delay=0){
+        $this->client->SendMessage([
+            'DelaySeconds' => $delay,
+            "MessageBody"=>$message,
+            "QueueUrl"=>$queueUrl
+        ]);
     }
 
     public function createPolicy($queueName,$topicName){
