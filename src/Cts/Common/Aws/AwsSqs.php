@@ -42,8 +42,9 @@ class AwsSqs
      * @return string||null
      */
     public function create($self_service_name,$service_name,$event_type){
-        $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
-        $queueName=str_replace("service_","-",$queueName);
+
+        $queueName=$this->getQueueUrl($self_service_name,$service_name,$event_type);
+
         $topicName=config("aws.name").$service_name;
         CLog::info("queueName=$queueName");
 
@@ -154,5 +155,12 @@ class AwsSqs
 
     public function getDieName(){
         return config("aws.name")."-diequeue";
+    }
+
+
+    public function getQueueUrl($self_service_name,$service_name,$event_type){
+        $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
+        $queueName=str_replace("service_","-",$queueName);
+        return $queueName;
     }
 }
