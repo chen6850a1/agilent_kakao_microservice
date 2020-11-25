@@ -12,7 +12,7 @@ use Swoft\Process\Contract\ProcessInterface;
 use Swoft\Process\UserProcess;
 use Swoft\Stdlib\Helper\ArrayHelper;
 use Swoole\Process;
-use Swoft\Bean\Annotation\Mapping\Bean
+use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Bean\Concern\PrototypeTrait;
 
 /**
