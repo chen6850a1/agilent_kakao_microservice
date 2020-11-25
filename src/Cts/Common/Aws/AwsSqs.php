@@ -127,7 +127,7 @@ class AwsSqs
 
     public function ReceiveMessage($queueUrl){
         $result = $this->client->receiveMessage(array(
-            'AttributeNames' => ['SentTimestamp'],
+            'AttributeNames' => ['All'],
             'MaxNumberOfMessages' => 1,
             'MessageAttributeNames' => ['All'],
             'QueueUrl' => $queueUrl, // REQUIRED
