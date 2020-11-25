@@ -88,6 +88,17 @@ class AwsSqs
         ]);
     }
 
+
+    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
+        $this->client->changeMessageVisibility(
+            [
+                'QueueUrl' => $queueUrl, // REQUIRED
+                'ReceiptHandle' => $requestId, // REQUIRED
+                'VisibilityTimeout' => $delay, // REQUIRED
+            ]
+        );
+    }
+
     public function createPolicy($queueName,$topicName){
         $Statement=new \stdClass();
         $Statement->Sid="Sid".time();
