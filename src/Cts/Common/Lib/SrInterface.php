@@ -209,6 +209,7 @@ interface SrInterface {
     /**
      * 
      * @param string $bqId
+     * @param int $isSafety
      * 
      * @return array
      * @example {
@@ -217,7 +218,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function previewPdf(string $bqId): array;
+    public function previewPdf(string $bqId, int $isSafety): array;
 
     /**
      *
