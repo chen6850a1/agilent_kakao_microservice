@@ -66,6 +66,11 @@ class AwsSqs
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>3
             ]);
+        }else{
+            $config["RedrivePolicy"]=json_encode([
+                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+                "maxReceiveCount"=>200
+            ]);
         }
 
         $result=$this->client->createQueue($config);
