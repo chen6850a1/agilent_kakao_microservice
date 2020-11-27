@@ -405,6 +405,28 @@ interface SrInterface {
     public function pushNotification(array $params): array;
 
     /**
+     * 
+     * @param array $params
+     * @example:{
+     *      serial_no:string,
+     *      service_request_id:string,
+     *      header_status:string,
+     *      msg_type:int 0-仅文本 1-快递单号 2-pdf 3-视频,
+     *      msg_extra:string
+     *      msg_body:string
+     *      msg_note:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function pushSendToRepair(array $params): array;
+
+    /**
      *
      * @param string $startDate
      * @param string $endDate
