@@ -251,6 +251,24 @@ interface SrInterface {
     public function fillInvoice(string $bqId, array $invoice): array;
 
     /**
+     * 
+     * @param array $params
+     * @example {
+     *      bq_id:string,
+     *      signature:string,
+     *      safety_statement:array
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function fillSafetyStatement(array $params): array;
+
+    /**
      *
      * @param string $startDate
      * @param string $endDate
