@@ -190,6 +190,14 @@ interface SrInterface {
 
     /**
      * 
+     * @param string $bqId
+     * 
+     * @return string pdf
+     */
+    public function getSignBqPdf(string $bqId);
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      bq_id:string,
