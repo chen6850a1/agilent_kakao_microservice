@@ -480,4 +480,32 @@ interface SrInterface {
      * }
      */
     public function getTracking(string $mailNo): array;
+
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getStrFiles(array $params): array;
+
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createStrFiles(array $params): array;
 }
