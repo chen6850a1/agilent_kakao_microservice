@@ -229,6 +229,13 @@ interface SrInterface {
     public function previewPdf(string $bqId, int $isSafety): array;
 
     /**
+     * 
+     * @param string $bqId
+     * @return array
+     */
+    public function fillInvoiceRemind(string $bqId): array;
+
+    /**
      *
      * @param array $params
      * @example {
