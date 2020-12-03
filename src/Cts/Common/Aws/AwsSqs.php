@@ -63,12 +63,12 @@ class AwsSqs
 
         //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
         if(strpos("self_sqs_",$event_type)!==0){
-            $config["RedrivePolicy"]=json_encode([
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>3
             ]);
         }else{
-            $config["RedrivePolicy"]=json_encode([
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>200
             ]);
