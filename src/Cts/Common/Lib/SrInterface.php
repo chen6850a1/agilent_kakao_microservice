@@ -319,6 +319,13 @@ interface SrInterface {
     public function getBqPdfList(array $params): array;
 
     /**
+     * 
+     * @param string $url
+     * @return string
+     */
+    public function openPdf(string $url): string;
+
+    /**
      *
      * @param int $notificationId
      * @return array
@@ -481,7 +488,6 @@ interface SrInterface {
      */
     public function getTracking(string $mailNo): array;
 
-
     /**
      *
      * @param array $params
@@ -494,7 +500,6 @@ interface SrInterface {
      * }
      */
     public function getStrFiles(array $params): array;
-
 
     /**
      *
