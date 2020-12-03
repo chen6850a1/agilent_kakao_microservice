@@ -321,9 +321,9 @@ interface SrInterface {
     /**
      * 
      * @param string $url
-     * @return string
+     * @return
      */
-    public function openPdf(int $bqConfirmedId, int $safetyStatement): string;
+    public function openPdf(int $bqConfirmedId, int $safetyStatement);
 
     /**
      *
