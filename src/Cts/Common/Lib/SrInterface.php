@@ -323,7 +323,7 @@ interface SrInterface {
      * @param string $url
      * @return string
      */
-    public function openPdf(int $bqConfirmedId, int $safetyStatement): string
+    public function openPdf(int $bqConfirmedId, int $safetyStatement): string;
 
     /**
      *
