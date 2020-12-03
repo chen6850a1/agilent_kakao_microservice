@@ -12,6 +12,7 @@ use Aws\Exception\AwsException;
 use Aws\Sqs\SqsClient;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 
 /**
  * Aws sns helper
@@ -72,7 +73,7 @@ class AwsSqs
                 "maxReceiveCount"=>200
             ]);
         }
-
+        Clog::info(serialize($config));
         $result=$this->client->createQueue($config);
         Clog::info($topicName);
         CLog::info($result);
@@ -95,13 +96,15 @@ class AwsSqs
 
 
     public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
-        $this->client->changeMessageVisibility(
+        Log::info($delay);
+        $result=$this->client->changeMessageVisibility(
             [
                 'QueueUrl' => $queueUrl, // REQUIRED
                 'ReceiptHandle' => $requestId, // REQUIRED
                 'VisibilityTimeout' => $delay, // REQUIRED
             ]
         );
+        Log::info($result->__toString());
     }
 
     public function createPolicy($queueName,$topicName){
