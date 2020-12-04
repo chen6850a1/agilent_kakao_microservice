@@ -12,6 +12,7 @@ use Aws\Exception\AwsException;
 use Aws\Sqs\SqsClient;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 
 /**
  * Aws sns helper
@@ -61,18 +62,18 @@ class AwsSqs
         $dieQueue=$this->getDieName();
 
         //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
-        if(strpos("self_sqs_",$event_type)!==0){
-            $config["RedrivePolicy"]=json_encode([
+        if(strpos($event_type,"self_sqs_")!==0){
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>3
             ]);
         }else{
-            $config["RedrivePolicy"]=json_encode([
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>200
             ]);
         }
-
+        Clog::info(serialize($config));
         $result=$this->client->createQueue($config);
         Clog::info($topicName);
         CLog::info($result);
@@ -95,13 +96,15 @@ class AwsSqs
 
 
     public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
-        $this->client->changeMessageVisibility(
+        Log::info($delay);
+        $result=$this->client->changeMessageVisibility(
             [
                 'QueueUrl' => $queueUrl, // REQUIRED
                 'ReceiptHandle' => $requestId, // REQUIRED
                 'VisibilityTimeout' => $delay, // REQUIRED
             ]
         );
+        Log::info($result->__toString());
     }
 
     public function createPolicy($queueName,$topicName){
