@@ -62,7 +62,7 @@ class AwsSqs
         $dieQueue=$this->getDieName();
 
         //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
-        if(strpos("self_sqs_",$event_type)!==0){
+        if(strpos($event_type,"self_sqs_")!==0){
             $config["Attributes"]["RedrivePolicy"]=json_encode([
                 "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
                 "maxReceiveCount"=>3
