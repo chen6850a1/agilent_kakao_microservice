@@ -501,6 +501,21 @@ interface SrInterface {
      */
     public function getStrFiles(array $params): array;
 
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getStrFileContent(int $id): array;
+
+
     /**
      *
      * @param array $params
