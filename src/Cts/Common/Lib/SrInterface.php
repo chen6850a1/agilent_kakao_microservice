@@ -528,4 +528,17 @@ interface SrInterface {
      * }
      */
     public function createStrFiles(array $params): array;
+
+    /**
+     *
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteStrFile(int $id): array;
 }

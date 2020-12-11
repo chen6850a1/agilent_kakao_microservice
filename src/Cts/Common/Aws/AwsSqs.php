@@ -95,8 +95,7 @@ class AwsSqs
     }
 
 
-    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
-        Log::info($delay);
+    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){ai 
         $result=$this->client->changeMessageVisibility(
             [
                 'QueueUrl' => $queueUrl, // REQUIRED
@@ -104,7 +103,6 @@ class AwsSqs
                 'VisibilityTimeout' => $delay, // REQUIRED
             ]
         );
-        Log::info($result->__toString());
     }
 
     public function createPolicy($queueName,$topicName){
