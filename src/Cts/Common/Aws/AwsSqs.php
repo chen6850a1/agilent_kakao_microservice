@@ -95,7 +95,7 @@ class AwsSqs
     }
 
 
-    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){ai 
+    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
         $result=$this->client->changeMessageVisibility(
             [
                 'QueueUrl' => $queueUrl, // REQUIRED
