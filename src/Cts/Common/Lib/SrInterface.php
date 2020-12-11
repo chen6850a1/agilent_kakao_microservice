@@ -226,7 +226,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function previewPdf(string $bqId, int $isSafety): array;
+    public function previewPdf(string $bqId, int $isSafety);
 
     /**
      * 
