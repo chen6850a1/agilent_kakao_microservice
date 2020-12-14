@@ -320,10 +320,10 @@ interface SrInterface {
 
     /**
      * 
-     * @param string $url
-     * @return
+     * @param int $bqConfirmedId
+     * @param int $type
      */
-    public function openPdf(int $bqConfirmedId, int $safetyStatement);
+    public function openPdf(int $bqConfirmedId, int $type);
 
     /**
      *
@@ -501,7 +501,6 @@ interface SrInterface {
      */
     public function getStrFiles(array $params): array;
 
-
     /**
      *
      * @param array $params
@@ -528,7 +527,6 @@ interface SrInterface {
      * }
      */
     public function getStrFileContent(int $id): array;
-
 
     /**
      *
