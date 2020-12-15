@@ -553,4 +553,18 @@ interface SrInterface {
      * }
      */
     public function deleteStrFile(int $id): array;
+
+
+    /**
+     *
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBqSignImg(int $bq_confirm_id): array;
 }
