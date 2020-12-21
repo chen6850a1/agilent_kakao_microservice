@@ -191,10 +191,11 @@ interface SrInterface {
     /**
      * 
      * @param string $bqId
+     * @param int $isSafety
      * 
      * @return string pdf
      */
-    public function getSignBqPdf(string $bqId);
+    public function getSignBqPdf(string $bqId, int $isSafety);
 
     /**
      * 
@@ -514,7 +515,6 @@ interface SrInterface {
      */
     public function getStrFilesByIds(array $params): array;
 
-
     /**
      *
      * @param array $params
@@ -553,5 +553,4 @@ interface SrInterface {
      * }
      */
     public function deleteStrFile(int $id): array;
-    
 }
