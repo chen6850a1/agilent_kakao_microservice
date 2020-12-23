@@ -553,4 +553,11 @@ interface SrInterface {
      * }
      */
     public function deleteStrFile(int $id): array;
+
+    /**
+     * 
+     * @param string $bqId
+     * @return array
+     */
+    public function getAttachments(string $bqId): array;
 }
