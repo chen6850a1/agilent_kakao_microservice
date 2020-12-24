@@ -417,4 +417,14 @@ interface InstrumentInterface {
      */
     public function getLastSnDetailByUid(int $uid):array;
 
+    /**
+     * 根据序列号返回仪器信息
+     *
+     * @return string $sn
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getDetailInfoBySn(string $sn):array;
 }
