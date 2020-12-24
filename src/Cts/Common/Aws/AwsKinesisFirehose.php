@@ -48,7 +48,12 @@ class AwsKinesisFirehose
                 echo "\n";
             }
         }else{
-            CLog::info($content);
+            if(strlen($content)<1000){
+                CLog::info($content);
+            }else{
+                CLog::info("日志内容过多，应性能暂不保存");
+            }
+
         }
     }
 
