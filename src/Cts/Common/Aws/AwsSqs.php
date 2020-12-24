@@ -12,6 +12,7 @@ use Aws\Exception\AwsException;
 use Aws\Sqs\SqsClient;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 
 /**
  * Aws sns helper
@@ -35,31 +36,45 @@ class AwsSqs
     }
 
     /**
+     * 创建事件对应处理的队列
      * @param $self_service_name
      * @param $service_name
      * @param $event_type
      * @return string||null
      */
     public function create($self_service_name,$service_name,$event_type){
-        $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
-        $queueName=str_replace("service_","-",$queueName);
+
+        $queueName=$this->getQueueUrl($self_service_name,$service_name,$event_type);
+
         $topicName=config("aws.name").$service_name;
         CLog::info("queueName=$queueName");
 
-        $dieQueue=$this->getDieName();
-        $result=$this->client->createQueue([
+
+        $config=[
             "QueueName"=>$queueName,
             'Attributes' => [
                 "Policy"=>$this->createPolicy($queueName,$topicName),
                 "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
                 'DelaySeconds' => 5,
-                'MaximumMessageSize' => 4096, // 4 KB
-                "RedrivePolicy"=>json_encode([
-                    "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
-                    "maxReceiveCount"=>3
-                ])
+                'MaximumMessageSize' => 4096 // 4 KB
             ]
-        ]);
+        ];
+        $dieQueue=$this->getDieName();
+
+        //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
+        if(strpos($event_type,"self_sqs_")!==0){
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
+                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+                "maxReceiveCount"=>3
+            ]);
+        }else{
+            $config["Attributes"]["RedrivePolicy"]=json_encode([
+                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+                "maxReceiveCount"=>200
+            ]);
+        }
+        Clog::info(serialize($config));
+        $result=$this->client->createQueue($config);
         Clog::info($topicName);
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
@@ -69,6 +84,25 @@ class AwsSqs
             return $result->get("QueueUrl");
         }
         return false;
+    }
+
+    public function push($queueUrl,$message,$delay=0){
+        $this->client->SendMessage([
+            'DelaySeconds' => $delay,
+            "MessageBody"=>$message,
+            "QueueUrl"=> $queueUrl
+        ]);
+    }
+
+
+    public function changeMessageVisibility($queueUrl,$requestId,$delay=60){
+        $result=$this->client->changeMessageVisibility(
+            [
+                'QueueUrl' => $queueUrl, // REQUIRED
+                'ReceiptHandle' => $requestId, // REQUIRED
+                'VisibilityTimeout' => $delay, // REQUIRED
+            ]
+        );
     }
 
     public function createPolicy($queueName,$topicName){
@@ -99,7 +133,7 @@ class AwsSqs
 
     public function ReceiveMessage($queueUrl){
         $result = $this->client->receiveMessage(array(
-            'AttributeNames' => ['SentTimestamp'],
+            'AttributeNames' => ['All'],
             'MaxNumberOfMessages' => 1,
             'MessageAttributeNames' => ['All'],
             'QueueUrl' => $queueUrl, // REQUIRED
@@ -138,5 +172,16 @@ class AwsSqs
 
     public function getDieName(){
         return config("aws.name")."-diequeue";
+    }
+
+
+    public function getQueueUrl($self_service_name,$service_name,$event_type){
+        $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
+        $queueName=str_replace("service_","-",$queueName);
+        return $queueName;
+    }
+
+    public function getQueueHttpsUrl($self_service_name,$service_name,$event_type){
+        return "https://sqs.ap-northeast-1.amazonaws.com/".config("aws.id")."/".$this->getQueueUrl($self_service_name,$service_name,$event_type);
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * This file is part of Swoft.
  *
@@ -15,8 +17,8 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface UserInterface
-{
+interface UserInterface {
+
     /**
      * 前端用户登录
      * @param string $type
@@ -56,11 +58,10 @@ interface UserInterface
      */
     public function createFillInfo(array $fillInfo): array;
 
-
     /**
      * 获取仪器列表
      * @param array $data
-     *@example:{
+     * @example:{
      *      page:string|int,
      *      pageSize:string|int,
      *      keyword:string,
@@ -81,7 +82,7 @@ interface UserInterface
     /**
      * 获取仪器列表
      * @param array $data
-     *@example:{
+     * @example:{
      *      uid:int,
      * }
      *
@@ -266,7 +267,7 @@ interface UserInterface
      *      error:string
      * }
      */
-    public function getInfoFormatH5ByUid(int $uid):array;
+    public function getInfoFormatH5ByUid(int $uid): array;
 
     /**
      * 获取用户信息
@@ -333,7 +334,6 @@ interface UserInterface
      */
     public function getInfoByUuid(string $uuid): array;
 
-
     /**
      * 获取用户信息
      * @param string $uuid
@@ -399,21 +399,19 @@ interface UserInterface
      */
     public function getInfoByMiniOpenid(string $uuid): array;
 
-
     /**
      * 同上
      * @param string $mobile
      * @return array
      */
-    public function getInfoByMobile(string $mobile):array;
+    public function getInfoByMobile(string $mobile): array;
 
     /**
      * 同上
      * @param string $openid
      * @return array
      */
-    public function getInfoByH5OpenId(string $openid):array;
-
+    public function getInfoByH5OpenId(string $openid): array;
 
     /**
      * 获取用户信息
@@ -479,7 +477,6 @@ interface UserInterface
      *
      */
     public function getInfoByContactId(string $contactId): array;
-
 
     /**
      * 获取用户信息
@@ -549,7 +546,6 @@ interface UserInterface
      */
     public function getInfoByArrUid(array $arrUid): array;
 
-
     /**
      * 获取用户信息
      * @param string $kakaoId  //数组
@@ -617,8 +613,6 @@ interface UserInterface
      */
     public function getInfoByKakaoid(string $kakaoId): array;
 
-
-
     /**
      * 更新状态
      * @param array $data
@@ -633,9 +627,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function updateStatusFillInfo(array $data):array;
-
-
+    public function updateStatusFillInfo(array $data): array;
 
     /**
      * 检测excel里数据是否在sap
@@ -657,7 +649,7 @@ interface UserInterface
     /**
      * 获取仪器列表
      * @param array $data
-     *@example:{
+     * @example:{
      *      page:string|int,
      *      pageSize:string|int,
      *      keyword:string,
@@ -675,8 +667,6 @@ interface UserInterface
      */
     public function getCheckMobilelist(array $params): array;
 
-
-
     /**
      * 获取VIP列表
      *
@@ -686,7 +676,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function getVipList(array $data):array;
+    public function getVipList(array $data): array;
 
     /**
      * 导出vip
@@ -697,7 +687,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function exportVip(array $data):array;
+    public function exportVip(array $data): array;
 
     /**
      * 导出vip
@@ -708,8 +698,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function exportUserInfo(array $data):array;
-
+    public function exportUserInfo(array $data): array;
 
     /**
      * 编辑VIP
@@ -720,7 +709,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function vipEdit(array $data):array;
+    public function vipEdit(array $data): array;
 
     /**
      * 删除VIP
@@ -731,8 +720,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function vipDel(array $data):array;
-
+    public function vipDel(array $data): array;
 
     /**
      * 导入VIP
@@ -743,8 +731,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function vipExcelImport(array $data):array;
-
+    public function vipExcelImport(array $data): array;
 
     /**
      * 导入VIP
@@ -756,8 +743,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function vipCheckExist(int $uid):array;
-
+    public function vipCheckExist(int $uid): array;
 
     /**
      * 获取VIP列表
@@ -768,8 +754,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function getCompetitorList(array $data):array;
-
+    public function getCompetitorList(array $data): array;
 
     /**
      * 编辑VIP
@@ -780,7 +765,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function competitorEdit(array $data):array;
+    public function competitorEdit(array $data): array;
 
     /**
      * 删除VIP
@@ -791,8 +776,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function competitorDel(array $data):array;
-
+    public function competitorDel(array $data): array;
 
     /**
      * 导入VIP
@@ -803,8 +787,7 @@ interface UserInterface
      *      data:XXXX
      * ]
      */
-    public function competitorExcelImport(array $data):array;
-
+    public function competitorExcelImport(array $data): array;
 
     /**
      * 通过手机检索
@@ -816,4 +799,68 @@ interface UserInterface
      * ]
      */
     public function competitorCheckExist(string $mobile): array;
+
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getInvoiceList(): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getInvoice(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createInvoice(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateInvoice(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteInvoice(int $id): array;
 }

@@ -189,6 +189,54 @@ interface SrInterface {
     public function getBqPdf(array $params);
 
     /**
+     * 
+     * @param string $bqId
+     * @param int $isSafety
+     * 
+     * @return string pdf
+     */
+    public function getSignBqPdf(string $bqId, int $isSafety);
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      bq_id:string,
+     *      signature:string,
+     *      safety_statement:array
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function genPdf(array $params): array;
+
+    /**
+     * 
+     * @param string $bqId
+     * @param int $isSafety
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function previewPdf(string $bqId, int $isSafety);
+
+    /**
+     * 
+     * @param string $bqId
+     * @return array
+     */
+    public function fillInvoiceRemind(string $bqId): array;
+
+    /**
      *
      * @param array $params
      * @example {
@@ -205,6 +253,38 @@ interface SrInterface {
     public function bqConfirm(array $params): array;
 
     /**
+     * 
+     * @param string $bqId
+     * @param array $invoice
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function fillInvoice(string $bqId, array $invoice): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      bq_id:string,
+     *      signature:string,
+     *      safety_statement:array
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function fillSafetyStatement(array $params): array;
+
+    /**
      *
      * @param string $startDate
      * @param string $endDate
@@ -217,6 +297,34 @@ interface SrInterface {
      * }
      */
     public function bqExport(string $startDate, string $endDate): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      srId:string,
+     *      bqId:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBqPdfList(array $params): array;
+
+    /**
+     * 
+     * @param int $bqConfirmedId
+     * @param int $type
+     */
+    public function openPdf(int $bqConfirmedId, int $type);
 
     /**
      *
@@ -320,6 +428,28 @@ interface SrInterface {
     public function pushNotification(array $params): array;
 
     /**
+     * 
+     * @param array $params
+     * @example:{
+     *      serial_no:string,
+     *      service_request_id:string,
+     *      header_status:string,
+     *      msg_type:int 0-仅文本 1-快递单号 2-pdf 3-视频,
+     *      msg_extra:string
+     *      msg_body:string
+     *      msg_note:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function pushSendToRepair(array $params): array;
+
+    /**
      *
      * @param string $startDate
      * @param string $endDate
@@ -345,4 +475,89 @@ interface SrInterface {
      * }
      */
     public function getLastSrInfoByContactId(string $contactId): array;
+
+    /**
+     * 
+     * @param string $mailNo
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getTracking(string $mailNo): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getStrFiles(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getStrFilesByIds(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getStrFileContent(int $id): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createStrFiles(array $params): array;
+
+    /**
+     *
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteStrFile(int $id): array;
+
+    /**
+     * 
+     * @param string $bqId
+     * @return array
+     */
+    public function getAttachments(string $bqId): array;
 }
