@@ -142,7 +142,16 @@ class KinesisHandler extends AbstractProcessingHandler
             $record['datetime'] = $record['datetime']->format('Y-m-d H:i:s.u');
         }
 
+        $record["memory"]=memory_get_usage();
         $record["params"]=\GuzzleHttp\json_encode($record["params"]);
+        //太大参数，影响性能，暂不记录
+        if(strlen($record["params"])>1000){
+            $params = [
+                'query' => [],
+            ];
+            context()->set('params', $params);
+        }
+
 
         return JsonHelper::encode($record, JSON_UNESCAPED_UNICODE);
     }

@@ -42,6 +42,7 @@ class AwsSqs
      */
     public function create($self_service_name,$service_name,$event_type){
         $queueName=config("aws.name").$self_service_name."_".$service_name."_".$event_type;
+        $queueName=str_replace("service_","-",$queueName);
         $topicName=config("aws.name").$service_name;
         CLog::info("queueName=$queueName");
 

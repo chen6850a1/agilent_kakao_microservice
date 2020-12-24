@@ -110,4 +110,311 @@ interface InstrumentInterface {
      * ]
      */
     public function countMyInstrument(): array;
+
+
+    /**
+     * 创建仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function createInsGroup(array $data): array;
+
+    /**
+     * 编辑仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function editInsGroup(array $data): array;
+
+    /**
+     * 显示仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsGroup(): array;
+
+    /**
+     * 带仪器数量显示仪器组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsGroupWithInsNum(): array;
+
+    /**
+     * 设置仪器进组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function setInsGroup(array $data): array;
+
+    /**
+     * 设置仪器的
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getInsGroupDetail(array $data):array;
+
+
+    /**
+     * 创建仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function createInsLabel(array $data): array;
+
+    /**
+     * 编辑仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     * ]
+     */
+    public function editInsLabel(array $data): array;
+
+    /**
+     * 删除仪器label
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     * ]
+     */
+    public function delInsLabel(array $data): array;
+
+    /**
+     * 显示仪器标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function showInsLabel(): array;
+
+    /**
+     * 给仪器添加标签
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function setInsLabel(array $data): array;
+
+
+    /**
+     * 获取送修的产品id列
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getRepairProductIdList():array;
+
+    /**
+     * 获取送修机器的列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getRepairList(array $data):array;
+
+    /**
+     * 添加送修
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairAdd(array $data):array;
+
+
+    /**
+     * 编辑送修仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairEdit(array $data):array;
+
+
+    /**
+     * 删除送修仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairDel(array $data):array;
+
+    /**
+     * 检测产品ID是否已存在
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function repairlIsExistProjectId(array $data):array;
+
+
+    /**
+     * agl仪器导入
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function aglExcelImport(array $data):array;
+
+    /**
+     * agl仪器导入
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getAglList(array $data):array;
+
+
+    /**
+     * agl仪器导入
+     *
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getAglInfoByAglSn(string $sn):array;
+
+    /**
+     * 通过uid和序列号获取用户序列号信息
+     * @param array $data
+     * @example {
+     *      sn:XXXX,
+     *      uid:XXXX
+     * ]
+     * @return array
+     */
+    public function getSnDetailBySnUid(array $data):array;
+
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSecondHandList(array $data):array;
+
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandEdit(array $data):array;
+
+    /**
+     * 获取二手仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandDel(array $data):array;
+
+
+    /**
+     * 导入二手仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function secondHandExcelImport(array $data):array;
+
+    /**
+     * 导入二手仪器
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function instumentExport(array $data):array;
+
+    /**
+     * 根据用户uid获取最后一个序列号详情
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getLastSnDetailByUid(int $uid):array;
+
 }

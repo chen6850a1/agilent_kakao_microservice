@@ -2,15 +2,20 @@
 
 namespace Cts\Common;
 
-use Cts\Common\Lib\ArticleInterface;
+use Cts\Common\Lib\DirectionalPushInterface;
+use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
+use Cts\Common\Lib\PurchaseInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
 use Cts\Common\Lib\SrInterface;
+use Cts\Common\Lib\NotificationInterface;
 use Cts\Common\Lib\ReservationInterface;
 use Cts\Common\Lib\SliderInterface;
+use Cts\Common\Lib\LabInterface;
+use Cts\Common\Lib\WechatInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -38,6 +43,13 @@ class RpcServerList {
     public $service_kakao;
 
     /**
+     * @Reference(pool="wechat.pool")
+     *
+     * @var WechatInterface
+     */
+    public $service_wechat;
+
+    /**
      * @Reference(pool="jitterbit.pool")
      *
      * @var JitterbitInterface
@@ -57,6 +69,13 @@ class RpcServerList {
      * @var SrInterface
      */
     public $service_sr;
+
+    /**
+     * @Reference(pool="notification.pool")
+     *
+     * @var NotificationInterface
+     */
+    public $service_notification;
 
     /**
      * @Reference(pool="reservation.pool")
@@ -82,8 +101,30 @@ class RpcServerList {
     /**
      * @Reference(pool="guide.pool")
      *
-     * @var ArticleInterface
+     * @var GuideInterface
      */
     public $service_guide;
+
+    /**
+     * @Reference(pool="lab.pool")
+     *
+     * @var LabInterface
+     */
+    public $service_lab;
+
+    /**
+     * @Reference(pool="purchase.pool")
+     *
+     * @var PurchaseInterface
+     */
+    public $service_purchase;
+
+    /**
+     * @Reference(pool="purchase.pool")
+     *
+     * @var DirectionalPushInterface
+     */
+    public $service_directionalpust;
+
 
 }

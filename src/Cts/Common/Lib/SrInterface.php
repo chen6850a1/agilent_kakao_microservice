@@ -16,7 +16,7 @@ interface SrInterface {
      * @example {
      *      ContactId:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -41,7 +41,7 @@ interface SrInterface {
      *      description:string
      *      notes:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -52,12 +52,26 @@ interface SrInterface {
     public function create(array $params): array;
 
     /**
+     *
+     * @param int $uid
+     * @param string $srId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserHistory(int $uid = 0, string $srId = ''): array;
+
+    /**
      * @param int $id
      * @param array $params
      * @example {
      *      serial_no:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -68,12 +82,12 @@ interface SrInterface {
     public function getHistory(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      keyword:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -84,12 +98,12 @@ interface SrInterface {
     public function historyFilter(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      SrId:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -100,13 +114,13 @@ interface SrInterface {
     public function historyDetails(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      survey_id:string,
      *      service_request_id:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -117,12 +131,12 @@ interface SrInterface {
     public function getSurvey(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      d:{}
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -133,13 +147,27 @@ interface SrInterface {
     public function submitSurvey(array $params): array;
 
     /**
-     * 
+     *
+     * @param string $startDate
+     * @param string $endDate
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function surveyExport(string $startDate, string $endDate): array;
+
+    /**
+     *
      * @param array $params
      * @example {
      *      service_request_id:string,
      *      object_id:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -150,23 +178,23 @@ interface SrInterface {
     public function getBqInfo(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      object_id:string
      * }
-     * 
+     *
      * @return string pdf
      */
     public function getBqPdf(array $params);
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      bq_id:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -177,7 +205,21 @@ interface SrInterface {
     public function bqConfirm(array $params): array;
 
     /**
-     * 
+     *
+     * @param string $startDate
+     * @param string $endDate
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function bqExport(string $startDate, string $endDate): array;
+
+    /**
+     *
      * @param int $notificationId
      * @return array
      * @example {
@@ -189,7 +231,7 @@ interface SrInterface {
     public function getIframeDataByNotificationId($notificationId): array;
 
     /**
-     * 
+     *
      * @param string $srId
      * @return array
      * @example {
@@ -201,7 +243,36 @@ interface SrInterface {
     public function getIframeDataBySrId($srId): array;
 
     /**
-     * 
+     *
+     * @param string $headerStatus
+     * @param string $startDate
+     * @param string $endDate
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getByHeaderStatusAndTimeInterval(string $headerStatus, string $startDate, string $endDate): array;
+
+    /**
+     *
+     * @param string $srId
+     * @param string $headerStatus
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBySrIdAndHeaderStatus(string $srId, string $headerStatus): array;
+
+    /**
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -212,9 +283,33 @@ interface SrInterface {
     public function getLatestService(): array;
 
     /**
-     * 
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUnread(): array;
+
+    /**
+     *
+     * @param string $objectId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function checkIfSrClosedHasBeenPushed(string $objectId): array;
+
+    /**
+     *
      * @param array $params
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -223,4 +318,31 @@ interface SrInterface {
      * }
      */
     public function pushNotification(array $params): array;
+
+    /**
+     *
+     * @param string $startDate
+     * @param string $endDate
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function notificationExport(string $startDate, string $endDate, int $type): array;
+
+    /**
+     *
+     * @param string $contactId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getLastSrInfoByContactId(string $contactId): array;
 }

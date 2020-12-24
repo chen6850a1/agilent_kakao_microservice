@@ -48,15 +48,17 @@ class CacheRepository
         }
     }
 
-    public function save($cache_id,$expirt_time=self::EXPIRE_TIME){
+    public function save($cache_id="",$expirt_time=self::EXPIRE_TIME){
         $this->redis->set($this->cache_key.$cache_id,ArrayHelper::toArray($this),$expirt_time);
     }
 
-    public function load($cache_id){
+    public function load($cache_id=""){
         $cacheData=$this->redis->get($this->cache_key.$cache_id);
         if($cacheData){
             $this->setAttr($cacheData);
+            return true;
         }
+        return false;
     }
 
     public function clear($cache_id){
