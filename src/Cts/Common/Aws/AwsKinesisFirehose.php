@@ -51,7 +51,8 @@ class AwsKinesisFirehose
             if(strlen($content)<5000){
                 CLog::info($content);
             }else{
-                CLog::info("日志内容过多，应性能暂不保存");
+                $traceid=context()->get('traceid',"");
+                CLog::info("日志内容过多，应性能暂不保存:".$traceid);
             }
 
         }
