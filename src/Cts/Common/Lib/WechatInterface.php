@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * This file is part of Swoft.
  *
@@ -15,8 +17,8 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface
-{
+interface WechatInterface {
+
     /**
      * 获取微信用户信息
      * @param array $wechatData
@@ -32,7 +34,6 @@ interface WechatInterface
      */
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
-
     /**
      * 获取微信用户信息
      * @param array $wechatData
@@ -47,7 +48,6 @@ interface WechatInterface
      * }
      */
     public function getUserInfoWithH5Code(array $wechatData): array;
-
 
     /**
      * 生成二维码
@@ -65,7 +65,6 @@ interface WechatInterface
      * }
      */
     public function genCodeImg(array $wechatData): array;
-
 
     /**
      * 生成二维码
@@ -101,7 +100,6 @@ interface WechatInterface
      */
     public function pushMessage(array $params): array;
 
-
     /**
      * 获取全局会话组
      *
@@ -111,7 +109,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotIframeData(array $params):array;
+    public function getSobotIframeData(array $params): array;
 
     /**
      * 匹配序列号返回聊天组
@@ -122,19 +120,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getGroupMatchSerialNo(array $params):array;
-
-
-    /**
-     * 获取全局会话组
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:XXXX
-     * ]
-     */
-    public function getSobotTicketIframeData(array $params):array;
+    public function getGroupMatchSerialNo(array $params): array;
 
     /**
      * 获取全局会话组
@@ -145,7 +131,18 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotGlobalGroup():array;
+    public function getSobotTicketIframeData(array $params): array;
+
+    /**
+     * 获取全局会话组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSobotGlobalGroup(): array;
 
     /**
      * 保存备注
@@ -157,7 +154,6 @@ interface WechatInterface
      * ]
      */
     public function saveSobotNote(array $params): array;
-
 
     /**
      * 保存聊天组提交的信息
@@ -223,5 +219,25 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function saveLeaveMsg(array $params):array;
+    public function saveLeaveMsg(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example ['total_fee' => float]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          appId: string,
+     *          timeStamp: int,
+     *          nonceStr: string,
+     *          package: string,
+     *          signType: string,
+     *          paySign: string
+     *      }
+     * }
+     */
+    public function wechatPay(array $params): array;
 }
