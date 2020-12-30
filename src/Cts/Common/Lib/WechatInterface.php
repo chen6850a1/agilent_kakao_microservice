@@ -240,4 +240,59 @@ interface WechatInterface {
      * }
      */
     public function wechatPay(array $params): array;
+
+    /**
+     * 
+     * @param int $start
+     * @param int $limit
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "name": "测试elearning",
+     *          "cover_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0Aam4uqtszDV3NBnibfarZ6GZy5Y1DPmBEfq7PcOKvUq1mqibBEqYTgXAUA/0",
+     *          "start_time": 1608798988,
+     *          "end_time": 1608800200,
+     *          "anchor_name": "sunny",
+     *          "roomid": 1,
+     *          "goods": [],
+     *          "live_status": 103,
+     *          "share_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0AaEibOGDLvRgCOLoUcZEoxoibAq1SDJxEX3FyphicKIcqONDqyn6nIfryxw/0",
+     *          "live_type": 0,
+     *          "close_like": 0,
+     *          "close_goods": 0,
+     *          "close_comment": 0,
+     *          "close_kf": 0,
+     *          "close_replay": 1,
+     *          "is_feeds_public": 1,
+     *          "creater_openid": "oX9MCcQDfvtYA8nYxQzTCApDQvQQ",
+     *          "feeds_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0Aadq6HAWNpd0ekFEjZvVYY929LM6OicFHzXuoxnyIoBBceBo3hITv2UAw/0"
+     *      }]
+     * }
+     */
+    public function getRoomList(int $start = 0, int $limit = 10): array;
+
+    /**
+     * 
+     * @param int $roomId
+     * @param int $start
+     * @param int $limit
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "create_time": "2020-12-24T09:06:42Z",
+     *          "expire_time": "2021-12-24T09:06:42Z",
+     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/f3ed75185285890811744904789/playlist_eof.m3u8"
+     *      },
+     *      {
+     *          "create_time": "2020-12-24T08:56:43Z",
+     *          "expire_time": "2021-12-24T08:56:43Z",
+     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/3813d28f5285890811745578160/f0.mp4"
+     *      }]
+     * }
+     */
+    public function getReplay(int $roomId = 0, int $start = 0, int $limit = 10): array;
 }
