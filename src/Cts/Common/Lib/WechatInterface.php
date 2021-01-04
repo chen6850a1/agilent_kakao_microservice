@@ -243,10 +243,10 @@ interface WechatInterface {
 
     /**
      * 
-     * @param string $input
+     * @param array $input
      * @return array
      */
-    public function notify(string $input): array;
+    public function notify(array $input): array;
 
     /**
      * 
