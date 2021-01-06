@@ -307,24 +307,7 @@ interface WechatInterface {
     /**
      * 创建直播间
      *
-     * @param string $name
-     * @param string $coverImg
-     * @param int $startTime
-     * @param int $endTime
-     * @param string $anchorName
-     * @param string $anchorWechat
-     * @param string $subAnchorWechat
-     * @param string $createrWechat
-     * @param string $shareImg
-     * @param string $feedsImg
-     * @param int $isFeedsPublic
-     * @param int $type
-     * @param int $closeLike
-     * @param int $closeGoods
-     * @param int $closeComment
-     * @param int $closeReplay
-     * @param int $closeShare
-     * @param int $closeKf
+     * @param array $params
      * @return array
      *
      * @example {
@@ -336,7 +319,7 @@ interface WechatInterface {
      *          }
      *      ]
      */
-    public function createRoom(string $name, string $coverImg, int $startTime, int $endTime, string $anchorName, string $anchorWechat, string $subAnchorWechat, string $createrWechat, string $shareImg, string $feedsImg, int $isFeedsPublic, int $type, int $closeLike, int $closeGoods, int $closeComment, int $closeReplay, int $closeShare, int $closeKf): array;
+    public function createRoom(array $params): array;
 
 
 }
