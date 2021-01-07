@@ -17,15 +17,16 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface {
+interface WechatInterface
+{
 
     /**
      * 获取微信用户信息
      * @param array $wechatData
+     * @return array
      * @example:{
      *      code:string
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -37,10 +38,10 @@ interface WechatInterface {
     /**
      * 获取微信用户信息
      * @param array $wechatData
+     * @return array
      * @example:{
      *      code:string
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -52,12 +53,12 @@ interface WechatInterface {
     /**
      * 生成二维码
      * @param array $wechatData
+     * @return array
      * @example:{
      *      url:string,
      *      sences:string,
      *      width:int
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -69,10 +70,10 @@ interface WechatInterface {
     /**
      * 生成二维码
      * @param array $params
+     * @return array
      * @example:{
      *      type:h5|mini,
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -84,6 +85,7 @@ interface WechatInterface {
     /**
      * 推送消息
      * @param array $params
+     * @return array
      * @example:{
      *      uid:XXXX,
      *      template:XXXX,
@@ -91,7 +93,6 @@ interface WechatInterface {
      *      params:["first"=>XXX,"keyword1"=>XXXX,"keyword2"=>XXXX],
      *      miniapp_url:XXXXXX,
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -222,11 +223,11 @@ interface WechatInterface {
     public function saveLeaveMsg(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
-     * @example ['total_fee' => float]
-     * 
      * @return array
+     * @example ['total_fee' => float]
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -242,17 +243,17 @@ interface WechatInterface {
     public function wechatPay(array $params): array;
 
     /**
-     * 
+     *
      * @param array $input
      * @return array
      */
     public function notify(array $input): array;
 
     /**
-     * 
+     *
      * @param int $start
      * @param int $limit
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -281,11 +282,11 @@ interface WechatInterface {
     public function getRoomList(int $start = 0, int $limit = 10): array;
 
     /**
-     * 
+     *
      * @param int $roomId
      * @param int $start
      * @param int $limit
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -304,27 +305,43 @@ interface WechatInterface {
     public function getReplay(int $roomId = 0, int $start = 0, int $limit = 10): array;
 
     /**
-     * 
+     *
      * @param array $params
-     * @example [
-     * 
-     * ]
-     * 
      * @return array
      * @example {
+     *    "name":"",
+     *    "coverImg":"",
+     *    "startTime":1,
+     *    "endTime":1,
+     *    "anchorName":"",
+     *    "anchorWechat":"",
+     *    "subAnchorWechat":"",
+     *    "createrWechat":"",
+     *    "shareImg":"",
+     *    "feedsImg":"",
+     *    "isFeedsPublic":0,
+     *    "type":0,
+     *    "closeLike":0,
+     *    "closeGoods":0,
+     *    "closeComment":0,
+     *    "closeReplay":0,
+     *    "closeShare":0,
+     *    "closeKf":0
+     *  }
+     *
+     * @example {
      *      status:true,
-     *      data:[{
+     *      data:{
      *          "roomId": 33,
-     *          "errcode": 0,
      *          "qrcode_url": "https://res.wx.qq.com/op_res/9rSix1dhHfK4rR049JL0PHJ7TpOvkuZ3mE0z7Ou_Etvjf-w1J_jVX0rZqeStLfwh"
      *          }
-     *      ]
      */
     public function createRoom(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'media_id' => '',
      *      'name' => '',
@@ -334,8 +351,7 @@ interface WechatInterface {
      *      'url' => '',
      *      'third_patry_appid' => ''
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -346,8 +362,9 @@ interface WechatInterface {
     public function goodsAddToStore(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'media_id' => '',
      *      'name' => '',
@@ -357,8 +374,7 @@ interface WechatInterface {
      *      'url' => '',
      *      'third_patry_appid' => ''
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -370,11 +386,11 @@ interface WechatInterface {
     public function goodsAdd(array $params): array;
 
     /**
-     * 
+     *
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
