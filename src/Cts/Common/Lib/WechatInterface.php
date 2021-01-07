@@ -307,6 +307,25 @@ interface WechatInterface {
      * 
      * @param array $params
      * @example [
+     * 
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "roomId": 33,
+     *          "errcode": 0,
+     *          "qrcode_url": "https://res.wx.qq.com/op_res/9rSix1dhHfK4rR049JL0PHJ7TpOvkuZ3mE0z7Ou_Etvjf-w1J_jVX0rZqeStLfwh"
+     *          }
+     *      ]
+     */
+    public function createRoom(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
      *      'media_id' => '',
      *      'name' => '',
      *      'price_type' => '',
