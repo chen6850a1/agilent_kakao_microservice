@@ -302,4 +302,67 @@ interface WechatInterface {
      * }
      */
     public function getReplay(int $roomId = 0, int $start = 0, int $limit = 10): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'media_id' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1
+     *      }
+     * }
+     */
+    public function goodsAddToStore(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'media_id' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1,
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAdd(array $params): array;
+
+    /**
+     * 
+     * @param string $type
+     * @param string $tempPath
+     * @param string $fileName
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "media_id": ''
+     *      }
+     * }
+     */
+    public function mediaUpload(string $type, string $tempPath, string $fileName): array;
 }
