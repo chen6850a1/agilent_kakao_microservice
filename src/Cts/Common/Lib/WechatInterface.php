@@ -343,7 +343,7 @@ interface WechatInterface {
      * 
      * @param array $params
      * @example [
-     *      'media_id' => '',
+     *      'cover_img_url' => '',
      *      'name' => '',
      *      'price_type' => '',
      *      'price' => 0,
@@ -366,7 +366,7 @@ interface WechatInterface {
      * 
      * @param array $params
      * @example [
-     *      'media_id' => '',
+     *      'cover_img_url' => '',
      *      'name' => '',
      *      'price_type' => '',
      *      'price' => 0,
@@ -433,6 +433,28 @@ interface WechatInterface {
      * }
      */
     public function goodsDelete(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1,
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsUpdate(array $params): array;
 
     /**
      * 
