@@ -404,6 +404,23 @@ interface WechatInterface {
 
     /**
      * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAudit(array $params): array;
+
+    /**
+     * 
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
