@@ -421,6 +421,21 @@ interface WechatInterface {
 
     /**
      * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsDelete(array $params): array;
+
+    /**
+     * 
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
