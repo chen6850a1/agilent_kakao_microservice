@@ -473,6 +473,26 @@ interface WechatInterface {
 
     /**
      * 
+     * @param array $params
+     * @example [
+     *      'offset' => 0,
+     *      'limit' => 30,
+     *      'audit_status' => 0
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total": 1
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getApprovedGoods(array $params): array;
+
+    /**
+     * 
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
