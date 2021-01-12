@@ -307,24 +307,24 @@ interface WechatInterface {
      * 
      * @param array $params
      * @example [
-     *    "name":"",
-     *    "coverImg":"",
-     *    "startTime":1,
-     *    "endTime":1,
-     *    "anchorName":"",
-     *    "anchorWechat":"",
-     *    "subAnchorWechat":"",
-     *    "createrWechat":"",
-     *    "shareImg":"",
-     *    "feedsImg":"",
-     *    "isFeedsPublic":0,
-     *    "type":0,
-     *    "closeLike":0,
-     *    "closeGoods":0,
-     *    "closeComment":0,
-     *    "closeReplay":0,
-     *    "closeShare":0,
-     *    "closeKf":0
+     *    "name" => "",
+     *    "coverImg" => "",
+     *    "startTime" => 1,
+     *    "endTime" => 1,
+     *    "anchorName" => "",
+     *    "anchorWechat" => "",
+     *    "subAnchorWechat" => "",
+     *    "createrWechat" => "",
+     *    "shareImg" => "",
+     *    "feedsImg" => "",
+     *    "isFeedsPublic" => 0,
+     *    "type" => 0,
+     *    "closeLike" => 0,
+     *    "closeGoods" => 0,
+     *    "closeComment" => 0,
+     *    "closeReplay" => 0,
+     *    "closeShare" => 0,
+     *    "closeKf" => 0
      * ]
      * 
      * @return array
@@ -354,6 +354,35 @@ interface WechatInterface {
      *
      * */
     public function deleteRoom(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *    "id" => 23
+     *    "name" => "",
+     *    "coverImg" => "",
+     *    "startTime" => 1,
+     *    "endTime" => 1,
+     *    "anchorName" => "",
+     *    "anchorWechat" => "",
+     *    "shareImg" => "",
+     *    "feedsImg" => "",
+     *    "isFeedsPublic" => 0,
+     *    "closeLike" => 0,
+     *    "closeGoods" => 0,
+     *    "closeComment" => 0,
+     *    "closeReplay" => 0,
+     *    "closeShare" => 0,
+     *    "closeKf" => 0
+     *  ]
+     *
+     * @return array
+     * @example [
+     *      status:true,
+     *      data:{}
+     *  ]
+     * */
+    public function editRoom(array $params):array;
 
     /**
      * 
