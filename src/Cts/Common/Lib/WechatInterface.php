@@ -458,6 +458,21 @@ interface WechatInterface {
 
     /**
      * 
+     * @param array $goodsIds
+     * @example [1,2,3...]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getGoodsWarehouse(array $goodsIds): array;
+
+    /**
+     * 
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
