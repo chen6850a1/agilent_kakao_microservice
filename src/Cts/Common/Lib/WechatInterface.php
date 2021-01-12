@@ -340,6 +340,22 @@ interface WechatInterface {
     public function createRoom(array $params): array;
 
     /**
+     * @param array $params
+     * @example [
+     *      "id":=>62
+     *  ]
+     *
+     * @return array
+     * @example [
+     *      status:true,
+     *      data:{}
+     *  ]
+     *
+     *
+     * */
+    public function deleteRoom(array $params):array;
+
+    /**
      * 
      * @param array $params
      * @example [
