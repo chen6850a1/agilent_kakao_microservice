@@ -344,7 +344,7 @@ interface WechatInterface {
      * @example [
      *      "id":=>62
      *  ]
-     *
+     * 
      * @return array
      * @example [
      *      status:true,
@@ -353,7 +353,7 @@ interface WechatInterface {
      *
      *
      * */
-    public function deleteRoom(array $params):array;
+    public function deleteRoom(array $params): array;
 
     /**
      * 
@@ -506,6 +506,25 @@ interface WechatInterface {
      * }
      */
     public function getApprovedGoods(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'limit' => 200,
+     *      'page_break' => 0
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "page_break": 0
+     *          "subscribers": []
+     *      }
+     * }
+     */
+    public function getSubscribers(array $params): array;
 
     /**
      * 
