@@ -382,7 +382,7 @@ interface WechatInterface {
      *      data:{}
      *  ]
      * */
-    public function editRoom(array $params):array;
+    public function editRoom(array $params): array;
 
     /**
      * @param array $params
@@ -398,7 +398,7 @@ interface WechatInterface {
      *      }
      *  }
      * */
-    public function getPushUrl(array $params):array;
+    public function getPushUrl(array $params): array;
 
     /**
      * 
@@ -570,6 +570,24 @@ interface WechatInterface {
      * }
      */
     public function getSubscribers(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'user_openid' => ['a','b']
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     */
+    public function subscribedPushMessage(array $params): array;
 
     /**
      * 
