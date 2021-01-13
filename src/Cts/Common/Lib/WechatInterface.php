@@ -385,6 +385,22 @@ interface WechatInterface {
     public function editRoom(array $params):array;
 
     /**
+     * @param array $params
+     * @example [
+     *      "roomId" => 62
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "pushAddr": "rtmp://wxalivepush.weixin.qq.com/live/wx40f8626ddf43d362-6209?txSecret=5da4f0b7b7a6c25b238311de8c81a65a&txTime=5fc4f631"
+     *      }
+     *  }
+     * */
+    public function getPushUrl(array $params):array;
+
+    /**
      * 
      * @param array $params
      * @example [
