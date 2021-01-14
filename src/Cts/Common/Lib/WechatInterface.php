@@ -400,6 +400,23 @@ interface WechatInterface {
      * */
     public function getPushUrl(array $params): array;
 
+
+    /**
+     * @param array $params
+     * @example [
+     *      "ids" => [1150,1111],
+     *      "roomId" => 15
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[]
+     *  }
+     * */
+    public function roomAddGoods(array $params):array;
+
+
     /**
      * 
      * @param array $params
