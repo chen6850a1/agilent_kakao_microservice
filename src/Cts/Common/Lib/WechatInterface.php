@@ -418,6 +418,26 @@ interface WechatInterface {
 
 
     /**
+     * @param array $params
+     * @example [
+     *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
+     *      "roomId" => 15
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[
+     *          "cdnUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/FVribAGdErI2jhO1hbzVDH1E5LW7VQ9D1SIvTLFmyYwkIUucJqE72icgAj6NYw92kbJRNV0zwnGZWaO0Y8T0vqlg/0", // 分享二维码
+     *          "pagePath": "plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=6209", // 分享路径
+     *          "posterUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/dlFudV139LtQn96YNHSGtVfcUkUwQaYeR5OiaJ6bPr7OZxy3yhIK3icjxop0QeRBiaDPiaxuzENtCj15zFIM8sh7ag/0", // 分享海报
+     *      ]
+     *  }
+     * */
+    public function getSharedCode(array $params):array;
+
+
+    /**
      * 
      * @param array $params
      * @example [
