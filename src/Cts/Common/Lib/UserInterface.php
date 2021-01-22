@@ -863,4 +863,85 @@ interface UserInterface {
      * }
      */
     public function deleteInvoice(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      status:string|int,
+     *      responseFormat:string eg. csv|json
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRplList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRpl(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      AccountId:string,
+     *      AccountName:string,
+     *      status:int,
+     *      remark:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function createRpl(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example:{
+     *      status:int,
+     *      remark:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateRpl(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $excelData
+     * @return array
+     */
+    public function import(array $excelData): array;
+
+    /**
+     * 
+     * @return array []
+     */
+    public function export(): array;
 }
