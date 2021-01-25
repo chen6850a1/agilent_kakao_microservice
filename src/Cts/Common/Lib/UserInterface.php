@@ -896,6 +896,22 @@ interface UserInterface {
      * }
      */
     public function getRpl(int $id): array;
+    
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      AccountId:string,
+     *      AccountName:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:['rpl_check' => bool]
+     * }
+     */
+    public function rplCheck(array $params): array;
 
     /**
      * 
