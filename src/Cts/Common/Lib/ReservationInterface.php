@@ -158,7 +158,7 @@ interface ReservationInterface {
      *
      * @return array
      */
-    public function edit(int $id, array $params): array;
+    public function edit(int $id): array;
 
     /**
      * 取消服务预约
