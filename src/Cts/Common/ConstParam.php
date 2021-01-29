@@ -50,6 +50,7 @@ class ConstParam {
     const SERVICE_WECHAT = "service_wechat";
     //推送模板
     const WECHAT_PUSH_TEMPLATE_INFOSETUP = "infoSetup";
+    const WECHAT_PUSH_TEMPLATE_INFOSETUP_COMPLETE = "infoSetupComplete";
     const WECHAT_PUSH_TEMPLATE_LEAVEMESSAGE = "leaveMessage";
     const WECHAT_PUSH_TEMPLATE_INSTALL = "install";
     const WECHAT_PUSH_TEMPLATE_LEGALCERTIFICATION = "legalCertification";
