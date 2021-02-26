@@ -60,7 +60,7 @@ class AwsS3 {
         $objects = $this->client->listObjectsV2([
             'Bucket' => $this->bucketName
         ]);
-        return $objects;
+        return $objects->toArray();
     }
 
     public function deleteObject($fileName) {
