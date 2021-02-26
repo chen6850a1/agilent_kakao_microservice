@@ -57,7 +57,7 @@ class AwsS3 {
     }
 
     public function listObjects() {
-        $objects = $this->client->listObjects([
+        $objects = $this->client->listObjectsV2([
             'Bucket' => $this->bucketName
         ]);
         return $objects;
