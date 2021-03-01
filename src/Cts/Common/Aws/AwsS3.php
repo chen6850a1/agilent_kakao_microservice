@@ -57,12 +57,13 @@ class AwsS3 {
         return $this->domainName . "/" . self::UPLOAD_DIR;
     }
 
-    public function listObjects($prefix) {
+    public function listObjects($maxKeys = 1000, $prefix = '') {
         $objects = [];
         $startAfter = '';
         do {
             $xmlResponse = $this->client->listObjectsV2([
                 'Bucket' => $this->bucketName,
+                'MaxKeys' => $maxKeys,
                 'Prefix' => $prefix,
                 'StartAfter' => $startAfter
             ]);
