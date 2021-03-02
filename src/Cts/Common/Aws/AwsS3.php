@@ -90,7 +90,7 @@ class AwsS3 {
     public function deleteObject($fileName) {
         $result = $this->client->deleteObject([
             'Bucket' => $this->bucketName,
-            'Key' => self::UPLOAD_DIR . $fileName,
+            'Key' => $fileName
         ]);
         return $result;
     }
