@@ -490,6 +490,12 @@ interface SrInterface {
     public function getTracking(string $mailNo): array;
 
     /**
+     * 
+     * @return array
+     */
+    public function syncStrFiles(): array;
+
+    /**
      *
      * @param array $params
      *
