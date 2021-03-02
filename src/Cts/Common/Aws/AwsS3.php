@@ -64,7 +64,7 @@ class AwsS3 {
             $xmlResponse = $this->client->listObjectsV2([
                 'Bucket' => $this->bucketName,
                 'MaxKeys' => $maxKeys,
-                'Prefix' => $prefix,
+                'Prefix' => self::UPLOAD_DIR . $prefix,
                 'StartAfter' => $startAfter
             ]);
             $result = $xmlResponse->toArray();
@@ -87,11 +87,20 @@ class AwsS3 {
         return $objects;
     }
 
+    public function getObject($fileName) {
+        $result = $this->client->getObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => self::UPLOAD_DIR . $fileName
+                ])->toArray();
+        $content = ArrayHelper::get($result, 'Body', '');
+        return $content;
+    }
+
     public function deleteObject($fileName) {
         $result = $this->client->deleteObject([
-            'Bucket' => $this->bucketName,
-            'Key' => $fileName
-        ]);
+                    'Bucket' => $this->bucketName,
+                    'Key' => self::UPLOAD_DIR . $fileName
+                ])->toArray();
         return $result;
     }
 

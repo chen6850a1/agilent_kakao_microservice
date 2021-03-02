@@ -549,10 +549,7 @@ interface SrInterface {
 
     /**
      *
-     * @param array $params
-     * @example {
-     *      file_name:string
-     * }
+     * @param int $id
      *
      * @return array
      * @example {
@@ -561,7 +558,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function deleteStrFile(array $params): array;
+    public function deleteStrFile(int $id): array;
 
     /**
      * 
