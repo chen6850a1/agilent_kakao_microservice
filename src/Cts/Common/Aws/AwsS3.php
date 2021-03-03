@@ -6,6 +6,8 @@ use Aws\S3\S3Client;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Log\Helper\Log;
 use Swoft\Stdlib\Helper\ArrayHelper;
+use Swoft\Bean\BeanFactory;
+use Swoft\Co;
 
 /**
  * Aws S3 helper
@@ -19,8 +21,7 @@ class AwsS3 {
     private $client;
     private $bucketName;
     private $domainName;
-
-    const UPLOAD_DIR = "web/upload_file/";
+    public $uploadDir = 'web/upload_file/';
 
     public function __construct() {
         $this->client = new S3Client([
@@ -31,12 +32,19 @@ class AwsS3 {
         $this->domainName = config("aws.s3_domain");
     }
 
+    public static function new(string $uploadDir = ''): self {
+        /** @var AwsS3 $awsS3 */
+        $awsS3 = BeanFactory::getRequestBean("AwsS3", (string) Co::tid());
+        $awsS3->uploadDir = !empty($uploadDir) ? $uploadDir : 'web/upload_file/';
+        return $awsS3;
+    }
+
     public function upoloadFile($fileName, $url, $content_type = "application/octet-stream") {
         Log::info($fileName);
         Log::info($url);
         $result = $this->client->putObject([
             'Bucket' => $this->bucketName,
-            'Key' => self::UPLOAD_DIR . $fileName,
+            'Key' => $this->uploadDir . $fileName,
             'ContentType' => $content_type,
             'SourceFile' => $url
         ]);
@@ -47,14 +55,14 @@ class AwsS3 {
     public function upoloadFileByData($fileName, $data) {
         $this->client->putObject([
             'Bucket' => $this->bucketName,
-            'Key' => self::UPLOAD_DIR . $fileName,
+            'Key' => $this->uploadDir . $fileName,
             'Body' => $data
         ]);
         return $this->getDomainUrl() . $fileName;
     }
 
     public function getDomainUrl() {
-        return $this->domainName . "/" . self::UPLOAD_DIR;
+        return $this->domainName . "/" . $this->uploadDir;
     }
 
     public function listObjects($maxKeys = 1000, $prefix = '') {
@@ -64,7 +72,7 @@ class AwsS3 {
             $xmlResponse = $this->client->listObjectsV2([
                 'Bucket' => $this->bucketName,
                 'MaxKeys' => $maxKeys,
-                'Prefix' => self::UPLOAD_DIR . $prefix,
+                'Prefix' => $this->uploadDir . $prefix,
                 'StartAfter' => $startAfter
             ]);
             $result = $xmlResponse->toArray();
@@ -90,7 +98,7 @@ class AwsS3 {
     public function getObject($fileName) {
         $result = $this->client->getObject([
                     'Bucket' => $this->bucketName,
-                    'Key' => self::UPLOAD_DIR . $fileName
+                    'Key' => $this->uploadDir . $fileName
                 ])->toArray();
         $content = ArrayHelper::get($result, 'Body', '');
         return $content;
@@ -99,7 +107,7 @@ class AwsS3 {
     public function deleteObject($fileName) {
         $result = $this->client->deleteObject([
                     'Bucket' => $this->bucketName,
-                    'Key' => self::UPLOAD_DIR . $fileName
+                    'Key' => $this->uploadDir . $fileName
                 ])->toArray();
         return $result;
     }
