@@ -863,4 +863,12 @@ interface UserInterface {
      * }
      */
     public function deleteInvoice(int $id): array;
+
+    /**
+     * 导入装机ka数据
+     * @param int $type
+     * @param array $data
+     * @return array
+     */
+    public function importKaInsSales(int $type, array $data): array;
 }
