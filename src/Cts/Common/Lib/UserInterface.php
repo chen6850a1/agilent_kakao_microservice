@@ -871,4 +871,11 @@ interface UserInterface {
      * @return array
      */
     public function importKaInsSales(int $type, array $data): array;
+
+    /**
+     * 获取装机和ka的数据
+     * @param string $accountId
+     * @return array
+     */
+    public function getKaInsInfo(string $accountId): array;
 }
