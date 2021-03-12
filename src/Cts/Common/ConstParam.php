@@ -71,5 +71,7 @@ class ConstParam {
     const DP_TYPE_DELIVER = 'Deliver';
     const DP_TYPE_AUTO_PUSH = 'AutoPush';
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
+    //RTA上传S3目录
+    const RTA_UPLOAD_DIR = 'web/RTA/';
 
 }
