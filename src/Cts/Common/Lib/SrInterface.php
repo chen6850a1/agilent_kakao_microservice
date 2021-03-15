@@ -496,6 +496,13 @@ interface SrInterface {
     public function syncStrFiles(): array;
 
     /**
+     * 
+     * @param string $bqId
+     * @return array
+     */
+    public function updateTriggerResend(string $bqId): array;
+
+    /**
      *
      * @param array $params
      *
