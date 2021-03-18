@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Cts\Common\Lib;
 
+use http\Env\Response;
+
 /**
  * Class AdminUserInterface
  *
@@ -12,13 +14,13 @@ namespace Cts\Common\Lib;
 interface AdminUserInterface {
 
     /**
-     * 
+     *
      * @param array $param
      * @example:{
-     *      account:string,
-     *      password:string
+     *      code:string,
+     *      code_verifier:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -28,13 +30,15 @@ interface AdminUserInterface {
      */
     public function login(array $param): array;
 
+    public function wechatLogin(array $param);
+    public function callBack(array $param);
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      password:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -45,14 +49,14 @@ interface AdminUserInterface {
     public function changePassword(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      page:string|int,
      *      pageSize:string|int,
      *      keyword:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -63,9 +67,9 @@ interface AdminUserInterface {
     public function getList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $uid
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -76,7 +80,7 @@ interface AdminUserInterface {
     public function get(int $uid): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -87,13 +91,13 @@ interface AdminUserInterface {
     public function getAuthority(): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      account:string,
      *      access:string eg.[1,4,8,11]
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -104,13 +108,13 @@ interface AdminUserInterface {
     public function create(array $params): array;
 
     /**
-     * 
+     *
      * @param int $uid
      * @param array $params
      * @example {
      *      access:string eg.[1,4,8,11]
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -121,9 +125,9 @@ interface AdminUserInterface {
     public function update(int $uid, array $params): array;
 
     /**
-     * 
+     *
      * @param int $uid
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -134,9 +138,9 @@ interface AdminUserInterface {
     public function reset(int $uid): array;
 
     /**
-     * 
+     *
      * @param int $uid
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -147,9 +151,9 @@ interface AdminUserInterface {
     public function delete(int $uid): array;
 
     /**
-     * 
+     *
      * @param int $uid
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -173,7 +177,7 @@ interface AdminUserInterface {
     public function getArrInfoByUid(array $uidArr): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      page:1,
@@ -182,7 +186,7 @@ interface AdminUserInterface {
      *      orderBy:created_at,
      *      direction:asc|desc,
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -193,9 +197,9 @@ interface AdminUserInterface {
     public function getEngineerApplicationList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -206,13 +210,13 @@ interface AdminUserInterface {
     public function getEngineerApplication(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      name:zhang san,
      *      account:mail address
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -223,9 +227,9 @@ interface AdminUserInterface {
     public function engineerApply(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -236,9 +240,9 @@ interface AdminUserInterface {
     public function engineerApprove(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -250,7 +254,7 @@ interface AdminUserInterface {
 
     /**
      * 检查微信用户是否为工程师
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
