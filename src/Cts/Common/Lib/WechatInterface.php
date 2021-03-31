@@ -224,4 +224,22 @@ interface WechatInterface
      * ]
      */
     public function saveLeaveMsg(array $params):array;
+
+
+    /**
+     * 获取微信scheme码
+     * @param $jumpWxa  ["path" => "/pages/index/index","query" => "a=1&b=2"]
+     * @param bool $isExpire 生成的scheme码类型，到期失效：true，永久有效：false。
+     * @param int $expireTime 到期失效的scheme码的失效时间，为Unix时间戳。生成的到期失效scheme码在该时间前有效。最长有效期为1年。生成到期失效的scheme时必填。
+     * @return array
+     *  @example {
+     *      status:true,
+     *      data:[
+    *           "errcode"=>  0,  //微信返回的状态码
+     *           "errmsg"=> "ok",  //微信返回的错误信息
+      *          "openlink"=> Scheme, //ticket码
+     *          ]
+     * ]
+     */
+    public function urlSchemeGenerate($jumpWxa,$isExpire = false,$expireTime = 0):array;
 }
