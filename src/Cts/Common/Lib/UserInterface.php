@@ -863,4 +863,33 @@ interface UserInterface {
      * }
      */
     public function deleteInvoice(int $id): array;
+
+    /**
+     * 导入装机ka数据
+     * @param int $type
+     * @param array $data
+     * @return array
+     */
+    public function importKaInsSales(int $type, array $data): array;
+
+    /**
+     * 获取装机和ka的数据
+     * @param string $accountId
+     * @return array
+     */
+    public function getKaInsInfo(string $accountId): array;
+
+    /**
+     * 导入工程师信息数据(姓名，姓名拼音，手机号，邮箱)
+     * @param array $excelData
+     * @return array
+     */
+    public function importEngineerInfo(array $excelData): array;
+
+    /**
+     * 通过工程师拼音获取中文名字和手机号信息
+     * @param string $pyName
+     * @return array
+     */
+    public function getEngineerInfoByPyName( string $pyName): array;
 }
