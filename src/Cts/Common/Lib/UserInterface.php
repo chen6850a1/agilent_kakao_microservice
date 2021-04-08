@@ -878,4 +878,18 @@ interface UserInterface {
      * @return array
      */
     public function getKaInsInfo(string $accountId): array;
+
+    /**
+     * 导入工程师信息数据(姓名，姓名拼音，手机号，邮箱)
+     * @param array $excelData
+     * @return array
+     */
+    public function importEngineerInfo(array $excelData): array;
+
+    /**
+     * 通过工程师拼音获取中文名字和手机号信息
+     * @param string $pyName
+     * @return array
+     */
+    public function getEngineerInfoByPyName( string $pyName): array;
 }
