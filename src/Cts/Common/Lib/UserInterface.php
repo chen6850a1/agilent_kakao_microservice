@@ -892,4 +892,12 @@ interface UserInterface {
      * @return array
      */
     public function getEngineerInfoByPyName( string $pyName): array;
+
+    /**
+     * 通过认证时间区间来查询用户信息
+     * @param string $startDate
+     * @param string $endDate
+     * @return array
+     */
+    public function getInfoByAuthUpdateTime(string $startDate, string $endDate): array;
 }
