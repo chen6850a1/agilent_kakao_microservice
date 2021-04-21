@@ -32,6 +32,26 @@ interface WechatInterface
      */
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
+    /**
+     * 微信ad登录回调函数
+     * @param array $params
+     * @example :{
+     *      code: string,
+     *      state: string
+     * }
+     * @throws \Exception
+     */
+    public function callback(array $params);
+
+    /**
+     * 企业微信ad登录
+     * @param array $params
+     * @example:{
+     *      code:string
+     * }
+     * @throws \Exception
+     */
+    public function wechatLogin(array $params);
 
     /**
      * 获取微信用户信息

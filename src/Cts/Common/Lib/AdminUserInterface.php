@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Cts\Common\Lib;
 
-use http\Env\Response;
-
 /**
  * Class AdminUserInterface
  *
@@ -17,8 +15,8 @@ interface AdminUserInterface {
      *
      * @param array $param
      * @example:{
-     *      code:string,
-     *      code_verifier:string
+     *      account:string,
+     *      password:string
      * }
      *
      * @return array
@@ -30,8 +28,32 @@ interface AdminUserInterface {
      */
     public function login(array $param): array;
 
+    /**
+     *
+     * @param array $param
+     * @example:{
+     *      code:string,
+     *      state:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      email:string
+     * }
+     */
+    public function wechatLogincallback(array $param): array;
+
+    /**
+     *
+     * @param array $param
+     * @example:{
+     *      code:string,
+     *      state:string
+     * }
+     *
+     */
     public function wechatLogin(array $param);
-    public function callBack(array $param);
+
     /**
      *
      * @param array $params
