@@ -52,7 +52,7 @@ class AwsKinesisFirehose
                 CLog::info($content);
             }else{
                 CLog::info(substr($content, 0, 5000));
-            }
+			}
 
         }
     }
