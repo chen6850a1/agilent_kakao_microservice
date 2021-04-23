@@ -36,9 +36,6 @@ class AwsAthena
 
         $this->client=new AthenaClient($options);
         $this->databaseName = config("aws.athena.databaseName");
-        $this->outputS3Location = config("aws.athena.outputS3Location");
-        $this->catalog = config("aws.athena.catalog");
-		
     }
 	
     public function getDataBySql($sql){
@@ -49,13 +46,10 @@ class AwsAthena
         //start query
         $startQueryResponse = $athenaClient->startQueryExecution([
             'QueryExecutionContext' => [
-                'Catalog' => $this->catalog,
                 'Database' => $this->databaseName,
             ],
             'QueryString' => $sql,
-            'ResultConfiguration' => [
-                'OutputLocation' => $this->outputS3Location
-            ]
+            'WorkGroup' => "agilent-dev-26-workgroup-eservice"
         ]);
         $queryExecutionId = $startQueryResponse->get('QueryExecutionId');
         Log::info($queryExecutionId);
