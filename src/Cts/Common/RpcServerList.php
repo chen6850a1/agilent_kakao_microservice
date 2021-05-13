@@ -16,7 +16,7 @@ use Cts\Common\Lib\ReservationInterface;
 use Cts\Common\Lib\SliderInterface;
 use Cts\Common\Lib\LabInterface;
 use Cts\Common\Lib\WechatInterface;
-use Cts\Common\Lib\OrderInterface;
+use Cts\Common\Lib\EcommerceInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -128,10 +128,10 @@ class RpcServerList {
     public $service_directionalpust;
 
     /**
-     * @Reference(pool="order.pool")
+     * @Reference(pool="ecommerce.pool")
      *
-     * @var OrderInterface
+     * @var EcommerceInterface
      */
-    public $service_order;
+    public $service_ecommerce;
 
 }

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Cts\Common\Lib;
 
 /**
- * Class OrderInterface
+ * Class EcommerceInterface
  *
  * @since 2.0
  */
-interface OrderInterface {
+interface EcommerceInterface {
 
     /**
      * 
@@ -31,7 +31,7 @@ interface OrderInterface {
      *      error:string
      * }
      */
-    public function getList(array $params): array;
+    public function getOrderList(array $params): array;
 
     /**
      * 
@@ -44,7 +44,7 @@ interface OrderInterface {
      *      error:string
      * }
      */
-    public function get(int $id): array;
+    public function getOrderDetails(int $id): array;
 
     /**
      * 
@@ -60,7 +60,7 @@ interface OrderInterface {
      *      error:string
      * }
      */
-    public function create(array $params): array;
+    public function createOrder(array $params): array;
 
     /**
      * 
@@ -77,5 +77,5 @@ interface OrderInterface {
      *      error:string
      * }
      */
-    public function update(int $id, array $params): array;
+    public function updateOrder(int $id, array $params): array;
 }
