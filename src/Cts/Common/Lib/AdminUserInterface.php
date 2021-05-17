@@ -259,4 +259,22 @@ interface AdminUserInterface {
      * }
      */
     public function checkUserIsEngineer(): array;
+	
+	/**
+     * 写入日志
+     * @param array $params
+     * @return array
+     */
+    public function writeLog(array $params): array;
+
+
+    /**
+     *
+     * 展示日志列表
+     *
+     * @param array $params
+     * @return array
+     *
+     */
+    public function getLogList(array $params): array;
 }
