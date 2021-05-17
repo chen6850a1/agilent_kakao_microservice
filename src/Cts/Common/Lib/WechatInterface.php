@@ -224,7 +224,12 @@ interface WechatInterface {
     /**
      * 
      * @param array $params
-     * @example ['total_fee' => float]
+     * @example [
+     *      'mini_open_id' => string,
+     *      'total_fee' => float,
+     *      'order_sn' => string,
+     *      'order_name' => string
+     * ]
      * 
      * @return array
      * @example {
@@ -247,6 +252,23 @@ interface WechatInterface {
      * @return array
      */
     public function notify(array $input): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page_path:string,
+     *      sence:string,
+     *      prefix:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      date:string S3地址
+     * }
+     */
+    public function genQrCode(array $params): array;
 
     /**
      * 

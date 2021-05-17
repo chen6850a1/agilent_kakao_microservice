@@ -49,6 +49,7 @@ class ConstParam {
     const SERVICE_LAB = "service_lab";
     const SERVICE_EXTENSION = "service_extension";
     const SERVICE_WECHAT = "service_wechat";
+    const SERVICE_ECOMMERCE = "service_ecommerce";
     //推送模板
     const WECHAT_PUSH_TEMPLATE_INFOSETUP = "infoSetup";
     const WECHAT_PUSH_TEMPLATE_INFOSETUP_COMPLETE = "infoSetupComplete";
