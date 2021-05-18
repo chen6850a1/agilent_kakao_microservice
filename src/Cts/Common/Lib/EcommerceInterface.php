@@ -44,6 +44,19 @@ interface EcommerceInterface {
      *      error:string
      * }
      */
+    public function viewOrderDetails(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function getOrderDetails(int $id): array;
 
     /**
