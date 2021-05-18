@@ -79,7 +79,7 @@ interface EcommerceInterface {
      *      }
      * }
      */
-    public function wechatPay(int $orderId): array;
+    public function orderPay(int $orderId): array;
 
     /**
      * 
