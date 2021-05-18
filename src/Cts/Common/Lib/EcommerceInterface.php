@@ -62,6 +62,17 @@ interface EcommerceInterface {
     /**
      * 
      * @param array $params
+     * @example {
+     *      goods_ids:[1 => 1, 2 => 0],
+     * }
+     * 
+     * @return array
+     */
+    public function orderPrepare(array $params): array;
+
+    /**
+     * 
+     * @param array $params
      * @example:{
      *      
      * }
