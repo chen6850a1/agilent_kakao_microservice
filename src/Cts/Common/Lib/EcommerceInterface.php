@@ -64,13 +64,7 @@ interface EcommerceInterface {
 
     /**
      * 
-     * @param array $params
-     * @example [
-     *      'mini_open_id' => string,
-     *      'total_fee' => float,
-     *      'order_sn' => string,
-     *      'order_name' => string
-     * ]
+     * @param int $orderId
      * 
      * @return array
      * @example {
@@ -85,7 +79,7 @@ interface EcommerceInterface {
      *      }
      * }
      */
-    public function wechatPay(array $params): array;
+    public function wechatPay(int $orderId): array;
 
     /**
      * 
