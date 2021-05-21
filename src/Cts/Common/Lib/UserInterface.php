@@ -990,11 +990,11 @@ interface UserInterface {
      * @param array $excelData
      * @return array
      */
-    public function import(array $excelData): array;
+    public function importRpl(array $excelData): array;
 
     /**
      * 
      * @return array []
      */
-    public function export(): array;
+    public function exportRpl(): array;
 }
