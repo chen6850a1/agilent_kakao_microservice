@@ -52,7 +52,7 @@ class AwsS3 {
         return $this->getDomainUrl() . $fileName;
     }
 
-    public function upoloadFileByData($fileName, $data) {
+    public function upoloadFileByData($fileName, $data, $flag = false) {
         $res = $this->client->putObject([
             'Bucket' => $this->bucketName,
             'Key' => $this->uploadDir . $fileName,
