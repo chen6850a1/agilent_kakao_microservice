@@ -44,4 +44,12 @@ interface NotificationInterface {
      * }
      */
     public function setMailConfig(array $param): array;
+
+
+    /**
+     * 获取离线消息的参数id
+     * @param string $key
+     * @return array
+     */
+    public function getOfflineMessageUrl(string $key): array;
 }
