@@ -65,7 +65,55 @@ interface WechatInterface
      * }
      */
     public function genCodeImg(array $wechatData): array;
-
+    
+    /**
+     *
+     * @param string $csvUrl
+     * @param string $operator
+     * @return array
+     */
+    public function downloadData(string $csvUrl,string $operator);
+    /**
+     *
+     * @param string $email
+     * @return array
+     */
+    public function userListByHold(string $email);
+    
+    /**
+     * 显示下载列表
+     * @param $data
+     * @return array
+     */
+    public function getDownloadingList($data);
+    
+    /**
+     * 显示hold住的员工
+     * @return array
+     */
+    public function getHoldingList();
+    
+     /**
+     * hold住员工
+     * @param $data
+     * @return array
+     */
+    public function holdUser($data);
+    
+     /**
+     * 释放被hold住的员工
+     * @param $data
+     * @return array
+     */
+    public function releaseUser($data);
+    
+    /**
+     *
+     * 查看员工状态
+     * @param $data
+     * @return void
+     */
+    public function userListByHold($data);
 
     /**
      * 生成二维码
