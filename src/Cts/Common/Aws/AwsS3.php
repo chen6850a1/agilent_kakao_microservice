@@ -51,13 +51,17 @@ class AwsS3
         return $this->getDomainUrl().$fileName;
     }
 
-    public function upoloadFileByData($fileName,$data){
-        $this->client->putObject([
+    public function upoloadFileByData($fileName,$data,$flag=false){
+        $res = $this->client->putObject([
             'Bucket' => $this->bucketName,
             'Key'    => self::UPLOAD_DIR.$fileName,
             'Body'=>$data
         ]);
-        return $this->getDomainUrl().$fileName;
+        if($flag) {
+            return $res->toArray();
+        } else {
+            return $this->getDomainUrl().$fileName;
+        }
     }
 
     public function getDomainUrl(){
