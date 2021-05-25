@@ -53,14 +53,19 @@ class AwsS3 {
     }
 
     public function upoloadFileByData($fileName, $data, $flag = false) {
-        $res = $this->client->putObject([
-            'Bucket' => $this->bucketName,
-            'Key' => $this->uploadDir . $fileName,
-            'Body' => $data
-        ]);
         if ($flag) {
+            $res = $this->client->putObject([
+                'Bucket' => $this->bucketName,
+                'Key' => $fileName,
+                'Body' => $data
+            ]);
             return $res->toArray();
         } else {
+            $this->client->putObject([
+                'Bucket' => $this->bucketName,
+                'Key' => $this->uploadDir . $fileName,
+                'Body' => $data
+            ]);
             return $this->getDomainUrl() . $fileName;
         }
     }
@@ -99,7 +104,18 @@ class AwsS3 {
         return $objects;
     }
 
-    public function getObject($fileName) {
+    public function getObject($fileName,$flag = false) {
+        if(!$flag) {
+            $result = $this->client->getObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $this->uploadDir . $fileName
+                ])->toArray();
+        } else {
+            $result = $this->client->getObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $fileName
+                ])->toArray();
+        }
         $result = $this->client->getObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $this->uploadDir . $fileName
@@ -108,11 +124,18 @@ class AwsS3 {
         return $content;
     }
 
-    public function deleteObject($fileName) {
-        $result = $this->client->deleteObject([
+    public function deleteObject($fileName,$flag = false) {
+        if(!$flag) {
+            $result = $this->client->deleteObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $this->uploadDir . $fileName
                 ])->toArray();
+        } else {
+            $result = $this->client->deleteObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $fileName
+                ])->toArray();
+        }
         return $result;
     }
 
