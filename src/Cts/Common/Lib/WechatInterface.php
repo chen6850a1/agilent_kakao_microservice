@@ -75,10 +75,10 @@ interface WechatInterface
     public function downloadData(string $csvUrl,string $operator);
     /**
      *
-     * @param string $email
+     * @param $data
      * @return array
      */
-    public function userListByHold(string $email);
+    public function userListByHold($data);
     
     /**
      * 显示下载列表
@@ -107,13 +107,6 @@ interface WechatInterface
      */
     public function releaseUser($data);
     
-    /**
-     *
-     * 查看员工状态
-     * @param $data
-     * @return void
-     */
-    public function userListByHold($data);
 
     /**
      * 生成二维码
