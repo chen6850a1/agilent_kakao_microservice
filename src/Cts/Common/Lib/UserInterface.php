@@ -997,4 +997,54 @@ interface UserInterface {
      * @return array []
      */
     public function exportRpl(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      telphone:string,
+     *      ContactId:string,
+     *      ContactName:string,
+     *      AccountId:string,
+     *      AccountName:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUserList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUser(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      role:int 0|1
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateUserRole(int $id, array $params): array;
 }
