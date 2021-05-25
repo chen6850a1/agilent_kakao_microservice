@@ -53,19 +53,14 @@ class AwsS3 {
     }
 
     public function upoloadFileByData($fileName, $data, $flag = false) {
-        if ($flag) {
-            $res = $this->client->putObject([
+        $res = $this->client->putObject([
                 'Bucket' => $this->bucketName,
-                'Key' => $fileName,
+                'Key' => $flag ? $this->uploadDir . $fileName : $fileName,
                 'Body' => $data
             ]);
+        if ($flag) {
             return $res->toArray();
         } else {
-            $this->client->putObject([
-                'Bucket' => $this->bucketName,
-                'Key' => $this->uploadDir . $fileName,
-                'Body' => $data
-            ]);
             return $this->getDomainUrl() . $fileName;
         }
     }
@@ -74,14 +69,14 @@ class AwsS3 {
         return $this->domainName . "/" . $this->uploadDir;
     }
 
-    public function listObjects($maxKeys = 1000, $prefix = '') {
+    public function listObjects($maxKeys = 1000, $prefix = '',$flag=false) {
         $objects = [];
         $startAfter = '';
         do {
             $xmlResponse = $this->client->listObjectsV2([
                 'Bucket' => $this->bucketName,
                 'MaxKeys' => $maxKeys,
-                'Prefix' => $this->uploadDir . $prefix,
+                'Prefix' => $flag ? $prefix : $this->uploadDir . $prefix,
                 'StartAfter' => $startAfter
             ]);
             $result = $xmlResponse->toArray();
@@ -105,37 +100,19 @@ class AwsS3 {
     }
 
     public function getObject($fileName,$flag = false) {
-        if(!$flag) {
-            $result = $this->client->getObject([
-                    'Bucket' => $this->bucketName,
-                    'Key' => $this->uploadDir . $fileName
-                ])->toArray();
-        } else {
-            $result = $this->client->getObject([
-                    'Bucket' => $this->bucketName,
-                    'Key' => $fileName
-                ])->toArray();
-        }
         $result = $this->client->getObject([
                     'Bucket' => $this->bucketName,
-                    'Key' => $this->uploadDir . $fileName
+                    'Key' => $flag ? $fileName : $this->uploadDir . $fileName
                 ])->toArray();
         $content = ArrayHelper::get($result, 'Body', '');
         return $content;
     }
 
     public function deleteObject($fileName,$flag = false) {
-        if(!$flag) {
-            $result = $this->client->deleteObject([
+        $result = $this->client->deleteObject([
                     'Bucket' => $this->bucketName,
-                    'Key' => $this->uploadDir . $fileName
+                    'Key' => $flag ? $fileName : $this->uploadDir . $fileName
                 ])->toArray();
-        } else {
-            $result = $this->client->deleteObject([
-                    'Bucket' => $this->bucketName,
-                    'Key' => $fileName
-                ])->toArray();
-        }
         return $result;
     }
 
