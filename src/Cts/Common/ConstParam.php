@@ -33,6 +33,7 @@ class ConstParam {
     const EVENT_SURVEY_SUBMITTED = "event_survey_submitted";
     const EVENT_BQ_PDF_REMIND = "event_bq_pdf_remind"; //未抓取到aws上的送修PDF 发送邮件提醒管理员
     const EVENT_BQ_INVOICE_REMIND = "event_bq_invoice_remind"; //用户未填写发票信息 发送wechat模版消息提醒用户
+    const EVENT_ZIP_PASSWORD = "event_zip_password";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
