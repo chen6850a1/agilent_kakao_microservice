@@ -66,13 +66,14 @@ interface WechatInterface
      */
     public function genCodeImg(array $wechatData): array;
     
-    /**
-     *
+   /**
+     * 打包下载csv,media文件
      * @param string $csvUrl
      * @param string $operator
      * @return array
      */
-    public function downloadData(string $csvUrl,string $operator);
+
+    public function downloadData(string $csvUrl,string $operator):array;
     /**
      *
      * @param $data
