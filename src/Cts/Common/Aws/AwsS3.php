@@ -55,7 +55,7 @@ class AwsS3 {
     public function upoloadFileByData($fileName, $data, $flag = false) {
         $res = $this->client->putObject([
                 'Bucket' => $this->bucketName,
-                'Key' => $flag ? $this->uploadDir . $fileName : $fileName,
+                'Key' => $flag ? $fileName : $this->uploadDir . $fileName,
                 'Body' => $data
             ]);
         if ($flag) {
