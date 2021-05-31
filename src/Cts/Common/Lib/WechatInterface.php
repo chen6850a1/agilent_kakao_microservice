@@ -272,20 +272,178 @@ interface WechatInterface {
 
     /**
      * 
-     * @param int $start
-     * @param int $limit
+     * @param int $isPublished
      * 
      * @return array
      * @example {
      *      status:true,
      *      data:[{
+     *          id:int,
+     *          news:string
+     *      }]
+     *  }
+     */
+    public function getScrollingNews(int $isPublished): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          id:int,
+     *          news:string
+     *      }
+     *  }
+     */
+    public function createScrollingNews(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          id:int,
+     *          news:string
+     *      }
+     * }
+     */
+    public function updateScrollingNews(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function deleteScrollingNews(int $id): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getHomePageRoomList(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getFutureRoomList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getHistoryRoomList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getHighQualityList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function getHighQuality(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      type:int,
+     *      room_id:int,
+     *      title:string,
+     *      cover_src:string
+     * }
+     * 
+     * @return array
+     */
+    public function createHighQuality(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      type:int,
+     *      room_id:int,
+     *      title:string,
+     *      cover_src:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateHighQuality(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function deleteHighQuality(int $id): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function publishHighQuality(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "room_id": 1,
      *          "name": "测试elearning",
      *          "cover_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0Aam4uqtszDV3NBnibfarZ6GZy5Y1DPmBEfq7PcOKvUq1mqibBEqYTgXAUA/0",
      *          "start_time": 1608798988,
      *          "end_time": 1608800200,
      *          "anchor_name": "sunny",
-     *          "roomid": 1,
-     *          "goods": [],
      *          "live_status": 103,
      *          "share_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0AaEibOGDLvRgCOLoUcZEoxoibAq1SDJxEX3FyphicKIcqONDqyn6nIfryxw/0",
      *          "live_type": 0,
@@ -300,7 +458,7 @@ interface WechatInterface {
      *      }]
      * }
      */
-    public function getRoomList(int $start = 0, int $limit = 10): array;
+    public function getRoomList(array $params): array;
 
     /**
      * 
