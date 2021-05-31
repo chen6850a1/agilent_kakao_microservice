@@ -462,6 +462,30 @@ interface WechatInterface {
 
     /**
      * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      custom_description:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateRoom(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      room_ids:string,
+     *      custom_status:int
+     * }
+     * 
+     * @return array
+     */
+    public function batchSetRoomCustomStatus(array $params): array;
+
+    /**
+     * 
      * @param int $roomId
      * @param int $start
      * @param int $limit
