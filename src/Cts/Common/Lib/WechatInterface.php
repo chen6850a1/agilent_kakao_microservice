@@ -486,6 +486,12 @@ interface WechatInterface {
 
     /**
      * 
+     * @return array
+     */
+    public function publishScrollingNewsAndRooms(): array;
+
+    /**
+     * 
      * @param int $roomId
      * @param int $start
      * @param int $limit
