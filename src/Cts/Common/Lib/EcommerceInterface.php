@@ -13,6 +13,32 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @return array
+     */
+    public function getShoppingCartList(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      goods_id:int,
+     *      purchase_quantity:int,
+     *      package_id:int
+     * }
+     * 
+     * @return array
+     */
+    public function addGoods(array $params): array;
+
+    /**
+     * 
+     * @param int $goodsId
+     * @return array
+     */
+    public function deleteGoods(int $goodsId): array;
+
+    /**
+     * 
      * @param array $params
      * @example:{
      *      page:string|int,
