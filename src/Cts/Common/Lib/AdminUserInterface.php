@@ -27,6 +27,22 @@ interface AdminUserInterface {
      * }
      */
     public function login(array $param): array;
+	/**
+     *
+     * @param array $param
+     * @example:{
+     *      account:string,
+     *      password:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function ADlogin(array $param): array;
 
     /**
      *
