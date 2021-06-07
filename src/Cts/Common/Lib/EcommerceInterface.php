@@ -15,6 +15,12 @@ interface EcommerceInterface {
      * 
      * @return array
      */
+    public function countMyShoppingCart(): array;
+
+    /**
+     * 
+     * @return array
+     */
     public function getShoppingCartList(): array;
 
     /**
