@@ -22,8 +22,9 @@ interface EcommerceInterface {
      * @param array $params
      * @example:{
      *      goods_id:int,
-     *      purchase_quantity:int,
-     *      package_id:int
+     *      package_id:int,
+     *      value_added_service_id:int,
+     *      quantity:int
      * }
      * 
      * @return array
@@ -32,10 +33,17 @@ interface EcommerceInterface {
 
     /**
      * 
-     * @param int $goodsId
+     * @param array $params
+     * @example:{
+     *      goods_id:int,
+     *      package_id:int,
+     *      value_added_service_id:int,
+     *      from_live_stream:int
+     * }
+     * 
      * @return array
      */
-    public function deleteGoods(int $goodsId): array;
+    public function deleteGoods(array $params): array;
 
     /**
      * 
