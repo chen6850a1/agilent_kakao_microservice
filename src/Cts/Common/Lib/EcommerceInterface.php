@@ -38,6 +38,21 @@ interface EcommerceInterface {
      *      goods_id:int,
      *      package_id:int,
      *      value_added_service_id:int,
+     *      from_live_stream:int,
+     *      quantity:int
+     * }
+     * 
+     * @return array
+     */
+    public function updateQuantity(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      goods_id:int,
+     *      package_id:int,
+     *      value_added_service_id:int,
      *      from_live_stream:int
      * }
      * 
