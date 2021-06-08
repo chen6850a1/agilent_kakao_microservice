@@ -68,6 +68,13 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $rplInvoiceId
+     * @return array
+     */
+    public function getInfoByRplInvoiceId(int $rplInvoiceId): array;
+
+    /**
+     * 
      * @param array $params
      * @example:{
      *      page:string|int,

@@ -1002,6 +1002,55 @@ interface UserInterface {
      * 
      * @param array $params
      * @example {
+     *      page:int,
+     *      pageSize:int,
+     *      AccountId:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRplInvoiceList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getRplInvoice(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      company_name:string,
+     *      company_address:string,
+     *      shipping_address:string
+     * }
+     * 
+     * @return array
+     */
+    public function createRplInvoice(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      AccountId:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateRplInvoice(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
      *      page:string|int,
      *      pageSize:string|int,
      *      orderBy:string,
