@@ -1086,7 +1086,7 @@ interface UserInterface {
      * @param int $id
      * @param array $params
      * @example {
-     *      role:int 0|1
+     *      role:int 0|1|2
      * }
      * 
      * @return array
@@ -1096,4 +1096,19 @@ interface UserInterface {
      * }
      */
     public function updateUserRole(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      role:int 0|1|2
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateMyRole(array $params): array;
 }
