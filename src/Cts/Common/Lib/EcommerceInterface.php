@@ -77,12 +77,11 @@ interface EcommerceInterface {
      * 
      * @param array $params
      * @example:{
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      keyword:string,
+     *      page:int,
+     *      pageSize:int,
+     *      order_status:int,
      *      orderBy:string,
      *      direction:string eg.asc|desc,
-     *      status:string|int,
      *      responseFormat:string eg. csv|json
      * }
      * 
@@ -120,6 +119,19 @@ interface EcommerceInterface {
      * }
      */
     public function getOrderDetails(int $id): array;
+    
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      page:int,
+     *      pageSize:int,
+     *      order_status:int
+     * }
+     * 
+     * @return array
+     */
+    public function getMyOrderList(array $params): array;
 
     /**
      * 
