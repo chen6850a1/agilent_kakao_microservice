@@ -79,7 +79,17 @@ interface EcommerceInterface {
      * @example:{
      *      page:int,
      *      pageSize:int,
-     *      order_status:int,
+     *      telphone:string
+     *      ContactId:string
+     *      ContactName:string
+     *      AccountId:string
+     *      AccountName:string
+     *      order_sn:string
+     *      order_status:int
+     *      is_locked:int
+     *      escrow_trade_no:string
+     *      start_date:string
+     *      end_date:string
      *      orderBy:string,
      *      direction:string eg.asc|desc,
      *      responseFormat:string eg. csv|json
@@ -119,7 +129,7 @@ interface EcommerceInterface {
      * }
      */
     public function getOrderDetails(int $id): array;
-    
+
     /**
      * 
      * @param array $params
