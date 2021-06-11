@@ -211,7 +211,8 @@ interface EcommerceInterface {
      * @param int $id
      * @param array $params
      * @example {
-     *      status:string|int
+     *      order_status:int
+     *      remark:string
      * }
      * 
      * @return array
@@ -222,4 +223,52 @@ interface EcommerceInterface {
      * }
      */
     public function updateOrder(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      invoice_type:int,
+     *      invoice_title:string,
+     *      invoice_tax_no:string,
+     *      invoice_content:string,
+     *      vat_company_address:string,
+     *      vat_telphone:string,
+     *      vat_bank_name:string,
+     *      vat_bank_account:string,
+     *      recipient:string,
+     *      mobile:string,
+     *      address:string,
+     *      invoice_remark:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateOrderInvoice(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      company:string,
+     *      recipient:string,
+     *      mobile:string,
+     *      address:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateOrderShippingAddress(int $id, array $params): array;
 }
