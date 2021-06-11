@@ -1033,7 +1033,7 @@ interface UserInterface {
      * 
      * @return array
      */
-    public function createRplInvoice(array $params): array;
+    public function checkRplInvoice(array $params): array;
 
     /**
      * 
