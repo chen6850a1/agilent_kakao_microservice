@@ -145,6 +145,13 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $id
+     * @return array
+     */
+    public function cancelOrder(int $id): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      goods_ids:[1,2],
