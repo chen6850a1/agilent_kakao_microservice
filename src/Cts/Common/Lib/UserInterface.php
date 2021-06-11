@@ -1037,13 +1037,6 @@ interface UserInterface {
 
     /**
      * 
-     * @param int $rplInvoiceId
-     * @return array
-     */
-    public function rplRemind(int $rplInvoiceId): array;
-
-    /**
-     * 
      * @param int $id
      * @param array $params
      * @example {
