@@ -816,6 +816,29 @@ interface WechatInterface {
     public function getSubscribers(array $params): array;
 
     /**
+     *
+     * @param array $params
+     * @example [
+     *      'page' => 1,
+     *      'pageSize' => 10,
+     *      'keyword' => '新城',
+     *      'direction'=> 'desc',
+     *      'orderBy'=> 'uid',
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total_num": 10,
+     *          "total_pages":3,
+     *          "list": []
+     *      }
+     * }
+     */
+    public function getSubscribersDetail(array $params): array;
+
+    /**
      * 
      * @param array $params
      * @example [
