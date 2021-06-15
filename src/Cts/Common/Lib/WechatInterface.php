@@ -797,25 +797,6 @@ interface WechatInterface {
     public function getApprovedGoods(array $params): array;
 
     /**
-     * 
-     * @param array $params
-     * @example [
-     *      'limit' => 200,
-     *      'page_break' => 0
-     * ]
-     * 
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:{
-     *          "page_break": 0
-     *          "subscribers": []
-     *      }
-     * }
-     */
-    public function getSubscribers(array $params): array;
-
-    /**
      *
      * @param array $params
      * @example [
@@ -836,7 +817,7 @@ interface WechatInterface {
      *      }
      * }
      */
-    public function getSubscribersDetail(array $params): array;
+    public function getSubscriberList(array $params): array;
 
     /**
      * 
