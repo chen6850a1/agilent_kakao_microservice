@@ -264,4 +264,19 @@ interface EcommerceInterface {
      * }
      */
     public function updateOrderShippingAddress(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function lockOrder(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param string $sapOrder
+     * @return array
+     */
+    public function setSapOrder(int $id, string $sapOrder): array;
 }
