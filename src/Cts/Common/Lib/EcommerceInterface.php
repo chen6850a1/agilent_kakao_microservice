@@ -64,7 +64,7 @@ interface EcommerceInterface {
      * 
      * @return array
      */
-    public function deleteGoods(array $params): array;
+    public function removeGoods(array $params): array;
 
     /**
      * 
