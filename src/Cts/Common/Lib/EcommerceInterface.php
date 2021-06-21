@@ -279,4 +279,150 @@ interface EcommerceInterface {
      * @return array
      */
     public function setSapOrder(int $id, string $sapOrder): array;
+
+    /**
+     *
+     *
+     * @param int $parentId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsList(int $parentId): array;
+
+    /**
+     * @param int $categoryId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getCategory(int $categoryId): array;
+
+    /**
+     * @param int $goodsId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getGoods(int $goodsId): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      category_id:int
+     *      parent_id:int
+     *      category_name:varchar
+     *      template_id:tinyint
+     *      icon:varchar
+     *      is_deleted:tinyint
+     * }
+     * @return array
+     */
+    public function createCategory(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      article_num:varchar
+     *      type:tinyint
+     *      name:varchar
+     *      description1:text
+     *      description2:text
+     *      original_price:decimal
+     *      live_stream_price:decimal
+     *      live_stream_start_time:datetime
+     *      live_stream_end_time:datetime
+     *      is_recommended:tinyint
+     *      is_hot:tinyint
+     *      is_published:tinyint
+     *      is_deleted:tinyint
+     *      page_path:varchar
+     *      qr_code:varchar
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createGoods(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      category_id:int
+     *      parent_id:int
+     *      category_name:varchar
+     *      template_type:tinyint
+     *      icon:varchar
+     *      is_deleted:tinyint
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateCategory(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      article_num:varchar
+     *      type:tinyint
+     *      name:varchar
+     *      description1:text
+     *      description2:text
+     *      original_price:decimal
+     *      live_stream_price:decimal
+     *      live_stream_start_time:datetime
+     *      live_stream_end_time:datetime
+     *      is_recommended:tinyint
+     *      is_hot:tinyint
+     *      is_published:tinyint
+     *      is_deleted:tinyint
+     *      page_path:varchar
+     *      qr_code:varchar
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     */
+    public function updateGoods(array $params): array;
+
+    /**
+     *
+     * @param int $category_id
+     * @return array
+     */
+    public function deleteCategory(int $category_id): array;
+
+    /**
+     *
+     * @param int $id
+     * @return array
+     */
+    public function deleteGoods(int $id): array;
 }
