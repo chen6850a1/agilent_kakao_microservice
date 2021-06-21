@@ -421,8 +421,8 @@ interface EcommerceInterface {
 
     /**
      *
-     * @param int $id
+     * @param int $goodsId
      * @return array
      */
-    public function deleteGoods(int $id): array;
+    public function deleteGoods(int $goodsId): array;
 }
