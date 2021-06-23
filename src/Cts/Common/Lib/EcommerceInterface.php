@@ -64,7 +64,7 @@ interface EcommerceInterface {
      * 
      * @return array
      */
-    public function deleteGoods(array $params): array;
+    public function removeGoods(array $params): array;
 
     /**
      * 
@@ -279,4 +279,158 @@ interface EcommerceInterface {
      * @return array
      */
     public function setSapOrder(int $id, string $sapOrder): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      id:int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsList(array $params): array;
+
+    /**
+     * @param int $categoryId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getCategory(int $categoryId): array;
+
+    /**
+     * @param int $goodsId
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getGoods(int $goodsId): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      parent_id:int
+     *      category_name:string
+     *      template_id:int
+     *      image_src:string
+     * }
+     * 
+     * @return array
+     */
+    public function createCategory(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      article_num:string
+     *      type:int
+     *      name:string
+     *      description1:string
+     *      description2:string
+     *      original_price:string
+     *      live_stream_price:string
+     *      live_stream_start_time:string
+     *      live_stream_end_time:string
+     *      is_recommended:int
+     *      is_hot:int
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createGoods(array $params): array;
+
+    /**
+     * 
+     * @param int $categoryId
+     * @param array $params
+     * @example {
+     *      category_name:string
+     *      image_src:string
+     *      template_id:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateCategory(int $categoryId, array $params): array;
+
+    /**
+     * 
+     * @param int $goodsId
+     * @param array $params
+     * @example:{
+     *      article_num:string
+     *      name:string
+     *      description1:string
+     *      description2:string
+     *      original_price:string
+     *      live_stream_price:string
+     *      live_stream_start_time:string
+     *      live_stream_end_time:string
+     *      is_recommended:int
+     *      is_hot:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateGoods(int $goodsId, array $params): array;
+
+    /**
+     *
+     * @param int $categoryId
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteCategory(int $categoryId): array;
+
+    /**
+     *
+     * @param int $goodsId
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteGoods(int $goodsId): array;
 }
