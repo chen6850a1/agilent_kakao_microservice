@@ -91,8 +91,8 @@ class RpcConfig {
                 'host' => $rpc_domain,
                 'port' => '19995',
                 'setting' => [
-                    'timeout' => 120.0,
-                    'package_max_length'=>50 * 1024 * 1024
+                    'timeout' => 300.0,
+                    'package_max_length' => 50 * 1024 * 1024
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' => bean(\Cts\Common\RpcExtender::class)
@@ -212,6 +212,20 @@ class RpcConfig {
             'wechat.pool' => [
                 'class' => ServicePool::class,
                 'client' => bean('wechat'),
+            ],
+            'ecommerce' => [
+                'class' => ServiceClient::class,
+                'host' => $rpc_domain,
+                'port' => '19987',
+                'setting' => [
+                    'timeout' => 120.0
+                ],
+                'packet' => bean('rpcClientPacket'),
+                'extender' => bean(\Cts\Common\RpcExtender::class)
+            ],
+            'ecommerce.pool' => [
+                'class' => ServicePool::class,
+                'client' => bean('ecommerce'),
             ]
         ];
     }

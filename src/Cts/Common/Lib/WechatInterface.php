@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * This file is part of Swoft.
  *
@@ -15,8 +17,8 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface
-{
+interface WechatInterface {
+
     /**
      * 获取微信用户信息
      * @param array $wechatData
@@ -32,6 +34,26 @@ interface WechatInterface
      */
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
+    /**
+     * 微信ad登录回调函数
+     * @param array $params
+     * @example :{
+     *      code: string,
+     *      state: string
+     * }
+     * @throws \Exception
+     */
+    public function callback(array $params);
+
+    /**
+     * 企业微信ad登录
+     * @param array $params
+     * @example:{
+     *      code:string
+     * }
+     * @throws \Exception
+     */
+    public function wechatLogin(array $params);
 
     /**
      * 获取微信用户信息
@@ -47,7 +69,6 @@ interface WechatInterface
      * }
      */
     public function getUserInfoWithH5Code(array $wechatData): array;
-
 
     /**
      * 生成二维码
@@ -66,6 +87,47 @@ interface WechatInterface
      */
     public function genCodeImg(array $wechatData): array;
 
+    /**
+     * 打包下载csv,media文件
+     * @param string $csvUrl
+     * @param string $operator
+     * @return array
+     */
+    public function downloadData(string $csvUrl, string $operator): array;
+
+    /**
+     *
+     * @param $data
+     * @return array
+     */
+    public function userListByHold($data);
+
+    /**
+     * 显示下载列表
+     * @param $data
+     * @return array
+     */
+    public function getDownloadingList($data);
+
+    /**
+     * 显示hold住的员工
+     * @return array
+     */
+    public function getHoldingList();
+
+    /**
+     * hold住员工
+     * @param $data
+     * @return array
+     */
+    public function holdUser($data);
+
+    /**
+     * 释放被hold住的员工
+     * @param $data
+     * @return array
+     */
+    public function releaseUser($data);
 
     /**
      * 生成二维码
@@ -101,7 +163,6 @@ interface WechatInterface
      */
     public function pushMessage(array $params): array;
 
-
     /**
      * 获取全局会话组
      *
@@ -111,7 +172,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotIframeData(array $params):array;
+    public function getSobotIframeData(array $params): array;
 
     /**
      * 匹配序列号返回聊天组
@@ -122,19 +183,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getGroupMatchSerialNo(array $params):array;
-
-
-    /**
-     * 获取全局会话组
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:XXXX
-     * ]
-     */
-    public function getSobotTicketIframeData(array $params):array;
+    public function getGroupMatchSerialNo(array $params): array;
 
     /**
      * 获取全局会话组
@@ -145,7 +194,18 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotGlobalGroup():array;
+    public function getSobotTicketIframeData(array $params): array;
+
+    /**
+     * 获取全局会话组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSobotGlobalGroup(): array;
 
     /**
      * 保存备注
@@ -157,7 +217,6 @@ interface WechatInterface
      * ]
      */
     public function saveSobotNote(array $params): array;
-
 
     /**
      * 保存聊天组提交的信息
@@ -223,7 +282,626 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function saveLeaveMsg(array $params):array;
+    public function saveLeaveMsg(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'mini_open_id' => string,
+     *      'total_fee' => float,
+     *      'order_sn' => string,
+     *      'order_name' => string
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          appId: string,
+     *          timeStamp: int,
+     *          nonceStr: string,
+     *          package: string,
+     *          signType: string,
+     *          paySign: string
+     *      }
+     * }
+     */
+    public function wechatPay(array $params): array;
+
+    /**
+     * 
+     * @param array $input
+     * @return array
+     */
+    public function notify(array $input): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page_path:string,
+     *      sence:string,
+     *      prefix:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      date:string S3地址
+     * }
+     */
+    public function genQrCode(array $params): array;
+
+    /**
+     * 
+     * @param int $isPublished
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          id:int,
+     *          news:string
+     *      }]
+     *  }
+     */
+    public function getScrollingNews(int $isPublished): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          id:int,
+     *          news:string
+     *      }
+     *  }
+     */
+    public function createScrollingNews(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          id:int,
+     *          news:string
+     *      }
+     * }
+     */
+    public function updateScrollingNews(array $params): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getHomePageRoomList(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getFutureRoomList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getHistoryRoomList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     */
+    public function getHighQualityList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     */
+    public function getHighQuality(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      type:int,
+     *      room_id:int,
+     *      title:string,
+     *      cover_src:string
+     * }
+     * 
+     * @return array
+     */
+    public function createHighQuality(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      type:int,
+     *      room_id:int,
+     *      title:string,
+     *      cover_src:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateHighQuality(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function deleteHighQuality(int $id): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function publishHighQuality(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      perPageNum:int
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "room_id": 1,
+     *          "name": "测试elearning",
+     *          "cover_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0Aam4uqtszDV3NBnibfarZ6GZy5Y1DPmBEfq7PcOKvUq1mqibBEqYTgXAUA/0",
+     *          "start_time": 1608798988,
+     *          "end_time": 1608800200,
+     *          "anchor_name": "sunny",
+     *          "live_status": 103,
+     *          "share_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0AaEibOGDLvRgCOLoUcZEoxoibAq1SDJxEX3FyphicKIcqONDqyn6nIfryxw/0",
+     *          "live_type": 0,
+     *          "close_like": 0,
+     *          "close_goods": 0,
+     *          "close_comment": 0,
+     *          "close_kf": 0,
+     *          "close_replay": 1,
+     *          "is_feeds_public": 1,
+     *          "creater_openid": "oX9MCcQDfvtYA8nYxQzTCApDQvQQ",
+     *          "feeds_img": "http://mmbiz.qpic.cn/mmbiz_jpg/bM0UsH62An5ky8KQVp6XkiadjouLdr0Aadq6HAWNpd0ekFEjZvVYY929LM6OicFHzXuoxnyIoBBceBo3hITv2UAw/0"
+     *      }]
+     * }
+     */
+    public function getRoomList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      custom_description:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateRoom(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      room_ids:string,
+     *      custom_status:int
+     * }
+     * 
+     * @return array
+     */
+    public function batchSetRoomCustomStatus(array $params): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function publishScrollingNewsAndRooms(): array;
+
+    /**
+     * 
+     * @param int $roomId
+     * @param int $start
+     * @param int $limit
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "create_time": "2020-12-24T09:06:42Z",
+     *          "expire_time": "2021-12-24T09:06:42Z",
+     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/f3ed75185285890811744904789/playlist_eof.m3u8"
+     *      },
+     *      {
+     *          "create_time": "2020-12-24T08:56:43Z",
+     *          "expire_time": "2021-12-24T08:56:43Z",
+     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/3813d28f5285890811745578160/f0.mp4"
+     *      }]
+     * }
+     */
+    public function getReplay(int $roomId = 0, int $start = 0, int $limit = 10): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *    "name" => "",
+     *    "coverImg" => "",
+     *    "startTime" => 1,
+     *    "endTime" => 1,
+     *    "anchorName" => "",
+     *    "anchorWechat" => "",
+     *    "subAnchorWechat" => "",
+     *    "createrWechat" => "",
+     *    "shareImg" => "",
+     *    "feedsImg" => "",
+     *    "isFeedsPublic" => 0,
+     *    "type" => 0,
+     *    "closeLike" => 0,
+     *    "closeGoods" => 0,
+     *    "closeComment" => 0,
+     *    "closeReplay" => 0,
+     *    "closeShare" => 0,
+     *    "closeKf" => 0
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          "roomId": 33,
+     *          "errcode": 0,
+     *          "qrcode_url": "https://res.wx.qq.com/op_res/9rSix1dhHfK4rR049JL0PHJ7TpOvkuZ3mE0z7Ou_Etvjf-w1J_jVX0rZqeStLfwh"
+     *          }
+     *      ]
+     */
+    public function createRoom(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *      "id":=>62
+     *  ]
+     * 
+     * @return array
+     * @example [
+     *      status:true,
+     *      data:{}
+     *  ]
+     *
+     *
+     * */
+    public function deleteRoom(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *    "id" => 23
+     *    "name" => "",
+     *    "coverImg" => "",
+     *    "startTime" => 1,
+     *    "endTime" => 1,
+     *    "anchorName" => "",
+     *    "anchorWechat" => "",
+     *    "shareImg" => "",
+     *    "feedsImg" => "",
+     *    "isFeedsPublic" => 0,
+     *    "closeLike" => 0,
+     *    "closeGoods" => 0,
+     *    "closeComment" => 0,
+     *    "closeReplay" => 0,
+     *    "closeShare" => 0,
+     *    "closeKf" => 0
+     *  ]
+     *
+     * @return array
+     * @example [
+     *      status:true,
+     *      data:{}
+     *  ]
+     * */
+    public function editRoom(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *      "roomId" => 62
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "pushAddr": "rtmp://wxalivepush.weixin.qq.com/live/wx40f8626ddf43d362-6209?txSecret=5da4f0b7b7a6c25b238311de8c81a65a&txTime=5fc4f631"
+     *      }
+     *  }
+     * */
+    public function getPushUrl(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *      "ids" => [1150,1111],
+     *      "roomId" => 15
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[]
+     *  }
+     * */
+    public function roomAddGoods(array $params): array;
+
+    /**
+     * @param array $params
+     * @example [
+     *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
+     *      "roomId" => 15
+     *  ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[
+     *          "cdnUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/FVribAGdErI2jhO1hbzVDH1E5LW7VQ9D1SIvTLFmyYwkIUucJqE72icgAj6NYw92kbJRNV0zwnGZWaO0Y8T0vqlg/0", // 分享二维码
+     *          "pagePath": "plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=6209", // 分享路径
+     *          "posterUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/dlFudV139LtQn96YNHSGtVfcUkUwQaYeR5OiaJ6bPr7OZxy3yhIK3icjxop0QeRBiaDPiaxuzENtCj15zFIM8sh7ag/0", // 分享海报
+     *      ]
+     *  }
+     * */
+    public function getSharedCode(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1
+     *      }
+     * }
+     */
+    public function goodsAddToStore(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1,
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAdd(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1,
+     *      'audit_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsResetAudit(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAudit(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsDelete(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1,
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsUpdate(array $params): array;
+
+    /**
+     * 
+     * @param array $goodsIds
+     * @example [1,2,3...]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getGoodsWarehouse(array $goodsIds): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'offset' => 0,
+     *      'limit' => 30,
+     *      'audit_status' => 0
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total": 1
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getApprovedGoods(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     * @example [
+     *      'page' => 1,
+     *      'pageSize' => 10,
+     *      'keyword' => '新城',
+     *      'direction'=> 'desc',
+     *      'orderBy'=> 'uid',
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total_num": 10,
+     *          "total_pages":3,
+     *          "list": []
+     *      }
+     * }
+     */
+    public function getSubscriberList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'user_openid' => ['a','b']
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     */
+    public function subscribedPushMessage(array $params): array;
+
+    /**
+     * 
+     * @param string $type
+     * @param string $tempPath
+     * @param string $fileName
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "media_id": ''
+     *      }
+     * }
+     */
+    public function mediaUpload(string $type, string $tempPath, string $fileName): array;
 
 
     /**
@@ -236,12 +914,13 @@ interface WechatInterface
      *  @example {
      *      status:true,
      *      data:[
-    *           "errcode"=>  0,  //微信返回的状态码
+     *           "errcode"=>  0,  //微信返回的状态码
      *           "errmsg"=> "ok",  //微信返回的错误信息
-      *          "openlink"=> Scheme, //ticket码
+     *          "openlink"=> Scheme, //ticket码
      *          ]
      * ]
      */
+
     /**
      * @param $path
      * @param $query
@@ -249,5 +928,5 @@ interface WechatInterface
      * @param int $expireTime
      * @return array
      */
-    public function urlSchemeGenerate(string $path,string $query,bool $isExpire = false, int $expireTime = 0):array;
+    public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
 }
