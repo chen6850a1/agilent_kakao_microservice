@@ -433,4 +433,33 @@ interface EcommerceInterface {
      * }
      */
     public function deleteGoods(int $goodsId): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example{
+     *      template_id:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getTree(array $params): array;
+
+    /**
+     * 
+     * @param int $goodsId
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function viewGoods(int $goodsId): array;
 }
