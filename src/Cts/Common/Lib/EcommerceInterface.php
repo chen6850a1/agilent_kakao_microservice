@@ -436,6 +436,12 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @return array
+     */
+    public function getTopCategory(): array;
+
+    /**
+     * 
      * @param array $params
      * @example{
      *      template_id:int
