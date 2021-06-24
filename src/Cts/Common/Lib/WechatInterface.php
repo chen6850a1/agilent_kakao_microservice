@@ -305,7 +305,6 @@ interface WechatInterface {
 
     /**
      * 
-     * @param int $id
      * @param array $params
      * @example {
      *      news:string
@@ -320,19 +319,7 @@ interface WechatInterface {
      *      }
      * }
      */
-    public function updateScrollingNews(int $id, array $params): array;
-
-    /**
-     * 
-     * @param int $id
-     * 
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:{}
-     * }
-     */
-    public function deleteScrollingNews(int $id): array;
+    public function updateScrollingNews(array $params): array;
 
     /**
      * 
