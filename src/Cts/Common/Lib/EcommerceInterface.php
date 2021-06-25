@@ -121,6 +121,19 @@ interface EcommerceInterface {
      *      error:string
      * }
      */
+    public function getOrderQrCode(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function getOrderDetails(int $id): array;
 
     /**
@@ -433,6 +446,19 @@ interface EcommerceInterface {
      * }
      */
     public function deleteGoods(int $goodsId): array;
+
+    /**
+     * 
+     * @param int $goodsId
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getGoodsQrCode(int $goodsId): array;
 
     /**
      * 
