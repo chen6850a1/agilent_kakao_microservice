@@ -201,7 +201,7 @@ class RpcConfig {
                 'port' => '19993',
                 'setting' => [
                     'timeout' => 120.0,
-                    'package_max_length'=>50 * 1024 * 1024
+                    'package_max_length'=>250 * 1024 * 1024
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' => bean(\Cts\Common\RpcExtender::class)
@@ -216,7 +216,7 @@ class RpcConfig {
                 'port' => '19988',
                 'setting' => [
                     'timeout' => 120.0,
-                    'package_max_length'=>50 * 1024 * 1024
+                    'package_max_length'=>250 * 1024 * 1024
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' => bean(\Cts\Common\RpcExtender::class)
