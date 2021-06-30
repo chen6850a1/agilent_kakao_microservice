@@ -494,4 +494,51 @@ interface EcommerceInterface {
      * }
      */
     public function viewGoods(int $goodsId): array;
+
+    /**
+     *
+     * @param array $params
+     * @example {
+     *      keyword1:string
+     *      keyword2:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsSubscribeList(array $params): array;
+
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:string,
+     * }
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createSvsSubscribeList(array $params): array;
+
+    /**
+
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsSubscribeIsExist(): array;
+
 }
