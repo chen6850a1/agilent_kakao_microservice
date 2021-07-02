@@ -150,4 +150,21 @@ interface ReservationInterface {
      * @return array
      */
     public function checkWorkingDay(string $date): array;
+
+    /**
+     * 更新服务预约
+     * @param int $id
+     * @param array $params
+     *
+     * @return array
+     */
+    public function edit(int $id, array $params): array;
+
+    /**
+     * 取消服务预约
+     * @param int $id
+     *
+     * @return array
+     */
+    public function delete(int $id): array;
 }
