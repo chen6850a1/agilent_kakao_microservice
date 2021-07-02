@@ -1127,4 +1127,24 @@ interface UserInterface {
      * }
      */
     public function getUserAuthList(array $userIdParams, array $searchParams): array;
+
+    /**
+     *
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      telphone:string,
+     *      uid:string,
+     *      ContactName:string,
+     *
+     *
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function searchSvsUser(array $params): array;
 }
