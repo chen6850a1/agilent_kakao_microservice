@@ -496,6 +496,19 @@ interface EcommerceInterface {
     public function viewGoods(int $goodsId): array;
 
     /**
+     * 
+     * @param int $goodsId
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function increaseGoodsViews(int $goodsId): array;
+
+    /**
      *
      * @param array $params
      * @example {
@@ -514,7 +527,6 @@ interface EcommerceInterface {
      * }
      */
     public function getSvsSubscribeList(array $params): array;
-
 
     /**
      * @param array $params
@@ -540,5 +552,4 @@ interface EcommerceInterface {
      * }
      */
     public function getSvsSubscribeIsExist(): array;
-
 }
