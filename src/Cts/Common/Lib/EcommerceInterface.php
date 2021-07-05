@@ -295,6 +295,20 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $uid
+     * @return array
+     */
+    public function getSobotOrderInfo(int $uid): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function cacheSobotOrderInfo(array $params): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      id:int
