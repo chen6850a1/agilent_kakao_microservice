@@ -61,6 +61,8 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_PREVENTIVEMAINTENANCE = "preventiveMaintenance";
     const WECHAT_PUSH_TEMPLATE_SOOPEN = "soopen";
     const WECHAT_PUSH_TEMPLATE_BQ_DP_PUSH = "BQ_DP_PUSH";
+    const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
+    const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
