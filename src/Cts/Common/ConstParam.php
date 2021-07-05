@@ -37,7 +37,8 @@ class ConstParam {
     const EVENT_BQ_INVOICE_REMIND = "event_bq_invoice_remind"; //用户未填写发票信息 发送wechat模版消息提醒用户
     const EVENT_LEAVE_MSG = "event_leave_msg"; //离线消息提交
     const EVENT_ZIP_PASSWORD = "event_zip_password";
-    const EVENT_RPL_INVOICE_REMIND = "event_rpl_invoice_remind";
+    const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
+    const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -63,6 +64,8 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_PREVENTIVEMAINTENANCE = "preventiveMaintenance";
     const WECHAT_PUSH_TEMPLATE_SOOPEN = "soopen";
     const WECHAT_PUSH_TEMPLATE_BQ_DP_PUSH = "BQ_DP_PUSH";
+    const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
+    const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
