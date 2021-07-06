@@ -553,4 +553,18 @@ interface EcommerceInterface {
      * }
      */
     public function getSvsSubscribeIsExist(): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateCategoryPriority(array $params): array;
+
 }
