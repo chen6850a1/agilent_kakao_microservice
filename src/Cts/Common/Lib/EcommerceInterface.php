@@ -553,4 +553,72 @@ interface EcommerceInterface {
      * }
      */
     public function getSvsSubscribeIsExist(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      offset:int
+     *      limit:int
+     *      code:string
+     *      name:string
+     * }
+
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getCoursesFromElearning(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int
+     *      pageSize:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsCourseList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      course_ids:string
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function batchCreateSvsCourses(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      course_ids:string
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function batchDeleteSvsCourses(array $params): array;
 }
