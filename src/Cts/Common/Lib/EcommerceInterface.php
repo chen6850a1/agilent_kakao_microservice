@@ -499,6 +499,7 @@ interface EcommerceInterface {
     /**
      * 
      * @param int $goodsId
+     * @param int $isPublished
      * 
      * @return array
      * @example{
@@ -507,7 +508,72 @@ interface EcommerceInterface {
      *      error:string
      * }
      */
-    public function viewGoods(int $goodsId): array;
+    public function viewGoods(int $goodsId, int $isPublished = 1): array;
+
+    /**
+     * 
+     * @param int $categoryId
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getNotForSale(int $categoryId): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example{
+     *      category_id:int
+     *      title:string
+     *      description:string
+     *      banners:array
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createNotForSale(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example{
+     *      category_id:int
+     *      title:string
+     *      description:string
+     *      banners:array
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateNotForSale(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $categoryId
+     * @param int $isPublished
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function viewNotForSale(int $categoryId, int $isPublished = 1): array;
 
     /**
      *
