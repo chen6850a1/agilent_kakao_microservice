@@ -687,4 +687,74 @@ interface EcommerceInterface {
      * }
      */
     public function batchDeleteSvsCourses(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateCategoryPriority(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+     *      link:string
+     *      linkType:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+     *      link:string
+     *      linkType:int
+     *      isDeleted:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBanners(array $params): array;
+
 }
