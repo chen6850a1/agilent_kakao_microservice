@@ -153,7 +153,7 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
 
-        return JsonHelper::encode($record, JSON_UNESCAPED_UNICODE);
+        return json_encode($record, JSON_UNESCAPED_UNICODE);
     }
 
     /**
