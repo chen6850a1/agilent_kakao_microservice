@@ -143,7 +143,7 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
         $record["memory"]=memory_get_usage();
-        $record["params"]=\GuzzleHttp\json_encode($record["params"]);
+        $record["params"]=serialize($record["params"]);
         //太大参数，影响性能，暂不记录
         if(strlen($record["params"])>1000){
             $params = [
