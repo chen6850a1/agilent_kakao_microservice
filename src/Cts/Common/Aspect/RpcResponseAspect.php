@@ -45,8 +45,8 @@ class RpcResponseAspect {
         $data=$response->getResult();
 
         $serializeData=serialize($data);
-        if(strlen($serializeData)>4500){
-            $serializeData=substr($serializeData, 0, 4500);
+        if(mb_strlen($serializeData)>2000){
+            $serializeData=mb_substr($serializeData, 0, 2000);
         }
 
         Log::info(sprintf("RPC服务客户端，返回结果【%s】",$serializeData));
