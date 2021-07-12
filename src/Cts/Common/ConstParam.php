@@ -17,10 +17,10 @@ class ConstParam {
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
+    const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
-    const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
@@ -39,6 +39,7 @@ class ConstParam {
     const EVENT_ZIP_PASSWORD = "event_zip_password";
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
     const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
