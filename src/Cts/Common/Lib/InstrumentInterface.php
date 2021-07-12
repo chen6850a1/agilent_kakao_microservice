@@ -46,6 +46,59 @@ interface InstrumentInterface {
      * 获取suvery
      * @param array $data
      * @example:[
+     *      sn:XXXXX
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function addSnSobot(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function addProductIdSobot(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function getSapCategory(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function checkCategory(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function getCategorization(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function mdrQuestion(array $data): array;
+
+    /**
+     * @param string $groupService
+     * @return array
+     */
+    public function contactReason(string $groupService): array;
+
+
+
+    /**
+     * 获取suvery
+     * @param array $data
+     * @example:[
      *      image_data:base64 字符串
      * ]
      *
@@ -427,4 +480,12 @@ interface InstrumentInterface {
      * ]
      */
     public function getDetailInfoBySn(string $sn):array;
+
+    /**
+     * 软件版本
+     *
+     * @param array $data
+     * @return array
+     */
+    public function sapSoftwareVersion(array $data): array;
 }

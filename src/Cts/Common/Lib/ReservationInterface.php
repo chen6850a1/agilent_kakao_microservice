@@ -75,7 +75,33 @@ interface ReservationInterface {
     public function create(array $params): array;
 
     /**
-     * 
+     *
+     * @param array $params
+     * @example:{
+     *      type:string|int,
+     *      expected_date:string,
+     *      mobile:string,
+     *      name:string,
+     *      company:string,
+     *      order_no:string,
+     *      instrument_type:string,
+     *      additional_information:string,
+     *      images:array,
+     *      serial_no:string,
+     *      configration_information:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function geneCreate(array $params): array;
+
+    /**
+     *
      * @param string $name eg. installation|pm|oq
      * @param int $id
      * @param array $params
@@ -167,4 +193,10 @@ interface ReservationInterface {
      * @return array
      */
     public function delete(int $id): array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getNonReservationById(int $id): array;
 }

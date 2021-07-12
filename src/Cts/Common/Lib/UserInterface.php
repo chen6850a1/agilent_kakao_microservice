@@ -95,6 +95,12 @@ interface UserInterface {
     public function getFillInfoByUid(int $uid): array;
 
     /**
+     * @param int $Id
+     * @return array
+     */
+    public function getFillInfoById(int $Id): array;
+
+    /**
      * 发送验证码
      * @param array $params
      * @example {
