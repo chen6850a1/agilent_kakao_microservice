@@ -498,6 +498,7 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $goodsType
      * @param int $isPublished
      * @param string $keyword
      * 
@@ -508,7 +509,7 @@ interface EcommerceInterface {
      *      error:string
      * }
      */
-    public function searchGoods(int $isPublished = 1, string $keyword = ''): array;
+    public function searchGoods(int $goodsType, int $isPublished = 1, string $keyword = ''): array;
 
     /**
      * 
