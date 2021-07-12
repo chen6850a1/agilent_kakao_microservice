@@ -498,6 +498,20 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $isPublished
+     * @param string $keyword
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function searchGoods(int $isPublished = 1, string $keyword = ''): array;
+
+    /**
+     * 
      * @param int $goodsId
      * @param int $isPublished
      * 
@@ -756,5 +770,4 @@ interface EcommerceInterface {
      * }
      */
     public function getBanners(array $params): array;
-
 }
