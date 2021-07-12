@@ -17,10 +17,10 @@ class ConstParam {
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
+    const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
-    const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
@@ -37,7 +37,9 @@ class ConstParam {
     const EVENT_BQ_INVOICE_REMIND = "event_bq_invoice_remind"; //用户未填写发票信息 发送wechat模版消息提醒用户
     const EVENT_LEAVE_MSG = "event_leave_msg"; //离线消息提交
     const EVENT_ZIP_PASSWORD = "event_zip_password";
-    const EVENT_RPL_INVOICE_REMIND = "event_rpl_invoice_remind";
+    const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
+    const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
     const EVENT_RPL_TRANSACTION_CANCELLED = "event_RPL_transaction_cancelled"; //后台RPL HOLD到取消
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
     const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund"; //已支付到申请退款
@@ -67,6 +69,8 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_PREVENTIVEMAINTENANCE = "preventiveMaintenance";
     const WECHAT_PUSH_TEMPLATE_SOOPEN = "soopen";
     const WECHAT_PUSH_TEMPLATE_BQ_DP_PUSH = "BQ_DP_PUSH";
+    const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
+    const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
     const WECHAT_PUSH_TEMPLATE_APPLY_FOR_REFUND = "apply_for_refund";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
@@ -81,6 +85,7 @@ class ConstParam {
     const DP_TYPE_ARRIVAL_INSTALL = 'ArrivalInstall';
     const DP_TYPE_DELIVER = 'Deliver';
     const DP_TYPE_AUTO_PUSH = 'AutoPush';
+    const DP_TYPE_AUTO_PUSH_PMOQ = 'AutoPushPmoq';
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
     //RTA上传S3目录
     const RTA_UPLOAD_DIR = 'web/RTA/';

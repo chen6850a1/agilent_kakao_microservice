@@ -63,8 +63,8 @@ class RpcTraceMiddleware implements MiddlewareInterface
         context()->set('cost', $cost . 'ms');
 
         $serializeData=serialize($response->getData());
-        if(strlen($serializeData)>4500){
-            $serializeData=substr($serializeData, 0, 4500);
+        if(mb_strlen($serializeData)>2000){
+            $serializeData=mb_substr($serializeData, 0, 2000);
         }
 
         Log::info(sprintf("【%s】服务服务器，输出结果【%s】", config('service', 'swoft'),$serializeData));

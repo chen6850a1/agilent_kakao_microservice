@@ -295,6 +295,20 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $uid
+     * @return array
+     */
+    public function getSobotOrderInfo(int $uid): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function cacheSobotOrderInfo(array $params): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      id:int
@@ -484,7 +498,9 @@ interface EcommerceInterface {
 
     /**
      * 
-     * @param int $goodsId
+     * @param int $goodsType
+     * @param int $isPublished
+     * @param string $keyword
      * 
      * @return array
      * @example{
@@ -493,7 +509,86 @@ interface EcommerceInterface {
      *      error:string
      * }
      */
-    public function viewGoods(int $goodsId): array;
+    public function searchGoods(int $goodsType, int $isPublished = 1, string $keyword = ''): array;
+
+    /**
+     * 
+     * @param int $goodsId
+     * @param int $isPublished
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function viewGoods(int $goodsId, int $isPublished = 1): array;
+
+    /**
+     * 
+     * @param int $categoryId
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getNotForSale(int $categoryId): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example{
+     *      category_id:int
+     *      title:string
+     *      description:string
+     *      banners:array
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createNotForSale(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example{
+     *      category_id:int
+     *      title:string
+     *      description:string
+     *      banners:array
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateNotForSale(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $categoryId
+     * @param int $isPublished
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function viewNotForSale(int $categoryId, int $isPublished = 1): array;
 
     /**
      *
@@ -539,4 +634,141 @@ interface EcommerceInterface {
      * }
      */
     public function getSvsSubscribeIsExist(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      offset:int
+     *      limit:int
+     *      code:string
+     *      name:string
+     * }
+
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getCoursesFromElearning(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int
+     *      pageSize:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSvsCourseList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      course_ids:string
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function batchCreateSvsCourses(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      course_ids:string
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function batchDeleteSvsCourses(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateCategoryPriority(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+     *      link:string
+     *      linkType:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+     *      link:string
+     *      linkType:int
+     *      isDeleted:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getBanners(array $params): array;
 }

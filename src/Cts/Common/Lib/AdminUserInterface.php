@@ -319,4 +319,13 @@ interface AdminUserInterface {
      *
      */
     public function getLogList(array $params): array;
+
+    /**
+     *
+     * 获取AD中国列表
+     *
+     * @return array
+     *
+     */
+    public function getAdChinaList():array;
 }
