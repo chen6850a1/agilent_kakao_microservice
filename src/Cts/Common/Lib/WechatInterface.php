@@ -312,4 +312,15 @@ interface WechatInterface
      * @return array
      */
     public function urlSchemeGenerate(string $path,string $query,bool $isExpire = false, int $expireTime = 0):array;
+
+
+    /**
+     * 企业微信登录通过
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     * ]
+     */
+    public function LoginInEnterpriseWechat($userId):array;
 }
