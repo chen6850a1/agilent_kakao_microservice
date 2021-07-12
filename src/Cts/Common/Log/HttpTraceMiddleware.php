@@ -72,6 +72,12 @@ class HttpTraceMiddleware implements MiddlewareInterface
         ];
         context()->set('params', $params);
 
-        Log::info('Http接口请求结束:'.serialize($response->getData()));
+
+        $serializeData=serialize($response->getData());
+        if(mb_strlen($serializeData)>2000){
+            $serializeData=mb_substr($serializeData, 0, 2000);
+        }
+
+        Log::info('Http接口请求结束:'.$serializeData);
     }
 }

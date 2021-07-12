@@ -542,29 +542,6 @@ interface WechatInterface {
 
     /**
      * 
-     * @param int $roomId
-     * @param int $start
-     * @param int $limit
-     * 
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:[{
-     *          "create_time": "2020-12-24T09:06:42Z",
-     *          "expire_time": "2021-12-24T09:06:42Z",
-     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/f3ed75185285890811744904789/playlist_eof.m3u8"
-     *      },
-     *      {
-     *          "create_time": "2020-12-24T08:56:43Z",
-     *          "expire_time": "2021-12-24T08:56:43Z",
-     *          "media_url": "http://1258344707.vod2.myqcloud.com/1b87576bvodcq1258344707/3813d28f5285890811745578160/f0.mp4"
-     *      }]
-     * }
-     */
-    public function getReplay(int $roomId = 0, int $start = 0, int $limit = 10): array;
-
-    /**
-     * 
      * @param array $params
      * @example [
      *    "name" => "",

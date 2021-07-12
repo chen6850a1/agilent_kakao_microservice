@@ -1111,4 +1111,40 @@ interface UserInterface {
      * }
      */
     public function updateMyRole(array $params): array;
+
+    /**
+     *
+     * @param array $userIdParams
+     * @param array $searchParams
+     * @example {
+     * ['23','452','434','45234'],
+     * "hello",
+     * }
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUserAuthList(array $userIdParams, array $searchParams): array;
+
+    /**
+     *
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      telphone:string,
+     *      uid:string,
+     *      ContactName:string,
+     *
+     *
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function searchSvsUser(array $params): array;
 }
