@@ -35,6 +35,21 @@ interface WechatInterface {
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
     /**
+     * 获取微信用户信息
+     * @param array $wechatData
+     * @example:{
+     *      code:string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserInfoWithMiniDggCode(array $wechatData): array;
+
+    /**
      * 微信ad登录回调函数
      * @param array $params
      * @example :{
