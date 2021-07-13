@@ -231,9 +231,8 @@ interface GuideInterface {
     public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
 
     /**
-     *
-     *
+     * @param int $type
      * @return array
      */
-    public function getAttachments(): array;
+    public function getCateDgg(int $type): array;
 }
