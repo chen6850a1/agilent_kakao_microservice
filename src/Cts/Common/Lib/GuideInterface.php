@@ -229,11 +229,4 @@ interface GuideInterface {
      * }
      */
     public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
-
-    /**
-     *
-     *
-     * @return array
-     */
-    public function getAttachments(): array;
 }
