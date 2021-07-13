@@ -773,6 +773,19 @@ interface EcommerceInterface {
     public function getBanners(array $params): array;
 
     /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateBannersPriority(array $params): array;
+
+    /**
      * @param array $params
      * @example:{
      *      category_id:int,
