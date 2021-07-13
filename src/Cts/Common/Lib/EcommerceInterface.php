@@ -771,4 +771,40 @@ interface EcommerceInterface {
      * }
      */
     public function getBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      is_publish:int
+     *      type:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function viewBanners(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      type:int,
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getRecommend(array $params): array;
 }
