@@ -328,4 +328,16 @@ interface AdminUserInterface {
      *
      */
     public function getAdChinaList():array;
+
+    /**
+     * 检查业务账号是否有解绑权限
+     * @param string $email
+     * @return array
+     *@example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserUnbindAccess(string $email): array;
 }
