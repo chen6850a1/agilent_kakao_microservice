@@ -18,6 +18,7 @@ class ConstParam {
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
     const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
+    const USER_TYPE_H5_DGG = "wechatH5_dgg";
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
