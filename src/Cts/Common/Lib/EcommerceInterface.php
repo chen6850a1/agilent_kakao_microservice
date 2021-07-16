@@ -295,6 +295,13 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $id
+     * @return array
+     */
+    public function getOrderHistoryList(int $id): array;
+
+    /**
+     * 
      * @param int $uid
      * @return array
      */
