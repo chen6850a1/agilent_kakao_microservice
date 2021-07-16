@@ -143,7 +143,7 @@ class KinesisHandler extends AbstractProcessingHandler
         }
 
         $record["memory"]=memory_get_usage();
-        $record["params"]=\GuzzleHttp\json_encode($record["params"]);
+        $record["params"]=serialize($record["params"]);
         //太大参数，影响性能，暂不记录
         if(strlen($record["params"])>1000){
             $params = [
@@ -152,8 +152,9 @@ class KinesisHandler extends AbstractProcessingHandler
             context()->set('params', $params);
         }
 
-
-        return JsonHelper::encode($record, JSON_UNESCAPED_UNICODE);
+        $s=json_encode($record, JSON_UNESCAPED_UNICODE);
+        
+        return !empty($s)?$s:"json_encode fail";
     }
 
     /**

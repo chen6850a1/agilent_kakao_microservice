@@ -44,7 +44,12 @@ class RpcResponseAspect {
         $response = $joinPoint->getReturn();
         $data=$response->getResult();
 
-        Log::info(sprintf("RPC服务客户端，返回结果【%s】",serialize($data)));
+        $serializeData=serialize($data);
+        if(mb_strlen($serializeData)>2000){
+            $serializeData=mb_substr($serializeData, 0, 2000);
+        }
+
+        Log::info(sprintf("RPC服务客户端，返回结果【%s】",$serializeData));
 
         if(ArrayHelper::getValue($data,"status",true)===false&& !ArrayHelper::getValue($data,"no_error",false)){
             throw new ValidatorException(ArrayHelper::getValue($data,"error","error info"));
