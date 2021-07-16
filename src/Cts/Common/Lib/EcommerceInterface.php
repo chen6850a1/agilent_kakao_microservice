@@ -295,6 +295,13 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $id
+     * @return array
+     */
+    public function getOrderHistoryList(int $id): array;
+
+    /**
+     * 
      * @param int $uid
      * @return array
      */
@@ -771,6 +778,19 @@ interface EcommerceInterface {
      * }
      */
     public function getBanners(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateBannersPriority(array $params): array;
 
     /**
      * @param array $params
