@@ -860,7 +860,8 @@ interface WechatInterface {
      *          "message_id": 0
      *      }
      * }
-     * @example {
+     * or
+     * {
      *      status:true,
      *      data:{
      *          "message_id": [0,1]
