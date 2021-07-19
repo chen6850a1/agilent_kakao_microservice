@@ -947,7 +947,8 @@ interface WechatInterface {
      * }
      *
      */
-    public function getUserAuthList(array $userIdParams,array $searchParams): array;
+    public function allSubscribedPushMessage(array $params): array ;
+
 
 
 
