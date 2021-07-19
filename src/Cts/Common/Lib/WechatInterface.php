@@ -843,4 +843,33 @@ interface WechatInterface {
      * @return array
      */
     public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
+
+
+    /**
+     * 一键推送所有订阅用户
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'keyword' => ['广发银行']
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": [0,1]
+     *      }
+     * }
+     *
+     */
+    public function getUserAuthList(array $userIdParams,array $searchParams): array;
+
+
+
 }
