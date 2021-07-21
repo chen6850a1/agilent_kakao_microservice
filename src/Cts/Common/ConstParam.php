@@ -35,7 +35,10 @@ class ConstParam {
     const EVENT_BQ_INVOICE_REMIND = "event_bq_invoice_remind"; //用户未填写发票信息 发送wechat模版消息提醒用户
     const EVENT_LEAVE_MSG = "event_leave_msg"; //离线消息提交
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
-    const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
+    const EVENT_RPL_HOLD_REMIND = "event_rpl_hold_remind";
+    const EVENT_RPL_TRANSACTION_CANCELLED = "event_rpl_transaction_cancelled";
+    const EVENT_RPL_PASSED = "event_rpl_passed";
+    const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
