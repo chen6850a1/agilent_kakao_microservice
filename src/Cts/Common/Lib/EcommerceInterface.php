@@ -827,4 +827,16 @@ interface EcommerceInterface {
      * }
      */
     public function getRecommend(array $params): array;
+
+    /**
+     * @param int $id
+
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteBanners(int $id): array;
 }
