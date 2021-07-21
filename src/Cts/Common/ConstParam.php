@@ -39,7 +39,10 @@ class ConstParam {
     const EVENT_LEAVE_MSG = "event_leave_msg"; //离线消息提交
     const EVENT_ZIP_PASSWORD = "event_zip_password";
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
-    const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
+    const EVENT_RPL_HOLD_REMIND = "event_rpl_hold_remind";
+    const EVENT_RPL_TRANSACTION_CANCELLED = "event_rpl_transaction_cancelled";
+    const EVENT_RPL_PASSED = "event_rpl_passed";
+    const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund";
     const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
     const EVENT_RPL_TRANSACTION_CANCELLED = "event_RPL_transaction_cancelled"; //后台RPL HOLD到取消
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
