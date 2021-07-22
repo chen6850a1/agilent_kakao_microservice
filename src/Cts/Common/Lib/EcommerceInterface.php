@@ -857,4 +857,33 @@ interface EcommerceInterface {
      */
     public function getOrderGoodsDetails(int $orderDetailId): array;
 
+    /**
+     * @param int $id
+
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteBanners(int $id): array;
+
+    /**
+     * @param array $params
+     * @example:{
+     *      category_id:int,
+     *      goods_id:string
+     *      type:int
+
+     * }
+     * @param array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function bannerPublished(array $params): array;
+
 }
