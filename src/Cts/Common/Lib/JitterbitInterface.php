@@ -743,13 +743,4 @@ interface JitterbitInterface
      * @return array
      */
     public function createSrDgg(array $data): array;
-
-
-    /**
-     * 一键开单
-     * @param array $data
-     * @return array
-     */
-    public function createDsrDgg(array $data): array;
-
 }
