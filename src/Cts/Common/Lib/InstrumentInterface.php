@@ -499,4 +499,12 @@ interface InstrumentInterface {
      * @return array
      */
     public function sapSoftwareVersion(array $data): array;
+
+    /**
+     * 根据投拆类型获取contact reason
+     *
+     * @param array $data
+     * @return array
+     */
+    public function getComplaint(array $data): array;
 }
