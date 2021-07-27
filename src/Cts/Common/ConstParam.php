@@ -80,5 +80,7 @@ class ConstParam {
     const DP_TYPE_DELIVER = 'Deliver';
     const DP_TYPE_AUTO_PUSH = 'AutoPush';
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
+    //直播回放S3目录前缀
+    const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
 
 }
