@@ -59,6 +59,27 @@ interface UserInterface {
     public function createFillInfo(array $fillInfo): array;
 
     /**
+     * 获取列表
+     * @param array $data
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      status:string|int,
+     *      responseFormat:string eg. csv|json
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getWechatList(array $params): array;
+
+    /**
      * 获取仪器列表
      * @param array $data
      * @example:{
