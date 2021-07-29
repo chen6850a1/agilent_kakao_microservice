@@ -50,27 +50,6 @@ interface WechatInterface {
     public function getUserInfoWithMiniDggCode(array $wechatData): array;
 
     /**
-     * 微信ad登录回调函数
-     * @param array $params
-     * @example :{
-     *      code: string,
-     *      state: string
-     * }
-     * @throws \Exception
-     */
-    public function callback(array $params);
-
-    /**
-     * 企业微信ad登录
-     * @param array $params
-     * @example:{
-     *      code:string
-     * }
-     * @throws \Exception
-     */
-    public function wechatLogin(array $params);
-
-    /**
      * 获取微信用户信息
      * @param array $wechatData
      * @example:{
@@ -101,48 +80,6 @@ interface WechatInterface {
      * }
      */
     public function genCodeImg(array $wechatData): array;
-
-    /**
-     * 打包下载csv,media文件
-     * @param string $csvUrl
-     * @param string $operator
-     * @return array
-     */
-    public function downloadData(string $csvUrl, string $operator): array;
-
-    /**
-     *
-     * @param $data
-     * @return array
-     */
-    public function userListByHold($data);
-
-    /**
-     * 显示下载列表
-     * @param $data
-     * @return array
-     */
-    public function getDownloadingList($data);
-
-    /**
-     * 显示hold住的员工
-     * @return array
-     */
-    public function getHoldingList();
-
-    /**
-     * hold住员工
-     * @param $data
-     * @return array
-     */
-    public function holdUser($data);
-
-    /**
-     * 释放被hold住的员工
-     * @param $data
-     * @return array
-     */
-    public function releaseUser($data);
 
     /**
      * 生成二维码
@@ -300,41 +237,6 @@ interface WechatInterface {
     public function saveLeaveMsg(array $params): array;
 
     /**
-     * 
-     * @param array $params
-     * @example [
-     *      'mini_open_id' => string,
-     *      'total_fee' => float,
-     *      'order_sn' => string,
-     *      'order_name' => string
-     * ]
-     * 
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:{
-     *          appId: string,
-     *          timeStamp: int,
-     *          nonceStr: string,
-     *          package: string,
-     *          signType: string,
-     *          paySign: string
-     *      }
-     * }
-     */
-    public function wechatPay(array $params): array;
-
-    /**
-     * 
-     * @param array $input
-     * @return array
-     */
-    public function notify(array $input): array;
-
-
-
-
-    /**
      * 获取微信scheme码
      * @param $path   /pages/index/index
      * @param $query   a=1&b=2
@@ -359,14 +261,4 @@ interface WechatInterface {
      * @return array
      */
     public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
-
-    /**
-     * 企业微信登录通过
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     * ]
-     */
-    public function LoginInEnterpriseWechat($userId): array;
 }
