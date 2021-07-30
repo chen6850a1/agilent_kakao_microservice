@@ -832,6 +832,7 @@ interface EcommerceInterface {
     /**
      *
      * @param int $orderDetailId
+     * @param int $pageId
      * @return array
      * @example{
      *      status:true|false
@@ -855,7 +856,7 @@ interface EcommerceInterface {
      *          }
      * }
      */
-    public function getOrderGoodsDetails(int $orderDetailId): array;
+    public function getOrderGoodsDetails(int $orderDetailId,int $pageId): array;
 
     /**
      * @param int $id
