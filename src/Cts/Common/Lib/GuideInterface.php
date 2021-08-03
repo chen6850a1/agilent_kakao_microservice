@@ -119,6 +119,18 @@ interface GuideInterface {
     public function getArticle(int $id): array;
 
     /**
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getArticleDgg(int $id, int $type): array;
+
+    /**
      * @param array $params
      * @example:{
      *      name:string,
