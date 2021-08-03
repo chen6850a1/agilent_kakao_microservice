@@ -354,4 +354,25 @@ interface WechatInterface {
      * ]
      */
     public function LoginInEnterpriseWechat($userId): array;
+
+    /**
+     * 查看用户是否有未读的SOBOT聊天消息
+     * @param $data
+     * @return array
+     */
+    public function checkSobotUnreadMessage($data):array;
+
+    /**
+     * 用户加入SOBOT聊天
+     * @param $data
+     * @return bool
+     */
+    public function joinSobotChat($data):array;
+
+    /**
+     * 用户离开SOBOT聊天
+     * @param $data
+     * @return bool
+     */
+    public function leaveSobotChat($data):array;
 }
