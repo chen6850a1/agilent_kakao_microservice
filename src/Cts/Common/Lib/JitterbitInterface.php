@@ -143,6 +143,12 @@ interface JitterbitInterface
      */
     public function getSrHistory(array $data): array;
 
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function getSrHistoryDgg(array $data): array;
+
 
     /**
      * 获取suvery
@@ -665,6 +671,44 @@ interface JitterbitInterface
      */
     public function checkSn(array $data): array;
 
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sapCategory(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sapMdrRequest(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function productIdVerification(array $data): array;
+
+    /**
+     * @param string $serviceGroup
+     * @return array
+     */
+    public function sapContactReason(string $serviceGroup): array;
+
+    /**
+     * 软件版本
+     *
+     * @param array $data
+     * @return array
+     */
+    public function sapSoftwareVersion(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function checkSnSobotDgg(array $data): array;
+
 
     /**
      * 检测序列号
@@ -692,5 +736,12 @@ interface JitterbitInterface
      * @return array
      */
     public function createSr(array $data): array;
+
+    /**
+     * 一键开单
+     * @param array $data
+     * @return array
+     */
+    public function createSrDgg(array $data): array;
 
 }

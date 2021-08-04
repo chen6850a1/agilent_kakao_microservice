@@ -119,6 +119,18 @@ interface GuideInterface {
     public function getArticle(int $id): array;
 
     /**
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getArticleDgg(int $id, int $type): array;
+
+    /**
      * @param array $params
      * @example:{
      *      name:string,
@@ -229,4 +241,26 @@ interface GuideInterface {
      * }
      */
     public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
+
+    /**
+     * @param int $type
+     * @return array
+     */
+    public function getCateDgg(int $type): array;
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @example:{
+     *      is_published:int 0/1
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function articlePublish(int $id, array $params): array;
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * This file is part of Swoft.
  *
@@ -15,8 +17,8 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface
-{
+interface WechatInterface {
+
     /**
      * 获取微信用户信息
      * @param array $wechatData
@@ -33,25 +35,19 @@ interface WechatInterface
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
     /**
-     * 微信ad登录回调函数
-     * @param array $params
-     * @example :{
-     *      code: string,
-     *      state: string
-     * }
-     * @throws \Exception
-     */
-    public function callback(array $params);
-
-    /**
-     * 企业微信ad登录
-     * @param array $params
+     * 获取微信用户信息
+     * @param array $wechatData
      * @example:{
      *      code:string
      * }
-     * @throws \Exception
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
-    public function wechatLogin(array $params);
+    public function getUserInfoWithMiniDggCode(array $wechatData): array;
 
     /**
      * 获取微信用户信息
@@ -67,7 +63,6 @@ interface WechatInterface
      * }
      */
     public function getUserInfoWithH5Code(array $wechatData): array;
-
 
     /**
      * 生成二维码
@@ -85,49 +80,6 @@ interface WechatInterface
      * }
      */
     public function genCodeImg(array $wechatData): array;
-    
-   /**
-     * 打包下载csv,media文件
-     * @param string $csvUrl
-     * @param string $operator
-     * @return array
-     */
-
-    public function downloadData(string $csvUrl,string $operator):array;
-    /**
-     *
-     * @param $data
-     * @return array
-     */
-    public function userListByHold($data);
-    
-    /**
-     * 显示下载列表
-     * @param $data
-     * @return array
-     */
-    public function getDownloadingList($data);
-    
-    /**
-     * 显示hold住的员工
-     * @return array
-     */
-    public function getHoldingList();
-    
-     /**
-     * hold住员工
-     * @param $data
-     * @return array
-     */
-    public function holdUser($data);
-    
-     /**
-     * 释放被hold住的员工
-     * @param $data
-     * @return array
-     */
-    public function releaseUser($data);
-    
 
     /**
      * 生成二维码
@@ -163,7 +115,6 @@ interface WechatInterface
      */
     public function pushMessage(array $params): array;
 
-
     /**
      * 获取全局会话组
      *
@@ -173,7 +124,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotIframeData(array $params):array;
+    public function getSobotIframeData(array $params): array;
 
     /**
      * 匹配序列号返回聊天组
@@ -184,19 +135,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getGroupMatchSerialNo(array $params):array;
-
-
-    /**
-     * 获取全局会话组
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:XXXX
-     * ]
-     */
-    public function getSobotTicketIframeData(array $params):array;
+    public function getGroupMatchSerialNo(array $params): array;
 
     /**
      * 获取全局会话组
@@ -207,7 +146,18 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function getSobotGlobalGroup():array;
+    public function getSobotTicketIframeData(array $params): array;
+
+    /**
+     * 获取全局会话组
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSobotGlobalGroup(): array;
 
     /**
      * 保存备注
@@ -219,7 +169,6 @@ interface WechatInterface
      * ]
      */
     public function saveSobotNote(array $params): array;
-
 
     /**
      * 保存聊天组提交的信息
@@ -285,8 +234,7 @@ interface WechatInterface
      *      data:XXXX
      * ]
      */
-    public function saveLeaveMsg(array $params):array;
-
+    public function saveLeaveMsg(array $params): array;
 
     /**
      * 获取微信scheme码
@@ -298,12 +246,13 @@ interface WechatInterface
      *  @example {
      *      status:true,
      *      data:[
-    *           "errcode"=>  0,  //微信返回的状态码
+     *           "errcode"=>  0,  //微信返回的状态码
      *           "errmsg"=> "ok",  //微信返回的错误信息
-      *          "openlink"=> Scheme, //ticket码
+     *          "openlink"=> Scheme, //ticket码
      *          ]
      * ]
      */
+
     /**
      * @param $path
      * @param $query
@@ -311,16 +260,5 @@ interface WechatInterface
      * @param int $expireTime
      * @return array
      */
-    public function urlSchemeGenerate(string $path,string $query,bool $isExpire = false, int $expireTime = 0):array;
-
-
-    /**
-     * 企业微信登录通过
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     * ]
-     */
-    public function LoginInEnterpriseWechat($userId):array;
+    public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
 }
