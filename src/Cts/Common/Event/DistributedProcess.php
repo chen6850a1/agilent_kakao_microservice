@@ -47,6 +47,13 @@ class DistributedProcess extends UserProcess
         return $self;
     }
 
+    public function setContext($data){
+        $traceid = ArrayHelper::get($data, "traceid", "");
+        $user = ArrayHelper::get($data, "user", []);
+        context()->set("traceid", $traceid);
+        context()->set("user", $user);
+    }
+
     public function run(\Swoft\Process\Process $process): void
     {
         CLog::info('Aws sqs :started (' . $this->queueUrl . ")");
@@ -62,8 +69,8 @@ class DistributedProcess extends UserProcess
                     $body = json_decode($message["Body"], true);
                     $data = json_decode($body["Message"], true);
                     $handle = $this->eventHandle;
-                    $traceid = ArrayHelper::get($data, "traceid", "");
-                    context()->set("traceid", $traceid);
+                    $this->setContext($data);
+
                     $result = call_user_func($handle, $data,$message);
                     if(is_array($result)&& ArrayHelper::get($result,"needHandle")===true){
                         Log::info("Sns change message visibility");
