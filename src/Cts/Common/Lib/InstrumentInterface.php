@@ -507,4 +507,11 @@ interface InstrumentInterface {
      * @return array
      */
     public function getComplaint(array $data): array;
+
+    /**
+     * 仪器类型
+     *
+     * @return array
+     */
+    public function instrumentType(): array;
 }

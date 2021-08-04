@@ -78,6 +78,11 @@ interface SrInterface {
     public function getUserHistory(int $uid = 0, string $srId = ''): array;
 
     /**
+     * @return array
+     */
+    public function getLastHistory(): array;
+
+    /**
      * @param int $id
      * @param array $params
      * @example {
