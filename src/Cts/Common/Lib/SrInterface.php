@@ -189,13 +189,16 @@ interface SrInterface {
     public function getBqPdf(array $params);
 
     /**
-     * 
-     * @param string $bqId
-     * @param int $isSafety
-     * 
+     *
+     * @param array $params
+     * @example {
+     *      object_id:string,
+     *      is_safety: int,
+     *      share_id: string  分享id
+     * }
      * @return string pdf
      */
-    public function getSignBqPdf(string $bqId, int $isSafety);
+    public function getSignBqPdf(array $params);
 
     /**
      * 
@@ -216,18 +219,16 @@ interface SrInterface {
     public function genPdf(array $params): array;
 
     /**
-     * 
-     * @param string $bqId
-     * @param int $isSafety
-     * 
-     * @return array
+     *
+     * @param array $params
      * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
+     *      object_id:string,
+     *      is_safety: int,
+     *      share_id: string  分享id
      * }
+     * @return string pdf
      */
-    public function previewPdf(string $bqId, int $isSafety);
+    public function previewPdf(array $params);
 
     /**
      * 
