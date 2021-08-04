@@ -25,6 +25,7 @@ interface SliderInterface {
     
     /**
      * 
+     * @param int $type
      * @return array
      * @example {
      *      status:true|false,
@@ -32,7 +33,7 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function getList(): array;
+    public function getList(int $type): array;
 
     /**
      * 
@@ -117,6 +118,7 @@ interface SliderInterface {
 
     /**
      * 
+     * @param int $type
      * @return array
      * @example {
      *      status:true|false,
@@ -124,5 +126,5 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function publish(): array;
+    public function publish(int $type): array;
 }
