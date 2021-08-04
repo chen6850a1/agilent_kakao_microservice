@@ -350,6 +350,19 @@ interface WechatInterface {
 
     /**
      * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          id:int,
+     *          news:string
+     *      }]
+     *  }
+     */
+    public function getScrollingNewsList(): array;
+
+    /**
+     * 
      * @param int $isPublished
      * 
      * @return array
@@ -922,7 +935,6 @@ interface WechatInterface {
      */
     public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
 
-
     /**
      * 一键推送所有订阅用户
      * @param array $params
@@ -947,9 +959,5 @@ interface WechatInterface {
      * }
      *
      */
-    public function allSubscribedPushMessage(array $params): array ;
-
-
-
-
+    public function allSubscribedPushMessage(array $params): array;
 }
