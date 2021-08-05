@@ -671,7 +671,6 @@ interface JitterbitInterface
      */
     public function checkSn(array $data): array;
 
-
     /**
      * @param array $data
      * @return array
@@ -710,6 +709,7 @@ interface JitterbitInterface
      */
     public function checkSnSobotDgg(array $data): array;
 
+
     /**
      * 检测序列号
      * @param array $data
@@ -743,4 +743,5 @@ interface JitterbitInterface
      * @return array
      */
     public function createSrDgg(array $data): array;
+
 }
