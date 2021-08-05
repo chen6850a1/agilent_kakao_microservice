@@ -54,10 +54,10 @@ class AwsS3 {
 
     public function upoloadFileByData($fileName, $data, $flag = false) {
         $res = $this->client->putObject([
-                'Bucket' => $this->bucketName,
-                'Key' => $flag ? $fileName : $this->uploadDir . $fileName,
-                'Body' => $data
-            ]);
+            'Bucket' => $this->bucketName,
+            'Key' => $flag ? $fileName : $this->uploadDir . $fileName,
+            'Body' => $data
+        ]);
         if ($flag) {
             return $res->toArray();
         } else {
@@ -69,7 +69,7 @@ class AwsS3 {
         return $this->domainName . "/" . $this->uploadDir;
     }
 
-    public function listObjects($maxKeys = 1000, $prefix = '',$flag=false) {
+    public function listObjects($maxKeys = 1000, $prefix = '', $flag = false) {
         $objects = [];
         $startAfter = '';
         do {
@@ -99,7 +99,7 @@ class AwsS3 {
         return $objects;
     }
 
-    public function getObject($fileName,$flag = false) {
+    public function getObject($fileName, $flag = false) {
         $result = $this->client->getObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $flag ? $fileName : $this->uploadDir . $fileName
@@ -108,7 +108,7 @@ class AwsS3 {
         return $content;
     }
 
-    public function deleteObject($fileName,$flag = false) {
+    public function deleteObject($fileName, $flag = false) {
         $result = $this->client->deleteObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $flag ? $fileName : $this->uploadDir . $fileName

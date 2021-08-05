@@ -316,7 +316,33 @@ interface WechatInterface {
      */
     public function notify(array $input): array;
 
+    /**
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          id:int,
+     *          news:string
+     *      }]
+     *  }
+     */
+    public function getScrollingNewsList(): array;
 
+    /**
+     * 
+     * @param int $isPublished
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:[{
+     *          id:int,
+     *          news:string
+     *      }]
+     *  }
+     */
+    public function getScrollingNews(int $isPublished): array;
 
 
     /**
@@ -354,4 +380,30 @@ interface WechatInterface {
      * ]
      */
     public function LoginInEnterpriseWechat($userId): array;
+
+    /**
+     * 一键推送所有订阅用户
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'keyword' => ['广发银行']
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     * or
+     * {
+     *      status:true,
+     *      data:{
+     *          "message_id": [0,1]
+     *      }
+     * }
+     *
+     */
+    public function allSubscribedPushMessage(array $params): array;
 }

@@ -37,7 +37,10 @@ class ConstParam {
 	const EVENT_ZIP_PASSWORD = "event_zip_password";
 
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
-    const EVENT_ORDER_RPL_HOLD_REMIND = "event_order_rpl_hold_remind";
+    const EVENT_RPL_HOLD_REMIND = "event_rpl_hold_remind";
+    const EVENT_RPL_TRANSACTION_CANCELLED = "event_rpl_transaction_cancelled";
+    const EVENT_RPL_PASSED = "event_rpl_passed";
+    const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -82,5 +85,7 @@ class ConstParam {
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
     //RTA上传S3目录
     const RTA_UPLOAD_DIR = 'web/RTA/';
+    //直播回放S3目录前缀
+    const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
 
 }
