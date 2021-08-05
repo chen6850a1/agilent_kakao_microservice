@@ -214,10 +214,10 @@ interface GuideInterface {
     public function export(int $type = 0): array;
 
     /**
-     * 
+     *
      * @param int $type
      * @param string $categoryPath eg.1_2_3
-     * 
+     * @param int $id
      * @return array
      * @example {
      *      status:true|false,
@@ -225,7 +225,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getTree(int $type = 0, string $categoryPath = ''): array;
+    public function getTree(int $type = 0, string $categoryPath = '',int $id = 0): array;
 
     /**
      * 
