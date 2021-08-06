@@ -36,9 +36,9 @@ class ConstParam {
     const EVENT_LEAVE_MSG = "event_leave_msg"; //离线消息提交
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
     const EVENT_RPL_HOLD_REMIND = "event_rpl_hold_remind";
-    const EVENT_RPL_TRANSACTION_CANCELLED = "event_rpl_transaction_cancelled";
-    const EVENT_RPL_PASSED = "event_rpl_passed";
-    const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund";
+    const EVENT_RPL_TRANSACTION_CANCELLED = "event_RPL_transaction_cancelled"; //后台RPL HOLD到取消
+    const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
+    const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund"; //已支付到申请退款
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -66,6 +66,7 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_BQ_DP_PUSH = "BQ_DP_PUSH";
     const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
     const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
+    const WECHAT_PUSH_TEMPLATE_APPLY_FOR_REFUND = "apply_for_refund";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
