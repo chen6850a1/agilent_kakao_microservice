@@ -52,6 +52,18 @@ interface SrInterface {
     public function create(array $params): array;
 
     /**
+     * @param array $params
+     * @return array
+     */
+    public function createDgg(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function createDsrDgg(array $params): array;
+
+    /**
      *
      * @param int $uid
      * @param string $srId
@@ -64,6 +76,11 @@ interface SrInterface {
      * }
      */
     public function getUserHistory(int $uid = 0, string $srId = ''): array;
+
+    /**
+     * @return array
+     */
+    public function getLastHistory(): array;
 
     /**
      * @param int $id
