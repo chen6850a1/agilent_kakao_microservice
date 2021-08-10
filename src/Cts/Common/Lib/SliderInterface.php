@@ -12,7 +12,8 @@ namespace Cts\Common\Lib;
 interface SliderInterface {
 
     /**
-     * 
+     *
+     * @param int $type
      * @return array
      * @example {
      *      status:true|false,
@@ -20,7 +21,7 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function fetch(): array;
+    public function fetch(int $type): array;
     
     /**
      * 
