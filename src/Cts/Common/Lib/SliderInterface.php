@@ -22,9 +22,10 @@ interface SliderInterface {
      * }
      */
     public function fetch(int $type): array;
-    
+
     /**
-     * 
+     *
+     * @param int $type
      * @return array
      * @example {
      *      status:true|false,
@@ -32,7 +33,7 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function getList(): array;
+    public function getList(int $type): array;
 
     /**
      * 
@@ -116,7 +117,8 @@ interface SliderInterface {
     public function delete(int $id): array;
 
     /**
-     * 
+     *
+     * @param int $type
      * @return array
      * @example {
      *      status:true|false,
@@ -124,5 +126,5 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function publish(): array;
+    public function publish(int $type): array;
 }
