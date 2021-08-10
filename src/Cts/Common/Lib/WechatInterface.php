@@ -375,4 +375,12 @@ interface WechatInterface {
      * @return array
      */
     public function leaveSobotChat($data):array;
+
+    /**
+     * 用 redis 保存一份mini_openid和cid(sobot会话ID)的对应关系
+     * 用于进一步查询SOBOT未读消息
+     * @param $data
+     * @return mixed
+     */
+    public function saveMiniopenidCidForUnreadMessage($data);
 }
