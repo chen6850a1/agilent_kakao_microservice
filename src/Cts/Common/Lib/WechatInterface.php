@@ -337,6 +337,10 @@ interface WechatInterface {
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHomePageRoomList(): array;
 
@@ -349,6 +353,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getFutureRoomList(array $params): array;
 
@@ -361,6 +369,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHistoryRoomList(array $params): array;
 
@@ -373,6 +385,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHighQualityList(array $params): array;
 
@@ -381,6 +397,10 @@ interface WechatInterface {
      * @param int $id
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHighQuality(int $id): array;
 
@@ -395,6 +415,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function createHighQuality(array $params): array;
 
@@ -410,6 +434,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function updateHighQuality(int $id, array $params): array;
 
@@ -417,12 +445,20 @@ interface WechatInterface {
      * 
      * @param int $id
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function deleteHighQuality(int $id): array;
 
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function publishHighQuality(): array;
 
@@ -481,12 +517,20 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function batchSetRoomCustomStatus(array $params): array;
 
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function publishScrollingNewsAndRooms(): array;
 
