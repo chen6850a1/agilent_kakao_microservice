@@ -882,4 +882,33 @@ interface WechatInterface {
      *
      */
     public function allSubscribedPushMessage(array $params): array;
+
+    /**
+     * 获取用户sobot未读消息的数量
+     * @param $data
+     * @return array
+     */
+    public function getSobotUnreadMessageCount($data):array;
+
+    /**
+     * 用户加入SOBOT聊天
+     * @param $data
+     * @return array
+     */
+    public function joinSobotChat($data):array;
+
+    /**
+     * 用户离开SOBOT聊天
+     * @param $data
+     * @return array
+     */
+    public function leaveSobotChat($data):array;
+
+    /**
+     * 用 redis 保存一份mini_openid和cid(sobot会话ID)的对应关系
+     * 用于进一步查询SOBOT未读消息
+     * @param $data
+     * @return mixed
+     */
+    public function saveMiniopenidCidForUnreadMessage($data);
 }
