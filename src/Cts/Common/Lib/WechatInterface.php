@@ -415,6 +415,10 @@ interface WechatInterface {
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHomePageRoomList(): array;
 
@@ -427,6 +431,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getFutureRoomList(array $params): array;
 
@@ -439,6 +447,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHistoryRoomList(array $params): array;
 
@@ -451,6 +463,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHighQualityList(array $params): array;
 
@@ -459,6 +475,10 @@ interface WechatInterface {
      * @param int $id
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHighQuality(int $id): array;
 
@@ -473,6 +493,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function createHighQuality(array $params): array;
 
@@ -488,6 +512,10 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function updateHighQuality(int $id, array $params): array;
 
@@ -495,12 +523,20 @@ interface WechatInterface {
      * 
      * @param int $id
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function deleteHighQuality(int $id): array;
 
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function publishHighQuality(): array;
 
@@ -559,12 +595,20 @@ interface WechatInterface {
      * }
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function batchSetRoomCustomStatus(array $params): array;
 
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function publishScrollingNewsAndRooms(): array;
 
@@ -960,4 +1004,33 @@ interface WechatInterface {
      *
      */
     public function allSubscribedPushMessage(array $params): array;
+
+    /**
+     * 获取用户sobot未读消息的数量
+     * @param $data
+     * @return array
+     */
+    public function getSobotUnreadMessageCount($data):array;
+
+    /**
+     * 用户加入SOBOT聊天
+     * @param $data
+     * @return array
+     */
+    public function joinSobotChat($data):array;
+
+    /**
+     * 用户离开SOBOT聊天
+     * @param $data
+     * @return array
+     */
+    public function leaveSobotChat($data):array;
+
+    /**
+     * 用 redis 保存一份mini_openid和cid(sobot会话ID)的对应关系
+     * 用于进一步查询SOBOT未读消息
+     * @param $data
+     * @return mixed
+     */
+    public function saveMiniopenidCidForUnreadMessage($data);
 }

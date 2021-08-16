@@ -1046,6 +1046,10 @@ interface UserInterface {
      * 
      * @param int $id
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getRplInvoice(int $id): array;
 
