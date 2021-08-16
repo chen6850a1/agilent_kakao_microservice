@@ -249,12 +249,6 @@ interface GuideInterface {
     public function getCateDgg(int $type): array;
 
     /**
-     * @param int $articleId
-     * @return array
-     */
-    public function getPdfAttachments(int $articleId): array;
-
-    /**
      * @param int $id
      * @param array $params
      * @example:{
