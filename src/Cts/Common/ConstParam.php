@@ -42,6 +42,7 @@ class ConstParam {
     const EVENT_ZIP_PASSWORD = "event_zip_password";
     const EVENT_ORDER_WECHAT_PAY_SUCCEED = "event_order_wechat_pay_succeed";
     const EVENT_RPL_HOLD_REMIND = "event_rpl_hold_remind";
+	const EVENT_TRANSACTION_CANCELLED_BY_WECHAT_USER = "event_transaction_cancelled_by_wechat_user"; //微信用户取消订单
     const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail"; //发送带有PDF附件的邮件
     const EVENT_RPL_TRANSACTION_CANCELLED = "event_RPL_transaction_cancelled"; //后台RPL HOLD到取消
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
