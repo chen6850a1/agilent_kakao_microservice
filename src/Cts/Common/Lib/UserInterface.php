@@ -1172,4 +1172,10 @@ interface UserInterface {
      * }
      */
     public function searchSvsUser(array $params): array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getFillInfoById(int $id): array;
 }
