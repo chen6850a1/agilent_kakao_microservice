@@ -116,12 +116,6 @@ interface UserInterface {
     public function getFillInfoByUid(int $uid): array;
 
     /**
-     * @param int $Id
-     * @return array
-     */
-    public function getFillInfoById(int $Id): array;
-
-    /**
      * 发送验证码
      * @param array $params
      * @example {
@@ -929,7 +923,7 @@ interface UserInterface {
     public function getInfoByAuthUpdateTime(string $startDate, string $endDate): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      page:string|int,
@@ -940,7 +934,7 @@ interface UserInterface {
      *      status:string|int,
      *      responseFormat:string eg. csv|json
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -950,9 +944,9 @@ interface UserInterface {
     public function getRplList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -962,13 +956,13 @@ interface UserInterface {
     public function getRpl(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      AccountId:string,
      *      AccountName:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -978,7 +972,7 @@ interface UserInterface {
     public function rplCheck(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      AccountId:string,
@@ -986,7 +980,7 @@ interface UserInterface {
      *      status:int,
      *      remark:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -996,14 +990,14 @@ interface UserInterface {
     public function createRpl(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example:{
      *      status:int,
      *      remark:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1013,27 +1007,27 @@ interface UserInterface {
     public function updateRpl(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $excelData
      * @return array
      */
     public function importRpl(array $excelData): array;
 
     /**
-     * 
+     *
      * @return array []
      */
     public function exportRpl(): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      page:int,
      *      pageSize:int,
      *      AccountId:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1043,7 +1037,7 @@ interface UserInterface {
     public function getRplInvoiceList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      * @example {
@@ -1054,32 +1048,38 @@ interface UserInterface {
     public function getRplInvoice(int $id): array;
 
     /**
-     * 
+     * @param int $id
+     * @return array
+     */
+    public function getFillInfoById(int $id): array;
+
+    /**
+     *
      * @param array $params
      * @example {
      *      company_name:string,
      *      company_address:string,
      *      shipping_address:string
      * }
-     * 
+     *
      * @return array
      */
     public function checkRplInvoice(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example {
      *      AccountId:string
      * }
-     * 
+     *
      * @return array
      */
     public function updateRplInvoice(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      page:string|int,
@@ -1092,7 +1092,7 @@ interface UserInterface {
      *      AccountId:string,
      *      AccountName:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1102,7 +1102,7 @@ interface UserInterface {
     public function getUserList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      * @example {
@@ -1113,13 +1113,13 @@ interface UserInterface {
     public function getUser(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example {
      *      role:int 0|1|2
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1129,12 +1129,12 @@ interface UserInterface {
     public function updateUserRole(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      role:int 0|1|2
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
