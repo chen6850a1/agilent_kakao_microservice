@@ -138,6 +138,12 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @return array
+     */
+    public function countMyOrder(): array;
+
+    /**
+     * 
      * @param array $params
      * @example:{
      *      page:int,
@@ -828,7 +834,6 @@ interface EcommerceInterface {
      */
     public function getRecommend(array $params): array;
 
-
     /**
      *
      * @param string $orderDetailId
@@ -856,7 +861,7 @@ interface EcommerceInterface {
      *          }
      * }
      */
-    public function getOrderGoodsDetails(string $orderDetailId,int $pageId): array;
+    public function getOrderGoodsDetails(string $orderDetailId, int $pageId): array;
 
     /**
      * @param int $id
@@ -886,5 +891,4 @@ interface EcommerceInterface {
      * }
      */
     public function bannerPublished(array $params): array;
-
 }
