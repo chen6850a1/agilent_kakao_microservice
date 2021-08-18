@@ -921,4 +921,10 @@ interface UserInterface {
      * @return array
      */
     public function getInfoByAuthUpdateTime(string $startDate, string $endDate): array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getFillInfoById(int $id): array;
 }
