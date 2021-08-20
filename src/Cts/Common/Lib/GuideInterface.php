@@ -263,4 +263,10 @@ interface GuideInterface {
      * }
      */
     public function articlePublish(int $id, array $params): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sendEmail(array $data): array;
 }
