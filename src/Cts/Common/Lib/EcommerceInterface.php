@@ -835,33 +835,11 @@ interface EcommerceInterface {
     public function getRecommend(array $params): array;
 
     /**
-     *
-     * @param string $orderDetailId
-     * @param int $pageId
+     * 
+     * @param string $orderDetailIds
      * @return array
-     * @example{
-     *      status:true|false
-     *      error:string
-     *      data:{
-     *          order_id:int
-     *          goods_id:int
-     *          goods_category_id:int
-     *          goods_article_number:string
-     *          goods_type:int
-     *          goods_name:string
-     *          goods_original_price:string
-     *          goods_live_stream_price:string
-     *          goods_params:string
-     *          purchase_quantity:int
-     *          from_live_stream:int
-     *          discount_amount:string
-     *          subtotal:string
-     *          remark:string
-     *
-     *          }
-     * }
      */
-    public function getOrderGoodsDetails(string $orderDetailId, int $pageId): array;
+    public function getSobotOrderDetailInfo(string $orderDetailIds): array;
 
     /**
      * @param int $id
