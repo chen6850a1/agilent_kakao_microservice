@@ -322,6 +322,20 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $uid
+     * @return array
+     */
+    public function getSobotOrderDetailInfo(int $uid): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function cacheSobotOrderDetailInfo(array $params): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      id:int
@@ -835,35 +849,6 @@ interface EcommerceInterface {
     public function getRecommend(array $params): array;
 
     /**
-     *
-     * @param string $orderDetailId
-     * @param int $pageId
-     * @return array
-     * @example{
-     *      status:true|false
-     *      error:string
-     *      data:{
-     *          order_id:int
-     *          goods_id:int
-     *          goods_category_id:int
-     *          goods_article_number:string
-     *          goods_type:int
-     *          goods_name:string
-     *          goods_original_price:string
-     *          goods_live_stream_price:string
-     *          goods_params:string
-     *          purchase_quantity:int
-     *          from_live_stream:int
-     *          discount_amount:string
-     *          subtotal:string
-     *          remark:string
-     *
-     *          }
-     * }
-     */
-    public function getOrderGoodsDetails(string $orderDetailId, int $pageId): array;
-
-    /**
      * @param int $id
 
      * @param array
@@ -891,4 +876,38 @@ interface EcommerceInterface {
      * }
      */
     public function bannerPublished(array $params): array;
+
+    /**
+     * @param int $uid
+     * @example:{
+     *  uid: int
+     * }
+     *
+     * @return array
+     * @example{
+     *      page_name:string
+     *      goods_name:string,
+     *      goods_article_number:string
+     *      is_live_stream:string
+     * }
+     */
+    public function getCachePageSource(int $uid):array;
+
+
+    /**
+     * @param array $params
+     * @example:{
+     *      page_source:int,
+     *      good_id:int
+     * }
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     * }
+     */
+    public function cachePageSource(array $params): array;
+
+
+
 }
