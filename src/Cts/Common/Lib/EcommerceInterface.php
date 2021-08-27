@@ -876,4 +876,38 @@ interface EcommerceInterface {
      * }
      */
     public function bannerPublished(array $params): array;
+
+    /**
+     * @param int $uid
+     * @example:{
+     *  uid: int
+     * }
+     *
+     * @return array
+     * @example{
+     *      page_name:string
+     *      goods_name:string,
+     *      goods_article_number:string
+     *      is_live_stream:string
+     * }
+     */
+    public function getCachePageSource(int $uid):array;
+
+
+    /**
+     * @param array $params
+     * @example:{
+     *      page_source:int,
+     *      good_id:int
+     * }
+     *
+     * @return array
+     * @example{
+     *      status:true|false
+     * }
+     */
+    public function cachePageSource(array $params): array;
+
+
+
 }
