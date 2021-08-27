@@ -322,6 +322,20 @@ interface EcommerceInterface {
 
     /**
      * 
+     * @param int $uid
+     * @return array
+     */
+    public function getSobotOrderDetailInfo(int $uid): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function cacheSobotOrderDetailInfo(array $params): array;
+
+    /**
+     * 
      * @param array $params
      * @example {
      *      id:int
@@ -833,13 +847,6 @@ interface EcommerceInterface {
      * }
      */
     public function getRecommend(array $params): array;
-
-    /**
-     * 
-     * @param string $orderDetailIds
-     * @return array
-     */
-    public function getSobotOrderDetailInfo(string $orderDetailIds): array;
 
     /**
      * @param int $id
