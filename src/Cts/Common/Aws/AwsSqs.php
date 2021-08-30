@@ -73,7 +73,7 @@ class AwsSqs
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
         $sns=new AwsSns();
-        if($sns->subscribe("arn:aws:sqs:".$this->aws_acount.$queueName,[$service_name=>$event_type])){
+        if($sns->subscribe("arn:aws:sqs:".$this->aws_acount.$queueName,[$service_name=>[$event_type]])){
             return $result->get("QueueUrl");
         }
         return false;
@@ -102,7 +102,18 @@ class AwsSqs
         ]);
 
         Clog::info(serialize($config));
-        $result=$this->client->createQueue($config);
+
+        try{
+            $result=$this->client->createQueue($config);
+        }catch (AwsException $e){
+            $this->client->deleteQueue([
+                'QueueUrl' => $this->getQueueHttpsUrl($self_service_name,"",""), // REQUIRED
+            ]);
+            sleep(70);
+            $result=$this->client->createQueue($config);
+        }
+
+
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
 
@@ -151,7 +162,6 @@ class AwsSqs
 
         $Condition=new \stdClass();
         $Condition->ArnEquals=$ArnEquals;
-
         $Statement->Condition=$Condition;
 
 
