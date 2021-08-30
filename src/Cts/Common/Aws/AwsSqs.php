@@ -151,7 +151,6 @@ class AwsSqs
 
         $Condition=new \stdClass();
         $Condition->ArnEquals=$ArnEquals;
-
         $Statement->Condition=$Condition;
 
 
