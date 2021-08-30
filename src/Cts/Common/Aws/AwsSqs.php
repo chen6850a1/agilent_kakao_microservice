@@ -97,7 +97,7 @@ class AwsSqs
         $dieQueue=$this->getDieName();
 
         $config["Attributes"]["RedrivePolicy"]=json_encode([
-            "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.config("aws.name").$dieQueue,
+            "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
             "maxReceiveCount"=>3
         ]);
 
@@ -146,7 +146,7 @@ class AwsSqs
 
         $ArnEquals=new \stdClass();
         foreach ($arrTopics as $topicName){
-            $ArnEquals->{"aws:SourceArn"}[]="arn:aws:sns:".$this->aws_acount.$topicName;
+            $ArnEquals->{"aws:SourceArn"}[]="arn:aws:sns:".$this->aws_acount.config("aws.name").$topicName;
         }
 
         $Condition=new \stdClass();
