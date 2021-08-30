@@ -45,23 +45,30 @@ class AwsSns
         CLog::info("Create AWS SNS:".config("aws.name").$name);
     }
 
-    public function subscribe($sqs_arn,$topic_arn,$event_type){
-        try{
-            $result = $this->client->subscribe([
-                'Protocol' => "sqs",
-                'Endpoint' => $sqs_arn,
-                'ReturnSubscriptionArn' => true,
-                'TopicArn' => $topic_arn,
-                'Attributes'=>[
-                    "FilterPolicy"=>'{"event_type":["'.$event_type.'"]}'
-                ]
-            ]);
-            CLog::info($result);
-            return true;
-        }catch (AwsException $e){
-            CLog::info($e->getMessage());
-            return false;
+    public function subscribe($sqs_arn,$listenAllService){
+        foreach($listenAllService as $services=>$events){
+            try{
+                $FilterPolicy=new \stdClass();
+                foreach ($events as $event_name){
+                    $FilterPolicy->event_type[]=$event_name;
+                }
+
+                $result = $this->client->subscribe([
+                    'Protocol' => "sqs",
+                    'Endpoint' => $sqs_arn,
+                    'ReturnSubscriptionArn' => true,
+                    'TopicArn' => "arn:aws:sns:".$this->aws_acount.config("aws.name").$services,
+                    'Attributes'=>[
+                        "FilterPolicy"=>json_encode($FilterPolicy)
+                    ]
+                ]);
+                CLog::info($result);
+            }catch (AwsException $e){
+                CLog::info($e->getMessage());
+                return false;
+            }
         }
+        return true;
     }
 
 
@@ -70,7 +77,7 @@ class AwsSns
             return false;
         }
 
-        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', '')];
+        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', ''),"user"=>context()->get("user",[])];
         $jsonData=\GuzzleHttp\json_encode($messageData);
 
         $targetArn="arn:aws:sns:".$this->aws_acount.config("aws.name").config("service");

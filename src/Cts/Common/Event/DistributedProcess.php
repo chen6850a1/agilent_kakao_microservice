@@ -47,6 +47,13 @@ class DistributedProcess extends UserProcess
         return $self;
     }
 
+    public function setContext($data){
+        $traceid = ArrayHelper::get($data, "traceid", "");
+        $user = ArrayHelper::get($data, "user", []);
+        context()->set("traceid", $traceid);
+        context()->set("user", $user);
+    }
+
     public function run(\Swoft\Process\Process $process): void
     {
         CLog::info('Aws sqs :started (' . $this->queueUrl . ")");
@@ -61,16 +68,20 @@ class DistributedProcess extends UserProcess
                 foreach ($messages as $message) {
                     $body = json_decode($message["Body"], true);
                     $data = json_decode($body["Message"], true);
-                    $handle = $this->eventHandle;
-                    $traceid = ArrayHelper::get($data, "traceid", "");
-                    context()->set("traceid", $traceid);
-                    $result = call_user_func($handle, $data,$message);
-                    if(is_array($result)&& ArrayHelper::get($result,"needHandle")===true){
-                        Log::info("Sns change message visibility");
-                        $awsSqs->changeMessageVisibility($this->queueUrl,ArrayHelper::get($message,"ReceiptHandle"),ArrayHelper::get($result,"delay_time",60));
-                    }else{
-                        Log::info("Sns Delete complute");
+                    $event_type=ArrayHelper::get($body,"MessageAttributes.event_type.Value","");
+                    if(!ArrayHelper::has($this->eventHandle,$event_type)){
                         $awsSqs->deleteMessage($this->queueUrl,$message);
+                    }else{
+                        $handle = $this->eventHandle[$event_type];
+                        $this->setContext($data);
+                        $result = call_user_func($handle, $data,$message);
+                        if(is_array($result)&& ArrayHelper::get($result,"needHandle")===true){
+                            Log::info("Sns change message visibility");
+                            $awsSqs->changeMessageVisibility($this->queueUrl,ArrayHelper::get($message,"ReceiptHandle"),ArrayHelper::get($result,"delay_time",60));
+                        }else{
+                            Log::info("Sns Delete complute");
+                            $awsSqs->deleteMessage($this->queueUrl,$message);
+                        }
                     }
                 }
                 Log::info("Sns complute");
