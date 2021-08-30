@@ -146,7 +146,7 @@ class AwsSqs
 
         $ArnEquals=new \stdClass();
         foreach ($arrTopics as $topicName){
-            $ArnEquals->{"aws:SourceArn"}[]="arn:aws:sns:".$this->aws_acount.$topicName;
+            $ArnEquals->{"aws:SourceArn"}[]="arn:aws:sns:".$this->aws_acount.config("aws.name").$topicName;
         }
 
         $Condition=new \stdClass();
