@@ -102,7 +102,18 @@ class AwsSqs
         ]);
 
         Clog::info(serialize($config));
-        $result=$this->client->createQueue($config);
+        //查询是否已存在
+        $result = $this->client->ListQueues([
+                    'QueueNamePrefix' => $queueName,
+        ]);
+
+        if(empty($result->get("QueueUrls"))){
+            $result=$this->client->createQueue($config);
+        }else{
+            $config["QueueUrl"]=$this->getQueueHttpsUrl($self_service_name,"","");
+            $result = $this->client->setQueueAttributes($config);
+        }
+
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
 
