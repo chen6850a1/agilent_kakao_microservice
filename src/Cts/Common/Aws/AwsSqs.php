@@ -126,11 +126,17 @@ class AwsSqs
     }
 
 
-    public function push($queueUrl,$message,$delay=0){
+    public function push($queueUrl,$message,$delay=0,$event_type=""){
         $this->client->SendMessage([
             'DelaySeconds' => $delay,
             "MessageBody"=>$message,
-            "QueueUrl"=> $queueUrl
+            "QueueUrl"=> $queueUrl,
+            "MessageAttributes"=>[
+                "event_type"=>[
+                    "DataType"=>"String",
+                    "StringValue"=>$event_type
+                ]
+            ]
         ]);
     }
 
