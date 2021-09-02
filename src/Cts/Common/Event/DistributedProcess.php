@@ -68,7 +68,7 @@ class DistributedProcess extends UserProcess
                 foreach ($messages as $message) {
                     $body = json_decode($message["Body"], true);
                     $data = json_decode($body["Message"], true);
-                    $event_type=ArrayHelper::get($body,"MessageAttributes.event_type.Value","");
+                    $event_type=ArrayHelper::get($body,"MessageAttributes.event_type.Value",ArrayHelper::get($message,"MessageAttributes.event_type.StringValue"));
                     if(!ArrayHelper::has($this->eventHandle,$event_type)){
                         $awsSqs->deleteMessage($this->queueUrl,$message);
                     }else{
