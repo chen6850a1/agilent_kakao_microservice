@@ -463,6 +463,23 @@ interface EcommerceInterface {
     public function updateGoods(int $goodsId, array $params): array;
 
     /**
+     * 
+     * @param array $params
+     * @example{
+     *      goods_id1:int,
+     *      goods_id2:int
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateGoodsPriority(array $params): array;
+
+    /**
      *
      * @param int $categoryId
      * 
@@ -891,8 +908,7 @@ interface EcommerceInterface {
      *      is_live_stream:string
      * }
      */
-    public function getCachePageSource(int $uid):array;
-
+    public function getCachePageSource(int $uid): array;
 
     /**
      * @param array $params
@@ -907,7 +923,4 @@ interface EcommerceInterface {
      * }
      */
     public function cachePageSource(array $params): array;
-
-
-
 }
