@@ -318,6 +318,23 @@ interface WechatInterface {
 
     /**
      * 
+     * @param array $params
+     * @example {
+     *      page_path:string,
+     *      sence:string,
+     *      prefix:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      date:string S3地址
+     * }
+     */
+    public function genQrCode(array $params): array;
+
+    /**
+     * 
      * @return array
      * @example {
      *      status:true,
