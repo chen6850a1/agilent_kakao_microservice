@@ -364,6 +364,10 @@ interface WechatInterface {
     /**
      * 
      * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
      * @return array
      * @example {
      *      status:true,
@@ -372,6 +376,24 @@ interface WechatInterface {
      *          news:string
      *      }]
      *  }
+     */
+    public function createScrollingNews(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      news:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          id:int,
+     *          news:string
+     *      }
+     * }
      */
     public function updateScrollingNews(array $params): array;
 
