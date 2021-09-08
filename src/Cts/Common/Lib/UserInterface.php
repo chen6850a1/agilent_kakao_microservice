@@ -900,4 +900,255 @@ interface UserInterface {
      * @return array
      */
     public function getInfoByAuthUpdateTime(string $startDate, string $endDate): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      keyword:string,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      status:string|int,
+     *      responseFormat:string eg. csv|json
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRplList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRpl(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      AccountId:string,
+     *      AccountName:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:['rpl_check' => bool]
+     * }
+     */
+    public function rplCheck(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example:{
+     *      AccountId:string,
+     *      AccountName:string,
+     *      status:int,
+     *      remark:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function createRpl(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example:{
+     *      status:int,
+     *      remark:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateRpl(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $excelData
+     * @return array
+     */
+    public function importRpl(array $excelData): array;
+
+    /**
+     * 
+     * @return array []
+     */
+    public function exportRpl(): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:int,
+     *      pageSize:int,
+     *      AccountId:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRplInvoiceList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getRplInvoice(int $id): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      company_name:string,
+     *      company_address:string,
+     *      shipping_address:string
+     * }
+     * 
+     * @return array
+     */
+    public function checkRplInvoice(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      AccountId:string
+     * }
+     * 
+     * @return array
+     */
+    public function updateRplInvoice(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      direction:string eg.asc|desc,
+     *      telphone:string,
+     *      ContactId:string,
+     *      ContactName:string,
+     *      AccountId:string,
+     *      AccountName:string
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUserList(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUser(int $id): array;
+
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      role:int 0|1|2
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateUserRole(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      role:int 0|1|2
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateMyRole(array $params): array;
+
+    /**
+     *
+     * @param array $userIdParams
+     * @param array $searchParams
+     * @example {
+     * ['23','452','434','45234'],
+     * "hello",
+     * }
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function getUserAuthList(array $userIdParams, array $searchParams): array;
+
+    /**
+     *
+     * @param array $params
+     * @example {
+     *      page:string|int,
+     *      pageSize:string|int,
+     *      orderBy:string,
+     *      telphone:string,
+     *      uid:string,
+     *      ContactName:string,
+     *
+     *
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function searchSvsUser(array $params): array;
 }
