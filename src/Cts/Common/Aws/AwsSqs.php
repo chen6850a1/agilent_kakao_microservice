@@ -53,7 +53,7 @@ class AwsSqs
         $config=[
             "QueueName"=>$queueName,
             'Attributes' => [
-                "Policy"=>$this->createPolicy($queueName,$topicName),
+                "Policy"=>$this->createPolicy($queueName,[$topicName]),
                 "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
                 'DelaySeconds' => 5,
                 'MaximumMessageSize' => 4096 // 4 KB
@@ -62,35 +62,81 @@ class AwsSqs
         $dieQueue=$this->getDieName();
 
         //self_sqs_开头标注为 不需要SNS推送， 自行SQS推送
-        if(strpos($event_type,"self_sqs_")!==0){
-            $config["Attributes"]["RedrivePolicy"]=json_encode([
-                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
-                "maxReceiveCount"=>3
-            ]);
-        }else{
-            $config["Attributes"]["RedrivePolicy"]=json_encode([
-                "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
-                "maxReceiveCount"=>200
-            ]);
-        }
+        $config["Attributes"]["RedrivePolicy"]=json_encode([
+            "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+            "maxReceiveCount"=>200
+        ]);
+
         Clog::info(serialize($config));
         $result=$this->client->createQueue($config);
         Clog::info($topicName);
         CLog::info($result);
         CLog::info("Create AWS SQS:".config("aws.name").$queueName);
-
         $sns=new AwsSns();
-        if($sns->subscribe("arn:aws:sqs:".$this->aws_acount.$queueName,"arn:aws:sns:".$this->aws_acount.$topicName,$event_type)){
+        if($sns->subscribe("arn:aws:sqs:".$this->aws_acount.$queueName,[$service_name=>[$event_type]])){
             return $result->get("QueueUrl");
         }
         return false;
     }
 
-    public function push($queueUrl,$message,$delay=0){
+
+    public function createNewBetch($self_service_name,$listenAllService){
+        $queueName=$this->getQueueUrl($self_service_name,"","");
+
+        $topics=array_keys($listenAllService);
+        CLog::info("queueName=$queueName");
+        $config=[
+            "QueueName"=>$queueName,
+            'Attributes' => [
+                "Policy"=>$this->createPolicy($queueName,$topics),
+                "ReceiveMessageWaitTimeSeconds"=>20,//轮训等待时间
+                'DelaySeconds' => 5,
+                'MaximumMessageSize' => 4096 // 4 KB
+            ]
+        ];
+        $dieQueue=$this->getDieName();
+
+        $config["Attributes"]["RedrivePolicy"]=json_encode([
+            "deadLetterTargetArn"=>"arn:aws:sqs:".$this->aws_acount.$dieQueue,
+            "maxReceiveCount"=>3
+        ]);
+
+        Clog::info(serialize($config));
+
+        try{
+            $result=$this->client->createQueue($config);
+        }catch (AwsException $e){
+            $this->client->deleteQueue([
+                'QueueUrl' => $this->getQueueHttpsUrl($self_service_name,"",""), // REQUIRED
+            ]);
+            sleep(70);
+            $result=$this->client->createQueue($config);
+        }
+
+
+        CLog::info($result);
+        CLog::info("Create AWS SQS:".config("aws.name").$queueName);
+
+        $sns=new AwsSns();
+
+        if($sns->subscribe("arn:aws:sqs:".$this->aws_acount.$queueName,$listenAllService)){
+            return $result->get("QueueUrl");
+        }
+        return false;
+    }
+
+
+    public function push($queueUrl,$message,$delay=0,$event_type=""){
         $this->client->SendMessage([
             'DelaySeconds' => $delay,
             "MessageBody"=>$message,
-            "QueueUrl"=> $queueUrl
+            "QueueUrl"=> $queueUrl,
+            "MessageAttributes"=>[
+                "event_type"=>[
+                    "DataType"=>"String",
+                    "StringValue"=>$event_type
+                ]
+            ]
         ]);
     }
 
@@ -105,7 +151,7 @@ class AwsSqs
         );
     }
 
-    public function createPolicy($queueName,$topicName){
+    public function createPolicy($queueName,$arrTopics){
         $Statement=new \stdClass();
         $Statement->Sid="Sid".time();
         $Statement->Effect="Allow";
@@ -116,10 +162,12 @@ class AwsSqs
         $Statement->Resource="arn:aws:sqs:".$this->aws_acount.$queueName;
 
         $ArnEquals=new \stdClass();
-        $ArnEquals->{"aws:SourceArn"}="arn:aws:sns:".$this->aws_acount.$topicName;
+        foreach ($arrTopics as $topicName){
+            $ArnEquals->{"aws:SourceArn"}[]="arn:aws:sns:".$this->aws_acount.config("aws.name").$topicName;
+        }
+
         $Condition=new \stdClass();
         $Condition->ArnEquals=$ArnEquals;
-
         $Statement->Condition=$Condition;
 
 
