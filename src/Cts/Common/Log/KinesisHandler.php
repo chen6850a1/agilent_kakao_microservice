@@ -96,11 +96,12 @@ class KinesisHandler extends AbstractProcessingHandler
         if (Co::id() <= 0) {
             throw new InvalidArgumentException('Write log file must be under Coroutine!');
         }
-
-        sgo(function () use ($messageText) {
-            $kinesisFirehose=BeanFactory::getBean("AwsKinesis");
-            $kinesisFirehose->put($messageText);
-        });
+		
+		if(mb_strlen($messageText)<5000){
+                CLog::info($messageText);
+        }else{
+                CLog::info(mb_substr($messageText, 0, 5000));
+        }
     }
 
     /**

@@ -269,4 +269,22 @@ interface GuideInterface {
      * @return array
      */
     public function sendEmail(array $data): array;
+
+    /**
+     *
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      sort:string|int,
+     *      operator:string eg. +|-
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateOrder(int $id, array $params): array;
 }
