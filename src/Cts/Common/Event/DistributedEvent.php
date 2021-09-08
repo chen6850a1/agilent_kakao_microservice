@@ -63,24 +63,38 @@ class DistributedEvent implements EventHandlerInterface
         CLog::info("start listenEvent");
         $distributed_event_listen=EventRegister::getEventListenList();
         $self_service_name=config("service","no_def");
+        /** @var AwsSqs $awsSqs */
         $awsSqs=BeanFactory::getBean("AwsSqs");
         $awsSns=BeanFactory::getRequestBean("AwsSns",(string)Co::tid());
 
         $server = $event->getTarget();
         $swooleServer =  $server->getSwooleServer();
-
+        $listenAllService=[];
+        $listen_handler=[];
         //创建队列
         foreach ($distributed_event_listen as $service_name=>$service){
             $awsSns->create($service_name);
+            $allEvent=[];
             foreach ($service as $event_type=>$handle){
-                CLog::info("self_service_name=$self_service_name;service_name=$service_name;event_type=$event_type");
-                $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
-                if(!empty($queueUrl)){
-                    $process =DistributedProcess::new($queueUrl,$handle,$server);
-                    $callBack=[$process,"run"];
-                    $this->addProcess($callBack,$server,"AwsEventProcess");
+                $listen_handler[$event_type]=$handle;
+                //送修的自循环暂时不i需改
+                if(strpos($event_type,"self_sqs_")!==0){
+                    $listenAllService[$service_name][]=$event_type;
+                }else{
+                    $queueUrl=$awsSqs->create($self_service_name,$service_name,$event_type);
+                    if(!empty($queueUrl)){
+                        $process =DistributedProcess::new($queueUrl,$listen_handler,$server);
+                        $callBack=[$process,"run"];
+                        $this->addProcess($callBack,$server,"AwsEventProcess");
+                    }
                 }
             }
+        }
+        $queueUrl=$awsSqs->createNewBetch($self_service_name,$listenAllService);
+        if(!empty($queueUrl)){
+            $process =DistributedProcess::new($queueUrl,$listen_handler,$server);
+            $callBack=[$process,"run"];
+            $this->addProcess($callBack,$server,"AwsEventProcess");
         }
         //创建进程监听队列消息
     }
