@@ -729,6 +729,268 @@ interface WechatInterface {
     public function getSharedCode(array $params): array;
 
     /**
+     * 
+     * @param array $params
+     * @example [
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1
+     *      }
+     * }
+     */
+    public function goodsAddToStore(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_id": 1,
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAdd(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1,
+     *      'audit_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsResetAudit(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "audit_id": 1
+     *      }
+     * }
+     */
+    public function goodsAudit(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsDelete(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'goods_id' => 1,
+     *      'cover_img_url' => '',
+     *      'name' => '',
+     *      'price_type' => '',
+     *      'price' => 0,
+     *      'price2' => 0,
+     *      'url' => '',
+     *      'third_patry_appid' => ''
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{}
+     * }
+     */
+    public function goodsUpdate(array $params): array;
+
+    /**
+     * 
+     * @param array $goodsIds
+     * @example [1,2,3...]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getGoodsWarehouse(array $goodsIds): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'offset' => 0,
+     *      'limit' => 30,
+     *      'audit_status' => 0
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total": 1
+     *          "goods_list": []
+     *      }
+     * }
+     */
+    public function getApprovedGoods(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     * @example [
+     *      'page' => 1,
+     *      'pageSize' => 10,
+     *      'keyword' => '新城',
+     *      'direction'=> 'desc',
+     *      'orderBy'=> 'uid',
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "total_num": 10,
+     *          "total_pages":3,
+     *          "list": []
+     *      }
+     * }
+     */
+    public function getSubscriberList(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'user_openid' => ['a','b']
+     * ]
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     */
+    public function subscribedPushMessage(array $params): array;
+
+    /**
+     * 
+     * @param string $type
+     * @param string $tempPath
+     * @param string $fileName
+     * 
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "media_id": ''
+     *      }
+     * }
+     */
+    public function mediaUpload(string $type, string $tempPath, string $fileName): array;
+
+
+    /**
+     * 获取微信scheme码
+     * @param $path   /pages/index/index
+     * @param $query   a=1&b=2
+     * @param bool $isExpire 生成的scheme码类型，到期失效：true，永久有效：false。
+     * @param int $expireTime 到期失效的scheme码的失效时间，为Unix时间戳。生成的到期失效scheme码在该时间前有效。最长有效期为1年。生成到期失效的scheme时必填。
+     * @return array
+     *  @example {
+     *      status:true,
+     *      data:[
+     *           "errcode"=>  0,  //微信返回的状态码
+     *           "errmsg"=> "ok",  //微信返回的错误信息
+     *          "openlink"=> Scheme, //ticket码
+     *          ]
+     * ]
+     */
+
+    /**
+     * @param $path
+     * @param $query
+     * @param bool $isExpire
+     * @param int $expireTime
+     * @return array
+     */
+    public function urlSchemeGenerate(string $path, string $query, bool $isExpire = false, int $expireTime = 0): array;
+
+    /**
+     * 一键推送所有订阅用户
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'keyword' => ['广发银行']
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     * or
+     * {
+     *      status:true,
+     *      data:{
+     *          "message_id": [0,1]
+     *      }
+     * }
+     *
+     */
+    public function allSubscribedPushMessage(array $params): array;
+
+    /**
      * @param array $params
      * @example [
      *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
@@ -793,30 +1055,4 @@ interface WechatInterface {
      * @return mixed
      */
     public function saveMiniopenidCidForUnreadMessage($data);
-
-    /**
-     * 一键推送所有订阅用户
-     * @param array $params
-     * @example [
-     *      'room_id' => 1,
-     *      'keyword' => ['广发银行']
-     * ]
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:{
-     *          "message_id": 0
-     *      }
-     * }
-     * or
-     * {
-     *      status:true,
-     *      data:{
-     *          "message_id": [0,1]
-     *      }
-     * }
-     *
-     */
-    public function allSubscribedPushMessage(array $params): array;
 }
