@@ -13,16 +13,7 @@ interface SliderInterface {
 
     /**
      * 
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function fetch(): array;
-    
-    /**
+     * @param int $type
      * 
      * @return array
      * @example {
@@ -31,7 +22,20 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function getList(): array;
+    public function fetch(int $type): array;
+
+    /**
+     * 
+     * @param int $type
+     * 
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getList(int $type): array;
 
     /**
      * 
@@ -88,8 +92,8 @@ interface SliderInterface {
      * @param int $id
      * @param array $params
      * @example {
+     *      type:int,
      *      order:string|int,
-     *      operator:string eg. +|-
      * }
      * 
      * @return array
@@ -116,6 +120,8 @@ interface SliderInterface {
 
     /**
      * 
+     * @param int $type
+     * 
      * @return array
      * @example {
      *      status:true|false,
@@ -123,5 +129,5 @@ interface SliderInterface {
      *      error:string
      * }
      */
-    public function publish(): array;
+    public function publish(int $type): array;
 }
