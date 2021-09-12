@@ -34,7 +34,7 @@ interface WechatInterface {
      */
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
-    /**
+	/**
      * 微信ad登录回调函数
      * @param array $params
      * @example :{
@@ -68,6 +68,21 @@ interface WechatInterface {
      *      error:string
      * }
      */
+    public function getUserInfoWithMiniDggCode(array $wechatData): array;
+
+    /**
+     * 获取微信用户信息
+     * @param array $wechatData
+     * @example:{
+     *      code:string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
     public function getUserInfoWithH5Code(array $wechatData): array;
 
     /**
@@ -87,7 +102,7 @@ interface WechatInterface {
      */
     public function genCodeImg(array $wechatData): array;
 
-    /**
+	/**
      * 打包下载csv,media文件
      * @param string $csvUrl
      * @param string $operator
@@ -128,6 +143,8 @@ interface WechatInterface {
      * @return array
      */
     public function releaseUser($data);
+
+    /**
 
     /**
      * 生成二维码

@@ -12,7 +12,7 @@ namespace Cts\Common\Lib;
 interface SliderInterface {
 
     /**
-     * 
+     *
      * @param int $type
      * 
      * @return array
@@ -25,7 +25,8 @@ interface SliderInterface {
     public function fetch(int $type): array;
 
     /**
-     * 
+     *
+  
      * @param int $type
      * 
      * @return array
@@ -119,7 +120,7 @@ interface SliderInterface {
     public function delete(int $id): array;
 
     /**
-     * 
+     *
      * @param int $type
      * 
      * @return array

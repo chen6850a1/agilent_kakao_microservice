@@ -70,7 +70,7 @@ class AwsSns
             return false;
         }
 
-        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', '')];
+        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', ''),"user"=>context()->get("user",[])];
         $jsonData=\GuzzleHttp\json_encode($messageData);
 
         $targetArn="arn:aws:sns:".$this->aws_acount.config("aws.name").config("service");
