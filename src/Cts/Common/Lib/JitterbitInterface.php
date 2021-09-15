@@ -744,4 +744,21 @@ interface JitterbitInterface
      */
     public function createSrDgg(array $data): array;
 
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sapGetContatDetail(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sapGetHistory(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function sapSubmitIr(array $data): array;
 }

@@ -590,4 +590,16 @@ interface SrInterface {
      * @return array
      */
     public function getAttachments(string $bqId): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function submitIr(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irHistory(array $params): array;
 }
