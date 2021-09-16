@@ -1140,7 +1140,7 @@ interface UserInterface {
     /**
      *
      * @param array $userIdParams
-     * @param array $searchParams
+     * @param string $searchParams
      * @example {
      * ['23','452','434','45234'],
      * "hello",
@@ -1151,7 +1151,7 @@ interface UserInterface {
      *      data:array
      * }
      */
-    public function getUserAuthList(array $userIdParams, array $searchParams): array;
+    public function getUserAuthList(array $userIdParams, string $searchParams = ''): array;
 
     /**
      *
