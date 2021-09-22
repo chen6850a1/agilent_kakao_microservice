@@ -761,4 +761,10 @@ interface JitterbitInterface
      * @return array
      */
     public function sapSubmitIr(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function irGetOppHistory(array $data): array;
 }
