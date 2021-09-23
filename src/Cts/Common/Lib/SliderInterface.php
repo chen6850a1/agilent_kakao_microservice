@@ -14,6 +14,7 @@ interface SliderInterface {
     /**
      *
      * @param int $type
+     * 
      * @return array
      * @example {
      *      status:true|false,
@@ -25,7 +26,9 @@ interface SliderInterface {
 
     /**
      *
+  
      * @param int $type
+     * 
      * @return array
      * @example {
      *      status:true|false,
@@ -90,8 +93,8 @@ interface SliderInterface {
      * @param int $id
      * @param array $params
      * @example {
+     *      type:int,
      *      order:string|int,
-     *      operator:string eg. +|-
      * }
      * 
      * @return array
@@ -119,6 +122,7 @@ interface SliderInterface {
     /**
      *
      * @param int $type
+     * 
      * @return array
      * @example {
      *      status:true|false,

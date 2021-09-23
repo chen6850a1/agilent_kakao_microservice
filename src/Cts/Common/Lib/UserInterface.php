@@ -1138,20 +1138,11 @@ interface UserInterface {
     public function updateMyRole(array $params): array;
 
     /**
-     *
-     * @param array $userIdParams
-     * @param array $searchParams
-     * @example {
-     * ['23','452','434','45234'],
-     * "hello",
-     * }
+     * 
+     * @param string $keyword 姓名/手机/单位
      * @return array
-     * @example {
-     *      status:bool,
-     *      data:array
-     * }
      */
-    public function getUserAuthList(array $userIdParams, array $searchParams): array;
+    public function convertToMiniOpenIdList(string $keyword): array;
 
     /**
      *

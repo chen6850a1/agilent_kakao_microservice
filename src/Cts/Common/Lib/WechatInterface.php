@@ -35,21 +35,6 @@ interface WechatInterface {
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
     /**
-     * 获取微信用户信息
-     * @param array $wechatData
-     * @example:{
-     *      code:string
-     * }
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function getUserInfoWithMiniDggCode(array $wechatData): array;
-
-    /**
      * 微信ad登录回调函数
      * @param array $params
      * @example :{
@@ -69,6 +54,21 @@ interface WechatInterface {
      * @throws \Exception
      */
     public function wechatLogin(array $params);
+
+    /**
+     * 获取微信用户信息
+     * @param array $wechatData
+     * @example:{
+     *      code:string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserInfoWithMiniDggCode(array $wechatData): array;
 
     /**
      * 获取微信用户信息
@@ -145,6 +145,8 @@ interface WechatInterface {
     public function releaseUser($data);
 
     /**
+
+      /**
      * 生成二维码
      * @param array $params
      * @example:{
@@ -332,7 +334,7 @@ interface WechatInterface {
     public function notify(array $input): array;
 
     /**
-     *
+     * 
      * @param array $params
      * @example {
      *      page_path:string,
@@ -362,9 +364,9 @@ interface WechatInterface {
     public function getScrollingNewsList(): array;
 
     /**
-     *
+     * 
      * @param int $isPublished
-     *
+     * 
      * @return array
      * @example {
      *      status:true,
@@ -386,10 +388,10 @@ interface WechatInterface {
      * @return array
      * @example {
      *      status:true,
-     *      data:{
+     *      data:[{
      *          id:int,
      *          news:string
-     *      }
+     *      }]
      *  }
      */
     public function createScrollingNews(array $params): array;
@@ -415,6 +417,10 @@ interface WechatInterface {
     /**
      * 
      * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
      */
     public function getHomePageRoomList(): array;
 
@@ -514,6 +520,22 @@ interface WechatInterface {
      * }
      */
     public function updateHighQuality(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      id1:int,
+     *      id2:int
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateHighQualityPriority(array $params): array;
 
     /**
      * 
@@ -948,15 +970,41 @@ interface WechatInterface {
      */
     public function mediaUpload(string $type, string $tempPath, string $fileName): array;
 
+    /**
+     * 一键推送所有订阅用户
+     * @param array $params
+     * @example [
+     *      'room_id' => 1,
+     *      'keyword' => ['广发银行']
+     * ]
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:{
+     *          "message_id": 0
+     *      }
+     * }
+     * or
+     * {
+     *      status:true,
+     *      data:{
+     *          "message_id": [0,1]
+     *      }
+     * }
+     *
+     */
+    public function allSubscribedPushMessage(array $params): array;
 
     /**
-     * 获取微信scheme码
-     * @param $path   /pages/index/index
-     * @param $query   a=1&b=2
-     * @param bool $isExpire 生成的scheme码类型，到期失效：true，永久有效：false。
-     * @param int $expireTime 到期失效的scheme码的失效时间，为Unix时间戳。生成的到期失效scheme码在该时间前有效。最长有效期为1年。生成到期失效的scheme时必填。
+     * @param array $params
+     * @example [
+     *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
+     *      "roomId" => 15
+     *  ]
+     *
      * @return array
-     *  @example {
+     * @example {
      *      status:true,
      *      data:[
      *           "errcode"=>  0,  //微信返回的状态码
@@ -986,51 +1034,25 @@ interface WechatInterface {
     public function LoginInEnterpriseWechat($userId): array;
 
     /**
-     * 一键推送所有订阅用户
-     * @param array $params
-     * @example [
-     *      'room_id' => 1,
-     *      'keyword' => ['广发银行']
-     * ]
-     *
-     * @return array
-     * @example {
-     *      status:true,
-     *      data:{
-     *          "message_id": 0
-     *      }
-     * }
-     * or
-     * {
-     *      status:true,
-     *      data:{
-     *          "message_id": [0,1]
-     *      }
-     * }
-     *
-     */
-    public function allSubscribedPushMessage(array $params): array;
-
-    /**
      * 获取用户sobot未读消息的数量
      * @param $data
      * @return array
      */
-    public function getSobotUnreadMessageCount($data):array;
+    public function getSobotUnreadMessageCount($data): array;
 
     /**
      * 用户加入SOBOT聊天
      * @param $data
      * @return array
      */
-    public function joinSobotChat($data):array;
+    public function joinSobotChat($data): array;
 
     /**
      * 用户离开SOBOT聊天
      * @param $data
      * @return array
      */
-    public function leaveSobotChat($data):array;
+    public function leaveSobotChat($data): array;
 
     /**
      * 用 redis 保存一份mini_openid和cid(sobot会话ID)的对应关系
