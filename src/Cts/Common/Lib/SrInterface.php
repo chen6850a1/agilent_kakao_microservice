@@ -602,4 +602,10 @@ interface SrInterface {
      * @return array
      */
     public function irHistory(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irOppHistory(array $params): array;
 }
