@@ -1160,4 +1160,25 @@ interface UserInterface {
      * @return array
      */
     public function getFillInfoById(int $id): array;
+
+
+    /**
+     * 订阅用户导出
+     * @param string $keyword
+     * @param array $subscriberList
+     * @example {
+     *      int,
+     *}
+     * @return array
+     * @example {
+     *  mini_open_id {
+     *       mini_open_id:string,
+     *       telphone:string,
+     *       ContactName,
+     *       AccountName,
+     *       nickname,
+     *   }
+     * }
+     */
+    public function subscriberExport(array $subscriberList, string $keyword):array;
 }
