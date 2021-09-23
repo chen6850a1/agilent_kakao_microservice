@@ -1061,4 +1061,26 @@ interface WechatInterface {
      * @return mixed
      */
     public function saveMiniopenidCidForUnreadMessage($data);
+
+
+    /**
+     * 订阅用户导出
+     * @param array $params
+     * @example {
+     *  room_id:int
+     *  keyword:start
+     * }
+     * @return array
+     * @example {
+     *       room_id:int,
+     *       name:string,
+     *       subscribe_time:string,
+     *       mini_open_id:string,
+     *       telphone:string,
+     *       ContactName,
+     *       AccountName,
+     *       nickname,
+     * }
+     */
+    public function subscriberExport(array $params):array;
 }
