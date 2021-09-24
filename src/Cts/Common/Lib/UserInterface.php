@@ -1153,7 +1153,7 @@ interface UserInterface {
      *      data:array
      * }
      */
-    public function searchSvsUser(array $params): array;
+    public function searchSvsUser(): array;
 
     /**
      * @param int $id
