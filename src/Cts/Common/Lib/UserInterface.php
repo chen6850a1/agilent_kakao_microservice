@@ -1146,15 +1146,6 @@ interface UserInterface {
 
     /**
      *
-     * @param array $params
-     * @example {
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      orderBy:string,
-     *      telphone:string,
-     *      uid:string,
-     *      ContactName:string,
-     *
      *
      * @return array
      * @example {
@@ -1162,11 +1153,32 @@ interface UserInterface {
      *      data:array
      * }
      */
-    public function searchSvsUser(array $params): array;
+    public function searchSvsUser(): array;
 
     /**
      * @param int $id
      * @return array
      */
     public function getFillInfoById(int $id): array;
+
+
+    /**
+     * 订阅用户导出
+     * @param string $keyword
+     * @param array $subscriberList
+     * @example {
+     *      int,
+     *}
+     * @return array
+     * @example {
+     *  mini_open_id {
+     *       mini_open_id:string,
+     *       telphone:string,
+     *       ContactName,
+     *       AccountName,
+     *       nickname,
+     *   }
+     * }
+     */
+    public function subscriberExport(array $subscriberList, string $keyword):array;
 }
