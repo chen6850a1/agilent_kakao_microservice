@@ -478,6 +478,24 @@ interface EcommerceInterface {
      * }
      */
     public function updateGoodsPriority(array $params): array;
+    
+    /**
+     * 
+     * @param array $params
+     * @example{
+     *      goods_ids:string,
+     *      start_time:string,
+     *      end_time:string
+     * }
+     * 
+     * @return array
+     * @example{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function batchUpdateGoodsLiveTime(array $params): array;
 
     /**
      *
