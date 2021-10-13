@@ -514,4 +514,11 @@ interface InstrumentInterface {
      * @return array
      */
     public function instrumentType(): array;
+    
+    /**
+     * 获取额外字段 region_desc ship_to_markind ship_to_custtype
+     * @param array $uidList
+     * @return array
+     */
+    public function getExtra(array $uidList): array;
 }
