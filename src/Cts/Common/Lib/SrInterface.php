@@ -646,4 +646,10 @@ interface SrInterface {
      * @return array
      */
     public function irProduct(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irSendMail(array $params): array;
 }
