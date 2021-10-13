@@ -517,6 +517,13 @@ interface InstrumentInterface {
     
     /**
      * 获取额外字段 region_desc ship_to_markind ship_to_custtype
+     * @param int $uid
+     * @return array
+     */
+    public function getExtraByUid(int $uid): array;
+
+    /**
+     * 获取额外字段 region_desc ship_to_markind ship_to_custtype
      * @param array $uidList
      * @return array
      */
