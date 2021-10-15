@@ -1146,14 +1146,14 @@ interface UserInterface {
 
     /**
      *
-     *
+     * @param array $uidList
      * @return array
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function searchSvsUser(): array;
+    public function searchSvsUser(array $uidList): array;
 
     /**
      * @param int $id
