@@ -1179,4 +1179,10 @@ interface UserInterface {
      * @return array
      */
     public function getFillInfoById(int $id): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getDifferentAuthInfo(array $params): array;
 }
