@@ -1061,4 +1061,11 @@ interface WechatInterface {
      * @return mixed
      */
     public function saveMiniopenidCidForUnreadMessage($data);
+
+    /**
+     * iframe tag
+     * @param $data
+     * @return array
+     */
+    public function csTag($data): array;
 }
