@@ -1067,5 +1067,5 @@ interface WechatInterface {
      * @param $data
      * @return array
      */
-    public function csTag($data): array;
+    public function csTagShow($data): array;
 }
