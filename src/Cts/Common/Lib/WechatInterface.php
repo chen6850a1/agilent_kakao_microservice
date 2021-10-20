@@ -1064,8 +1064,8 @@ interface WechatInterface {
 
     /**
      * iframe tag
-     * @param $data
+     * @param $params
      * @return array
      */
-    public function csTagShow($data): array;
+    public function csTagShow(array $params): array;
 }
