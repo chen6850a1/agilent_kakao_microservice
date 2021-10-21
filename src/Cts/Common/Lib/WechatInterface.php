@@ -1083,4 +1083,11 @@ interface WechatInterface {
      * }
      */
     public function subscriberExport(array $params):array;
+
+    /**
+     * iframe tag
+     * @param $params
+     * @return array
+     */
+    public function csTagShow(array $params): array;
 }
