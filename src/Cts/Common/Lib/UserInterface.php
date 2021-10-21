@@ -1234,5 +1234,11 @@ interface UserInterface {
      */
     public function downloadReportCsv(string $csvPath):array;
 
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getDifferentAuthInfo(array $params): array;
+
 
 }
