@@ -1181,4 +1181,11 @@ interface UserInterface {
      * }
      */
     public function subscriberExport(array $subscriberList, string $keyword):array;
+    
+    /**
+     * 
+     * @param array $mobileList
+     * @return array
+     */
+    public function getInfoByMobileList(array $mobileList): array;
 }

@@ -526,4 +526,11 @@ interface InstrumentInterface {
      * @return array
      */
     public function getExtra(array $uidList): array;
+    
+    /**
+     * 导入MI CT
+     * @param array $excelData
+     * @return array
+     */
+    public function importInstrumentInfo(array $excelData): array;
 }
