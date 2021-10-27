@@ -785,4 +785,10 @@ interface JitterbitInterface
      * @return array
      */
     public function irSendMail(array $data): array;
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function irGetRtucLink(array $data): array;
 }
