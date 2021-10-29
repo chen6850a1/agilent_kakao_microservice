@@ -658,4 +658,9 @@ interface SrInterface {
      * @return array
      */
     public function irGetRtucLink(array $params): array;
+
+    /**
+     * @return array
+     */
+    public function irTags(): array;
 }
