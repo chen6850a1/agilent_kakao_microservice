@@ -590,4 +590,77 @@ interface SrInterface {
      * @return array
      */
     public function getAttachments(string $bqId): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function submitIr(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irHistory(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irOppHistory(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irEmployee(array $params): array;
+
+    /**
+     *
+     * @param array $excelData
+     * @param array $type
+     * @return array
+     */
+    public function importIrEmployeeData(array $excelData , array $type): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irSubmitFastUp(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irSubmitFastOpp(array $params): array;
+
+    /**
+     *
+     * @return array
+     */
+    public function irProductLine(): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irProduct(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irSendMail(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function irGetRtucLink(array $params): array;
+
+    /**
+     * @return array
+     */
+    public function irTags(): array;
 }
