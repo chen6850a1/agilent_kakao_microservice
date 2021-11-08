@@ -1090,4 +1090,12 @@ interface WechatInterface {
      * @return array
      */
     public function csTagShow(array $params): array;
+
+    /**
+     * 检查公司名称是否修改
+     *
+     * @param array $params
+     * @return array
+     */
+    public function checkCompanyDiff(array $params): array;
 }
