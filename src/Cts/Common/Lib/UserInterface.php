@@ -1181,4 +1181,64 @@ interface UserInterface {
      * }
      */
     public function subscriberExport(array $subscriberList, string $keyword):array;
+
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      start_time:2021/12
+     *      end_time: 2022/10
+     *      page: 1
+     * }
+     * @return array
+     * @example {
+     * [
+     * status:bool
+     * data:[
+     *      s3Path:string,
+     *      create_at:string
+     *      ]
+     * ]
+     * }
+     */
+    public function getReportCsvList(array $params):array;
+
+
+    /**
+     * @param string $csvPath
+     * @example {
+     * $csvPath:string
+     * }
+     * @return array
+     * @example {
+     * [
+     * status:bool
+     * data:[
+     *      unionid:int,
+     *      Mobile No:string,
+     *      StatusCode:string,
+     *      Status Description:string,
+     *      LastRunTime:string,
+     *      ContactID:string,
+     *      Contact Name:string,
+     *      AccountID:string,
+     *      Account Name:string,
+     *      Last Chatted Agent email ID:string,
+     *      Chat group:string,
+     *      Created by:string,
+     *      Last updated by:string
+     *      ]
+     * ]
+     * }
+     */
+    public function downloadReportCsv(string $csvPath):array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getDifferentAuthInfo(array $params): array;
+
+
 }
