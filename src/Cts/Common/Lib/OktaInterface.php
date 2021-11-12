@@ -11,8 +11,8 @@ interface OktaInterface {
 
     /**
      * 
-     * @param array $params
+     * @param string $code
      * @return array
      */
-    public function auth(array $params): array;
+    public function getUserInfo(string $code): array;
 }
