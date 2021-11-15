@@ -1246,4 +1246,11 @@ interface UserInterface {
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
+
+    /**
+     * @param string $email
+     * @param string $source
+     * @param string $uuid
+     */
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
 }
