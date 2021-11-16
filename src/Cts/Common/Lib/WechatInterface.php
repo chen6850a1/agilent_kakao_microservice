@@ -1084,12 +1084,7 @@ interface WechatInterface {
      */
     public function subscriberExport(array $params):array;
 
-    /**
-     * iframe tag
-     * @param $params
-     * @return array
-     */
-    public function csTagShow(array $params): array;
+
 
     /**
      * 检查公司名称是否修改
