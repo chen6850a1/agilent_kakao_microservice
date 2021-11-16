@@ -1240,12 +1240,11 @@ interface UserInterface {
      */
     public function getDifferentAuthInfo(array $params): array;
 
-	/**
-     * 
-     * @param array $mobileList
+    /**
+     * @param array $params
      * @return array
      */
-    public function getInfoByMobileList(array $mobileList): array;
+    public function updateDiffAuthHandle(array $params): array;
 
     /**
      * @param string $email
