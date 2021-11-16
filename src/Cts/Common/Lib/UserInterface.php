@@ -1240,5 +1240,17 @@ interface UserInterface {
      */
     public function getDifferentAuthInfo(array $params): array;
 
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function updateDiffAuthHandle(array $params): array;
 
+
+    /**
+     * @param string $email
+     * @param string $source
+     * @param string $uuid
+     */
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
 }
