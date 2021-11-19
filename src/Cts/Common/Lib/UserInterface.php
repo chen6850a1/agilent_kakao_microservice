@@ -1204,36 +1204,6 @@ interface UserInterface {
      */
     public function getReportCsvList(array $params):array;
 
-
-    /**
-     * @param string $csvPath
-     * @example {
-     * $csvPath:string
-     * }
-     * @return array
-     * @example {
-     * [
-     * status:bool
-     * data:[
-     *      unionid:int,
-     *      Mobile No:string,
-     *      StatusCode:string,
-     *      Status Description:string,
-     *      LastRunTime:string,
-     *      ContactID:string,
-     *      Contact Name:string,
-     *      AccountID:string,
-     *      Account Name:string,
-     *      Last Chatted Agent email ID:string,
-     *      Chat group:string,
-     *      Created by:string,
-     *      Last updated by:string
-     *      ]
-     * ]
-     * }
-     */
-    public function downloadReportCsv(string $csvPath):array;
-
     /**
      * @param array $params
      * @return array
