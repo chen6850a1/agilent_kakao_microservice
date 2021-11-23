@@ -14,12 +14,11 @@ interface OktaInterface {
      * @param string $code
      * @return array
      */
-    public function getUserInfo(string $code): array;
+    public function getBasicUserInfo(string $code): array;
 
     /**
      * 
-     * @param string $refreshToken
      * @return array
      */
-    public function refreshToken(string $refreshToken): array;
+    public function getUserProfile(): array;
 }
