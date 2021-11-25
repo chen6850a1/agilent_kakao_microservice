@@ -526,4 +526,62 @@ interface InstrumentInterface {
      * @return array
      */
     public function getExtra(array $uidList): array;
+
+ /**
+     * 批量序列号导入
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function batchSnExcelImport(array $data):array;
+
+
+    /**
+     * 获取批量二维码列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSnAndBatchList(array $data):array;
+
+
+    /**
+     * 添加用户批量导入的仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function addUserBatchSn(array $data):array;
+
+
+    /**
+     * 删除用户批量导入的仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function delUserBatchSn(array $data):array;
+
+    /**
+     * 修改用户批量导入的仪器列表
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function editUserBatchSn(array $data):array;
 }
