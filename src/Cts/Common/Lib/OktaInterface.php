@@ -14,6 +14,13 @@ interface OktaInterface {
      * @param string $code
      * @return array
      */
+    public function associate(string $code): array;
+
+    /**
+     * 
+     * @param string $code
+     * @return array
+     */
     public function getBasicUserInfo(string $code): array;
 
     /**
