@@ -1138,45 +1138,54 @@ interface UserInterface {
     public function updateMyRole(array $params): array;
 
     /**
-     *
-     * @param array $userIdParams
-     * @param array $searchParams
-     * @example {
-     * ['23','452','434','45234'],
-     * "hello",
-     * }
+     * 
+     * @param string $keyword 姓名/手机/单位
      * @return array
-     * @example {
-     *      status:bool,
-     *      data:array
-     * }
      */
-    public function getUserAuthList(array $userIdParams, array $searchParams): array;
+    public function convertToMiniOpenIdList(string $keyword): array;
 
     /**
      *
-     * @param array $params
-     * @example {
-     *      page:string|int,
-     *      pageSize:string|int,
-     *      orderBy:string,
-     *      telphone:string,
-     *      uid:string,
-     *      ContactName:string,
-     *
-     *
+     * @param array $uidList
      * @return array
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function searchSvsUser(array $params): array;
+    public function searchSvsUser(array $uidList): array;
 
-
-/**
+    /**
      * @param int $id
      * @return array
      */
     public function getFillInfoById(int $id): array;
+
+
+    /**
+     * 订阅用户导出
+     * @param string $keyword
+     * @param array $subscriberList
+     * @example {
+     *      int,
+     *}
+     * @return array
+     * @example {
+     *  mini_open_id {
+     *       mini_open_id:string,
+     *       telphone:string,
+     *       ContactName,
+     *       AccountName,
+     *       nickname,
+     *   }
+     * }
+     */
+    public function subscriberExport(array $subscriberList, string $keyword):array;
+    
+    /**
+     * 
+     * @param array $mobileList
+     * @return array
+     */
+    public function getInfoByMobileList(array $mobileList): array;
 }

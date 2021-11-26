@@ -34,7 +34,7 @@ interface WechatInterface {
      */
     public function getUserInfoWithMiniCode(array $wechatData): array;
 
-	/**
+    /**
      * 微信ad登录回调函数
      * @param array $params
      * @example :{
@@ -102,7 +102,7 @@ interface WechatInterface {
      */
     public function genCodeImg(array $wechatData): array;
 
-	/**
+    /**
      * 打包下载csv,media文件
      * @param string $csvUrl
      * @param string $operator
@@ -146,7 +146,7 @@ interface WechatInterface {
 
     /**
 
-    /**
+      /**
      * 生成二维码
      * @param array $params
      * @example:{
@@ -520,6 +520,22 @@ interface WechatInterface {
      * }
      */
     public function updateHighQuality(int $id, array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @example {
+     *      id1:int,
+     *      id2:int
+     * }
+     * 
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:array
+     * }
+     */
+    public function updateHighQualityPriority(array $params): array;
 
     /**
      * 
@@ -1045,4 +1061,26 @@ interface WechatInterface {
      * @return mixed
      */
     public function saveMiniopenidCidForUnreadMessage($data);
+
+
+    /**
+     * 订阅用户导出
+     * @param array $params
+     * @example {
+     *  room_id:int
+     *  keyword:start
+     * }
+     * @return array
+     * @example {
+     *       room_id:int,
+     *       name:string,
+     *       subscribe_time:string,
+     *       mini_open_id:string,
+     *       telphone:string,
+     *       ContactName,
+     *       AccountName,
+     *       nickname,
+     * }
+     */
+    public function subscriberExport(array $params):array;
 }
