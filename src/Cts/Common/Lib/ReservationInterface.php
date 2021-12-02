@@ -160,7 +160,7 @@ interface ReservationInterface {
     public function getMyReservationDetails(int $id): array;
 
     /**
-     * 
+     * @param int $status
      * @return array
      * @example {
      *      status:true|false,
@@ -168,7 +168,7 @@ interface ReservationInterface {
      *      error:string
      * }
      */
-    public function getCalendar(): array;
+    public function getCalendar(int $status): array;
 
     /**
      * 
