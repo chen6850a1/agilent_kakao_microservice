@@ -28,6 +28,8 @@ class ConstParam {
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND = "event_user_unbind";
+    const EVENT_USER_BIND = "event_user_bind";
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
     const EVENT_ADMIN_CREATE = "event_admin_create";
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
