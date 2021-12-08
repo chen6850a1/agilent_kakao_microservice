@@ -95,5 +95,7 @@ class ConstParam {
     const RTA_UPLOAD_DIR = 'web/RTA/';
     //直播回放S3目录前缀
     const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
-
+    //直播微信支付方式
+    const LIVE_STREAM_PAY_GDG = 2;  //公对公支付
+    const LIVE_STREAM_PAY_WX = 1;   //微信支付
 }
