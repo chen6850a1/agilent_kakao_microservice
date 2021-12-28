@@ -1188,4 +1188,42 @@ interface UserInterface {
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
-}
+    /**
+     * @param array $params
+     * @example {
+     *      start_time:2021/12
+     *      end_time: 2022/10
+     *      page: 1
+     * }
+     * @return array
+     * @example {
+     * [
+     * status:bool
+     * data:[
+     *      s3Path:string,
+     *      create_at:string
+     *      ]
+     * ]
+     * }
+     */
+    public function getReportCsvList(array $params):array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getDifferentAuthInfo(array $params): array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function updateDiffAuthHandle(array $params): array;
+
+
+    /**
+     * @param string $email
+     * @param string $source
+     * @param string $uuid
+     */
+    public function setSyncSobotCache(string $email, string $source, string $uuid);}
