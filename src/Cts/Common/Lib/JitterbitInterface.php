@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /**
  * This file is part of Swoft.
  *
@@ -15,9 +17,7 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface JitterbitInterface
-{
-
+interface JitterbitInterface {
 
     /**
      * 绑定用户
@@ -48,7 +48,6 @@ interface JitterbitInterface
      *      }
      */
     public function bindUser(array $data): array;
-
 
     /**
      * 查询用户
@@ -107,7 +106,6 @@ interface JitterbitInterface
      */
     public function unbindUser(array $data): array;
 
-
     /**
      * 获取服务历史
      * @param array $data
@@ -148,7 +146,6 @@ interface JitterbitInterface
      * @return array
      */
     public function getSrHistoryDgg(array $data): array;
-
 
     /**
      * 获取suvery
@@ -480,7 +477,6 @@ interface JitterbitInterface
      */
     public function getSrSuveryAnswer(array $data): array;
 
-
     /**
      * 更新bq
      * @param array $data
@@ -506,7 +502,6 @@ interface JitterbitInterface
      * }
      */
     public function updateSrBq(array $data): array;
-
 
     /**
      * 查看PDF等文件
@@ -709,7 +704,6 @@ interface JitterbitInterface
      */
     public function checkSnSobotDgg(array $data): array;
 
-
     /**
      * 检测序列号
      * @param array $data
@@ -729,7 +723,7 @@ interface JitterbitInterface
      * ]
      */
     public function notificationHandle(array $data): array;
-    
+
     /**
      * 一键开单
      * @param array $data
@@ -791,4 +785,18 @@ interface JitterbitInterface
      * @return array
      */
     public function irGetRtucLink(array $data): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getPriceForSapUser(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getPriceForWebUser(array $params): array;
 }
