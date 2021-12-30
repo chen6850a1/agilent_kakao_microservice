@@ -12,9 +12,10 @@ interface OktaInterface {
     /**
      * 
      * @param string $code
+     * @param string $codeVerifier
      * @return array
      */
-    public function associate(string $code): array;
+    public function associate(string $code, string $codeVerifier): array;
 
     /**
      * 
