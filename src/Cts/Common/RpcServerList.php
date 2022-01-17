@@ -7,6 +7,7 @@ use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
+use Cts\Common\Lib\MiniShopInterface;
 use Cts\Common\Lib\PurchaseInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
@@ -133,5 +134,12 @@ class RpcServerList {
      * @var EcommerceInterface
      */
     public $service_ecommerce;
+
+    /**
+     * @Reference(pool="mini_shop.pool")
+     *
+     * @var MiniShopInterface
+     */
+    public $service_mini_shop;
 
 }
