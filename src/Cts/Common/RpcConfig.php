@@ -239,20 +239,20 @@ class RpcConfig {
                 'class' => ServicePool::class,
                 'client' => bean('ecommerce'),
             ],
-            'okta' => [
-                'class' => ServiceClient::class,
-                'host' => $rpc_domain,
-                'port' => '19986',
-                'setting' => [
-                    'timeout' => 120.0
-                ],
-                'packet' => bean('rpcClientPacket'),
-                'extender' => bean(\Cts\Common\RpcExtender::class)
-            ],
-            'okta.pool' => [
-                'class' => ServicePool::class,
-                'client' => bean('okta'),
-            ]
+//            'okta' => [
+//                'class' => ServiceClient::class,
+//                'host' => $rpc_domain,
+//                'port' => '19986',
+//                'setting' => [
+//                    'timeout' => 120.0
+//                ],
+//                'packet' => bean('rpcClientPacket'),
+//                'extender' => bean(\Cts\Common\RpcExtender::class)
+//            ],
+//            'okta.pool' => [
+//                'class' => ServicePool::class,
+//                'client' => bean('okta'),
+//            ]
         ];
     }
 

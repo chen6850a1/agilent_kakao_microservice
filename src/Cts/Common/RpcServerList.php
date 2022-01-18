@@ -136,7 +136,7 @@ class RpcServerList {
     public $service_ecommerce;
 
     /**
-     * @Reference(pool="okta.pool")
+     * @Reference(pool="jitterbit.pool")
      *
      * @var OktaInterface
      */
