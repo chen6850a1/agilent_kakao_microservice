@@ -14,12 +14,15 @@ class ConstParam {
     const COUNTRY_KOREA = 0;
     const COUNTRY_CHINA = 1;
     const COUNTRY_CHINA_DGG = 2;
+    const COUNTRY_CHINA_MS = 5;
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
     const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
+    const USER_TYPE_WECHAT_MS = "user_type_wechat_ms";
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
+    const USER_TYPE_H5_MS = "wechatH5_ms";
 
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
