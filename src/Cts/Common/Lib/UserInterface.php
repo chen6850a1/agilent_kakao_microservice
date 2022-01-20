@@ -1242,4 +1242,10 @@ interface UserInterface {
      * @return array
      */
     public function getAssociate(): array;
+    
+    /**
+     * 
+     * @return array
+     */
+    public function sessionInactive(): array;
 }

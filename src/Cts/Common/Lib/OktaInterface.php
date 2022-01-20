@@ -17,10 +17,4 @@ interface OktaInterface {
      * @return array
      */
     public function associate(string $code, string $codeVerifier, string $nonce): array;
-
-    /**
-     * 
-     * @return array
-     */
-    public function getAssociate(): array;
 }
