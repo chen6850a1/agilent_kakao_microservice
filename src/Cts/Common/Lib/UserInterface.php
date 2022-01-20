@@ -1230,12 +1230,12 @@ interface UserInterface {
     
     /**
      * 
-     * @param string $oktaUid
+     * @param string $oktaId
      * @param string $oktaName
      * @param string $oktaAccount
      * @return array
      */
-    public function associate(string $oktaUid, string $oktaName, string $oktaAccount): array;
+    public function associate(string $oktaId, string $oktaName, string $oktaAccount): array;
 
     /**
      * 
