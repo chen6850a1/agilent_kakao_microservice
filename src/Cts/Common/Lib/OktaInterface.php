@@ -20,21 +20,7 @@ interface OktaInterface {
 
     /**
      * 
-     * @param string $sessionId
      * @return array
      */
-    public function refreshSession(string $sessionId): array;
-
-    /**
-     * 
-     * @param string $code
-     * @return array
-     */
-    public function getBasicUserInfo(string $code): array;
-
-    /**
-     * 
-     * @return array
-     */
-    public function getUserProfile(): array;
+    public function getAssociate(): array;
 }
