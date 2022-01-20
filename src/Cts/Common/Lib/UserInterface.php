@@ -1226,4 +1226,20 @@ interface UserInterface {
      * @param string $source
      * @param string $uuid
      */
-    public function setSyncSobotCache(string $email, string $source, string $uuid);}
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
+    
+    /**
+     * 
+     * @param string $oktaUid
+     * @param string $oktaName
+     * @param string $oktaAccount
+     * @return array
+     */
+    public function associate(string $oktaUid, string $oktaName, string $oktaAccount): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getAssociate(): array;
+}
