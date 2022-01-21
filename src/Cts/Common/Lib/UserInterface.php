@@ -1181,9 +1181,13 @@ interface UserInterface {
      * }
      */
     public function subscriberExport(array $subscriberList, string $keyword):array;
-
-
-
+    
+    /**
+     * 
+     * @param array $mobileList
+     * @return array
+     */
+    public function getInfoByMobileList(array $mobileList): array;
     /**
      * @param array $params
      * @example {
@@ -1216,10 +1220,32 @@ interface UserInterface {
      */
     public function updateDiffAuthHandle(array $params): array;
 
+
     /**
      * @param string $email
      * @param string $source
      * @param string $uuid
      */
     public function setSyncSobotCache(string $email, string $source, string $uuid);
+    
+    /**
+     * 
+     * @param string $oktaId
+     * @param string $oktaName
+     * @param string $oktaAccount
+     * @return array
+     */
+    public function associate(string $oktaId, string $oktaName, string $oktaAccount): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getAssociate(): array;
+    
+    /**
+     * 
+     * @return array
+     */
+    public function sessionInactive(): array;
 }

@@ -17,6 +17,7 @@ use Cts\Common\Lib\SliderInterface;
 use Cts\Common\Lib\LabInterface;
 use Cts\Common\Lib\WechatInterface;
 use Cts\Common\Lib\EcommerceInterface;
+use Cts\Common\Lib\OktaInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -133,5 +134,12 @@ class RpcServerList {
      * @var EcommerceInterface
      */
     public $service_ecommerce;
+
+    /**
+     * @Reference(pool="jitterbit.pool")
+     *
+     * @var OktaInterface
+     */
+    public $service_okta;
 
 }

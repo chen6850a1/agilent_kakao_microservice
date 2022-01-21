@@ -20,7 +20,6 @@ class ConstParam {
     const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
-
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
@@ -29,7 +28,7 @@ class ConstParam {
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND = "event_user_unbind";
     const EVENT_USER_BIND = "event_user_bind";
-    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail"; //发送带有PDF附件的邮件
     const EVENT_ADMIN_CREATE = "event_admin_create";
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
@@ -64,6 +63,7 @@ class ConstParam {
     const SERVICE_EXTENSION = "service_extension";
     const SERVICE_WECHAT = "service_wechat";
     const SERVICE_ECOMMERCE = "service_ecommerce";
+    const SERVICE_OKTA = "service_okta";
     //推送模板
     const WECHAT_PUSH_TEMPLATE_INFOSETUP = "infoSetup";
     const WECHAT_PUSH_TEMPLATE_INFOSETUP_COMPLETE = "infoSetupComplete";
@@ -95,5 +95,8 @@ class ConstParam {
     const RTA_UPLOAD_DIR = 'web/RTA/';
     //直播回放S3目录前缀
     const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
+    //直播微信支付方式
+    const LIVE_STREAM_PAY_GDG = 2;  //公对公支付
+    const LIVE_STREAM_PAY_WX = 1;   //微信支付
 
 }
