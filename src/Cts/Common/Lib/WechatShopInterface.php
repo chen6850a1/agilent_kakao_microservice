@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Cts\Common\Lib;
 
 /**
- * Interface MiniShopInterface
+ * Interface WechatShopInterface
  * @since 2.0
  * @package Cts\Common\Lib
  */
-interface MiniShopInterface
+interface WechatShopInterface
 {
 
 }
