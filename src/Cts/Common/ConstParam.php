@@ -16,6 +16,7 @@ class ConstParam {
     const COUNTRY_CHINA_DGG = 2;
     const COUNTRY_CHINA_MS = 3;
 	
+	
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
