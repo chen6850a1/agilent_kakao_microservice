@@ -1248,4 +1248,12 @@ interface UserInterface {
      * @return array
      */
     public function sessionInactive(): array;
+    
+    /**
+     * 
+     * @param int $associateId
+     * @param string $siteName
+     * @return array
+     */
+    public function statistics(int $associateId, string $siteName): array;
 }
