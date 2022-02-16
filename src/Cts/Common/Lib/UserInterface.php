@@ -1231,11 +1231,10 @@ interface UserInterface {
     /**
      * 
      * @param string $oktaId
-     * @param string $oktaName
-     * @param string $oktaAccount
+     * @param array $profile
      * @return array
      */
-    public function associate(string $oktaId, string $oktaName, string $oktaAccount): array;
+    public function associate(string $oktaId, array $profile): array;
 
     /**
      * 
@@ -1251,9 +1250,10 @@ interface UserInterface {
     
     /**
      * 
-     * @param int $associateId
+     * @param string $oktaId
+     * @param array $profile
      * @param string $siteName
      * @return array
      */
-    public function statistics(int $associateId, string $siteName): array;
+    public function statistics(string $oktaId, array $profile, string $siteName): array;
 }
