@@ -333,4 +333,12 @@ interface WechatShopInterface
      * }
      */
     public function getGoodsTemplateList(array $params):array;
+
+    /**
+     * 获取单个商品信息
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getGoodsInfo(int $id):array;
 }
