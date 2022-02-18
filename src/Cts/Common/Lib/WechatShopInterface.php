@@ -112,7 +112,19 @@ interface WechatShopInterface
      * @return array
      * @example {
      *  status:true|false,
-     *  data:string
+     *  data:{
+     *      id:int,
+     *      parent_id:int,
+     *      catalogue_name:string,
+     *      service_group_id:int,
+     *      is_deleted:int,
+     *      sort,
+     *      type,
+     *      created_at:string,
+     *      created_by:string,
+     *      updated_at:string,
+     *      updated_by:string
+     * }
      * }
      */
     public function updateShopFolder(array $params):array;
@@ -321,4 +333,12 @@ interface WechatShopInterface
      * }
      */
     public function getGoodsTemplateList(array $params):array;
+
+    /**
+     * 获取单个商品信息
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getGoodsInfo(int $id):array;
 }
