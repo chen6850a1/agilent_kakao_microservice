@@ -20,6 +20,8 @@ class ConstParam {
     const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
+    //企业微信测试
+    const USER_TYPE_WECOM_H5 = "wecom_H5";
 
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";

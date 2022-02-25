@@ -86,6 +86,13 @@ interface WechatInterface {
     public function getUserInfoWithH5Code(array $wechatData): array;
 
     /**
+     * 
+     * @param string $code
+     * @return array
+     */
+    public function getUserInfoByWecomH5Code(string $code): array;
+
+    /**
      * 生成二维码
      * @param array $wechatData
      * @example:{
@@ -1062,7 +1069,6 @@ interface WechatInterface {
      */
     public function saveMiniopenidCidForUnreadMessage($data);
 
-
     /**
      * 订阅用户导出
      * @param array $params
@@ -1082,9 +1088,7 @@ interface WechatInterface {
      *       nickname,
      * }
      */
-    public function subscriberExport(array $params):array;
-
-
+    public function subscriberExport(array $params): array;
 
     /**
      * 检查公司名称是否修改

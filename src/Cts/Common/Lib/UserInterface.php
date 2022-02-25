@@ -39,6 +39,13 @@ interface UserInterface {
     public function login(string $type, array $userData): array;
 
     /**
+     * 
+     * @param string $code
+     * @return array
+     */
+    public function wecomH5Login(string $code): array;
+
+    /**
      * 创建建档信息
      * @param array $fillInfo
      * @example:{
@@ -1161,14 +1168,13 @@ interface UserInterface {
      */
     public function getFillInfoById(int $id): array;
 
-
     /**
      * 订阅用户导出
      * @param string $keyword
      * @param array $subscriberList
      * @example {
      *      int,
-     *}
+     * }
      * @return array
      * @example {
      *  mini_open_id {
@@ -1180,14 +1186,15 @@ interface UserInterface {
      *   }
      * }
      */
-    public function subscriberExport(array $subscriberList, string $keyword):array;
-    
+    public function subscriberExport(array $subscriberList, string $keyword): array;
+
     /**
      * 
      * @param array $mobileList
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
+
     /**
      * @param array $params
      * @example {
@@ -1206,7 +1213,7 @@ interface UserInterface {
      * ]
      * }
      */
-    public function getReportCsvList(array $params):array;
+    public function getReportCsvList(array $params): array;
 
     /**
      * @param array $params
@@ -1220,10 +1227,10 @@ interface UserInterface {
      */
     public function updateDiffAuthHandle(array $params): array;
 
-
     /**
      * @param string $email
      * @param string $source
      * @param string $uuid
      */
-    public function setSyncSobotCache(string $email, string $source, string $uuid);}
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
+}
