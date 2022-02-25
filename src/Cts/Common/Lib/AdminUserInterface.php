@@ -328,4 +328,11 @@ interface AdminUserInterface {
      *
      */
     public function getAdChinaList():array;
+
+    /**
+     * 切换角色
+     * @param array $params
+     * @return array
+     */
+    public function switchRole(array $params): array;
 }
