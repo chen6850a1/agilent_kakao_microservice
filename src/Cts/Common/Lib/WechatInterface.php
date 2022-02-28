@@ -100,6 +100,13 @@ interface WechatInterface {
     public function getUserInfoByWecomUserid(string $userId): array;
 
     /**
+     * 
+     * @param string $openId
+     * @return array
+     */
+    public function convertToUserId(string $openId): array;
+
+    /**
      * 生成二维码
      * @param array $wechatData
      * @example:{
