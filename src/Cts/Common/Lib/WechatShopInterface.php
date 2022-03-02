@@ -635,4 +635,12 @@ interface WechatShopInterface
      */
     public function  addShopGoodsMapping(int $goodsId,int  $pid,int $type):array;
 
+
+    /**
+     * 获取单个商品信息
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getGoodsInfo(int $id):array;
 }
