@@ -72,7 +72,67 @@ interface WechatShopInterface
     /**
      * @param array $params
      *  @example {
-     *      pid: int
+     *      pid: int,
+     *      template_id:int,
+     *      catalogue_type:int
+     *      template_type:int,
+     *      service_group_id:int,
+     *      title:string,
+     *      sub_title:string,
+     *      priority:int,
+     *      base_view:int,
+     *      base_number_of_wish:int,
+     *      is_published:int,
+     *      is_replace:int,
+     *      replace_link:string,
+     *      related_goods_id:array,
+     *      aws_img_url:array,
+     *      goods_description: {
+     *      [
+     *          description_title:string,
+     *          description_content:string,
+     *      ]},
+     * 部件号
+     *      consumables_part_filters:[
+     *              {
+     *              filter_key:string
+     *              filter_value:array
+     *          }]
+     *      parts:{
+     *          [
+     *                  part_number :string,
+     *                  price:double,
+     *                  part_title:string,
+     *                  simple_description:string,
+     *                  img_src:string,
+     *                  consumables_part_filter:{
+     *                  [
+     *                      filter_key:string
+     *                      filter_value:string
+     *                  ]
+     *                  goods_description_part:{
+     *                  [
+     *                      description_title:string,
+     *                      description_content:string,
+     *                  ]},
+     *         ]
+     *      }
+     *
+     * 服务类
+     *      package_service:{
+     *          [
+     *              package_name:string,
+     *              price:double,
+     *              package_title:string,
+     *              simple_description:string,
+     *              img_src:array,
+     *              goods_description_service:{
+     *              [
+     *                      description_title:string,
+     *                      description_content:string,
+     *              ]},
+     *  ]
+     * }
      *
      * }
      * @return array
@@ -112,19 +172,7 @@ interface WechatShopInterface
      * @return array
      * @example {
      *  status:true|false,
-     *  data:{
-     *      id:int,
-     *      parent_id:int,
-     *      catalogue_name:string,
-     *      service_group_id:int,
-     *      is_deleted:int,
-     *      sort,
-     *      type,
-     *      created_at:string,
-     *      created_by:string,
-     *      updated_at:string,
-     *      updated_by:string
-     * }
+     *  data:string
      * }
      */
     public function updateShopFolder(array $params):array;
@@ -177,12 +225,13 @@ interface WechatShopInterface
     /**
      * @param int $goodsId1
      * @param int $goodsId2
+     * @param int $pid
      * @return array
      * @example {
      *  status:true|false,
      *  data:string
      */
-    public function updateGoodsPriority(int $goodsId1, int $goodsId2):array;
+    public function updateGoodsPriority(int $goodsId1, int $goodsId2,int $pid):array;
 
 
     /**
@@ -301,24 +350,8 @@ interface WechatShopInterface
      * @emample {
      *      status:true|false,
      *      data:{
-     *          total_num:int,
-     *          total_pages:int
-     *          list: [
-     *          id:int,
-     *          template_alias_name:string,
-     *          template_type:int,
-     *          template_name:string,
-     *          isDeleted: int,
-     *          created_at:string,
-     *          created_by:string,
-     *          created_at:string,
-     *          created_by:string,
-     *          ]
-     *      }
-     *      or
      *
-     *      data:{
-     *      [
+     *          [
      *          id:int,
      *          template_alias_name:string,
      *          template_type:int,
@@ -329,10 +362,279 @@ interface WechatShopInterface
      *          created_at:string,
      *          created_by:string,
      *          ]
-     *      }
+     * }
      * }
      */
     public function getGoodsTemplateList(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *       Cid: int
+     *       id: int
+     * }
+     * @return array
+     * @emample {
+     *      status:true|false,
+     *      data:{
+     *          is_deleted:int
+     * }
+     */
+    public function deleteShopGoods(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      goods_id: int,
+     *      template_id:int,
+     *      catalogue_type:int
+     *      template_type:int,
+     *      service_group_id:int,
+     *      title:string,
+     *      sub_title:string,
+     *      priority:int,
+     *      base_view:int,
+     *      base_number_of_wish:int,
+     *      is_published:int,
+     *      is_replace:int,
+     *      replace_link:string,
+     *      related_goods_id:array,
+     *      aws_img_url:[
+     *        {
+     *          "id":int,
+     *          "url":string
+     * }
+     * ],
+     *      goods_description: {
+     *
+     *          [
+     *          description_id:int
+     *          description_title:string,
+     *          description_content:string,
+     *      ]},
+     * 部件号
+     *      consumables_part_filters:{[
+     *              filter_id:int
+     *              filter_key:string
+     *              filter_value:array
+     *          ]}
+     *      parts:{
+     *          [
+     *                  part_id:int
+     *                  part_number :string,
+     *                  price:double,
+     *                  part_title:string,
+     *                  simple_description:string,
+     *                  img_src:{
+     *                      "img_id":int,
+     *                      "src":string
+     *                  },
+     *                  consumables_part_filter:{
+     *                  [
+     *                      filter_mapping_id:int
+     *                      filter_key:string
+     *                      filter_value:string
+     *                  ]
+     *                  goods_description_part:{
+     *                  [
+     *                      description_part_id:int
+     *                      description_title:string,
+     *                      description_content:string,
+     *                  ]},
+     *         ]
+     *      }
+     *
+     * 服务类
+     *      package_service:{
+     *          [
+     *              package_id:ing
+     *              package_name:string,
+     *              price:double,
+     *              package_title:string,
+     *              simple_description:string,
+     *              img_src:[
+     *               {
+     *               "id":int,
+     *               "url":string
+     *              }
+     *              goods_description_service:{
+     *              [
+     *                      description_package_id:int
+     *                      description_title:string,
+     *                      description_content:string,
+     *              ]},
+     *  ]
+     * }
+     * @return array
+     */
+    public function updateShopGoods(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *       page: int
+     *       pageSize: int
+     *       keyword: string
+     *       orderBy: string
+     *       direction: string
+     *       type: int
+     * }
+     * @return array
+     * @example {
+     *
+     * }
+     */
+    public function getShopGoodsList(array $params):array;
+
+
+    /**
+     * @param $goodsId
+     * @return array
+     * @example {
+     *      goods_id: int,
+     *      template_id:int,
+     *      catalogue_type:int
+     *      template_type:int,
+     *      service_group_id:int,
+     *      title:string,
+     *      sub_title:string,
+     *      priority:int,
+     *      base_view:int,
+     *      base_number_of_wish:int,
+     *      is_published:int,
+     *      is_replace:int,
+     *      replace_link:string,
+     *      related_goods_id:array,
+     *      aws_img_url:[
+     *        {
+     *          "id":int,
+     *          "url":string
+     * }
+     * ],
+     *      goods_description: {
+     *
+     *          [
+     *          description_id:int
+     *          description_title:string,
+     *          description_content:string,
+     *      ]},
+     * 部件号
+     *      consumables_part_filters:{[
+     *              filter_id:int
+     *              filter_key:string
+     *              filter_value:array
+     *          ]}
+     *      parts:{
+     *          [
+     *                  part_id:int
+     *                  part_number :string,
+     *                  price:double,
+     *                  part_title:string,
+     *                  simple_description:string,
+     *                  img_src:{
+     *                      "img_id":int,
+     *                      "src":string
+     *                  },
+     *                  consumables_part_filter:{
+     *                  [
+     *                      filter_mapping_id:int
+     *                      filter_key:string
+     *                      filter_value:string
+     *                  ]
+     *                  goods_description_part:{
+     *                  [
+     *                      description_part_id:int
+     *                      description_title:string,
+     *                      description_content:string,
+     *                  ]},
+     *         ]
+     *      }
+     *
+     */
+    public function getShopGoodsDetails($goodsId):array;
+
+    /**
+     * @param $goodsId
+     * @param int $pid
+     * @return array
+     *  @example {
+     *      pid: int,
+     *      template_id:int,
+     *      catalogue_type:int
+     *      template_type:int,
+     *      service_group_id:int,
+     *      title:string,
+     *      sub_title:string,
+     *      priority:int,
+     *      base_view:int,
+     *      base_number_of_wish:int,
+     *      is_published:int,
+     *      is_replace:int,
+     *      replace_link:string,
+     *      related_goods_id:array,
+     *      aws_img_url:array,
+     *      goods_description: {
+     *      [
+     *          description_title:string,
+     *          description_content:string,
+     *      ]},
+     * 部件号
+     *      consumables_part_filters:[
+     *              {
+     *              filter_key:string
+     *              filter_value:array
+     *          }]
+     *      parts:{
+     *          [
+     *                  part_number :string,
+     *                  price:double,
+     *                  part_title:string,
+     *                  simple_description:string,
+     *                  img_src:string,
+     *                  consumables_part_filter:{
+     *                  [
+     *                      filter_key:string
+     *                      filter_value:string
+     *                  ]
+     *                  goods_description_part:{
+     *                  [
+     *                      description_title:string,
+     *                      description_content:string,
+     *                  ]},
+     *         ]
+     *      }
+     *
+     * 服务类
+     *      package_service:{
+     *          [
+     *              package_name:string,
+     *              price:double,
+     *              package_title:string,
+     *              simple_description:string,
+     *              img_src:array,
+     *              goods_description_service:{
+     *              [
+     *                      description_title:string,
+     *                      description_content:string,
+     *              ]},
+     *  ]
+     * }
+     *
+     * }
+     */
+    public function getShopGoodsCopy($goodsId,int  $pid):array;
+
+
+    /**
+     * @param int $goodsId
+     * @param int $pid
+     * @param int $type
+     * @return array
+     */
+    public function  addShopGoodsMapping(int $goodsId,int  $pid,int $type):array;
+
 
     /**
      * 获取单个商品信息
