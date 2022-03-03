@@ -643,4 +643,29 @@ interface WechatShopInterface
      * @return array
      */
     public function getGoodsInfo(int $id):array;
+
+    /**
+     * @param int $goodsId
+     * @param int $partPackageId
+     * @return array
+     * @emample {
+     *      status:true|false,
+     *      data:[
+     *         {
+     *             id:int,
+     *             goods_id:int,
+     *             type:int,
+     *             part_package_id:int,
+     *             modify_place:string,
+     *             modify_before:string,
+     *             modify_after:string,
+     *             created_at:string,
+     *             created_by:string,
+     *             updated_at:string,
+     *             updated_by:string,
+     * }
+     * ]
+     */
+    public function getShopGoodsHistory(int $goodsId,int $partPackageId):array;
+
 }
