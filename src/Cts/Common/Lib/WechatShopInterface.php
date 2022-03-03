@@ -668,4 +668,92 @@ interface WechatShopInterface
      */
     public function getShopGoodsHistory(int $goodsId,int $partPackageId):array;
 
+    /**
+     * get hotspot goods list
+     * @param array $params
+     * @return array
+     */
+    public function getHotspotGoodsList(array $params): array;
+
+    /**
+     * get hotspot goods info by id
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getHotspotGoods(int $id): array;
+
+    /**
+     * get goods info before create or update
+     * @return array
+     */
+    public function getGoodsLists(): array;
+
+    /**
+     * createHotspotGoods
+     * @param array $params
+     * @example {
+     *      goodsId:string,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createHotspotGoods(array $params): array;
+
+    /**
+     * updateHotspotGoods
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      goodsId:string,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateHotspotGoods(int $id,array $params): array;
+
+    /**
+     * updateHotspotGoodsOrder
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      hotsOrder:string|int,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateHotspotGoodsOrder(int $id, array $params): array;
+
+    /**
+     * deleteHotspotGoods
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteHotspotGoods(int $id): array;
+
 }
