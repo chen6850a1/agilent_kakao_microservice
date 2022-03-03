@@ -14,12 +14,15 @@ class ConstParam {
     const COUNTRY_KOREA = 0;
     const COUNTRY_CHINA = 1;
     const COUNTRY_CHINA_DGG = 2;
+    const COUNTRY_CHINA_MS = 3;
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
     const USER_TYPE_WECHAT_DGG = "user_type_wechat_dgg";
+    const USER_TYPE_WECHAT_MS = "user_type_wechat_ms";
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
+    const USER_TYPE_H5_MS = "wechatH5_ms";
     //企业微信测试
     const USER_TYPE_WECOM_H5 = "wecom_H5";
 
@@ -66,6 +69,7 @@ class ConstParam {
     const SERVICE_EXTENSION = "service_extension";
     const SERVICE_WECHAT = "service_wechat";
     const SERVICE_ECOMMERCE = "service_ecommerce";
+    const SERVICE_SHOP = "service_shop";
     //推送模板
     const WECHAT_PUSH_TEMPLATE_INFOSETUP = "infoSetup";
     const WECHAT_PUSH_TEMPLATE_INFOSETUP_COMPLETE = "infoSetupComplete";

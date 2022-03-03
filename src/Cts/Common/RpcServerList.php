@@ -6,7 +6,9 @@ use Cts\Common\Lib\DirectionalPushInterface;
 use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
+use Cts\Common\Lib\OktaInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
+use Cts\Common\Lib\WechatShopInterface;
 use Cts\Common\Lib\PurchaseInterface;
 use Cts\Common\Lib\UserInterface;
 use Cts\Common\Lib\AdminUserInterface;
@@ -56,6 +58,13 @@ class RpcServerList {
      * @var JitterbitInterface
      */
     public $service_jitterbit;
+    
+    /**
+     * @Reference(pool="jitterbit.pool")
+     *
+     * @var OktaInterface
+     */
+    public $service_okta;
 
     /**
      * @Reference(pool="admin_user.pool")
@@ -133,5 +142,12 @@ class RpcServerList {
      * @var EcommerceInterface
      */
     public $service_ecommerce;
+
+    /**
+     * @Reference(pool="wechat_shop.pool")
+     *
+     * @var WechatShopInterface
+     */
+    public $service_wechat_shop;
 
 }

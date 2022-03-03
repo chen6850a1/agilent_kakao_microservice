@@ -1233,4 +1233,33 @@ interface UserInterface {
      * @param string $uuid
      */
     public function setSyncSobotCache(string $email, string $source, string $uuid);
+
+    /**
+     * 
+     * @param string $oktaId
+     * @param array $profile
+     * @return array
+     */
+    public function associate(string $oktaId, array $profile): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getAssociate(): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function sessionInactive(): array;
+
+    /**
+     * 
+     * @param string $oktaId
+     * @param array $profile
+     * @param string $siteName
+     * @return array
+     */
+    public function statistics(string $oktaId, array $profile, string $siteName): array;
 }
