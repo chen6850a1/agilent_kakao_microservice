@@ -862,7 +862,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function getGoodsPartPackage(int $id):array;
+    public function getGoodsPackage(int $id):array;
 
 
 }
