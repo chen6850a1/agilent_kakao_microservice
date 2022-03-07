@@ -1226,4 +1226,13 @@ interface UserInterface {
      * @param string $source
      * @param string $uuid
      */
-    public function setSyncSobotCache(string $email, string $source, string $uuid);}
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
+
+    /**
+     * 是否关注公众号
+     *
+     * @param int $id
+     * @param int $type
+     */
+    public function getOfficialAccountById(int $id, int $type);
+}
