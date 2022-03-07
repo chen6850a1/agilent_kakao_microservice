@@ -668,4 +668,97 @@ interface WechatShopInterface
      */
     public function getShopGoodsHistory(int $goodsId,int $partPackageId):array;
 
+
+    /**
+     * @param array $params
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueGoodsList(array $params):array;
+
+
+    /**
+     * @param int $catalogueId
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueListRecursion(int $catalogueId):array;
+
+
+    /**
+     * @param int $catalogueId
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueList(int $catalogueId):array;
+
+
+    /**
+     * @param $params
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopGoodsListRecursion($params):array;
+
+    /**
+     * @param int $goodsId
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getShopGoods(int $goodsId):array;
+
+    /**
+     * @param $params
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function selectPart($params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getGoodsPartPackage(int $id):array;
+
+
 }
