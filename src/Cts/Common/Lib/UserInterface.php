@@ -1256,8 +1256,6 @@ interface UserInterface {
      * @return array
      */
     public function statistics(string $oktaId, array $profile, string $siteName): array;
-}
-    public function setSyncSobotCache(string $email, string $source, string $uuid);
 
     /**
      * 是否关注公众号
