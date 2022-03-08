@@ -7,6 +7,7 @@ use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
 use Cts\Common\Lib\OktaInterface;
+use Cts\Common\Lib\SfdcInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\WechatShopInterface;
 use Cts\Common\Lib\PurchaseInterface;
@@ -58,13 +59,20 @@ class RpcServerList {
      * @var JitterbitInterface
      */
     public $service_jitterbit;
-    
+
     /**
      * @Reference(pool="jitterbit.pool")
      *
      * @var OktaInterface
      */
     public $service_okta;
+
+    /**
+     * @Reference(pool="jitterbit.pool")
+     *
+     * @var SfdcInterface
+     */
+    public $service_sfdc;
 
     /**
      * @Reference(pool="admin_user.pool")
