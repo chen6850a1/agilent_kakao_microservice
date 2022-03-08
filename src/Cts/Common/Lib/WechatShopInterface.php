@@ -864,5 +864,26 @@ interface WechatShopInterface
      */
     public function getGoodsPackage(int $id):array;
 
+    /**
+     * 感兴趣商品
+     *
+     * @param int $parentId
+     * @param string $customer
+     * @return array
+     */
+    public function interestGoods(int $parentId, string $customer):array;
+
+    /**
+     * @param array $params
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getWechatHotspotGoods(array $params):array;
+
 
 }
