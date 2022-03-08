@@ -885,5 +885,13 @@ interface WechatShopInterface
      */
     public function getWechatHotspotGoods(array $params):array;
 
+    /**
+     * 根据客户组获取客户组名称
+     *
+     * @param int $groupId
+     * @return array
+     */
+    public function getServiceShop(int $groupId):array;
+
 
 }
