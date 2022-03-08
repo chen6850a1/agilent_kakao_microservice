@@ -893,5 +893,18 @@ interface WechatShopInterface
      */
     public function getServiceShop(int $groupId):array;
 
+    /**
+     * 搜索历史
+     *
+     * @param int $groupId
+     * @return array
+     */
+    public function searchHistory():array;
 
+    /**
+     * 大家都在搜
+     *
+     * @return array
+     */
+    public function search():array;
 }
