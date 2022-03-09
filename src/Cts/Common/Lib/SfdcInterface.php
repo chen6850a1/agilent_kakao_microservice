@@ -12,8 +12,7 @@ interface SfdcInterface {
     /**
      * 
      * @param string $code
-     * @param array $profile
      * @return array
      */
-    public function associate(string $code, array $profile): array;
+    public function associate(string $code): array;
 }
