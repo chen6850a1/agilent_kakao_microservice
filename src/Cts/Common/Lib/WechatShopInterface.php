@@ -907,4 +907,26 @@ interface WechatShopInterface
      * @return array
      */
     public function search():array;
+
+    /**
+     * @return array
+     */
+    public function getPopGoods():array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function CreatOrUpdatePopGoods(array $params):array;
+
+    /**
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getPopGoodsWechat():array;
 }
