@@ -1262,4 +1262,17 @@ interface UserInterface {
      * @return array
      */
     public function statistics(string $oktaId, array $profile, string $siteName): array;
+
+    /**
+     * 
+     * @param array $profile
+     * @return array
+     */
+    public function sfdcAssociate(array $profile): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getSfdcAssociate(): array;
 }
