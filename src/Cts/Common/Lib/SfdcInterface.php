@@ -15,4 +15,10 @@ interface SfdcInterface {
      * @return array
      */
     public function associate(string $code): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function myContacts(): array;
 }
