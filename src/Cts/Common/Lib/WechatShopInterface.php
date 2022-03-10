@@ -929,4 +929,52 @@ interface WechatShopInterface
      * }
      */
     public function getPopGoodsWechat():array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getSearchList(array $params):array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function createSearch(array $params):array;
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateSearch(int $id, array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function deleteSearch(int $id):array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @return array
+     */
+    public function service_group_all():array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @param array $params
+     * @return array
+     */
+    public function getInterestConfigList(array $params):array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @param array $params
+     * @return array
+     */
+    public function addInterestConfig(array $params):array;
 }

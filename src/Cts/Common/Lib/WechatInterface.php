@@ -1108,4 +1108,11 @@ interface WechatInterface {
      * }
      */
     public function getUserInfoFromOpenid(array $userData): array;
+
+    /**
+     *
+     *
+     * @return array
+     */
+    public function getLeaveMessageList(array $params):array;
 }
