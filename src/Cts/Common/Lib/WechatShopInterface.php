@@ -960,7 +960,7 @@ interface WechatShopInterface
      *
      * @return array
      */
-    public function service_group_all():array;
+    public function getServiceShopAll():array;
 
     /**
      * 所有客户组列表
