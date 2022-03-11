@@ -1275,4 +1275,10 @@ interface UserInterface {
      * @return array
      */
     public function getSfdcAssociate(): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function getSfdcMyContacts(): array;
 }
