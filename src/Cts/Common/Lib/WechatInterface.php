@@ -1111,4 +1111,11 @@ interface WechatInterface {
      * @return array
      */
     public function checkCompanyDiff(array $params): array;
+
+    /**
+     * 
+     * @param string $userId
+     * @return array
+     */
+    public function getExternalContactList(string $userId): array;
 }

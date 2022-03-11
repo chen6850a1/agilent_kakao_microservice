@@ -46,6 +46,12 @@ interface UserInterface {
     public function wecomH5Login(string $code): array;
 
     /**
+     * 
+     * @return array
+     */
+    public function getExternalContactList(): array;
+
+    /**
      * 创建建档信息
      * @param array $fillInfo
      * @example:{
