@@ -13,7 +13,7 @@ use Throwable;
 /**
  * Class SfdcLoginExceptionHandler
  *
- * @ExceptionHandler(LoginException::class)
+ * @ExceptionHandler(SfdcLoginException::class)
  */
 class SfdcLoginExceptionHandler extends AbstractHttpErrorHandler {
 
