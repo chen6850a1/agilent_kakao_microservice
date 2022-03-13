@@ -979,6 +979,15 @@ interface WechatShopInterface
     public function addInterestConfig(array $params):array;
 
     /**
+     * @param int $id
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:string
+     */
+    public function incrementActualView(int $id):array;
+
+    /**
      * 修改感兴趣
      *
      * @param int $id
