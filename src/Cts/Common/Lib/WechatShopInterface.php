@@ -971,7 +971,7 @@ interface WechatShopInterface
     public function getInterestConfigList(array $params):array;
 
     /**
-     * 所有客户组列表
+     * 添加感兴趣
      *
      * @param array $params
      * @return array
@@ -986,4 +986,22 @@ interface WechatShopInterface
      *        data:string
      */
     public function incrementActualView(int $id):array;
+
+    /**
+     * 修改感兴趣
+     *
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateInterestConfig(int $id, array $params):array;
+
+    /**
+     * 删除感兴趣
+     *
+     * @param int $id
+     * @param int $group_id
+     * @return array
+     */
+    public function deleteInterestConfig(int $id, int $group_id):array;
 }
