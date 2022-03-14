@@ -49,7 +49,7 @@ interface UserInterface {
      * 
      * @return array
      */
-    public function getExternalContactList(): array;
+    public function batchGetExternalContactList(): array;
 
     /**
      * 创建建档信息

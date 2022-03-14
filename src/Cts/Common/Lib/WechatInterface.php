@@ -1114,8 +1114,8 @@ interface WechatInterface {
 
     /**
      * 
-     * @param string $userId
+     * @param array $userIdList
      * @return array
      */
-    public function getExternalContactList(string $userId): array;
+    public function batchGetExternalContactList(array $userIdList): array;
 }
