@@ -1000,8 +1000,7 @@ interface WechatShopInterface
      * 删除感兴趣
      *
      * @param int $id
-     * @param int $group_id
      * @return array
      */
-    public function deleteInterestConfig(int $id, int $group_id):array;
+    public function deleteInterestConfig(int $id):array;
 }
