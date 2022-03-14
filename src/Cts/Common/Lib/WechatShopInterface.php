@@ -1002,5 +1002,5 @@ interface WechatShopInterface
      * @param int $id
      * @return array
      */
-    public function deleteInterestConfig(int $id):array;
+    public function deleteInterest(int $id):array;
 }
