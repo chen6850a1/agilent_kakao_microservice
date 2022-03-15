@@ -52,6 +52,12 @@ interface UserInterface {
     public function batchGetExternalContactList(): array;
 
     /**
+     * 
+     * @return array
+     */
+    public function getMyContactsAssociate(): array;
+
+    /**
      * 创建建档信息
      * @param array $fillInfo
      * @example:{
