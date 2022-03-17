@@ -767,10 +767,10 @@ interface WechatShopInterface
     /**
      * 搜索商品
      *
-     * @param string $keyword
+     * @param array $params
      * @return array
      */
-    public function searchGoods(string $keyword):array;
+    public function searchGoods(array $params):array;
 
 
     /**
@@ -1003,4 +1003,11 @@ interface WechatShopInterface
      * @return array
      */
     public function deleteInterest(int $id):array;
+
+    /**
+     * 批量发布商品
+     *
+     * @return array
+     */
+    public function batchGoods():array;
 }
