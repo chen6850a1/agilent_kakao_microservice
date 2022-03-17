@@ -49,6 +49,12 @@ interface UserInterface {
      * 
      * @return array
      */
+    public function myWecomUserinfo(): array;
+
+    /**
+     * 
+     * @return array
+     */
     public function batchGetExternalContactList(): array;
 
     /**
