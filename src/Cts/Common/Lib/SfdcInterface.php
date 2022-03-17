@@ -21,4 +21,11 @@ interface SfdcInterface {
      * @return array
      */
     public function myContacts(): array;
+
+    /**
+     * 
+     * @param string $keywords
+     * @return array
+     */
+    public function search(string $keywords): array;
 }
