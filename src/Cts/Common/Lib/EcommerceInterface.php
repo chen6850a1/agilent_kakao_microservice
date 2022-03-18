@@ -950,4 +950,19 @@ interface EcommerceInterface {
      *      error:string
      */
     public function  downloadSVS():array;
+
+    /**
+     * @param int $orderId
+     * @param int $status
+     * @return array
+     * @example:{
+     *  orderId: int
+     *  status: int
+     * }
+     * @example :{
+     *      status:true|false
+     *      data:string,
+     *      error:string
+     */
+    public function payChannelChange(int $orderId , int $status): array;
 }
