@@ -1263,4 +1263,12 @@ interface UserInterface {
      * @return array
      */
     public function statistics(string $oktaId, array $profile, string $siteName): array;
+
+    /**
+     * 是否关注公众号
+     *
+     * @param int $id
+     * @param int $type
+     */
+    public function getOfficialAccountById(int $id, int $type);
 }

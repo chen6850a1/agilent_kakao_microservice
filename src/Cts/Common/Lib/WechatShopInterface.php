@@ -668,4 +668,346 @@ interface WechatShopInterface
      */
     public function getShopGoodsHistory(int $goodsId,int $partPackageId):array;
 
+    /**
+     * get hotspot goods list
+     * @param array $params
+     * @return array
+     */
+    public function getHotspotGoodsList(array $params): array;
+
+    /**
+     * get hotspot goods info by id
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getHotspotGoods(int $id): array;
+
+    /**
+     * get goods info before create or update
+     * @return array
+     */
+    public function getGoodsLists(): array;
+
+    /**
+     * createHotspotGoods
+     * @param array $params
+     * @example {
+     *      goodsId:string,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function createHotspotGoods(array $params): array;
+
+    /**
+     * updateHotspotGoods
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      goodsId:string,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateHotspotGoods(int $id,array $params): array;
+
+    /**
+     * updateHotspotGoodsOrder
+     * @param int $id
+     * @param array $params
+     * @example {
+     *      hotsOrder:string|int,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function updateHotspotGoodsOrder(int $id, array $params): array;
+
+    /**
+     * deleteHotspotGoods
+     * @param int $id
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function deleteHotspotGoods(int $id): array;
+
+    /**
+     * 添加商品
+     *
+     * @param array $data
+     * @return array
+     */
+    public function addGoods(array $data):array;
+
+    /**
+     * 搜索商品
+     *
+     * @param array $params
+     * @return array
+     */
+    public function searchGoods(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueGoodsList(array $params):array;
+
+
+    /**
+     * @param int $catalogueId
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueListRecursion(int $catalogueId):array;
+
+
+    /**
+     * @param int $catalogueId
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueList(int $catalogueId):array;
+
+
+    /**
+     * @param $params
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopGoodsListRecursion($params):array;
+
+    /**
+     * @param int $goodsId
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getShopGoods(int $goodsId):array;
+
+    /**
+     * @param $params
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function selectPart($params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getGoodsPackage(int $id):array;
+
+    /**
+     * 感兴趣商品
+     *
+     * @param int $parentId
+     * @param string $customer
+     * @return array
+     */
+    public function interestGoods(int $parentId, string $customer):array;
+
+    /**
+     * @param array $params
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getWechatHotspotGoods(array $params):array;
+
+    /**
+     * 根据客户组获取客户组名称
+     *
+     * @param int $groupId
+     * @return array
+     */
+    public function getServiceShop(int $groupId):array;
+
+    /**
+     * 搜索历史
+     *
+     * @param int $groupId
+     * @return array
+     */
+    public function searchHistory():array;
+
+    /**
+     * 大家都在搜
+     *
+     * @return array
+     */
+    public function search():array;
+
+    /**
+     * @return array
+     */
+    public function getPopGoods():array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function CreatOrUpdatePopGoods(array $params):array;
+
+    /**
+     * @return array
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *      }
+     * }
+     */
+    public function getPopGoodsWechat():array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function getSearchList(array $params):array;
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    public function createSearch(array $params):array;
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateSearch(int $id, array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function deleteSearch(int $id):array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @return array
+     */
+    public function getServiceShopAll():array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @param array $params
+     * @return array
+     */
+    public function getInterestConfigList(array $params):array;
+
+    /**
+     * 添加感兴趣
+     *
+     * @param array $params
+     * @return array
+     */
+    public function addInterestConfig(array $params):array;
+
+    /**
+     * @param int $id
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:string
+     */
+    public function incrementActualView(int $id):array;
+
+    /**
+     * 修改感兴趣
+     *
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateInterestConfig(int $id, array $params):array;
+
+    /**
+     * 删除感兴趣
+     *
+     * @param int $id
+     * @return array
+     */
+    public function deleteInterest(int $id):array;
+
+    /**
+     * 批量发布商品
+     *
+     * @return array
+     */
+    public function batchGoods():array;
 }
