@@ -766,10 +766,10 @@ interface WechatShopInterface
     /**
      * 搜索商品
      *
-     * @param string $keyword
+     * @param array $params
      * @return array
      */
-    public function searchGoods(string $keyword):array;
+    public function searchGoods(array $params):array;
 
 
     /**
@@ -970,7 +970,7 @@ interface WechatShopInterface
     public function getInterestConfigList(array $params):array;
 
     /**
-     * 所有客户组列表
+     * 添加感兴趣
      *
      * @param array $params
      * @return array
@@ -985,4 +985,28 @@ interface WechatShopInterface
      *        data:string
      */
     public function incrementActualView(int $id):array;
+
+    /**
+     * 修改感兴趣
+     *
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateInterestConfig(int $id, array $params):array;
+
+    /**
+     * 删除感兴趣
+     *
+     * @param int $id
+     * @return array
+     */
+    public function deleteInterest(int $id):array;
+
+    /**
+     * 批量发布商品
+     *
+     * @return array
+     */
+    public function batchGoods():array;
 }

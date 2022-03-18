@@ -1111,8 +1111,15 @@ interface WechatInterface {
 
     /**
      *
-     *
+     * @param array $params
      * @return array
      */
     public function getLeaveMessageList(array $params):array;
+
+    /**
+     *
+     * @param array $params
+     * @return array
+     */
+    public function updateLeaveMessageStatus(array $params):array;
 }
