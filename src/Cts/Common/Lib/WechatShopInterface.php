@@ -646,7 +646,6 @@ interface WechatShopInterface
 
     /**
      * @param int $goodsId
-     * @param int $partPackageId
      * @return array
      * @emample {
      *      status:true|false,
@@ -666,7 +665,7 @@ interface WechatShopInterface
      * }
      * ]
      */
-    public function getShopGoodsHistory(int $goodsId,int $partPackageId):array;
+    public function getShopGoodsHistory(int $goodsId):array;
 
     /**
      * get hotspot goods list
