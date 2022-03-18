@@ -1192,10 +1192,6 @@ interface UserInterface {
 
 
     /**
-     * @return array
-     */
-    public function getInfoByMobileList(array $mobileList): array;
-    /**
      * @param array $params
      * @example {
      *      start_time:2021/12
