@@ -1009,4 +1009,28 @@ interface WechatShopInterface
      * @return array
      */
     public function batchGoods():array;
+
+    /**
+     * 心愿单列表
+     *
+     * @param array $params
+     * @return array
+     */
+    public function wishList(array $params):array;
+
+    /**
+     * 添加心愿单
+     *
+     * @param array $params
+     * @return array
+     */
+    public function addWishList(array $params):array;
+
+    /**
+     * 删除心愿单
+     *
+     * @param int $id
+     * @return array
+     */
+    public function deleteWishList(int $id):array;
 }
