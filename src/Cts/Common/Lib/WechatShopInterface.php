@@ -643,4 +643,12 @@ interface WechatShopInterface
      * @return array
      */
     public function getGoodsInfo(int $id):array;
+    
+    /**
+     * 
+     * @param int $associateId
+     * @param array $partNumberList
+     * @return array
+     */
+    public function transactionRecord(int $associateId, array $partNumberList): array;
 }
