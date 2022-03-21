@@ -1253,7 +1253,8 @@ interface UserInterface {
      * @param string $oktaId
      * @param array $profile
      * @param string $siteName
+     * @param string $partList
      * @return array
      */
-    public function statistics(string $oktaId, array $profile, string $siteName): array;
+    public function statistics(string $oktaId, array $profile, string $siteName, string $partList): array;
 }
