@@ -1093,4 +1093,33 @@ interface WechatInterface {
      * @return array
      */
     public function checkCompanyDiff(array $params): array;
+
+    /**
+     * 获取用户基本信息
+     * @param array $userData
+     * @example:{
+     *      open_id:string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserInfoFromOpenid(array $userData): array;
+
+    /**
+     *
+     * @param array $params
+     * @return array
+     */
+    public function getLeaveMessageList(array $params):array;
+
+    /**
+     *
+     * @param array $params
+     * @return array
+     */
+    public function updateLeaveMessageStatus(array $params):array;
 }

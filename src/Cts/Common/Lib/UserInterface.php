@@ -1161,14 +1161,13 @@ interface UserInterface {
      */
     public function getFillInfoById(int $id): array;
 
-
     /**
      * 订阅用户导出
      * @param string $keyword
      * @param array $subscriberList
      * @example {
      *      int,
-     *}
+     * }
      * @return array
      * @example {
      *  mini_open_id {
@@ -1180,14 +1179,15 @@ interface UserInterface {
      *   }
      * }
      */
-    public function subscriberExport(array $subscriberList, string $keyword):array;
-    
+    public function subscriberExport(array $subscriberList, string $keyword): array;
+
     /**
      * 
      * @param array $mobileList
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
+
     /**
      * @param array $params
      * @example {
@@ -1206,7 +1206,7 @@ interface UserInterface {
      * ]
      * }
      */
-    public function getReportCsvList(array $params):array;
+    public function getReportCsvList(array $params): array;
 
     /**
      * @param array $params
@@ -1220,14 +1220,21 @@ interface UserInterface {
      */
     public function updateDiffAuthHandle(array $params): array;
 
-
     /**
      * @param string $email
      * @param string $source
      * @param string $uuid
      */
     public function setSyncSobotCache(string $email, string $source, string $uuid);
-    
+
+    /**
+     * 是否关注公众号
+     *
+     * @param int $id
+     * @param int $type
+     */
+    public function getOfficialAccountById(int $id, int $type);
+
     /**
      * 
      * @param string $oktaId
@@ -1241,13 +1248,13 @@ interface UserInterface {
      * @return array
      */
     public function getAssociate(): array;
-    
+
     /**
      * 
      * @return array
      */
     public function sessionInactive(): array;
-    
+
     /**
      * 
      * @param string $oktaId
