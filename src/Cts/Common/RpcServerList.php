@@ -6,6 +6,7 @@ use Cts\Common\Lib\DirectionalPushInterface;
 use Cts\Common\Lib\GuideInterface;
 use Cts\Common\Lib\InstrumentInterface;
 use Cts\Common\Lib\JitterbitInterface;
+use Cts\Common\Lib\OktaInterface;
 use Cts\Common\Lib\KakaoHelperInterface;
 use Cts\Common\Lib\WechatShopInterface;
 use Cts\Common\Lib\PurchaseInterface;
@@ -18,7 +19,6 @@ use Cts\Common\Lib\SliderInterface;
 use Cts\Common\Lib\LabInterface;
 use Cts\Common\Lib\WechatInterface;
 use Cts\Common\Lib\EcommerceInterface;
-use Cts\Common\Lib\OktaInterface;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Rpc\Client\Annotation\Mapping\Reference;
 
@@ -58,6 +58,13 @@ class RpcServerList {
      * @var JitterbitInterface
      */
     public $service_jitterbit;
+    
+    /**
+     * @Reference(pool="jitterbit.pool")
+     *
+     * @var OktaInterface
+     */
+    public $service_okta;
 
     /**
      * @Reference(pool="admin_user.pool")
@@ -142,12 +149,5 @@ class RpcServerList {
      * @var WechatShopInterface
      */
     public $service_wechat_shop;
-
-    /**
-     * @Reference(pool="jitterbit.pool")
-     *
-     * @var OktaInterface
-     */
-    public $service_okta;
 
 }

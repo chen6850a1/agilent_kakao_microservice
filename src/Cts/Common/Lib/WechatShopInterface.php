@@ -17,8 +17,8 @@ namespace Cts\Common\Lib;
  * @since 2.0
  * @package Cts\Common\Lib
  */
-interface WechatShopInterface
-{
+interface WechatShopInterface {
+
     /**
      * @return array
      * @example {
@@ -26,8 +26,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function syncAwsImages():array;
-
+    public function syncAwsImages(): array;
 
     /**
      * @param int $pid
@@ -47,7 +46,7 @@ interface WechatShopInterface
      * }
      * }
      */
-    public function getAwsImages(int $pid):array;
+    public function getAwsImages(int $pid): array;
 
     /**
      * @return array
@@ -66,8 +65,7 @@ interface WechatShopInterface
      *  }
      * }
      */
-    public function getServiceGroups():array;
-
+    public function getServiceGroups(): array;
 
     /**
      * @param array $params
@@ -141,7 +139,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function createShopGoods(array $params):array;
+    public function createShopGoods(array $params): array;
 
     /**
      * @param array $params
@@ -158,8 +156,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function createShopFolder(array $params):array;
-
+    public function createShopFolder(array $params): array;
 
     /**
      * @param array $params
@@ -175,8 +172,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function updateShopFolder(array $params):array;
-
+    public function updateShopFolder(array $params): array;
 
     /**
      * @param int $id
@@ -186,8 +182,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function deleteShopFolder(int $id):array;
-
+    public function deleteShopFolder(int $id): array;
 
     /**
      * @param array $params
@@ -208,8 +203,7 @@ interface WechatShopInterface
      * ]
      * }
      */
-    public function getShopFolderDetails(int $id):array;
-
+    public function getShopFolderDetails(int $id): array;
 
     /**
      * @param int $folderId1
@@ -220,7 +214,7 @@ interface WechatShopInterface
      *  data:string
      * }
      */
-    public function updatefolderPriority(int $folderId1, int $folderId2):array;
+    public function updatefolderPriority(int $folderId1, int $folderId2): array;
 
     /**
      * @param int $goodsId1
@@ -231,8 +225,7 @@ interface WechatShopInterface
      *  status:true|false,
      *  data:string
      */
-    public function updateGoodsPriority(int $goodsId1, int $goodsId2,int $pid):array;
-
+    public function updateGoodsPriority(int $goodsId1, int $goodsId2, int $pid): array;
 
     /**
      * @param array $params
@@ -270,8 +263,7 @@ interface WechatShopInterface
      * ]
      * }
      */
-    public function getShopFolderList(array $params):array;
-
+    public function getShopFolderList(array $params): array;
 
     /**
      * @param array $params
@@ -296,8 +288,7 @@ interface WechatShopInterface
      *
      * }
      */
-    public function createGoodsTemplate(array $params):array;
-
+    public function createGoodsTemplate(array $params): array;
 
     /**
      * @param array $params
@@ -311,13 +302,13 @@ interface WechatShopInterface
      *      data:0 | 1
      * }
      */
-    public function updateGoodsTemplate(array $params):array;
+    public function updateGoodsTemplate(array $params): array;
 
     /**
      * @param int $id
      * @return array
      */
-    public function deleteGoodsTemplate(int $id):array;
+    public function deleteGoodsTemplate(int $id): array;
 
     /**
      * @param int $id
@@ -334,7 +325,7 @@ interface WechatShopInterface
      *          created_by:string,
      * }
      */
-    public function getGoodsTemplate(int $id):array;
+    public function getGoodsTemplate(int $id): array;
 
     /**
      * @param array $params
@@ -365,8 +356,7 @@ interface WechatShopInterface
      * }
      * }
      */
-    public function getGoodsTemplateList(array $params):array;
-
+    public function getGoodsTemplateList(array $params): array;
 
     /**
      * @param array $params
@@ -381,7 +371,7 @@ interface WechatShopInterface
      *          is_deleted:int
      * }
      */
-    public function deleteShopGoods(array $params):array;
+    public function deleteShopGoods(array $params): array;
 
     /**
      * @param array $params
@@ -468,8 +458,7 @@ interface WechatShopInterface
      * }
      * @return array
      */
-    public function updateShopGoods(array $params):array;
-
+    public function updateShopGoods(array $params): array;
 
     /**
      * @param array $params
@@ -486,8 +475,7 @@ interface WechatShopInterface
      *
      * }
      */
-    public function getShopGoodsList(array $params):array;
-
+    public function getShopGoodsList(array $params): array;
 
     /**
      * @param $goodsId
@@ -553,7 +541,7 @@ interface WechatShopInterface
      *      }
      *
      */
-    public function getShopGoodsDetails($goodsId):array;
+    public function getShopGoodsDetails($goodsId): array;
 
     /**
      * @param $goodsId
@@ -624,8 +612,7 @@ interface WechatShopInterface
      *
      * }
      */
-    public function getShopGoodsCopy($goodsId,int  $pid):array;
-
+    public function getShopGoodsCopy($goodsId, int $pid): array;
 
     /**
      * @param int $goodsId
@@ -633,8 +620,7 @@ interface WechatShopInterface
      * @param int $type
      * @return array
      */
-    public function  addShopGoodsMapping(int $goodsId,int  $pid,int $type):array;
-
+    public function addShopGoodsMapping(int $goodsId, int $pid, int $type): array;
 
     /**
      * 获取单个商品信息
@@ -642,7 +628,7 @@ interface WechatShopInterface
      * @param int $id
      * @return array
      */
-    public function getGoodsInfo(int $id):array;
+    public function getGoodsInfo(int $id): array;
 
     /**
      * @param int $goodsId
@@ -665,7 +651,7 @@ interface WechatShopInterface
      * }
      * ]
      */
-    public function getShopGoodsHistory(int $goodsId):array;
+    public function getShopGoodsHistory(int $goodsId): array;
 
     /**
      * get hotspot goods list
@@ -723,7 +709,7 @@ interface WechatShopInterface
      *      error:string
      * }
      */
-    public function updateHotspotGoods(int $id,array $params): array;
+    public function updateHotspotGoods(int $id, array $params): array;
 
     /**
      * updateHotspotGoodsOrder
@@ -761,7 +747,7 @@ interface WechatShopInterface
      * @param array $data
      * @return array
      */
-    public function addGoods(array $data):array;
+    public function addGoods(array $data): array;
 
     /**
      * 搜索商品
@@ -769,8 +755,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function searchGoods(array $params):array;
-
+    public function searchGoods(array $params): array;
 
     /**
      * @param array $params
@@ -783,22 +768,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function shopCatalogueGoodsList(array $params):array;
-
-
-    /**
-     * @param int $catalogueId
-     * @return mixed
-     * @example {
-     *        status:true|false,
-     *        data:[
-     *          {
-     *
-     *      }
-     * }
-     */
-    public function shopCatalogueListRecursion(int $catalogueId):array;
-
+    public function shopCatalogueGoodsList(array $params): array;
 
     /**
      * @param int $catalogueId
@@ -811,8 +781,20 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function shopCatalogueList(int $catalogueId):array;
+    public function shopCatalogueListRecursion(int $catalogueId): array;
 
+    /**
+     * @param int $catalogueId
+     * @return mixed
+     * @example {
+     *        status:true|false,
+     *        data:[
+     *          {
+     *
+     *      }
+     * }
+     */
+    public function shopCatalogueList(int $catalogueId): array;
 
     /**
      * @param $params
@@ -825,7 +807,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function shopGoodsListRecursion($params):array;
+    public function shopGoodsListRecursion($params): array;
 
     /**
      * @param int $goodsId
@@ -837,7 +819,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function getShopGoods(int $goodsId):array;
+    public function getShopGoods(int $goodsId): array;
 
     /**
      * @param $params
@@ -849,7 +831,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function selectPart($params):array;
+    public function selectPart($params): array;
 
     /**
      * @param int $id
@@ -861,7 +843,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function getGoodsPackage(int $id):array;
+    public function getGoodsPackage(int $id): array;
 
     /**
      * 感兴趣商品
@@ -870,7 +852,7 @@ interface WechatShopInterface
      * @param string $customer
      * @return array
      */
-    public function interestGoods(int $parentId, string $customer):array;
+    public function interestGoods(int $parentId, string $customer): array;
 
     /**
      * @param array $params
@@ -882,7 +864,7 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function getWechatHotspotGoods(array $params):array;
+    public function getWechatHotspotGoods(array $params): array;
 
     /**
      * 根据客户组获取客户组名称
@@ -890,7 +872,7 @@ interface WechatShopInterface
      * @param int $groupId
      * @return array
      */
-    public function getServiceShop(int $groupId):array;
+    public function getServiceShop(int $groupId): array;
 
     /**
      * 搜索历史
@@ -898,25 +880,25 @@ interface WechatShopInterface
      * @param int $groupId
      * @return array
      */
-    public function searchHistory():array;
+    public function searchHistory(): array;
 
     /**
      * 大家都在搜
      *
      * @return array
      */
-    public function search():array;
+    public function search(): array;
 
     /**
      * @return array
      */
-    public function getPopGoods():array;
+    public function getPopGoods(): array;
 
     /**
      * @param array $params
      * @return array
      */
-    public function CreatOrUpdatePopGoods(array $params):array;
+    public function CreatOrUpdatePopGoods(array $params): array;
 
     /**
      * @return array
@@ -927,39 +909,39 @@ interface WechatShopInterface
      *      }
      * }
      */
-    public function getPopGoodsWechat():array;
+    public function getPopGoodsWechat(): array;
 
     /**
      * @param array $params
      * @return array
      */
-    public function getSearchList(array $params):array;
+    public function getSearchList(array $params): array;
 
     /**
      * @param array $params
      * @return array
      */
-    public function createSearch(array $params):array;
+    public function createSearch(array $params): array;
 
     /**
      * @param int $id
      * @param array $params
      * @return array
      */
-    public function updateSearch(int $id, array $params):array;
+    public function updateSearch(int $id, array $params): array;
 
     /**
      * @param int $id
      * @return array
      */
-    public function deleteSearch(int $id):array;
+    public function deleteSearch(int $id): array;
 
     /**
      * 所有客户组列表
      *
      * @return array
      */
-    public function getServiceShopAll():array;
+    public function getServiceShopAll(): array;
 
     /**
      * 所有客户组列表
@@ -967,7 +949,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function getInterestConfigList(array $params):array;
+    public function getInterestConfigList(array $params): array;
 
     /**
      * 添加感兴趣
@@ -975,7 +957,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function addInterestConfig(array $params):array;
+    public function addInterestConfig(array $params): array;
 
     /**
      * @param int $id
@@ -984,7 +966,7 @@ interface WechatShopInterface
      *        status:true|false,
      *        data:string
      */
-    public function incrementActualView(int $id):array;
+    public function incrementActualView(int $id): array;
 
     /**
      * 修改感兴趣
@@ -993,7 +975,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function updateInterestConfig(int $id, array $params):array;
+    public function updateInterestConfig(int $id, array $params): array;
 
     /**
      * 删除感兴趣
@@ -1001,14 +983,14 @@ interface WechatShopInterface
      * @param int $id
      * @return array
      */
-    public function deleteInterest(int $id):array;
+    public function deleteInterest(int $id): array;
 
     /**
      * 批量发布商品
      *
      * @return array
      */
-    public function batchGoods():array;
+    public function batchGoods(): array;
 
     /**
      * 心愿单列表
@@ -1016,7 +998,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function wishList(array $params):array;
+    public function wishList(array $params): array;
 
     /**
      * 添加心愿单
@@ -1024,7 +1006,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function addWishList(array $params):array;
+    public function addWishList(array $params): array;
 
     /**
      * 删除心愿单
@@ -1032,5 +1014,26 @@ interface WechatShopInterface
      * @param int $id
      * @return array
      */
-    public function deleteWishList(int $id):array;
+    public function deleteWishList(int $id): array;
+
+    /**
+     * 
+     * @param int $associateId
+     * @param array $partNumberList
+     * @return array
+     */
+    public function transactionRecord(int $associateId, array $partNumberList): array;
+
+    /**
+     * 
+     * @param array $partNumberList
+     * @return array
+     */
+    public function cachePartNumberList(array $partNumberList): array;
+    
+    /**
+     * 
+     * @return array
+     */
+    public function getCachedPartNumberList(): array;
 }

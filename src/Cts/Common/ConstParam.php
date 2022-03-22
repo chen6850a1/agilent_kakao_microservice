@@ -15,8 +15,6 @@ class ConstParam {
     const COUNTRY_CHINA = 1;
     const COUNTRY_CHINA_DGG = 2;
     const COUNTRY_CHINA_MS = 3;
-	
-	
     //用户类型
     const USER_TYPE_KAKAO = "user_type_kakao";
     const USER_TYPE_WECHAT = "user_type_wechat";
@@ -53,7 +51,6 @@ class ConstParam {
     const EVENT_RPL_TRANSACTION_CANCELLED = "event_RPL_transaction_cancelled"; //后台RPL HOLD到取消
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
     const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund"; //已支付到申请退款
-    const EVENT_OFFLINE_PAY_B2B = "event_offline_pay_b2b"; //审核通过到转下下处理
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -71,7 +68,6 @@ class ConstParam {
     const SERVICE_WECHAT = "service_wechat";
     const SERVICE_ECOMMERCE = "service_ecommerce";
     const SERVICE_SHOP = "service_shop";
-    const SERVICE_OKTA = "service_okta";
     //推送模板
     const WECHAT_PUSH_TEMPLATE_INFOSETUP = "infoSetup";
     const WECHAT_PUSH_TEMPLATE_INFOSETUP_COMPLETE = "infoSetupComplete";
@@ -104,6 +100,6 @@ class ConstParam {
     //直播回放S3目录前缀
     const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
     //直播微信支付方式
-    const LIVE_STREAM_PAY_B2B = 2;  //公对公支付
+    const LIVE_STREAM_PAY_GDG = 2;  //公对公支付
     const LIVE_STREAM_PAY_WX = 1;   //微信支付
 }
