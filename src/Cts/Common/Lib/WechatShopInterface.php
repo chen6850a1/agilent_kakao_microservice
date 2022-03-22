@@ -1036,4 +1036,11 @@ interface WechatShopInterface {
      * @return array
      */
     public function getCachedPartNumberList(): array;
+    
+    /**
+     * 
+     * @param array $partNumberList
+     * @return array
+     */
+    public function deleteCachedPartNumber(array $partNumberList): array;
 }
