@@ -755,7 +755,8 @@ interface WechatShopInterface {
      * @param array $params
      * @return array
      */
-    public function searchGoods(array $params): array;
+    public function searchGoodsList(array $params):array;
+
 
     /**
      * @param array $params
@@ -1017,7 +1018,7 @@ interface WechatShopInterface {
     public function deleteWishList(int $id): array;
 
     /**
-     * 
+     *
      * @param int $associateId
      * @param array $partNumberList
      * @return array
@@ -1025,20 +1026,20 @@ interface WechatShopInterface {
     public function transactionRecord(int $associateId, array $partNumberList): array;
 
     /**
-     * 
+     *
      * @param array $partNumberList
      * @return array
      */
     public function cachePartNumberList(array $partNumberList): array;
-    
+
     /**
-     * 
+     *
      * @return array
      */
     public function getCachedPartNumberList(): array;
-    
+
     /**
-     * 
+     *
      * @param array $partNumberList
      * @return array
      */
