@@ -769,7 +769,7 @@ interface WechatShopInterface
      * @param array $params
      * @return array
      */
-    public function searchGoods1(array $params):array;
+    public function searchGoods(array $params):array;
 
 
     /**
