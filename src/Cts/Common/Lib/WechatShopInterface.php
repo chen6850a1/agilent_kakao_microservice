@@ -764,7 +764,7 @@ interface WechatShopInterface
     public function addGoods(array $data):array;
 
     /**
-     * 搜索商品
+     * 搜索商品search goods
      *
      * @param array $params
      * @return array
