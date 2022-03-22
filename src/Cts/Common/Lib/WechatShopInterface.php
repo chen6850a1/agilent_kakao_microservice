@@ -1023,4 +1023,17 @@ interface WechatShopInterface {
      * @return array
      */
     public function transactionRecord(int $associateId, array $partNumberList): array;
+
+    /**
+     * 
+     * @param array $partNumberList
+     * @return array
+     */
+    public function cachePartNumberList(array $partNumberList): array;
+    
+    /**
+     * 
+     * @return array
+     */
+    public function getCachedPartNumberList(): array;
 }
