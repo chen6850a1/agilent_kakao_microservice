@@ -822,7 +822,7 @@ interface UserInterface {
     public function competitorCheckExist(string $mobile): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -833,9 +833,9 @@ interface UserInterface {
     public function getInvoiceList(): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -846,9 +846,9 @@ interface UserInterface {
     public function getInvoice(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -859,10 +859,10 @@ interface UserInterface {
     public function createInvoice(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -873,9 +873,9 @@ interface UserInterface {
     public function updateInvoice(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -923,7 +923,7 @@ interface UserInterface {
     public function getInfoByAuthUpdateTime(string $startDate, string $endDate): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      page:string|int,
@@ -934,7 +934,7 @@ interface UserInterface {
      *      status:string|int,
      *      responseFormat:string eg. csv|json
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -944,9 +944,9 @@ interface UserInterface {
     public function getRplList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -956,13 +956,13 @@ interface UserInterface {
     public function getRpl(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      AccountId:string,
      *      AccountName:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -972,7 +972,7 @@ interface UserInterface {
     public function rplCheck(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      AccountId:string,
@@ -980,7 +980,7 @@ interface UserInterface {
      *      status:int,
      *      remark:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -990,14 +990,14 @@ interface UserInterface {
     public function createRpl(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example:{
      *      status:int,
      *      remark:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1007,27 +1007,27 @@ interface UserInterface {
     public function updateRpl(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $excelData
      * @return array
      */
     public function importRpl(array $excelData): array;
 
     /**
-     * 
+     *
      * @return array []
      */
     public function exportRpl(): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      page:int,
      *      pageSize:int,
      *      AccountId:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1037,7 +1037,7 @@ interface UserInterface {
     public function getRplInvoiceList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      * @example {
@@ -1048,32 +1048,32 @@ interface UserInterface {
     public function getRplInvoice(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      company_name:string,
      *      company_address:string,
      *      shipping_address:string
      * }
-     * 
+     *
      * @return array
      */
     public function checkRplInvoice(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example {
      *      AccountId:string
      * }
-     * 
+     *
      * @return array
      */
     public function updateRplInvoice(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      page:string|int,
@@ -1086,7 +1086,7 @@ interface UserInterface {
      *      AccountId:string,
      *      AccountName:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1096,7 +1096,7 @@ interface UserInterface {
     public function getUserList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      * @example {
@@ -1107,13 +1107,13 @@ interface UserInterface {
     public function getUser(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example {
      *      role:int 0|1|2
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1123,12 +1123,12 @@ interface UserInterface {
     public function updateUserRole(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      role:int 0|1|2
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -1138,7 +1138,7 @@ interface UserInterface {
     public function updateMyRole(array $params): array;
 
     /**
-     * 
+     *
      * @param string $keyword 姓名/手机/单位
      * @return array
      */
@@ -1161,13 +1161,14 @@ interface UserInterface {
      */
     public function getFillInfoById(int $id): array;
 
+
     /**
      * 订阅用户导出
      * @param string $keyword
      * @param array $subscriberList
      * @example {
      *      int,
-     * }
+     *}
      * @return array
      * @example {
      *  mini_open_id {
@@ -1179,15 +1180,14 @@ interface UserInterface {
      *   }
      * }
      */
-    public function subscriberExport(array $subscriberList, string $keyword): array;
+    public function subscriberExport(array $subscriberList, string $keyword):array;
 
     /**
-     * 
+     *
      * @param array $mobileList
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
-
     /**
      * @param array $params
      * @example {
@@ -1206,7 +1206,7 @@ interface UserInterface {
      * ]
      * }
      */
-    public function getReportCsvList(array $params): array;
+    public function getReportCsvList(array $params):array;
 
     /**
      * @param array $params
@@ -1220,6 +1220,7 @@ interface UserInterface {
      */
     public function updateDiffAuthHandle(array $params): array;
 
+
     /**
      * @param string $email
      * @param string $source
@@ -1228,15 +1229,7 @@ interface UserInterface {
     public function setSyncSobotCache(string $email, string $source, string $uuid);
 
     /**
-     * 是否关注公众号
      *
-     * @param int $id
-     * @param int $type
-     */
-    public function getOfficialAccountById(int $id, int $type);
-
-    /**
-     * 
      * @param string $oktaId
      * @param array $profile
      * @return array
@@ -1244,24 +1237,31 @@ interface UserInterface {
     public function associate(string $oktaId, array $profile): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function getAssociate(): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function sessionInactive(): array;
 
     /**
-     * 
+     *
      * @param string $oktaId
      * @param array $profile
      * @param string $siteName
-     * @param string $partList
      * @return array
      */
-    public function statistics(string $oktaId, array $profile, string $siteName, string $partList): array;
+    public function statistics(string $oktaId, array $profile, string $siteName): array;
+
+    /**
+     *通过时间区间来导出用户信息报表
+     * @param string $startDate
+     * @param string $endDate
+     * @return array
+     */
+    public function downloadReportByUpdateTime(string $startDate, string $endDate): array;
 }
