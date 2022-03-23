@@ -950,6 +950,13 @@ interface WechatShopInterface
 
     /**
      * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function searchOrder(int $id, array $params):array;
+
+    /**
+     * @param int $id
      * @return array
      */
     public function deleteSearch(int $id):array;
