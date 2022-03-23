@@ -1033,4 +1033,10 @@ interface WechatShopInterface
      * @return array
      */
     public function deleteWishList(int $id):array;
+
+    /**
+     * 批量导出商品excel
+     * @return array
+     */
+    public function goodsExcelExport():array;
 }
