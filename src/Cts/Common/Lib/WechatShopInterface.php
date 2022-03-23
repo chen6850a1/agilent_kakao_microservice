@@ -1044,4 +1044,10 @@ interface WechatShopInterface {
      * @return array
      */
     public function deleteCachedPartNumber(array $partNumberList): array;
+
+    /**
+     * 批量导出商品excel
+     * @return array
+     */
+    public function goodsExcelExport():array;
 }
