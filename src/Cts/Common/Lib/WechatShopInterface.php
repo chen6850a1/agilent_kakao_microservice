@@ -1057,4 +1057,12 @@ interface WechatShopInterface {
      * @return array
      */
     public function goodsExcelExport():array;
+
+    /**
+     * 获取分类名和客服组名
+     *
+     * @param int $type
+     * @return array
+     */
+    public function getCategoryAndGroup(int $type):array;
 }
