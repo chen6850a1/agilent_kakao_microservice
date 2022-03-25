@@ -1065,4 +1065,15 @@ interface WechatShopInterface {
      * @return array
      */
     public function getCategoryAndGroup(int $type):array;
+
+    /**
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function goodsExcelImport(array $excelData):array;
 }
