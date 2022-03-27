@@ -802,16 +802,13 @@ interface WechatShopInterface
 
     /**
      * @param int $catalogueId
+     * @param int $type
      * @return mixed
      * @example {
      *        status:true|false,
-     *        data:[
-     *          {
-     *
-     *      }
-     * }
+     *        data:[]
      */
-    public function shopCatalogueList(int $catalogueId):array;
+    public function shopCatalogueList(int $catalogueId,int $type):array;
 
 
     /**
@@ -1065,4 +1062,30 @@ interface WechatShopInterface
      * }
      */
     public function goodsExcelImport(array $excelData):array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     *
+     */
+    public function folderExcelExport():array;
+
+
+    /**
+     * @param $excelData
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function folderExcelImport($excelData):array;
+
+
+
 }
