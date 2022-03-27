@@ -1167,5 +1167,5 @@ interface WechatInterface {
      * @param int $groupId
      * @return array
      */
-    public function getFindGroupId(int $groupId):array;
+    public function getGroupById(int $groupId):array;
 }
