@@ -50,26 +50,6 @@ interface WechatShopInterface
     public function getAwsImages(int $pid):array;
 
     /**
-     * @return array
-     * @example {
-     *  status:true|false,
-     *  data:{
-     *      [
-     *      id:int,
-     *      name:string,
-     *      serial_number:string,
-     *      created_at:date,
-     *      created_by:string,
-     *      updated_at:string,
-     *      updated_by:string
-     *      ]
-     *  }
-     * }
-     */
-    public function getServiceGroups():array;
-
-
-    /**
      * @param array $params
      *  @example {
      *      pid: int,
@@ -885,14 +865,6 @@ interface WechatShopInterface
     public function getWechatHotspotGoods(array $params):array;
 
     /**
-     * 根据客户组获取客户组名称
-     *
-     * @param int $groupId
-     * @return array
-     */
-    public function getServiceShop(int $groupId):array;
-
-    /**
      * 搜索历史
      *
      * @param int $groupId
@@ -960,13 +932,6 @@ interface WechatShopInterface
      * @return array
      */
     public function deleteSearch(int $id):array;
-
-    /**
-     * 所有客户组列表
-     *
-     * @return array
-     */
-    public function getServiceShopAll():array;
 
     /**
      * 所有客户组列表
