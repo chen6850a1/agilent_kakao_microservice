@@ -788,7 +788,7 @@ interface WechatShopInterface
      *        status:true|false,
      *        data:[]
      */
-    public function shopCatalogueList(int $catalogueId,int $type):array;
+    public function shopCatalogueLists(int $catalogueId,int $type):array;
 
 
     /**
