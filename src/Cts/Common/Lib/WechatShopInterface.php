@@ -736,20 +736,20 @@ interface WechatShopInterface
     public function deleteHotspotGoods(int $id): array;
 
     /**
+     * 搜索商品search goods
+     *
+     * @param array $params
+     * @return array
+     */
+    public function searchXsGoods(array $params):array;
+
+    /**
      * 添加商品
      *
      * @param array $data
      * @return array
      */
     public function addGoods(array $data):array;
-
-    /**
-     * 搜索商品search goods
-     *
-     * @param array $params
-     * @return array
-     */
-    public function searchGoods(array $params):array;
 
 
     /**
