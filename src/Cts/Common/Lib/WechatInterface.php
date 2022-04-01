@@ -1094,10 +1094,85 @@ interface WechatInterface {
      */
     public function checkCompanyDiff(array $params): array;
 
-    /**
+	/**
      * 通过微信获取手机号
      * @param string $code
      * @return array
      */
     public function getPhoneByWechat(string $code) :array;
+	
+    /**
+     * 获取用户基本信息
+     * @param array $userData
+     * @example:{
+     *      open_id:string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getUserInfoFromOpenid(array $userData): array;
+
+    /**
+     *
+     * @param array $params
+     * @return array
+     */
+    public function getLeaveMessageList(array $params):array;
+
+    /**
+     *
+     * @param array $params
+     * @return array
+     */
+    public function updateLeaveMessageStatus(array $params):array;
+
+    /**
+     * 根据客户组获取客户组名称
+     *
+     * @param int $groupId
+     * @return array
+     */
+    public function getServiceShop(int $groupId):array;
+
+    /**
+     * 所有客户组列表
+     *
+     * @return array
+     */
+    public function getServiceShopAll():array;
+
+    /**
+     * @return array
+     * @example {
+     *  status:true|false,
+     *  data:{
+     *      [
+     *      id:int,
+     *      name:string,
+     *      serial_number:string,
+     *      created_at:date,
+     *      created_by:string,
+     *      updated_at:string,
+     *      updated_by:string
+     *      ]
+     *  }
+     * }
+     */
+    public function getServiceGroups():array;
+
+    /**
+     * @param string $groupName
+     * @return array
+     */
+    public function getGroupId(string $groupName):array;
+
+    /**
+     * @param int $groupId
+     * @return array
+     */
+    public function getGroupById(int $groupId):array;
 }
