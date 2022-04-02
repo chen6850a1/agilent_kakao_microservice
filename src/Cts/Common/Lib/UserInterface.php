@@ -1161,14 +1161,13 @@ interface UserInterface {
      */
     public function getFillInfoById(int $id): array;
 
-
     /**
      * 订阅用户导出
      * @param string $keyword
      * @param array $subscriberList
      * @example {
      *      int,
-     *}
+     * }
      * @return array
      * @example {
      *  mini_open_id {
@@ -1180,7 +1179,7 @@ interface UserInterface {
      *   }
      * }
      */
-    public function subscriberExport(array $subscriberList, string $keyword):array;
+    public function subscriberExport(array $subscriberList, string $keyword): array;
 
     /**
      *
@@ -1188,6 +1187,7 @@ interface UserInterface {
      * @return array
      */
     public function getInfoByMobileList(array $mobileList): array;
+
     /**
      * @param array $params
      * @example {
@@ -1206,7 +1206,7 @@ interface UserInterface {
      * ]
      * }
      */
-    public function getReportCsvList(array $params):array;
+    public function getReportCsvList(array $params): array;
 
     /**
      * @param array $params
@@ -1219,7 +1219,6 @@ interface UserInterface {
      * @return array
      */
     public function updateDiffAuthHandle(array $params): array;
-
 
     /**
      * @param string $email
@@ -1249,16 +1248,17 @@ interface UserInterface {
     public function sessionInactive(): array;
 
     /**
-     *
+     * 
      * @param string $oktaId
      * @param array $profile
      * @param string $siteName
+     * @param string $partList
      * @return array
      */
-    public function statistics(string $oktaId, array $profile, string $siteName): array;
+    public function statistics(string $oktaId, array $profile, string $siteName, string $partList): array;
 
     /**
-     *通过时间区间来导出用户信息报表
+     * 通过时间区间来导出用户信息报表
      * @param string $startDate
      * @param string $endDate
      * @return array
