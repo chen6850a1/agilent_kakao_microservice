@@ -64,6 +64,7 @@ class AwsSns
                 ]);
                 CLog::info($result);
             }catch (AwsException $e){
+                CLog::info($sqs_arn);
                 CLog::info($e->getMessage());
                 return false;
             }
