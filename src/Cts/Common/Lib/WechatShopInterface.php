@@ -1052,5 +1052,24 @@ interface WechatShopInterface
     public function folderExcelImport($excelData):array;
 
 
+    /**
+     * @param int $goodsId
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *              [
+     *                     part_number:string,
+     *                     price:string,
+     *              ],
+     *              [
+     *                     part_number:string,
+     *                     price:string,
+     *              ],
+     *          ],
+     *      error:string
+     * }
+     */
+    public function getPartPriceList(int $goodsId):array;
 
 }
