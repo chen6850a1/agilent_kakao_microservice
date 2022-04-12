@@ -620,9 +620,11 @@ interface WechatShopInterface
      * 获取单个商品信息
      *
      * @param int $id
+     * @param int $partId
+     * @param int $packageId
      * @return array
      */
-    public function getGoodsInfo(int $id):array;
+    public function getGoodsInfo(int $id, int $partId, int $packageId):array;
 
     /**
      * @param int $goodsId
