@@ -49,25 +49,6 @@ interface WechatShopInterface {
     public function getAwsImages(int $pid): array;
 
     /**
-     * @return array
-     * @example {
-     *  status:true|false,
-     *  data:{
-     *      [
-     *      id:int,
-     *      name:string,
-     *      serial_number:string,
-     *      created_at:date,
-     *      created_by:string,
-     *      updated_at:string,
-     *      updated_by:string
-     *      ]
-     *  }
-     * }
-     */
-    public function getServiceGroups(): array;
-
-    /**
      * @param array $params
      *  @example {
      *      pid: int,
@@ -742,20 +723,20 @@ interface WechatShopInterface {
     public function deleteHotspotGoods(int $id): array;
 
     /**
+     * 搜索商品search goods
+     *
+     * @param array $params
+     * @return array
+     */
+    public function searchXsGoods(array $params): array;
+
+    /**
      * 添加商品
      *
      * @param array $data
      * @return array
      */
     public function addGoods(array $data): array;
-
-    /**
-     * 搜索商品
-     *
-     * @param array $params
-     * @return array
-     */
-    public function searchGoods(array $params): array;
 
     /**
      * @param array $params
@@ -785,16 +766,13 @@ interface WechatShopInterface {
 
     /**
      * @param int $catalogueId
+     * @param int $type
      * @return mixed
      * @example {
      *        status:true|false,
-     *        data:[
-     *          {
-     *
-     *      }
-     * }
+     *        data:[]
      */
-    public function shopCatalogueList(int $catalogueId): array;
+    public function shopCatalogueLists(int $catalogueId, int $type): array;
 
     /**
      * @param $params
@@ -867,14 +845,6 @@ interface WechatShopInterface {
     public function getWechatHotspotGoods(array $params): array;
 
     /**
-     * 根据客户组获取客户组名称
-     *
-     * @param int $groupId
-     * @return array
-     */
-    public function getServiceShop(int $groupId): array;
-
-    /**
      * 搜索历史
      *
      * @param int $groupId
@@ -932,16 +902,16 @@ interface WechatShopInterface {
 
     /**
      * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function searchOrder(int $id, array $params): array;
+
+    /**
+     * @param int $id
      * @return array
      */
     public function deleteSearch(int $id): array;
-
-    /**
-     * 所有客户组列表
-     *
-     * @return array
-     */
-    public function getServiceShopAll(): array;
 
     /**
      * 所有客户组列表
@@ -1015,14 +985,73 @@ interface WechatShopInterface {
      * @return array
      */
     public function deleteWishList(int $id): array;
-    
+
     /**
-     * 批量删除心愿单
-     *
-     * @param array $ids
+     * 批量导出商品excel
      * @return array
      */
-    public function batchDeleteWish(array $ids): array;
+    public function goodsExcelExport(): array;
+
+    /**
+     * 获取分类名和客服组名
+     *
+     * @param int $type
+     * @return array
+     */
+    public function getCategoryAndGroup(int $type): array;
+
+    /**
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function goodsExcelImport(array $excelData): array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     *
+     */
+    public function folderExcelExport(): array;
+
+    /**
+     * @param $excelData
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function folderExcelImport($excelData): array;
+
+    /**
+     * @param int $goodsId
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *              [
+     *                     part_number:string,
+     *                     price:string,
+     *              ],
+     *              [
+     *                     part_number:string,
+     *                     price:string,
+     *              ],
+     *          ],
+     *      error:string
+     * }
+     */
+    public function getPartPriceList(int $goodsId): array;
 
     /**
      * 
@@ -1038,13 +1067,13 @@ interface WechatShopInterface {
      * @return array
      */
     public function cachePartNumberList(array $partNumberList): array;
-    
+
     /**
      * 
      * @return array
      */
     public function getCachedPartNumberList(): array;
-    
+
     /**
      * 
      * @param array $partNumberList

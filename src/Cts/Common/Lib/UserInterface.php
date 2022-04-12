@@ -421,6 +421,13 @@ interface UserInterface {
     public function getInfoByMiniOpenid(string $uuid): array;
 
     /**
+     * @param string $uuid
+     * @param $type
+     * @return array
+     */
+    public function getInfoByMiniOpenidByType(string $uuid, $type): array;
+
+    /**
      * 同上
      * @param string $mobile
      * @return array
