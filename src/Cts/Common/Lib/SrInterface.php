@@ -663,4 +663,16 @@ interface SrInterface {
      * @return array
      */
     public function irTags(): array;
+	
+	
+	 /**
+     * 导出sr的suvery推送记录
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function exportSrSuveryNotifcation(array $data): array;
 }
