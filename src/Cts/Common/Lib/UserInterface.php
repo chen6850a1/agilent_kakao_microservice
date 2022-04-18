@@ -421,6 +421,13 @@ interface UserInterface {
     public function getInfoByMiniOpenid(string $uuid): array;
 
     /**
+     * @param string $uuid
+     * @param $type
+     * @return array
+     */
+    public function getInfoByMiniOpenidByType(string $uuid, $type): array;
+
+    /**
      * 同上
      * @param string $mobile
      * @return array
@@ -1233,4 +1240,13 @@ interface UserInterface {
      * @param string $source
      * @param string $uuid
      */
-    public function setSyncSobotCache(string $email, string $source, string $uuid);}
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
+
+    /**
+     * 是否关注公众号
+     *
+     * @param int $id
+     * @param int $type
+     */
+    public function getOfficialAccountById(int $id, int $type);
+}
