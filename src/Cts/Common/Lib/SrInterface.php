@@ -663,19 +663,5 @@ interface SrInterface {
      * @return array
      */
     public function irTags(): array;
-	
-
-    /**
-     *
-     * @param string $startDate
-     * @param string $endDate
-     *
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
-    public function srSuveryNotifcationExport(string $startDate, string $endDate): array;
+    
 }
