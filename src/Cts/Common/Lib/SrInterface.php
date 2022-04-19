@@ -664,15 +664,18 @@ interface SrInterface {
      */
     public function irTags(): array;
 	
-	
-	 /**
-     * 导出sr的suvery推送记录
+
+    /**
+     *
+     * @param string $startDate
+     * @param string $endDate
      *
      * @return array
      * @example {
-     *      status:true,
-     *      data:XXXX
-     * ]
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
      */
-    public function exportSrSuveryNotifcation(array $data): array;
+    public function srSuveryNotifcationExport(string $startDate, string $endDate): array;
 }
