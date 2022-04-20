@@ -1080,4 +1080,15 @@ interface WechatShopInterface {
      * @return array
      */
     public function deleteCachedPartNumber(array $partNumberList): array;
+
+    /**
+     * @param $uniqueNumber
+     * @return mixed
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function goodsExcelImportStatus(string $uniqueNumber):array;
 }
