@@ -1110,4 +1110,14 @@ interface WechatShopInterface
      */
     public function getPartPriceList(int $goodsId):array;
 
+    /**
+     * @param $uniqueNumber
+     * @return mixed
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function goodsExcelImportStatus(string $uniqueNumber):array;
 }
