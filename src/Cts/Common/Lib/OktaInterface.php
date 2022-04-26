@@ -21,7 +21,8 @@ interface OktaInterface {
 
     /**
      * 
+     * @param array $cookieParams
      * @return array
      */
-    public function checkLoginStatusByAgsessionme(): array;
+    public function checkLoginStatusByAgsessionme(array $cookieParams): array;
 }
