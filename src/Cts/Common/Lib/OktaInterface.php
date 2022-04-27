@@ -18,4 +18,11 @@ interface OktaInterface {
      * @return array
      */
     public function associate(string $code, string $codeVerifier, string $nonce, array $profile): array;
+
+    /**
+     * 
+     * @param array $cookieParams
+     * @return array
+     */
+    public function checkLoginStatusByAgsessionme(array $cookieParams): array;
 }
