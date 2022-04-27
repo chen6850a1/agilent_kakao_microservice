@@ -19,3 +19,26 @@
 function getRdByIds($start = 0, $end = 1000) {
     return mt_rand($start, $end);
 }
+
+/**
+ * 
+ * @param string $string
+ * @return string
+ */
+function urlsafe_base64_encode(string $string): string {
+    return str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($string));
+}
+
+/**
+ * 
+ * @param string $string
+ * @return string
+ */
+function urlsafe_base64_decode(string $string): string {
+    $data = str_replace(['-', '_'], ['+', '/'], $string);
+    $mod4 = strlen($data) % 4;
+    if ($mod4) {
+        $data .= substr('====', $mod4);
+    }
+    return base64_decode($data);
+}
