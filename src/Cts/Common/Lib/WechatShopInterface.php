@@ -1120,4 +1120,15 @@ interface WechatShopInterface
      * }
      */
     public function goodsExcelImportStatus(string $uniqueNumber):array;
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *             name:string
+     *          ],
+     *      error:string
+     * }
+     */
+    public function getJumpType():array;
 }
