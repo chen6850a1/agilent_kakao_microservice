@@ -1074,4 +1074,18 @@ interface WechatShopInterface
      */
     public function getPartPriceList(int $goodsId):array;
 
+
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *             name:string
+     *          ],
+     *      error:string
+     * }
+     */
+    public function getJumpType():array;
+
 }
