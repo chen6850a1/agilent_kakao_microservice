@@ -1256,13 +1256,11 @@ interface UserInterface {
 
     /**
      * 
-     * @param string $oktaId
-     * @param array $profile
      * @param string $siteName
      * @param string $partList
      * @return array
      */
-    public function statistics(string $oktaId, array $profile, string $siteName, string $partList): array;
+    public function statistics(string $siteName, string $partList): array;
 
     /**
      * 通过时间区间来导出用户信息报表
