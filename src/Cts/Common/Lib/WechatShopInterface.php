@@ -607,9 +607,11 @@ interface WechatShopInterface {
      * 获取单个商品信息
      *
      * @param int $id
+     * @param int $partId
+     * @param int $packageId
      * @return array
      */
-    public function getGoodsInfo(int $id): array;
+    public function getGoodsInfo(int $id, int $partId, int $packageId): array;
 
     /**
      * @param int $goodsId
@@ -1054,6 +1056,18 @@ interface WechatShopInterface {
     public function getPartPriceList(int $goodsId): array;
 
     /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *             name:string
+     *          ],
+     *      error:string
+     * }
+     */
+    public function getJumpType(): array;
+
+    /**
      * 
      * @param int $associateId
      * @param array $partNumberList
@@ -1090,5 +1104,5 @@ interface WechatShopInterface {
      *      error:string
      * }
      */
-    public function goodsExcelImportStatus(string $uniqueNumber):array;
+    public function goodsExcelImportStatus(string $uniqueNumber): array;
 }
