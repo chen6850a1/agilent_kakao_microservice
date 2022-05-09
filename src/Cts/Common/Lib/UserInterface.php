@@ -1277,10 +1277,4 @@ interface UserInterface {
      */
     public function downloadReportByUpdateTime(string $startDate, string $endDate): array;
 
-	/**
-     *
-     * @param array $mobileList
-     * @return array
-     */
-    public function getInfoByMobileList(array $mobileList): array;
 }
