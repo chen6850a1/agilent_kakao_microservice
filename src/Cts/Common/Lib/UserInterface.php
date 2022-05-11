@@ -1284,4 +1284,9 @@ interface UserInterface {
      * @return array
      */
     public function downloadReportByUpdateTime(string $startDate, string $endDate): array;
+
+	/**
+     * @param string $telphone
+     */
+    public function getSmsCode(string $telphone);
 }
