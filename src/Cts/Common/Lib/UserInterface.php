@@ -1233,4 +1233,10 @@ interface UserInterface {
      * @param string $source
      * @param string $uuid
      */
-    public function setSyncSobotCache(string $email, string $source, string $uuid);}
+    public function setSyncSobotCache(string $email, string $source, string $uuid);
+
+	/**
+     * @param string $telphone
+     */
+    public function getSmsCode(string $telphone);
+}
