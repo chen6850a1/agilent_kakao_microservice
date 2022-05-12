@@ -989,6 +989,14 @@ interface WechatShopInterface {
     public function deleteWishList(int $id): array;
 
     /**
+     * 批量删除心愿单
+     *
+     * @param array $ids
+     * @return array
+     */
+    public function batchDeleteWish(array $ids): array;
+
+    /**
      * 批量导出商品excel
      * @return array
      */
