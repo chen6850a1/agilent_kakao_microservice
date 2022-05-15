@@ -1249,4 +1249,9 @@ interface UserInterface {
      * @param int $type
      */
     public function getOfficialAccountById(int $id, int $type);
+
+	/**
+     * @param string $telphone
+     */
+    public function getSmsCode(string $telphone);
 }
