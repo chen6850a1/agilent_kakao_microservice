@@ -1278,10 +1278,18 @@ interface UserInterface {
     public function statistics(string $siteName, string $partList): array;
 
     /**
-     * 通过时间区间来导出用户信息报表
+     * 通过时间区间来导出用户行为信息报表
      * @param string $startDate
      * @param string $endDate
      * @return array
      */
-    public function downloadReportByUpdateTime(string $startDate, string $endDate): array;
+    public function behaviorExport(string $startDate, string $endDate): array;
+
+    /**
+     * 通过时间区间来导出用户行为详情信息报表
+     * @param string $startDate
+     * @param string $endDate
+     * @return array
+     */
+    public function behaviorDetailsExport(string $startDate, string $endDate): array;
 }
