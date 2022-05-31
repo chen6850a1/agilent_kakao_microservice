@@ -199,4 +199,11 @@ interface ReservationInterface {
      * @return array
      */
     public function getNonReservationById(int $id): array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getNonLastReservationByUid(int $id): array;
+
 }
