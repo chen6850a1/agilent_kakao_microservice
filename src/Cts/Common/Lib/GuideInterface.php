@@ -218,6 +218,7 @@ interface GuideInterface {
      * @param int $type
      * @param string $categoryPath eg.1_2_3
      * @param int $id
+     * @param int $channelId
      * @return array
      * @example {
      *      status:true|false,
@@ -225,7 +226,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getTree(int $type = 0, string $categoryPath = '',int $id = 0): array;
+    public function getTree(int $type = 0, string $categoryPath = '',int $id = 0, int $channelId = 0): array;
 
     /**
      * 
@@ -287,4 +288,32 @@ interface GuideInterface {
      * }
      */
     public function updateOrder(int $id, array $params): array;
+
+    /**
+     * 获取渠道
+     * @return array
+     */
+    public function getChannel():array;
+
+    /**
+     * 创建渠道
+     * @param array $params
+     * @return array
+     */
+    public function createChannel(array $params):array;
+
+    /**
+     * 更新渠道
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateChannel(int $id, array $params):array;
+
+    /**
+     * 删除渠道
+     * @param $id
+     * @return array
+     */
+    public function deleteChannel($id):array;
 }

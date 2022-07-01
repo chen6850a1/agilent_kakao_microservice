@@ -1153,13 +1153,6 @@ interface UserInterface {
 
     /**
      *
-     * @param string $keyword 姓名/手机/单位
-     * @return array
-     */
-    public function convertToIdList(string $keyword): array;
-
-    /**
-     *
      * @param array $uidList
      * @return array
      * @example {
@@ -1293,7 +1286,7 @@ interface UserInterface {
      */
     public function behaviorDetailsExport(string $startDate, string $endDate): array;
 
-    /**
+	/**
      * @param string $telphone
      */
     public function getSmsCode(string $telphone);
