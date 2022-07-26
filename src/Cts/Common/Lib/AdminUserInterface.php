@@ -341,5 +341,6 @@ interface AdminUserInterface {
      * @param bool $clearCache  是否刷新缓存
      * @return array
      */
+
     public function getAccessToken(bool $clearCache): array;
 }
