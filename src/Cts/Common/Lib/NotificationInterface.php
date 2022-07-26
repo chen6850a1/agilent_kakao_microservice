@@ -52,10 +52,4 @@ interface NotificationInterface {
      * @return array
      */
     public function getOfflineMessageUrl(string $key): array;
-
-    /**
-     * 获取邮件token
-     * @return array
-     */
-    public function getMailToken(): array;
 }
