@@ -1290,4 +1290,11 @@ interface UserInterface {
      * @param string $telphone
      */
     public function getSmsCode(string $telphone);
+	
+	/**
+     *
+     * @param string $keyword 姓名/手机/单位
+     * @return array
+     */
+    public function convertToIdList(string $keyword): array;
 }
