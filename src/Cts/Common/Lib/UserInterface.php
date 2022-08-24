@@ -1297,4 +1297,22 @@ interface UserInterface {
      * @return array
      */
     public function convertToIdList(string $keyword): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *  email:string,
+     *  uid:int,
+     *  type:int,
+     *  mobile:string,
+     *  contacted:string
+     * }
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:true|false
+     * }
+     */
+    public function sobotUnBind(array $params): array;
+
 }
