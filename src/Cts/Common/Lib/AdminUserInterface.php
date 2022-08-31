@@ -335,4 +335,18 @@ interface AdminUserInterface {
      * @return array
      */
     public function switchRole(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      crmDepartment:string
+     *      get_params:string
+     * }
+     * @return array
+     * @example {
+     *      is_show:true|false
+     *      admin_uid:string
+     * }
+     */
+    public function sobotShowUnbind(array $params):array;
 }
