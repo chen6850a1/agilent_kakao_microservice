@@ -343,4 +343,19 @@ interface AdminUserInterface {
      */
 
     public function getAccessToken(bool $clearCache): array;
+
+    /**
+     *判定智齿是否显示解绑按钮
+     * @param array $params
+     * @example {
+     *      crmDepartment:string
+     *      get_params:string
+     * }
+     * @return array
+     * @example {
+     *      is_show:true|false
+     *      admin_uid:string
+     * }
+     */
+    public function sobotShowUnbind(array $params):array;
 }
