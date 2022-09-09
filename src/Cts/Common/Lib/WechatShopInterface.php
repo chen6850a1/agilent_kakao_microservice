@@ -1112,4 +1112,11 @@ interface WechatShopInterface {
      * }
      */
     public function goodsExcelImportStatus(string $uniqueNumber): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function pushNotification(array $params): array;
 }
