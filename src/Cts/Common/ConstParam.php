@@ -82,6 +82,10 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
     const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
     const WECHAT_PUSH_TEMPLATE_APPLY_FOR_REFUND = "apply_for_refund";
+    const WECHAT_PUSH_TEMPLATE_SALES_ORDER = "sales_order";
+    const WECHAT_PUSH_TEMPLATE_GOODS_SHIPMENT = "goods_shipment";
+    const WECHAT_PUSH_TEMPLATE_HARDCOPY_INVOICE = "hardcopy_invoice";
+    const WECHAT_PUSH_TEMPLATE_E_INVOICE = "e_invoice";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
