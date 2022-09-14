@@ -23,7 +23,6 @@ class ConstParam {
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
     const USER_TYPE_H5_MS = "wechatH5_ms";
-
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
@@ -32,7 +31,7 @@ class ConstParam {
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND = "event_user_unbind";
     const EVENT_USER_BIND = "event_user_bind";
-    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail"; //发送带有PDF附件的邮件
     const EVENT_ADMIN_CREATE = "event_admin_create";
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
@@ -52,7 +51,10 @@ class ConstParam {
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
     const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund"; //已支付到申请退款
     const EVENT_OFFLINE_PAY_B2B = "event_offline_pay_b2b"; //审核通过到转下下处理
-    const EVENT_ECC_ORDER_STATUS_CHANGE = "event_ecc_order_status_change"; //ECC订单状态变化
+    const EVENT_ECC_SALES_ORDER = "event_ecc_sales_order"; //ECC订单提交
+    const EVENT_ECC_GOODS_SHIPMENT = "event_ecc_goods_shipment"; //ECC商品发货
+    const EVENT_ECC_HARDCOPY_INVOICE = "event_ecc_hardcopy_invoice"; //ECC纸质发票
+    const EVENT_ECC_E_INVOICE = "event_ecc_e_invoice"; //ECC电子发票
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -108,4 +110,5 @@ class ConstParam {
     //直播微信支付方式
     const LIVE_STREAM_PAY_B2B = 2;  //公对公支付
     const LIVE_STREAM_PAY_WX = 1;   //微信支付
+
 }
