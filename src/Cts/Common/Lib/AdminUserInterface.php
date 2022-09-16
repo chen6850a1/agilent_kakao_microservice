@@ -335,4 +335,12 @@ interface AdminUserInterface {
      * @return array
      */
     public function switchRole(array $params): array;
+
+    /**
+     * 获取access token(mail token)
+     * @param bool $clearCache  是否刷新缓存
+     * @return array
+     */
+
+    public function getAccessToken(bool $clearCache): array;
 }
