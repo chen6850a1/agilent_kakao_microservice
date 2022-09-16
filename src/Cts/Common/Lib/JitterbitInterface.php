@@ -723,6 +723,21 @@ interface JitterbitInterface {
      * ]
      */
     public function notificationHandle(array $data): array;
+    
+    /**
+     * 
+     * @param array $data
+     * @example:[
+     * "data"=>"XXXXXXX",
+     * ]
+     * 
+     * @return array
+     * @example success: [
+     * status:true,
+     * }
+     * ]
+     */
+    public function eccNotificationHandle(array $data): array;
 
     /**
      * 一键开单

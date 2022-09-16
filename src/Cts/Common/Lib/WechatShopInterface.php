@@ -187,26 +187,25 @@ interface WechatShopInterface {
     public function getShopFolderDetails(int $id): array;
 
     /**
-     * @param int $folderId1
-     * @param int $folderId2
+     * @param int $folderId
+     * @param string $move
      * @return array
      * @example {
      *  status:true|false,
      *  data:string
-     * }
      */
-    public function updatefolderPriority(int $folderId1, int $folderId2): array;
+    public function updatefolderPriority(int $folderId, string $move): array;
 
     /**
-     * @param int $goodsId1
-     * @param int $goodsId2
+     * @param int $goodsId
+     * @param string $move
      * @param int $pid
      * @return array
      * @example {
      *  status:true|false,
      *  data:string
      */
-    public function updateGoodsPriority(int $goodsId1, int $goodsId2, int $pid): array;
+    public function updateGoodsPriority(int $goodsId, string $move, int $pid): array;
 
     /**
      * @param array $params
@@ -1113,4 +1112,11 @@ interface WechatShopInterface {
      * }
      */
     public function goodsExcelImportStatus(string $uniqueNumber): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function pushNotification(array $params): array;
 }
