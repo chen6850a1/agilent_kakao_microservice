@@ -1127,4 +1127,11 @@ interface WechatShopInterface {
      * @return array
      */
     public function pushNotification(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getEccOrderNotification(int $id): array;
 }
