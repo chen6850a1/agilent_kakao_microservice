@@ -613,6 +613,14 @@ interface WechatShopInterface {
     public function getGoodsInfo(int $id, int $partId, int $packageId): array;
 
     /**
+     * 获取心愿单多个商品信息
+     *
+     * @param array $wishIds
+     * @return array
+     */
+    public function getBatchGoodsInfo(array $wishIds): array;
+
+    /**
      * @param int $goodsId
      * @return array
      * @emample {
