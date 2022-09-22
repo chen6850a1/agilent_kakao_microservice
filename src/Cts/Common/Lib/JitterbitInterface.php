@@ -814,4 +814,18 @@ interface JitterbitInterface {
      * @return array
      */
     public function getPriceForWebUser(array $params): array;
+    
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getSalesOrderPdf(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getGoodsShipmentPdf(array $params): array;
 }
