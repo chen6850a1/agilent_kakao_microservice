@@ -206,4 +206,15 @@ interface ReservationInterface {
      */
     public function getNonLastReservationByUid(int $id): array;
 
+    /**
+     * @param $postData
+     * @example {
+     *      id:int,
+     *      additional_information:string
+     * }
+     * @return array
+     */
+    public function editInstallation($postData):array;
+
+
 }
