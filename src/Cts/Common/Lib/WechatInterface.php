@@ -1175,4 +1175,10 @@ interface WechatInterface {
      * @return array
      */
     public function getGroupById(int $groupId):array;
+
+    /**
+     * @param string $json
+     * @return array
+     */
+    public function handlewechatMessage(string $json):array;
 }
