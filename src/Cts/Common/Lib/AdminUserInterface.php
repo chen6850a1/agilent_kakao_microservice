@@ -337,6 +337,13 @@ interface AdminUserInterface {
     public function switchRole(array $params): array;
 
     /**
+     * 获取access token(mail token)
+     * @param bool $clearCache  是否刷新缓存
+     * @return array
+     */
+
+    public function getAccessToken(bool $clearCache): array;
+	/**
      * @param array $params
      * @example {
      *      crmDepartment:string
@@ -348,5 +355,4 @@ interface AdminUserInterface {
      *      admin_uid:string
      * }
      */
-    public function sobotShowUnbind(array $params):array;
-}
+    public function sobotShowUnbind(array $params):array;}
