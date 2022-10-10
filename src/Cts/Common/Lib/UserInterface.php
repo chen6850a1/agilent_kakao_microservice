@@ -1297,4 +1297,11 @@ interface UserInterface {
      * @return array
      */
     public function convertToIdList(string $keyword): array;
+    
+    /**
+     * 
+     * @param string $email
+     * @return array
+     */
+    public function checkEmail(string $email): array;
 }
