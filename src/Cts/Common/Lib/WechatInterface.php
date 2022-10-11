@@ -68,21 +68,6 @@ interface WechatInterface {
      *      error:string
      * }
      */
-    public function getUserInfoWithMiniDggCode(array $wechatData): array;
-
-    /**
-     * 获取微信用户信息
-     * @param array $wechatData
-     * @example:{
-     *      code:string
-     * }
-     * @return array
-     * @example {
-     *      status:true|false,
-     *      data:string,
-     *      error:string
-     * }
-     */
     public function getUserInfoWithH5Code(array $wechatData): array;
 
     /**
