@@ -1286,22 +1286,56 @@ interface UserInterface {
      */
     public function behaviorDetailsExport(string $startDate, string $endDate): array;
 
-	/**
+    /**
      * @param string $telphone
      */
     public function getSmsCode(string $telphone);
-	
-	/**
+
+    /**
      *
      * @param string $keyword 姓名/手机/单位
      * @return array
      */
     public function convertToIdList(string $keyword): array;
-    
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getEmailAccessList(array $params): array;
+
     /**
      * 
      * @param string $email
      * @return array
      */
-    public function checkEmail(string $email): array;
+    public function checkEmailAccess(string $email): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function createEmailAccess(array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function deleteEmailAccess(int $id): array;
+
+    /**
+     * 
+     * @param array $excelData
+     * @return array
+     */
+    public function importEmailAccess(array $excelData): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function exportEmailAccess(): array;
 }
