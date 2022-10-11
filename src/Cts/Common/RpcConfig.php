@@ -244,7 +244,8 @@ class RpcConfig {
                 'host' => $rpc_domain,
                 'port' => '19986',
                 'setting' => [
-                    'timeout' => 120.0
+                    'timeout' => 120.0,
+                    'package_max_length'=>250 * 1024 * 1024
                 ],
                 'packet' => bean('rpcClientPacket'),
                 'extender' => bean(\Cts\Common\RpcExtender::class)
