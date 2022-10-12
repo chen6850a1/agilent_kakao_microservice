@@ -1078,13 +1078,6 @@ interface WechatInterface {
      * @return array
      */
     public function checkCompanyDiff(array $params): array;
-
-	/**
-     * 通过微信获取手机号
-     * @param string $code
-     * @return array
-     */
-    public function getPhoneByWechat(string $code) :array;
 	
     /**
      * 获取用户基本信息
