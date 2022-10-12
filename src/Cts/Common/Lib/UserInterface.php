@@ -1321,6 +1321,13 @@ interface UserInterface {
      * @return array
      */
     public function getEmailAccessList(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getEmailAccess(int $id): array;
 
     /**
      * 
@@ -1335,6 +1342,14 @@ interface UserInterface {
      * @return array
      */
     public function createEmailAccess(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateEmailAccess(int $id, array $params): array;
 
     /**
      * 
