@@ -1318,6 +1318,14 @@ interface UserInterface {
      * @return array
      */
     public function createEmailAccess(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateEmailAccess(int $id, array $params): array;
 
     /**
      * 
