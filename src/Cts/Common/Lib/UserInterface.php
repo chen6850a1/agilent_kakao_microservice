@@ -1370,4 +1370,24 @@ interface UserInterface {
      * @return array
      */
     public function exportEmailAccess(): array;
+
+
+    /**
+     * @param string $contactId
+     * @param string $accountId
+     * @return array
+     * @example {
+     * [
+     * status:bool
+     * data:[
+     *      ContactId:string,
+     *      ContactName:string,
+     *      AccountId:string
+     *      AccountName:string
+     *      ]
+     * ]
+     * }
+     */
+    public function getNameById(string $contactId,string $accountId): array;
+
 }
