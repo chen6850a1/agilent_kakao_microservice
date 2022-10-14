@@ -103,4 +103,10 @@ class ConstParam {
     //直播微信支付方式
     const LIVE_STREAM_PAY_B2B = 2;  //公对公支付
     const LIVE_STREAM_PAY_WX = 1;   //微信支付
+    //文章类型
+    const ARTICLE_TYPE_CONTENT = 0; //内容制作
+    const ARTICLE_TYPE_LINK = 1; //url链接
+    const ARTICLE_TYPE_PDF_TO_H5 = 2; //pdf转h5
+    const ARTICLE_TYPE_PDF = 3; //pdf
+    const ARTICLE_TYPE_VIDEO = 4; //视频
 }
