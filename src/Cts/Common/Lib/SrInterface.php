@@ -209,10 +209,11 @@ interface SrInterface {
      * 
      * @param string $bqId
      * @param int $isSafety
+     * @param string $shareId
      * 
      * @return string pdf
      */
-    public function getSignBqPdf(string $bqId, int $isSafety);
+    public function getSignBqPdf(string $bqId, int $isSafety, string $shareId);
 
     /**
      * 
@@ -236,7 +237,8 @@ interface SrInterface {
      * 
      * @param string $bqId
      * @param int $isSafety
-     * 
+     * @param string $shareId
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -244,7 +246,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function previewPdf(string $bqId, int $isSafety);
+    public function previewPdf(string $bqId, int $isSafety,string $shareId);
 
     /**
      * 
