@@ -1140,5 +1140,5 @@ interface WechatShopInterface {
      * @param int $id
      * @return string
      */
-    public function getPdf(int $id): string;
+    public function getPdf(int $id): array;
 }
