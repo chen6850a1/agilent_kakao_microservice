@@ -103,6 +103,8 @@ class ConstParam {
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
     //RTA上传S3目录
     const RTA_UPLOAD_DIR = 'web/RTA/';
+    //ECC pdf上传S3目录
+    const ECC_UPLOAD_DIR = 'web/ECC/';
     //直播回放S3目录前缀
     const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
     //直播微信支付方式
