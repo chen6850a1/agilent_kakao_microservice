@@ -104,4 +104,7 @@ class ConstParam {
     //直播微信支付方式
     const LIVE_STREAM_PAY_B2B = 2;  //公对公支付
     const LIVE_STREAM_PAY_WX = 1;   //微信支付
+    //直播促销类型
+    const LIVE_STREAM_PROMOTE_618 = 1; //618活动
+    const LIVE_STREAM_PROMOTE_1111 = 2; //双十一活动
 }
