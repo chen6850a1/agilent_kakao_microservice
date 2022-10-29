@@ -206,4 +206,5 @@ interface ReservationInterface {
      */
     public function getNonLastReservationByUid(int $id): array;
 
+
 }
