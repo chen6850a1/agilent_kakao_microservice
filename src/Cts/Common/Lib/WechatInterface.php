@@ -1164,6 +1164,13 @@ interface WechatInterface
     public function createStar(array $params): array;
 
     /**
+     * 获取明星主播数据
+     * @param int $id
+     * @return array
+     */
+    public function getStar(int $id): array;
+
+    /**
      * 获取明星主播列表
      * @param array $params
      * @return array
