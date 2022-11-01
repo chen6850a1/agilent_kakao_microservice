@@ -9,37 +9,39 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface EcommerceInterface {
+interface EcommerceInterface
+{
 
     /**
-     * 
+     *
      * @return array
      */
     public function countMyShoppingCart(): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function getShoppingCartList(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      goods_id:int,
      *      package_id:int,
      *      value_added_service_id:int,
      *      quantity:int
      * }
-     * 
-     * @return array
+     *
      */
     public function addGoods(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      goods_id:int,
      *      package_id:int,
@@ -47,28 +49,28 @@ interface EcommerceInterface {
      *      from_live_stream:int,
      *      quantity:int
      * }
-     * 
-     * @return array
+     *
      */
     public function updateQuantity(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      goods_id:int,
      *      package_id:int,
      *      value_added_service_id:int,
      *      from_live_stream:int
      * }
-     * 
-     * @return array
+     *
      */
     public function removeGoods(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      page:int,
      *      pageSize:int,
@@ -87,8 +89,7 @@ interface EcommerceInterface {
      *      direction:string eg.asc|desc,
      *      responseFormat:string eg. csv|json
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -98,9 +99,9 @@ interface EcommerceInterface {
     public function getOrderList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -111,9 +112,9 @@ interface EcommerceInterface {
     public function viewOrderDetails(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -124,9 +125,9 @@ interface EcommerceInterface {
     public function getOrderQrCode(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -137,51 +138,51 @@ interface EcommerceInterface {
     public function getOrderDetails(int $id): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function countMyOrder(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      page:int,
      *      pageSize:int,
      *      order_status:int
      * }
-     * 
-     * @return array
+     *
      */
     public function getMyOrderList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      */
     public function cancelOrder(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      goods_ids:[1,2],
      *      from_live_stream:0|1
      * }
-     * 
-     * @return array
+     *
      */
     public function orderPrepare(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
-     * @example:{
-     *      
-     * }
-     * 
      * @return array
+     * @example:{
+     *
+     * }
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -191,9 +192,9 @@ interface EcommerceInterface {
     public function createOrder(array $params): array;
 
     /**
-     * 
+     *
      * @param int $orderId
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -210,7 +211,7 @@ interface EcommerceInterface {
     public function orderPay(int $orderId): array;
 
     /**
-     * 
+     *
      * @param string $outTradeNo 订单编号
      * @param string $transactionId 微信支付流水号
      * @param string $isSubscribe 是否订阅 Y|N
@@ -219,15 +220,15 @@ interface EcommerceInterface {
     public function wechatPaySucceed(string $outTradeNo, string $transactionId, string $isSubscribe): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      order_status:int
      *      remark:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -237,9 +238,10 @@ interface EcommerceInterface {
     public function updateOrder(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      invoice_type:int,
      *      invoice_title:string,
@@ -254,8 +256,7 @@ interface EcommerceInterface {
      *      address:string,
      *      invoice_remark:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -265,17 +266,17 @@ interface EcommerceInterface {
     public function updateOrderInvoice(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      company:string,
      *      recipient:string,
      *      mobile:string,
      *      address:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -285,14 +286,14 @@ interface EcommerceInterface {
     public function updateOrderShippingAddress(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      */
     public function lockOrder(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param string $sapOrder
      * @return array
@@ -300,43 +301,44 @@ interface EcommerceInterface {
     public function setSapOrder(int $id, string $sapOrder): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      */
     public function getOrderHistoryList(int $id): array;
 
     /**
-     * 
+     *
      * @param int $uid
      * @return array
      */
     public function getSobotOrderInfo(int $uid): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @return array
      */
     public function cacheSobotOrderInfo(array $params): array;
 
     /**
-     * 
+     *
      * @param int $uid
      * @return array
      */
     public function getSobotOrderDetailInfo(int $uid): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @return array
      */
     public function cacheSobotOrderDetailInfo(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      id:int
      *      keyword:string
@@ -346,7 +348,6 @@ interface EcommerceInterface {
      *      direction:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -381,19 +382,20 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example {
      *      parent_id:int
      *      category_name:string
      *      template_id:int
      *      image_src:string
      * }
-     * 
-     * @return array
+     *
      */
     public function createCategory(array $params): array;
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      article_num:string
@@ -408,7 +410,6 @@ interface EcommerceInterface {
      *      is_recommended:int
      *      is_hot:int
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -418,16 +419,16 @@ interface EcommerceInterface {
     public function createGoods(array $params): array;
 
     /**
-     * 
+     *
      * @param int $categoryId
      * @param array $params
+     * @return array
      * @example {
      *      category_name:string
      *      image_src:string
      *      template_id:int
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -437,9 +438,10 @@ interface EcommerceInterface {
     public function updateCategory(int $categoryId, array $params): array;
 
     /**
-     * 
+     *
      * @param int $goodsId
      * @param array $params
+     * @return array
      * @example:{
      *      article_num:string
      *      name:string
@@ -452,8 +454,7 @@ interface EcommerceInterface {
      *      is_recommended:int
      *      is_hot:int
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -463,14 +464,14 @@ interface EcommerceInterface {
     public function updateGoods(int $goodsId, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example{
      *      goods_id1:int,
      *      goods_id2:int
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -478,17 +479,17 @@ interface EcommerceInterface {
      * }
      */
     public function updateGoodsPriority(array $params): array;
-    
+
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example{
      *      goods_ids:string,
      *      start_time:string,
      *      end_time:string
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -500,7 +501,7 @@ interface EcommerceInterface {
     /**
      *
      * @param int $categoryId
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -513,7 +514,7 @@ interface EcommerceInterface {
     /**
      *
      * @param int $goodsId
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -524,9 +525,9 @@ interface EcommerceInterface {
     public function deleteGoods(int $goodsId): array;
 
     /**
-     * 
+     *
      * @param int $goodsId
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -537,19 +538,19 @@ interface EcommerceInterface {
     public function getGoodsQrCode(int $goodsId): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function getTopCategory(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example{
      *      template_id:int
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -559,11 +560,11 @@ interface EcommerceInterface {
     public function getTree(array $params): array;
 
     /**
-     * 
+     *
      * @param int $goodsType
      * @param int $isPublished
      * @param string $keyword
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -574,10 +575,10 @@ interface EcommerceInterface {
     public function searchGoods(int $goodsType, int $isPublished = 1, string $keyword = ''): array;
 
     /**
-     * 
+     *
      * @param int $goodsId
      * @param int $isPublished
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -588,7 +589,7 @@ interface EcommerceInterface {
     public function viewGoods(int $goodsId, int $isPublished = 1): array;
 
     /**
-     * 
+     *
      * @param int $categoryId
      * @return array
      * @example{
@@ -600,16 +601,16 @@ interface EcommerceInterface {
     public function getNotForSale(int $categoryId): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example{
      *      category_id:int
      *      title:string
      *      description:string
      *      banners:array
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -619,17 +620,17 @@ interface EcommerceInterface {
     public function createNotForSale(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example{
      *      category_id:int
      *      title:string
      *      description:string
      *      banners:array
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -639,10 +640,10 @@ interface EcommerceInterface {
     public function updateNotForSale(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $categoryId
      * @param int $isPublished
-     * 
+     *
      * @return array
      * @example{
      *      status:true|false
@@ -655,6 +656,7 @@ interface EcommerceInterface {
     /**
      *
      * @param array $params
+     * @return array
      * @example {
      *      keyword1:string
      *      keyword2:string
@@ -663,7 +665,6 @@ interface EcommerceInterface {
      *      orderBy:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -674,10 +675,10 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example:{
      *      category_id:string,
      * }
-     * @return array
      * @example{
      *      status:true|false
      *      data:string,
@@ -687,7 +688,6 @@ interface EcommerceInterface {
     public function createSvsSubscribeList(array $params): array;
 
     /**
-
      * @return array
      * @example{
      *      status:true|false
@@ -698,16 +698,15 @@ interface EcommerceInterface {
     public function getSvsSubscribeIsExist(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      offset:int
      *      limit:int
      *      code:string
      *      name:string
      * }
-
-     * @return array
      * @example{
      *      status:true|false
      *      data:string,
@@ -717,14 +716,14 @@ interface EcommerceInterface {
     public function getCoursesFromElearning(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      page:int
      *      pageSize:int
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -734,13 +733,13 @@ interface EcommerceInterface {
     public function getSvsCourseList(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      course_ids:string
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -750,13 +749,13 @@ interface EcommerceInterface {
     public function batchCreateSvsCourses(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      course_ids:string
      * }
-     * 
-     * @return array
+     *
      * @example{
      *      status:true|false
      *      data:string,
@@ -780,15 +779,14 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      goods_id:string
      *      type:int
      *      link:string
      *      linkType:int
-
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -799,6 +797,7 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      goods_id:string
@@ -806,9 +805,7 @@ interface EcommerceInterface {
      *      link:string
      *      linkType:int
      *      isDeleted:int
-
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -819,13 +816,12 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      goods_id:string
      *      type:int
-
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -849,14 +845,13 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      goods_id:string
      *      is_publish:int
      *      type:int
-
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -867,6 +862,7 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example {
      *      page:string|int,
      *      pageSize:string|int,
@@ -874,7 +870,6 @@ interface EcommerceInterface {
      *      direction:string eg.asc|desc,
      *      type:int,
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -885,7 +880,6 @@ interface EcommerceInterface {
 
     /**
      * @param int $id
-
      * @param array
      * @example{
      *      status:true|false
@@ -897,13 +891,12 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @param array
      * @example:{
      *      category_id:int,
      *      goods_id:string
      *      type:int
-
      * }
-     * @param array
      * @example{
      *      status:true|false
      *      data:string,
@@ -914,11 +907,11 @@ interface EcommerceInterface {
 
     /**
      * @param int $uid
+     * @return array
      * @example:{
      *  uid: int
      * }
      *
-     * @return array
      * @example{
      *      page_name:string
      *      goods_name:string,
@@ -930,12 +923,12 @@ interface EcommerceInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example:{
      *      page_source:int,
      *      good_id:int
      * }
      *
-     * @return array
      * @example{
      *      status:true|false
      * }
@@ -949,7 +942,7 @@ interface EcommerceInterface {
      *      data:string,
      *      error:string
      */
-    public function  downloadSVS():array;
+    public function downloadSVS(): array;
 
     /**
      * @param int $orderId
@@ -964,5 +957,40 @@ interface EcommerceInterface {
      *      data:string,
      *      error:string
      */
-    public function payChannelChange(int $orderId , int $status): array;
+    public function payChannelChange(int $orderId, int $status): array;
+
+    /**
+     * 获取促销信息
+     * @param array $params
+     * @return array
+     */
+    public function getPromotionInfo(array $params): array;
+
+    /**
+     * 更新促销信息
+     * @param array $params
+     * @return array
+     */
+    public function updatePromotionInfo(array $params): array;
+
+    /**
+     * 获取咩有选择的促销信息
+     * @param array $params
+     * @return array
+     */
+    public function getUnSelectedPromotionGoodsList(array $params): array;
+
+    /**
+     * 添加促销商品
+     * @param array $params
+     * @return array
+     */
+    public function addPromotionGoods(array $params): array;
+
+    /**
+     * 删除促销商品
+     * @param array $params
+     * @return array
+     */
+    public function deletePromotionGoods(array $params): array;
 }

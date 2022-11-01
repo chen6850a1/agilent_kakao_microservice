@@ -111,4 +111,7 @@ class ConstParam {
     const ARTICLE_TYPE_PDF_TO_H5 = 2; //pdf转h5
     const ARTICLE_TYPE_PDF = 3; //pdf
     const ARTICLE_TYPE_VIDEO = 4; //视频
+    //直播促销类型
+    const LIVE_STREAM_PROMOTE_618 = 1; //618活动
+    const LIVE_STREAM_PROMOTE_1111 = 2; //双十一活动
 }
