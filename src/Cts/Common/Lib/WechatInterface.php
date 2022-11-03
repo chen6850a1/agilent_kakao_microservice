@@ -544,7 +544,7 @@ interface WechatInterface
      *      data:array
      * }
      */
-    public function publishHighQuality(): array;
+    public function publishHighQuality(int $starId): array;
 
     /**
      *
