@@ -345,7 +345,7 @@ interface AdminUserInterface {
     public function getAccessToken(bool $clearCache): array;
 
     /**
-     *判定智齿是否显示解绑按钮
+     * 判定智齿是否显示解绑按钮
      * @param array $params
      * @example {
      *      crmDepartment:string
