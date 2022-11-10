@@ -23,7 +23,6 @@ class ConstParam {
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
     const USER_TYPE_H5_MS = "wechatH5_ms";
-
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
@@ -32,7 +31,7 @@ class ConstParam {
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
     const EVENT_USER_UNBIND = "event_user_unbind";
     const EVENT_USER_BIND = "event_user_bind";
-    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail";//发送带有PDF附件的邮件
+    const EVENT_GUIDE_SENDMAIL = "event_guide_sendmail"; //发送带有PDF附件的邮件
     const EVENT_ADMIN_CREATE = "event_admin_create";
     const EVENT_RESERVATION_NOTIFICATION = "event_reservation_notification";
     const EVENT_FILL_INFO_NOTIFICATION = "event_fill_info_notification";
@@ -52,7 +51,7 @@ class ConstParam {
     const EVENT_RPL_PASSED = "event_RPL_passed"; // 后台RPL HOLD到去支付
     const EVENT_ORDER_APPLY_FOR_REFUND = "event_order_apply_for_refund"; //已支付到申请退款
     const EVENT_OFFLINE_PAY_B2B = "event_offline_pay_b2b"; //审核通过到转下下处理
-
+    const EVENT_ECC_ORDER_STATUS_CHANGE = "event_ecc_order_status_change";
     //统一各个微服务名
     const SERVICE_API_GETWAY = "service_api_getway";
     const SERVICE_USER = "service_user";
@@ -82,6 +81,10 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_WECHAT_PAY_SUCCEED = "wechat_pay_succeed";
     const WECHAT_PUSH_TEMPLATE_RPL_HOLD_REMIND = "rpl_hold_remind";
     const WECHAT_PUSH_TEMPLATE_APPLY_FOR_REFUND = "apply_for_refund";
+    const WECHAT_PUSH_TEMPLATE_SALES_ORDER = "sales_order";
+    const WECHAT_PUSH_TEMPLATE_GOODS_SHIPMENT = "goods_shipment";
+    const WECHAT_PUSH_TEMPLATE_HARDCOPY_INVOICE = "hardcopy_invoice";
+    const WECHAT_PUSH_TEMPLATE_E_INVOICE = "e_invoice";
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
@@ -100,6 +103,8 @@ class ConstParam {
     const SELF_SQS_CHECK_PDF = "self_sqs_check_str_pdf"; //送修检测PDF
     //RTA上传S3目录
     const RTA_UPLOAD_DIR = 'web/RTA/';
+    //ECC pdf上传S3目录
+    const ECC_UPLOAD_DIR = 'web/ECC/';
     //直播回放S3目录前缀
     const LIVE_STREAM_REPLAY_UPLOAD_DIR = 'web/live_streaming_resource/';
     //直播微信支付方式
