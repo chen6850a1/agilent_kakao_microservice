@@ -12,7 +12,7 @@ namespace Cts\Common\Lib;
 interface LabInterface {
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      page:string|int,
@@ -22,7 +22,7 @@ interface LabInterface {
      *      orderBy:string,
      *      direction:string eg.asc|desc
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -33,9 +33,9 @@ interface LabInterface {
     public function getList(array $params): array;
 
     /**
-     * 
+     *
      * @param array $idList
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -47,7 +47,7 @@ interface LabInterface {
 
     /**
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -58,9 +58,9 @@ interface LabInterface {
     public function get(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -71,9 +71,9 @@ interface LabInterface {
     public function create(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -84,7 +84,7 @@ interface LabInterface {
     public function activate(int $id): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @example:{
@@ -143,7 +143,7 @@ interface LabInterface {
      *          ...
      *      ]
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -154,10 +154,10 @@ interface LabInterface {
     public function update(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param string $objectId
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -168,7 +168,7 @@ interface LabInterface {
     public function saveObjectId(int $id, string $objectId): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example:{
      *      page:string|int,
@@ -178,7 +178,7 @@ interface LabInterface {
      *      orderBy:string,
      *      direction:string eg.asc|desc
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -189,9 +189,9 @@ interface LabInterface {
     public function getMaintenanceList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -202,14 +202,14 @@ interface LabInterface {
     public function getMaintenance(int $id): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @example {
      *      lab_id:int,
      *      name:string,
      *      content:string
      * }
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -220,10 +220,10 @@ interface LabInterface {
     public function createMaintenance(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param string $content
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -234,9 +234,9 @@ interface LabInterface {
     public function updateMaintenance(int $id, string $content): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -247,9 +247,9 @@ interface LabInterface {
     public function deleteMaintenance(int $id): array;
 
     /**
-     * 
+     *
      * @param array $idList
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -260,9 +260,9 @@ interface LabInterface {
     public function batchDeleteMaintenance(array $idList): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -271,4 +271,10 @@ interface LabInterface {
      * }
      */
     public function getLabInfo(int $id): array;
+
+    /**
+     * 导出lab全部数据
+     * @return array
+     */
+    public function exportLabList(): array;
 }
