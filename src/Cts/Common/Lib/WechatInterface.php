@@ -1199,4 +1199,10 @@ interface WechatInterface
      * @return array
      */
     public function updateStarPriority(int $id, array $params): array;
+
+    /**
+     * @param string $json
+     * @return array
+     */
+    public function handlewechatMessage(string $json):array;
 }
