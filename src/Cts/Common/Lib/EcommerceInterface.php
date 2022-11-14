@@ -993,4 +993,129 @@ interface EcommerceInterface
      * @return array
      */
     public function deletePromotionGoods(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      title: string
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      link_url: string
+     *
+     * }
+     *
+     * @return array
+     * @example {
+     *      id:int
+     * }
+     */
+    public function createDiscountCart(array $params): array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      id:int
+     *      title: string
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      sort: int
+     *      link_url: string
+     *      is_deleted: int
+     *      created_at: int
+     *      created_by: int
+     *      updated_at: int
+     *      updated_by: int
+     * }
+     */
+    public function getDiscountCart(int $id): array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      title: string
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      link_url: string
+     * }
+     *
+     * @return array
+     * @example {
+     *      id:int
+     *      title: string
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      sort: int
+     *      link_url: string
+     *      is_deleted: int
+     *      created_at: int
+     *      created_by: int
+     *      updated_at: int
+     *      updated_by: int
+     * }
+     */
+    public function editDiscountCart(array $params): array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      id:int
+     * }
+     */
+    public function delDiscountCart(int $id):array;
+
+    /**
+     * @param array $params
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListDiscountCart(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id1: int
+     *      id2: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          cart_id1_sort: int
+     *          cart_id2_sort: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateDiscountCartSort(array $params): array;
 }
