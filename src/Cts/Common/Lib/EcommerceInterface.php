@@ -1118,4 +1118,108 @@ interface EcommerceInterface
      * }
      */
     public function updateDiscountCartSort(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      more_address: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createSvsModuleConfigCategory(array $params):array;
+
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        more_address: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsModuleConfigCategory(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      name: string
+     *      more_address: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        more_address: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     */
+    public function editSvsModuleConfigCategory(array $params):array;
+
+    /**
+     * @param array $params
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListSvsModuleConfigCategory(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id1: int
+     *      id2: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id1_sort: int
+     *          id2_sort: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSvsModuleConfigCategorySort(array $params):array;
+
 }
