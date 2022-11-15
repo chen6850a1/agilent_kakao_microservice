@@ -998,6 +998,7 @@ interface EcommerceInterface
      * @param array $params
      * @example {
      *      title: string
+     *      price_type: int
      *      original_price: float
      *      discount_price: float
      *      min_price: float
@@ -1020,6 +1021,7 @@ interface EcommerceInterface
      * @example {
      *      id:int
      *      title: string
+     *      price_type: int
      *      original_price: float
      *      discount_price: float
      *      min_price: float
@@ -1042,6 +1044,7 @@ interface EcommerceInterface
      * @example {
      *      id: int
      *      title: string
+     *      price_type: int
      *      original_price: float
      *      discount_price: float
      *      min_price: float
@@ -1054,6 +1057,7 @@ interface EcommerceInterface
      * @example {
      *      id:int
      *      title: string
+     *      price_type: int
      *      original_price: float
      *      discount_price: float
      *      min_price: float
