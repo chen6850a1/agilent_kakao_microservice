@@ -17,15 +17,16 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface {
+interface WechatInterface
+{
 
     /**
      * 获取微信用户信息
      * @param array $wechatData
+     * @return array
      * @example:{
      *      code:string
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -37,31 +38,31 @@ interface WechatInterface {
     /**
      * 微信ad登录回调函数
      * @param array $params
+     * @throws \Exception
      * @example :{
      *      code: string,
      *      state: string
      * }
-     * @throws \Exception
      */
     public function callback(array $params);
 
     /**
      * 企业微信ad登录
      * @param array $params
+     * @throws \Exception
      * @example:{
      *      code:string
      * }
-     * @throws \Exception
      */
     public function wechatLogin(array $params);
 
     /**
      * 获取微信用户信息
      * @param array $wechatData
+     * @return array
      * @example:{
      *      code:string
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -73,12 +74,12 @@ interface WechatInterface {
     /**
      * 生成二维码
      * @param array $wechatData
+     * @return array
      * @example:{
      *      url:string,
      *      sences:string,
      *      width:int
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -130,14 +131,14 @@ interface WechatInterface {
     public function releaseUser($data);
 
     /**
-
-      /**
+     *
+     * /**
      * 生成二维码
      * @param array $params
+     * @return array
      * @example:{
      *      type:h5|mini,
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -149,6 +150,7 @@ interface WechatInterface {
     /**
      * 推送消息
      * @param array $params
+     * @return array
      * @example:{
      *      uid:XXXX,
      *      template:XXXX,
@@ -156,7 +158,6 @@ interface WechatInterface {
      *      params:["first"=>XXX,"keyword1"=>XXXX,"keyword2"=>XXXX],
      *      miniapp_url:XXXXXX,
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -287,16 +288,16 @@ interface WechatInterface {
     public function saveLeaveMsg(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'mini_open_id' => string,
      *      'total_fee' => float,
      *      'order_sn' => string,
      *      'order_name' => string
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -312,22 +313,22 @@ interface WechatInterface {
     public function wechatPay(array $params): array;
 
     /**
-     * 
+     *
      * @param array $input
      * @return array
      */
     public function notify(array $input): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      page_path:string,
      *      sence:string,
      *      prefix:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      date:string S3地址
@@ -336,7 +337,7 @@ interface WechatInterface {
     public function genQrCode(array $params): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -349,9 +350,9 @@ interface WechatInterface {
     public function getScrollingNewsList(): array;
 
     /**
-     * 
+     *
      * @param int $isPublished
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -364,13 +365,13 @@ interface WechatInterface {
     public function getScrollingNews(int $isPublished): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      news:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:[{
@@ -382,13 +383,13 @@ interface WechatInterface {
     public function createScrollingNews(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      news:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -400,7 +401,7 @@ interface WechatInterface {
     public function updateScrollingNews(array $params): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -410,14 +411,14 @@ interface WechatInterface {
     public function getHomePageRoomList(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      page:int,
      *      perPageNum:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
@@ -426,14 +427,14 @@ interface WechatInterface {
     public function getFutureRoomList(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      page:int,
      *      perPageNum:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
@@ -442,25 +443,25 @@ interface WechatInterface {
     public function getHistoryRoomList(array $params): array;
 
     /**
-     * 
+     * @param int $id 明星主播id
      * @param array $params
+     * @return array
      * @example {
      *      page:int,
      *      perPageNum:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function getHighQualityList(array $params): array;
+    public function getHighQualityList(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -470,35 +471,36 @@ interface WechatInterface {
     public function getHighQuality(int $id): array;
 
     /**
-     * 
+     *
+     * @param int $star_id 明星主播id
      * @param array $params
+     * @return array
      * @example {
      *      type:int,
      *      room_id:int,
      *      title:string,
      *      cover_src:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function createHighQuality(array $params): array;
+    public function createHighQuality(int $star_id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      type:int,
      *      room_id:int,
      *      title:string,
      *      cover_src:string
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
@@ -507,23 +509,24 @@ interface WechatInterface {
     public function updateHighQuality(int $id, array $params): array;
 
     /**
-     * 
+     *
+     * @param int $id 当前id
      * @param array $params
+     * @return array
      * @example {
      *      id1:int,
      *      id2:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function updateHighQualityPriority(array $params): array;
+    public function updateHighQualityPriority(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      * @example {
@@ -534,24 +537,24 @@ interface WechatInterface {
     public function deleteHighQuality(int $id): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
      *      data:array
      * }
      */
-    public function publishHighQuality(): array;
+    public function publishHighQuality(int $starId): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      page:int,
      *      perPageNum:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:[{
@@ -578,26 +581,26 @@ interface WechatInterface {
     public function getRoomList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      custom_description:string
      * }
-     * 
-     * @return array
+     *
      */
     public function updateRoom(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example {
      *      room_ids:string,
      *      custom_status:int
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:bool,
      *      data:array
@@ -606,7 +609,7 @@ interface WechatInterface {
     public function batchSetRoomCustomStatus(array $params): array;
 
     /**
-     * 
+     *
      * @return array
      * @example {
      *      status:bool,
@@ -616,8 +619,9 @@ interface WechatInterface {
     public function publishScrollingNewsAndRooms(): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *    "name" => "",
      *    "coverImg" => "",
@@ -638,8 +642,7 @@ interface WechatInterface {
      *    "closeShare" => 0,
      *    "closeKf" => 0
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:[{
@@ -653,11 +656,11 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *      "id":=>62
      *  ]
-     * 
-     * @return array
+     *
      * @example [
      *      status:true,
      *      data:{}
@@ -669,6 +672,7 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *    "id" => 23
      *    "name" => "",
@@ -688,7 +692,6 @@ interface WechatInterface {
      *    "closeKf" => 0
      *  ]
      *
-     * @return array
      * @example [
      *      status:true,
      *      data:{}
@@ -698,11 +701,11 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *      "roomId" => 62
      *  ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:{
@@ -714,12 +717,12 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *      "ids" => [1150,1111],
      *      "roomId" => 15
      *  ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:[]
@@ -729,12 +732,12 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
      *      "roomId" => 15
      *  ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:[
@@ -747,8 +750,9 @@ interface WechatInterface {
     public function getSharedCode(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'cover_img_url' => '',
      *      'name' => '',
@@ -758,8 +762,7 @@ interface WechatInterface {
      *      'url' => '',
      *      'third_patry_appid' => ''
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -770,8 +773,9 @@ interface WechatInterface {
     public function goodsAddToStore(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'cover_img_url' => '',
      *      'name' => '',
@@ -781,8 +785,7 @@ interface WechatInterface {
      *      'url' => '',
      *      'third_patry_appid' => ''
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -794,14 +797,14 @@ interface WechatInterface {
     public function goodsAdd(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'goods_id' => 1,
      *      'audit_id' => 1
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{}
@@ -810,13 +813,13 @@ interface WechatInterface {
     public function goodsResetAudit(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'goods_id' => 1
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -827,13 +830,13 @@ interface WechatInterface {
     public function goodsAudit(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'goods_id' => 1
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{}
@@ -842,8 +845,9 @@ interface WechatInterface {
     public function goodsDelete(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'goods_id' => 1,
      *      'cover_img_url' => '',
@@ -854,8 +858,7 @@ interface WechatInterface {
      *      'url' => '',
      *      'third_patry_appid' => ''
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{}
@@ -864,11 +867,11 @@ interface WechatInterface {
     public function goodsUpdate(array $params): array;
 
     /**
-     * 
+     *
      * @param array $goodsIds
-     * @example [1,2,3...]
-     * 
      * @return array
+     * @example [1,2,3...]
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -879,15 +882,15 @@ interface WechatInterface {
     public function getGoodsWarehouse(array $goodsIds): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'offset' => 0,
      *      'limit' => 30,
      *      'audit_status' => 0
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -901,6 +904,7 @@ interface WechatInterface {
     /**
      *
      * @param array $params
+     * @return array
      * @example [
      *      'page' => 1,
      *      'pageSize' => 10,
@@ -909,7 +913,6 @@ interface WechatInterface {
      *      'orderBy'=> 'uid',
      * ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:{
@@ -922,14 +925,14 @@ interface WechatInterface {
     public function getSubscriberList(array $params): array;
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example [
      *      'room_id' => 1,
      *      'user_openid' => ['a','b']
      * ]
-     * 
-     * @return array
+     *
      * @example {
      *      status:true,
      *      data:{
@@ -940,11 +943,11 @@ interface WechatInterface {
     public function subscribedPushMessage(array $params): array;
 
     /**
-     * 
+     *
      * @param string $type
      * @param string $tempPath
      * @param string $fileName
-     * 
+     *
      * @return array
      * @example {
      *      status:true,
@@ -958,12 +961,12 @@ interface WechatInterface {
     /**
      * 一键推送所有订阅用户
      * @param array $params
+     * @return array
      * @example [
      *      'room_id' => 1,
      *      'keyword' => ['广发银行']
      * ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:{
@@ -983,12 +986,12 @@ interface WechatInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example [
      *      "params" => encodeURIComponent(JSON.stringify(custom_params)),
      *      "roomId" => 15
      *  ]
      *
-     * @return array
      * @example {
      *      status:true,
      *      data:[
@@ -1051,11 +1054,11 @@ interface WechatInterface {
     /**
      * 订阅用户导出
      * @param array $params
+     * @return array
      * @example {
      *  room_id:int
      *  keyword:start
      * }
-     * @return array
      * @example {
      *       room_id:int,
      *       name:string,
@@ -1067,8 +1070,7 @@ interface WechatInterface {
      *       nickname,
      * }
      */
-    public function subscriberExport(array $params):array;
-
+    public function subscriberExport(array $params): array;
 
 
     /**
@@ -1082,10 +1084,10 @@ interface WechatInterface {
     /**
      * 获取用户基本信息
      * @param array $userData
+     * @return array
      * @example:{
      *      open_id:string
      * }
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -1099,14 +1101,14 @@ interface WechatInterface {
      * @param array $params
      * @return array
      */
-    public function getLeaveMessageList(array $params):array;
+    public function getLeaveMessageList(array $params): array;
 
     /**
      *
      * @param array $params
      * @return array
      */
-    public function updateLeaveMessageStatus(array $params):array;
+    public function updateLeaveMessageStatus(array $params): array;
 
     /**
      * 根据客户组获取客户组名称
@@ -1114,14 +1116,14 @@ interface WechatInterface {
      * @param int $groupId
      * @return array
      */
-    public function getServiceShop(int $groupId):array;
+    public function getServiceShop(int $groupId): array;
 
     /**
      * 所有客户组列表
      *
      * @return array
      */
-    public function getServiceShopAll():array;
+    public function getServiceShopAll(): array;
 
     /**
      * @return array
@@ -1140,19 +1142,63 @@ interface WechatInterface {
      *  }
      * }
      */
-    public function getServiceGroups():array;
+    public function getServiceGroups(): array;
 
     /**
      * @param string $groupName
      * @return array
      */
-    public function getGroupId(string $groupName):array;
+    public function getGroupId(string $groupName): array;
 
     /**
      * @param int $groupId
      * @return array
      */
-    public function getGroupById(int $groupId):array;
+    public function getGroupById(int $groupId): array;
+
+    /**
+     * 创建明星主播
+     * @param array $params
+     * @return array
+     */
+    public function createStar(array $params): array;
+
+    /**
+     * 获取明星主播数据
+     * @param int $id
+     * @return array
+     */
+    public function getStar(int $id): array;
+
+    /**
+     * 获取明星主播列表
+     * @param array $params
+     * @return array
+     */
+    public function getStarList(array $params): array;
+
+    /**
+     * 更新明星主播
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateStar(int $id, array $params): array;
+
+    /**
+     * 删除明星主播
+     * @param int $id
+     * @return array
+     */
+    public function deleteStar(int $id): array;
+
+    /**
+     * 修改明星主播排序
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateStarPriority(int $id, array $params): array;
 
     /**
      * @param string $json

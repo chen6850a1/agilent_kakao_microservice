@@ -9,11 +9,13 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface GuideInterface {
+interface GuideInterface
+{
 
     /**
-     * 
+     *
      * @param array $params
+     * @return array
      * @example:{
      *      page:string|int,
      *      pageSize:string|int,
@@ -23,8 +25,7 @@ interface GuideInterface {
      *      orderBy:string,
      *      direction:string eg.asc|desc
      * }
-     * 
-     * @return array
+     *
      * @example {
      *      status:true|false,
      *      data:string,
@@ -34,10 +35,10 @@ interface GuideInterface {
     public function getGuideList(array $params): array;
 
     /**
-     * 
+     *
      * @param int $type
      * @param int $categoryId
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -61,6 +62,7 @@ interface GuideInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example:{
      *      type:int 0-自主服务 1-场地准备 2-现场培训教材 3-视频集锦,
      *      name:string,
@@ -68,7 +70,6 @@ interface GuideInterface {
      *      icon:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -80,12 +81,12 @@ interface GuideInterface {
     /**
      * @param int $id
      * @param array $params
+     * @return array
      * @example:{
      *      name:string,
      *      icon:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -132,6 +133,7 @@ interface GuideInterface {
 
     /**
      * @param array $params
+     * @return array
      * @example:{
      *      name:string,
      *      content:string,
@@ -143,7 +145,6 @@ interface GuideInterface {
      *      video_size:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -155,6 +156,7 @@ interface GuideInterface {
     /**
      * @param int $id
      * @param array $params
+     * @return array
      * @example:{
      *      name:string,
      *      content:string,
@@ -166,7 +168,6 @@ interface GuideInterface {
      *      video_size:string
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -188,9 +189,9 @@ interface GuideInterface {
     public function deleteArticle(int $id): array;
 
     /**
-     * 
+     *
      * @param array $excelData
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -201,9 +202,9 @@ interface GuideInterface {
     public function import(array $excelData): array;
 
     /**
-     * 
+     *
      * @param int $type
-     * 
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -218,6 +219,7 @@ interface GuideInterface {
      * @param int $type
      * @param string $categoryPath eg.1_2_3
      * @param int $id
+     * @param int $channelId
      * @return array
      * @example {
      *      status:true|false,
@@ -225,14 +227,15 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function getTree(int $type = 0, string $categoryPath = '',int $id = 0): array;
+    public function getTree(int $type = 0, string $categoryPath = '', int $id = 0, int $channelId = 0): array;
 
     /**
-     * 
+     *
      * @param int $type
      * @param int $categoryId
      * @param string $keyword
-     * 
+     * @param int $channelId
+     *
      * @return array
      * @example {
      *      status:true|false,
@@ -240,7 +243,7 @@ interface GuideInterface {
      *      error:string
      * }
      */
-    public function search(int $type = 0, int $categoryId = 0, string $keyword = ''): array;
+    public function search(int $type = 0, int $categoryId = 0, string $keyword = '', int $channelId = 0): array;
 
     /**
      * @param int $type
@@ -251,11 +254,11 @@ interface GuideInterface {
     /**
      * @param int $id
      * @param array $params
+     * @return array
      * @example:{
      *      is_published:int 0/1
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -274,12 +277,12 @@ interface GuideInterface {
      *
      * @param int $id
      * @param array $params
+     * @return array
      * @example {
      *      sort:string|int,
      *      operator:string eg. +|-
      * }
      *
-     * @return array
      * @example {
      *      status:true|false,
      *      data:string,
@@ -287,4 +290,32 @@ interface GuideInterface {
      * }
      */
     public function updateOrder(int $id, array $params): array;
+
+    /**
+     * 获取渠道
+     * @return array
+     */
+    public function getChannel(): array;
+
+    /**
+     * 创建渠道
+     * @param array $params
+     * @return array
+     */
+    public function createChannel(array $params): array;
+
+    /**
+     * 更新渠道
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateChannel(int $id, array $params): array;
+
+    /**
+     * 删除渠道
+     * @param $id
+     * @return array
+     */
+    public function deleteChannel($id): array;
 }

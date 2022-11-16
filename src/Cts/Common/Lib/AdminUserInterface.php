@@ -355,4 +355,5 @@ interface AdminUserInterface {
      *      admin_uid:string
      * }
      */
-    public function sobotShowUnbind(array $params):array;}
+    public function sobotShowUnbind(array $params):array;
+}
