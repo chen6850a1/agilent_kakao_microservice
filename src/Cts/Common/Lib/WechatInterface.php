@@ -1199,4 +1199,12 @@ interface WechatInterface
      * @return array
      */
     public function updateStarPriority(int $id, array $params): array;
+
+
+    /**
+     * @param int $idList
+     * @return array
+     *
+     */
+    public function getRoomByRoomId(array $idList):array;
 }

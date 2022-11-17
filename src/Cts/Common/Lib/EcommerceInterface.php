@@ -1085,6 +1085,7 @@ interface EcommerceInterface
 
     /**
      * @param array $params
+     * @example {
      *      keyword:string
      *      page:int
      *      pageSize:int
@@ -1225,5 +1226,175 @@ interface EcommerceInterface
      * }
      */
     public function updateSvsModuleConfigCategorySort(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function delSvsModuleConfigCategory(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      title: string
+     *      type: int
+     *      img_url: string
+     *      link_url: string
+     *      original_price: int
+     *      discount_price: int
+     *      min_price: int
+     *      max_price: int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          module_id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function editSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param int $id
+     * @example {
+     *      id: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          module_id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *          room_name: string
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsModuleConfigGoods(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListSvsModuleConfigGoods(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      id1: int
+     *      id2: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id1_sort: int
+     *          id2_sort: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSortSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function delSvsModuleConfigGoods(int $id):array;
+
+
 
 }
