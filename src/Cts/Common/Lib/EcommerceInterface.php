@@ -1396,5 +1396,21 @@ interface EcommerceInterface
     public function delSvsModuleConfigGoods(int $id):array;
 
 
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          [
+     *          id: int
+     *          name: string
+     *          page_path: string
+     *          ...
+     *          ]
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsAllList(): array;
 
 }
