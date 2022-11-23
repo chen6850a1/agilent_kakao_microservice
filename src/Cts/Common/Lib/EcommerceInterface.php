@@ -1413,4 +1413,17 @@ interface EcommerceInterface
      */
     public function getSvsAllList(): array;
 
+    /**
+     * @param string $title
+     * @example {
+     *      title: string
+     * }
+     * @return array
+     *
+     */
+    public function searchAllGoods(string $title): array;
+
+
+
+
 }
