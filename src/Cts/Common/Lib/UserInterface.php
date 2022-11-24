@@ -1315,4 +1315,11 @@ interface UserInterface {
      */
     public function sobotUnBind(array $params): array;
 
+    /**
+     * 根据accountId判断是否是vip
+     * @param int $accountId
+     * @return array
+     */
+    public function checkIsVipByAccountId(int $accountId): array;
+
 }
