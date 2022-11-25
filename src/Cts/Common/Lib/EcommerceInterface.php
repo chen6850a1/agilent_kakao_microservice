@@ -1423,7 +1423,125 @@ interface EcommerceInterface
      */
     public function searchAllGoods(string $title): array;
 
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      icon_address: string
+     *      jump_url: string
+     * }
+     * @return array
+     * @example {
+     *  status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createIndustrySolution(array $params):array;
 
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      icon_address: string
+     *      jump_url: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        icon_address: string
+     *	        jump_url: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function editIndustrySolution(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        icon_address: string
+     *	        jump_url: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getIndustrySolution(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListIndustrySolution(array $params):array;
+
+    /**
+     * @param int $id
+     * @example {
+     *      id1: int
+     *      id2: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id1_sort: int
+     *          id2_sort: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function deleteIndustrySolution(int $id):array;
+
+    /**
+     * @param array $params
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSortIndustrySolution(array $params):array;
 
 
 }
