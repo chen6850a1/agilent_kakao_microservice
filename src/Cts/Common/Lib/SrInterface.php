@@ -151,6 +151,23 @@ interface SrInterface {
      *
      * @param array $params
      * @example {
+     *      survey_id:string,
+     *      service_request_id:string
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getSurveyList(array $params): array;
+
+    /**
+     *
+     * @param array $params
+     * @example {
      *      d:{}
      * }
      *
