@@ -1109,15 +1109,13 @@ interface EcommerceInterface
     /**
      * @param array $params
      * @example {
-     *      id1: int
-     *      id2: int
+     *      id: int
+     *      move: up/down
      * }
      * @return array
      * @example {
      *      status:true|false,
      *      data:[
-     *          cart_id1_sort: int
-     *          cart_id2_sort: int
      *      ]
      *      error:string
      * }
@@ -1212,15 +1210,13 @@ interface EcommerceInterface
     /**
      * @param array $params
      * @example {
-     *      id1: int
-     *      id2: int
+     *      id: int
+     *      move: up/down
      * }
      * @return array
      * @example {
      *      status:true|false,
      *      data:[
-     *          id1_sort: int
-     *          id2_sort: int
      *      ]
      *      error:string
      * }
@@ -1367,15 +1363,13 @@ interface EcommerceInterface
     /**
      * @param array $params
      * @example {
-     *      id1: int
-     *      id2: int
+     *      id: int
+     *      move: up/down
      * }
      * @return array
      * @example {
      *      status:true|false,
      *      data:[
-     *          id1_sort: int
-     *          id2_sort: int
      *      ]
      *      error:string
      * }
@@ -1515,15 +1509,13 @@ interface EcommerceInterface
     /**
      * @param int $id
      * @example {
-     *      id1: int
-     *      id2: int
+     *          id: int
+     *          move: up/down
      * }
      * @return array
      * @example {
      *      status:true|false,
      *      data:[
-     *          id1_sort: int
-     *          id2_sort: int
      *      ]
      *      error:string
      * }
