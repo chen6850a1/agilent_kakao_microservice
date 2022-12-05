@@ -1298,7 +1298,7 @@ interface UserInterface {
      */
     public function convertToIdList(string $keyword): array;
 
-    /**
+	 /**
      * @param array $params
      * @example {
      *  email:string,
@@ -1321,5 +1321,60 @@ interface UserInterface {
      * @return array
      */
     public function checkIsVipByAccountId(int $accountId): array;
+	
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getEmailAccessList(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getEmailAccess(int $id): array;
 
+    /**
+     * 
+     * @param string $email
+     * @return array
+     */
+    public function checkEmailAccess(string $email): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function createEmailAccess(array $params): array;
+    
+    /**
+     * 
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateEmailAccess(int $id, array $params): array;
+
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function deleteEmailAccess(int $id): array;
+
+    /**
+     * 
+     * @param array $excelData
+     * @return array
+     */
+    public function importEmailAccess(array $excelData): array;
+
+    /**
+     * 
+     * @return array
+     */
+    public function exportEmailAccess(): array;
 }

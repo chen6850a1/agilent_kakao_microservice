@@ -723,6 +723,21 @@ interface JitterbitInterface {
      * ]
      */
     public function notificationHandle(array $data): array;
+    
+    /**
+     * 
+     * @param array $data
+     * @example:[
+     * "data"=>"XXXXXXX",
+     * ]
+     * 
+     * @return array
+     * @example success: [
+     * status:true,
+     * }
+     * ]
+     */
+    public function eccNotificationHandle(array $data): array;
 
     /**
      * 一键开单
@@ -799,4 +814,18 @@ interface JitterbitInterface {
      * @return array
      */
     public function getPriceForWebUser(array $params): array;
+    
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getSalesOrderPdf(array $params): array;
+
+    /**
+     * 
+     * @param array $params
+     * @return array
+     */
+    public function getGoodsShipmentPdf(array $params): array;
 }
