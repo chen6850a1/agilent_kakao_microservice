@@ -988,6 +988,14 @@ interface WechatShopInterface {
     public function addWishList(array $params): array;
 
     /**
+     * 修改心愿单商品数量
+     * @param int $id
+     * @param array $params
+     * @return array
+     */
+    public function updateWishList(int $id, array $params): array;
+
+    /**
      * 删除心愿单
      *
      * @param int $id
@@ -1127,14 +1135,14 @@ interface WechatShopInterface {
      * @return array
      */
     public function pushNotification(array $params): array;
-    
+
     /**
      * 
      * @param int $id
      * @return array
      */
     public function getEccOrderNotification(int $id): array;
-    
+
     /**
      * 
      * @param int $id
