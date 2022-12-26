@@ -1299,6 +1299,24 @@ interface UserInterface {
     public function convertToIdList(string $keyword): array;
 
     /**
+     * @param string $contactId
+     * @param string $accountId
+     * @return array
+     * @example {
+     * [
+     * status:bool
+     * data:[
+     *      ContactId:string,
+     *      ContactName:string,
+     *      AccountId:string
+     *      AccountName:string
+     *      ]
+     * ]
+     * }
+     */
+    public function getNameById(string $contactId, string $accountId): array;
+
+    /**
      * @param array $params
      * @example {
      *  email:string,
@@ -1316,12 +1334,19 @@ interface UserInterface {
     public function sobotUnBind(array $params): array;
 
     /**
+     * 根据accountId判断是否是vip
+     * @param int $accountId
+     * @return array
+     */
+    public function checkIsVipByAccountId(int $accountId): array;
+
+    /**
      * 
      * @param array $params
      * @return array
      */
     public function getEmailAccessList(array $params): array;
-    
+
     /**
      * 
      * @param int $id
@@ -1342,7 +1367,7 @@ interface UserInterface {
      * @return array
      */
     public function createEmailAccess(array $params): array;
-    
+
     /**
      * 
      * @param int $id
@@ -1370,24 +1395,4 @@ interface UserInterface {
      * @return array
      */
     public function exportEmailAccess(): array;
-
-
-    /**
-     * @param string $contactId
-     * @param string $accountId
-     * @return array
-     * @example {
-     * [
-     * status:bool
-     * data:[
-     *      ContactId:string,
-     *      ContactName:string,
-     *      AccountId:string
-     *      AccountName:string
-     *      ]
-     * ]
-     * }
-     */
-    public function getNameById(string $contactId,string $accountId): array;
-
 }
