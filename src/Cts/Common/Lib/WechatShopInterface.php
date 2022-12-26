@@ -1012,6 +1012,20 @@ interface WechatShopInterface {
     public function batchDeleteWish(array $ids): array;
 
     /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getSharedWishList(int $id): array;
+
+    /**
+     * 
+     * @param int $templateId
+     * @return array
+     */
+    public function saveSharedWishList(int $templateId): array;
+
+    /**
      * 批量导出商品excel
      * @return array
      */
