@@ -1677,4 +1677,16 @@ interface EcommerceInterface
      * }
      */
     public function publishDiscountCart():array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          published_num: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function publishSvsModuleConfig():array;
 }
