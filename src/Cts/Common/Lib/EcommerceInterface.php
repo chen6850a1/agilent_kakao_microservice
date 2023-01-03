@@ -1665,4 +1665,16 @@ interface EcommerceInterface
      */
     public function getListIndustrySolutionModule(array $params):array;
 
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          published_num: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function publishDiscountCart():array;
 }
