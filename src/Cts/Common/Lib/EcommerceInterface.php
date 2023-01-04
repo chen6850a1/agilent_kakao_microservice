@@ -1701,4 +1701,14 @@ interface EcommerceInterface
      * }
      */
     public function publishIndustrySolution():array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data: array
+     *      error:string
+     * }
+     */
+    public function getSearchHistory():array;
 }
