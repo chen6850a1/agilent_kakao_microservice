@@ -1731,4 +1731,26 @@ interface EcommerceInterface
      * }
      */
     public function getApiListSvsModuleConfigCategory(array $params):array;
+
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      page:int
+     *      pageSize:int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getApiListIndustrySolution(array $params):array;
 }
