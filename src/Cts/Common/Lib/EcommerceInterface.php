@@ -993,4 +993,764 @@ interface EcommerceInterface
      * @return array
      */
     public function deletePromotionGoods(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      title: string
+     *      price_type: int
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      link_url: string
+     *
+     * }
+     *
+     * @return array
+     * @example {
+     *      id:int
+     * }
+     */
+    public function createDiscountCart(array $params): array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      id:int
+     *      title: string
+     *      price_type: int
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      sort: int
+     *      link_url: string
+     *      is_deleted: int
+     *      created_at: int
+     *      created_by: int
+     *      updated_at: int
+     *      updated_by: int
+     * }
+     */
+    public function getDiscountCart(int $id): array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      title: string
+     *      price_type: int
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      link_url: string
+     * }
+     *
+     * @return array
+     * @example {
+     *      id:int
+     *      title: string
+     *      price_type: int
+     *      original_price: float
+     *      discount_price: float
+     *      min_price: float
+     *      max_price: float
+     *      img_url: string
+     *      sort: int
+     *      link_url: string
+     *      is_deleted: int
+     *      created_at: int
+     *      created_by: int
+     *      updated_at: int
+     *      updated_by: int
+     * }
+     */
+    public function editDiscountCart(array $params): array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      id:int
+     * }
+     */
+    public function delDiscountCart(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListDiscountCart(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      move: up/down
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateDiscountCartSort(array $params): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      more_address: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createSvsModuleConfigCategory(array $params):array;
+
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        more_address: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsModuleConfigCategory(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      name: string
+     *      more_address: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        more_address: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     */
+    public function editSvsModuleConfigCategory(array $params):array;
+
+    /**
+     * @param array $params
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListSvsModuleConfigCategory(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      move: up/down
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSvsModuleConfigCategorySort(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function delSvsModuleConfigCategory(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      title: string
+     *      type: int
+     *      img_url: string
+     *      link_url: string
+     *      original_price: int
+     *      discount_price: int
+     *      min_price: int
+     *      max_price: int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          module_id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function editSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param int $id
+     * @example {
+     *      id: int
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          module_id: int
+     *          title: string
+     *          type: int
+     *          img_url: string
+     *          link_url: string
+     *          price_type: int
+     *          original_price: int
+     *          discount_price: int
+     *          min_price: int
+     *          max_price: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *          room_name: string
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsModuleConfigGoods(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListSvsModuleConfigGoods(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      move: up/down
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSortSvsModuleConfigGoods(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function delSvsModuleConfigGoods(int $id):array;
+
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          [
+     *          id: int
+     *          name: string
+     *          page_path: string
+     *          ...
+     *          ]
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getSvsAllList(): array;
+
+    /**
+     * @param string $title
+     * @example {
+     *      title: string
+     * }
+     * @return array
+     *
+     */
+    public function searchAllGoods(string $title): array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      icon_address: string
+     *      jump_url: string
+     * }
+     * @return array
+     * @example {
+     *  status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function createIndustrySolution(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      name: string
+     *      icon_address: string
+     *      jump_url: string
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        icon_address: string
+     *	        jump_url: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function editIndustrySolution(array $params):array;
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *	        icon_address: string
+     *	        jump_url: string
+     *          is_deleted: int
+     *          created_at: int
+     *          sort: int
+     *          created_by: int
+     *          updated_at: int
+     *          updated_by: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getIndustrySolution(int $id):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      module_id: int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListIndustrySolution(array $params):array;
+
+    /**
+     * @param int $id
+     * @example {
+     *          id: int
+     *          move: up/down
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *      ]
+     *      error:string
+     * }
+     */
+    public function deleteIndustrySolution(int $id):array;
+
+    /**
+     * @param array $params
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSortIndustrySolution(array $params):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      config_id: int
+     *      name: string
+     *      content: string
+     *      recommend_goods: {
+     *              [
+     *              id: int
+     *              goods_id: int
+     *              img_url: string
+     *              wechat_work: string
+     *              ]
+     *      }
+     * }
+     * @return array
+     */
+    public function createIndustrySolutionModule(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      name: string
+     *      content: string
+     *      recommend_goods: {
+     *              [
+     *              id: int
+     *              goods_id: int
+     *              img_url: string
+     *              wechat_work: string
+     *              ]
+     *      }
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          name: string
+     *          content: string
+     *          recommend_goods: {
+     *              [
+     *              id: int
+     *              goods_id: int
+     *              img_url: string
+     *              wechat_work: string
+     *              ]
+     *          }
+     *      ]
+     *      error:string
+     * }
+     */
+    public function editIndustrySolutionModule(array $params):array;
+
+
+    /**
+     * @param int $id
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *          name: string
+     *          content: string
+     *          recommend_goods: {
+     *              [
+     *              id: int
+     *              sort: int
+     *              goods_id: int
+     *              img_url: string
+     *              wechat_work: string
+     *              ]
+     *          }
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getIndustrySolutionModule(int $id):array;
+
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function delIndustrySolutionModule(int $id):array;
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      id: int
+     *      move: up|down
+     * }
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          id: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function updateSortIndustrySolutionModule(array $params):array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      config_id: int
+     *      keyword:string
+     *      page:int
+     *      pageSize:int
+     *      orderBy:string
+     *      direction:string eg.asc|desc,
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getListIndustrySolutionModule(array $params):array;
+
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          published_num: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function publishDiscountCart():array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          published_num: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function publishSvsModuleConfig():array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          published_num: int
+     *      ]
+     *      error:string
+     * }
+     */
+    public function publishIndustrySolution():array;
+
+    /**
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data: array
+     *      error:string
+     * }
+     */
+    public function getSearchHistory():array;
+
+    /**
+     * @param array $params
+     * @example {
+     *      page:int
+     *      pageSize:int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getApiListSvsModuleConfigCategory(array $params):array;
+
+
+
+    /**
+     * @param array $params
+     * @example {
+     *      page:int
+     *      pageSize:int
+     * }
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:[
+     *          total_num: int
+     *          total_pages: int
+     *          list: array
+     *      ]
+     *      error:string
+     * }
+     */
+    public function getApiListIndustrySolution(array $params):array;
 }

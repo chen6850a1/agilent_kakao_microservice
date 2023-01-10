@@ -1163,4 +1163,26 @@ interface WechatShopInterface {
      * @return string
      */
     public function getPdf(int $id): array;
+	/**
+     * @param string $keyword
+     * @param int $historyType
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function otherInsertSearchHistory(string $keyword,int $historyType):array;
+
+    /**
+     * @param int $historyType
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function otherSearchHistory(int $historyType):array;
 }
