@@ -1297,23 +1297,8 @@ interface UserInterface {
      * @return array
      */
     public function convertToIdList(string $keyword): array;
-	
- 	/**
-     * @param array $params
-     * @example {
-     *  email:string,
-     *  uid:int,
-     *  type:int,
-     *  mobile:string,
-     *  contacted:string
-     * }
-     * @return array
-     * @example {
-     *      status:bool,
-     *      data:true|false
-     * }
-     */
-    public function sobotUnBind(array $params): array;
+
+
 
 	 /**
      * @param array $params
@@ -1345,30 +1330,30 @@ interface UserInterface {
      * @return array
      */
     public function getEmailAccessList(array $params): array;
-    
+
     /**
-     * 
+     *
      * @param int $id
      * @return array
      */
     public function getEmailAccess(int $id): array;
 
     /**
-     * 
+     *
      * @param string $email
      * @return array
      */
     public function checkEmailAccess(string $email): array;
 
     /**
-     * 
+     *
      * @param array $params
      * @return array
      */
     public function createEmailAccess(array $params): array;
-    
+
     /**
-     * 
+     *
      * @param int $id
      * @param array $params
      * @return array
@@ -1376,21 +1361,21 @@ interface UserInterface {
     public function updateEmailAccess(int $id, array $params): array;
 
     /**
-     * 
+     *
      * @param int $id
      * @return array
      */
     public function deleteEmailAccess(int $id): array;
 
     /**
-     * 
+     *
      * @param array $excelData
      * @return array
      */
     public function importEmailAccess(array $excelData): array;
 
     /**
-     * 
+     *
      * @return array
      */
     public function exportEmailAccess(): array;
