@@ -1286,12 +1286,12 @@ interface UserInterface {
      */
     public function behaviorDetailsExport(string $startDate, string $endDate): array;
 
-    /**
+	/**
      * @param string $telphone
      */
     public function getSmsCode(string $telphone);
-
-    /**
+	
+	/**
      *
      * @param string $keyword 姓名/手机/单位
      * @return array
@@ -1315,6 +1315,30 @@ interface UserInterface {
      */
     public function sobotUnBind(array $params): array;
 
+	 /**
+     * @param array $params
+     * @example {
+     *  email:string,
+     *  uid:int,
+     *  type:int,
+     *  mobile:string,
+     *  contacted:string
+     * }
+     * @return array
+     * @example {
+     *      status:bool,
+     *      data:true|false
+     * }
+     */
+    public function sobotUnBind(array $params): array;
+
+    /**
+     * 根据accountId判断是否是vip
+     * @param int $accountId
+     * @return array
+     */
+    public function checkIsVipByAccountId(int $accountId): array;
+	
     /**
      * 
      * @param array $params
