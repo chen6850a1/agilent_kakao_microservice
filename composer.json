@@ -11,8 +11,10 @@
     ],
     "minimum-stability": "dev",
 	"require":{
-		"aws/aws-sdk-php": "^3.133"
-	},
+		"aws/aws-sdk-php": "^3.133",
+        "alibabacloud/dysmsapi-20170525": "^2.0.20",
+        "alibabacloud/darabonba-openapi": "^0.2.5"
+    },
     "autoload":{
 		"psr-4":{
 			"Cts\\Common\\":"src/Cts/Common",
