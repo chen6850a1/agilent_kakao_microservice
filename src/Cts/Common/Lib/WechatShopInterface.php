@@ -209,13 +209,13 @@ interface WechatShopInterface {
 
     /**
      * @param int $id
-     * @param string $flag
+     * @param int $isHide
      * @return array
      * @example {
      *  status:true|false,
      *  data:string
      */
-    public function folderhideoropen(int $id, string $flag): array;
+    public function folderHideorOpen(int $id, int $isHide): array;
 
     /**
      * @param array $params
