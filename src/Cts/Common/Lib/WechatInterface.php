@@ -1207,14 +1207,6 @@ interface WechatInterface
     public function handlewechatMessage(string $json):array;
 
     /**
-     * 通过openid和应用类型获取用户信息
-     * @param int $type
-     * @param string $openId
-     * @return array
-     */
-    public function getUserInfoFromOpenIdAndType(int $type, string $openId): array;
-
-    /**
      * 通过应用原始id获取应用类型
      * @param string $originalId
      * @return array
