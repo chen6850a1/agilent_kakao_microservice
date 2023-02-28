@@ -1395,4 +1395,21 @@ interface UserInterface {
      * @return array
      */
     public function exportEmailAccess(): array;
+
+    /**
+     * 保存用户unionid和openid
+     * @param string $type 应用类型
+     * @param string $unionId
+     * @param string $openId
+     * @return array
+     */
+    public function saveUserWithUnionIdAndOpenId(string $type, string $unionId, string $openId): array;
+
+    /**
+     * 更新关注
+     * @param string $openId openid
+     * @param int $type 应用类型
+     * @return array
+     */
+    public function updateSubscribe(string $openId, int $type): array;
 }
