@@ -1212,7 +1212,7 @@ interface WechatInterface
      * @return array
      *
      */
-    public function getRoomByRoomId(array $idList):array;}
+    public function getRoomByRoomId(array $idList):array;
 
     /**
      * 通过应用原始id获取应用类型
