@@ -1380,12 +1380,12 @@ interface UserInterface {
 
     /**
      * 保存用户unionid和openid
-     * @param string $userType 应用类型(字符串)
+     * @param int $type 应用类型
      * @param string $unionId
      * @param string $openId
      * @return array
      */
-    public function saveUserWithUnionIdAndOpenId(string $userType, string $unionId, string $openId): array;
+    public function saveUserWithUnionIdAndOpenId(int $type, string $unionId, string $openId): array;
 
     /**
      * 更新关注
