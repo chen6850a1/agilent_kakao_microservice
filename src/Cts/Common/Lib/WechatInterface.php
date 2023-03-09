@@ -17,8 +17,7 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface
-{
+interface WechatInterface {
 
     /**
      * 获取微信用户信息
@@ -1204,7 +1203,7 @@ interface WechatInterface
      * @param string $json
      * @return array
      */
-    public function handlewechatMessage(string $json):array;
+    public function handlewechatMessage(string $json): array;
 
     /**
      * 通过应用原始id获取应用类型
@@ -1218,11 +1217,12 @@ interface WechatInterface
      * @param string $type
      * @return array
      */
-    public function getOriginalIdByType(string $type) :array;
+    public function getOriginalIdByType(string $type): array;
 
-	  /**
+    /**
      * @param int $idList
      * @return array
      *
      */
-    public function getRoomByRoomId(array $idList):array;
+    public function getRoomByRoomId(array $idList): array;
+}
