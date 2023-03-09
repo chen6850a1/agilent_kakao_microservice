@@ -1206,9 +1206,23 @@ interface WechatInterface
      */
     public function handlewechatMessage(string $json):array;
 
+    /**
+     * 通过应用原始id获取应用类型
+     * @param string $originalId
+     * @return array
+     */
+    public function getTypeByOriginalId(string $originalId): array;
+
+    /**
+     *  通过应用类型获取应用原始id
+     * @param string $type
+     * @return array
+     */
+    public function getOriginalIdByType(string $type) :array;
+
 	  /**
      * @param int $idList
      * @return array
      *
      */
-    public function getRoomByRoomId(array $idList):array;}
+    public function getRoomByRoomId(array $idList):array;

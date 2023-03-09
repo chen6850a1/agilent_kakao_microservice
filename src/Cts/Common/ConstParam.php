@@ -23,9 +23,30 @@ class ConstParam {
     const USER_TYPE_H5_CSO = "wechatH5_cso";
     const USER_TYPE_H5_DGG = "wechatH5_dgg";
     const USER_TYPE_H5_MS = "wechatH5_ms";
+    const USER_TYPE_H5_VPD = "wechatH5_vpd";
     const USER_TYPE_SOBOT = "user_type_sobot";
     const USER_TYPE_ADMIN = "user_type_admin";
     const USER_TYPE_TCK = "user_type_tck";
+
+    const USER_TYPE_H5_CSO_M = 3; //售后h5数字类型
+    const USER_TYPE_WECHAT_M = 1; //售后小程序数字类型
+    const USER_TYPE_H5_DGG_M = 4; //dgg h5数字类型
+    const USER_TYPE_WECHAT_DGG_M = 2; //dgg 小程序数字类型
+    const USER_TYPE_H5_MS_M = 6; //mini shop H5数字类型
+    const USER_TYPE_WECHAT_MS_M = 5; //mini shop 小程序数字类型
+    const USER_TYPE_H5_VPD_M = 7; //真空 H5数字类型
+
+    //用户类型对应关系
+    const USER_TYPE_RELATION = [
+        self::USER_TYPE_H5_CSO_M => self::USER_TYPE_H5_CSO,
+        self::USER_TYPE_WECHAT_M => self::USER_TYPE_WECHAT,
+        self::USER_TYPE_H5_DGG_M => self::USER_TYPE_H5_DGG,
+        self::USER_TYPE_WECHAT_DGG_M => self::USER_TYPE_WECHAT_DGG,
+        self::USER_TYPE_H5_MS_M => self::USER_TYPE_H5_MS,
+        self::USER_TYPE_WECHAT_MS_M => self::USER_TYPE_WECHAT_MS,
+        self::USER_TYPE_H5_VPD_M => self::USER_TYPE_H5_VPD,
+    ];
+
     //AWS 队列 异步事件名称
     const EVENT_SR_STATUS_CHANGE = "event_sr_status_change";
     const EVENT_USER_GEN_TELCODE = "event_user_gen_telcode";
