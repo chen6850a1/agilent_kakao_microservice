@@ -208,6 +208,16 @@ interface WechatShopInterface {
     public function updateGoodsPriority(int $goodsId, string $move, int $pid): array;
 
     /**
+     * @param int $id
+     * @param int $isHide
+     * @return array
+     * @example {
+     *  status:true|false,
+     *  data:string
+     */
+    public function folderHideorOpen(int $id, int $isHide): array;
+
+    /**
      * @param array $params
      * @example {
      *       id: int
