@@ -253,6 +253,10 @@ class RpcConfig {
             'wechat_shop.pool' => [
                 'class' => ServicePool::class,
                 'client' => bean('wechat_shop'),
+            ],
+			'noticeHandler'      => [  //公共配置 屏蔽所有微服务本地容器日志文件
+                'logFile' => '@runtime/logs/notice-%d{Y-m-d-H}.log',
+                'levels'    => 'error',
             ]
         ];
     }
