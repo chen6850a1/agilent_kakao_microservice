@@ -460,6 +460,20 @@ interface SrInterface {
      * }
      */
     public function pushNotification(array $params): array;
+	
+	
+	/**
+     *
+     * @param array $params
+     *
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function getNotificationListByUidSrid(int $uid,string $srid): array;
 
     /**
      * 
