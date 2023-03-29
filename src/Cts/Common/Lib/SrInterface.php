@@ -473,7 +473,7 @@ interface SrInterface {
      *      error:string
      * }
      */
-    public function getNotificationListByUid(int $uid): array;
+    public function getNotificationListByUidSrid(int $uid,string $srid): array;
 
     /**
      * 
