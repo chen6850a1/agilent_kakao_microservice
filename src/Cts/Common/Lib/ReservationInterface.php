@@ -207,4 +207,17 @@ interface ReservationInterface {
     public function getNonLastReservationByUid(int $id): array;
 
 
+	/**
+     * @param int $id
+     * @return array
+     */
+    public function getHolidayList(): array;
+	
+	
+	/**
+     * @param int $id
+     * @return array
+     */
+    public function setHolidayList(array $params): array;
+
 }
