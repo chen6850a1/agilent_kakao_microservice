@@ -218,4 +218,17 @@ interface ReservationInterface {
 
 
 
+	/**
+     * @param int $id
+     * @return array
+     */
+    public function getHolidayList(): array;
+	
+	
+	/**
+     * @param int $id
+     * @return array
+     */
+    public function setHolidayList(array $params): array;
+
 }
