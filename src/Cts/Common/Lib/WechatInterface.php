@@ -175,6 +175,18 @@ interface WechatInterface {
      * ]
      */
     public function getSobotIframeData(array $params): array;
+	
+	
+	/**
+     * 根据区域返回智齿的客服信息
+     *
+     * @return array
+     * @example {
+     *      status:true,
+     *      data:XXXX
+     * ]
+     */
+    public function getSobotInfoByRegion(string $region): array;
 
     /**
      * 匹配序列号返回聊天组
