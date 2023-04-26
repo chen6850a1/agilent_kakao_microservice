@@ -108,6 +108,21 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_GOODS_SHIPMENT = "goods_shipment";
     const WECHAT_PUSH_TEMPLATE_HARDCOPY_INVOICE = "hardcopy_invoice";
     const WECHAT_PUSH_TEMPLATE_E_INVOICE = "e_invoice";
+
+    const WECHAT_PUSH_TEMPLATE_NEW_TICKET1 = "new_ticket1"; //新工单提醒[工单名称、服务状态、派工状态]
+    const WECHAT_PUSH_TEMPLATE_NEW_TICKET2 = "new_ticket2"; //新工单提醒[工单名称、服务单号、派工状态]
+    const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH1 = "service_dispatch1"; //服务派工通知[服务状态、仪器序列号、服务单号、报价单号、派工状态]
+    const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH2 = "service_dispatch2"; //服务派工通知[服务状态、仪器序列号、服务单号、派工状态]
+    const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH3 = "service_dispatch3"; //服务派工通知[服务状态、仪器序列号、服务单号、快递单号、派工状态]
+    const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH4 = "service_dispatch4"; //服务派工通知[仪器序列号、服务单号、工程师姓名、联系电话、派工状态]
+    const WECHAT_PUSH_TEMPLATE_ORDER_CHECK = "order_check"; //订单审批通知	[订单编号、订单名称、关联客户、总金额]
+    const WECHAT_PUSH_TEMPLATE_ORDER_CHECK_REFUSE = "order_check_refuse"; //订单审批拒绝通知	[订单编号、订单标题、关联客户、总金额、拒绝原因]
+    const WECHAT_PUSH_TEMPLATE_ORDER_CANCELED = "order_canceled"; //订单取消通知	[订单号、订单状态、取消原因]
+    const WECHAT_PUSH_TEMPLATE_ORDER_APPLY_AMOUNT = "order_apply_amount"; //用户申请退款通知	[订单编号、退款金额、退款事由、最迟处理时间、退款原因]
+    const WECHAT_PUSH_TEMPLATE_ORDER_PAY_SUCCESS = "order_pay_success"; //支付成功通知 [订单编号、商品名称、价格、支付方式]
+    const WECHAT_PUSH_TEMPLATE_TICKET_STATUS_CHANGE = "ticket_status_change"; //工单状态变更提醒 [工单编号、工单状态、工单类型]
+    const WECHAT_PUSH_TEMPLATE_TICKET_CREATED = "ticket_created"; //工单已生成通知 [工单编号、工单状态、工单类型]
+
     //定向推送类型
     const DP_TYPE_ARRANGE_ENGINEER_CONFIRM = 'ArrangeEngineerConfirm';
     const DP_TYPE_CSD = 'CSD';
