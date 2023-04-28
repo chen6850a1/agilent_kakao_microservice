@@ -1197,4 +1197,27 @@ interface WechatShopInterface {
      * @return array
      */
     public function userUploadPartnumber(array $params): array;
+
+	/**
+     * @param string $keyword
+     * @param int $historyType
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function otherInsertSearchHistory(string $keyword,int $historyType):array;
+
+    /**
+     * @param int $historyType
+     * @return array
+     * @example {
+     *      status:true|false,
+     *      data:string,
+     *      error:string
+     * }
+     */
+    public function otherSearchHistory(int $historyType):array;
 }

@@ -1217,4 +1217,9 @@ interface WechatInterface
      * @return array
      */
     public function handlewechatMessage(string $json):array;
-}
+	  /**
+     * @param int $idList
+     * @return array
+     *
+     */
+    public function getRoomByRoomId(array $idList):array;}
