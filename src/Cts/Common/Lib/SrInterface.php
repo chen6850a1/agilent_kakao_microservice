@@ -700,5 +700,11 @@ interface SrInterface {
      * @return array
      */
     public function getUnConfirmedBq(): array;
-    
+
+    /**
+     * 获取服务历史消息统计
+     * @return array
+     */
+    public function getHistoryNotificationCount():array;
+
 }
