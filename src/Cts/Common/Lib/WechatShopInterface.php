@@ -1173,6 +1173,31 @@ interface WechatShopInterface {
      * @return string
      */
     public function getPdf(int $id): array;
+
+    /**
+     *获取小程序用户反馈部件列表
+     * @param array $params
+     * @example {
+     *       page: int
+     *       pageSize: int
+     *       keyword: string
+     *       orderBy: string
+     *       status: string
+     * @return array
+     * @example {
+     *
+     * }
+     */
+    public function getUserNeedPN(array $params): array;
+
+    /**
+     * 小程序用户反馈部件
+     *
+     * @param array $params
+     * @return array
+     */
+    public function userUploadPartnumber(array $params): array;
+
 	/**
      * @param string $keyword
      * @param int $historyType
@@ -1195,26 +1220,4 @@ interface WechatShopInterface {
      * }
      */
     public function otherSearchHistory(int $historyType):array;
-	/**
-     *获取小程序用户反馈部件列表
-     * @param array $params
-     * @example {
-     *       page: int
-     *       pageSize: int
-     *       keyword: string
-     *       orderBy: string
-     *       status: string
-     * @return array
-     * @example {
-     *
-     * }
-     */
-    public function getUserNeedPN(array $params): array;
-
-    /**
-     * 小程序用户反馈部件
-     *
-     * @param array $params
-     * @return array
-     */
-    public function userUploadPartnumber(array $params): array;}
+}

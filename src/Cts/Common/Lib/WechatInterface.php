@@ -17,7 +17,8 @@ namespace Cts\Common\Lib;
  *
  * @since 2.0
  */
-interface WechatInterface {
+interface WechatInterface
+{
 
     /**
      * 获取微信用户信息

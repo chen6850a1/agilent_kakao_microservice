@@ -65,21 +65,20 @@ class AwsSns
                 CLog::info($result);
             }catch (AwsException $e){
                 CLog::info("sns subscribe fail".json_encode([
-                    'Protocol' => "sqs",
-                    'Endpoint' => $sqs_arn,
-                    'ReturnSubscriptionArn' => true,
-                    'TopicArn' => "arn:aws:sns:".$this->aws_acount.config("aws.name").$services,
-                    'Attributes'=>[
-                        "FilterPolicy"=>json_encode($FilterPolicy)
-                    ]
-                ]));
+                        'Protocol' => "sqs",
+                        'Endpoint' => $sqs_arn,
+                        'ReturnSubscriptionArn' => true,
+                        'TopicArn' => "arn:aws:sns:".$this->aws_acount.config("aws.name").$services,
+                        'Attributes'=>[
+                            "FilterPolicy"=>json_encode($FilterPolicy)
+                        ]
+                    ]));
                 CLog::info($e->getMessage());
                 return false;
             }
         }
         return true;
     }
-
 
 
     public function trigger($event_type,$data){

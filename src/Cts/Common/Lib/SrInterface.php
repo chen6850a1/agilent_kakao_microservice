@@ -694,5 +694,11 @@ interface SrInterface {
      * @return array
      */
     public function irTags(): array;
+
+    /**
+     * 获取未确认bq的数量
+     * @return array
+     */
+    public function getUnConfirmedBq(): array;
     
 }
