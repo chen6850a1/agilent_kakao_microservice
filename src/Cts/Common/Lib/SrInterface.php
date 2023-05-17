@@ -696,5 +696,27 @@ interface SrInterface {
      * @return array
      */
     public function irTags(): array;
+
+    /**
+     * 获取未确认bq的数量
+     * @return array
+     */
+    public function getUnConfirmedBq(): array;
+	
+	
+	 /**
+     *
+     * @param array $excelData
+     * @return array
+     */
+    public function importSrSurvey(array $excelData):array;
+
+    /**
+     *
+     * @param array $data
+     * @return array
+     */
+    public function setImportSrSurveyStatusByWechat(array $data):array;
+
     
 }
