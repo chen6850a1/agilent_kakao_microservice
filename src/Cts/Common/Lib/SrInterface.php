@@ -709,5 +709,12 @@ interface SrInterface {
      */
     public function importSrSurvey(array $excelData):array;
 
+    /**
+     *
+     * @param array $data
+     * @return array
+     */
+    public function setImportSrSurveyStatusByWechat(array $data):array;
+
     
 }
