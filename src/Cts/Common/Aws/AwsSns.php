@@ -81,12 +81,12 @@ class AwsSns
     }
 
 
-    public function trigger($event_type,$data){
+    public function trigger($event_type,$data,$callback=[]){
         if(!config("aws.name")){
             return false;
         }
 
-        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', ''),"user"=>context()->get("user",[])];
+        $messageData=["data"=>$data,"traceid"=>context()->get('traceid', ''),"user"=>context()->get("user",[]),"callback"=>$callback];
         $jsonData=\GuzzleHttp\json_encode($messageData);
 
         $targetArn="arn:aws:sns:".$this->aws_acount.config("aws.name").config("service");
