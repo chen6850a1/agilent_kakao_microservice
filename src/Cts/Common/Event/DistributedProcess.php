@@ -81,6 +81,12 @@ class DistributedProcess extends UserProcess
                         }else{
                             Log::info("Sns Delete complute");
                             $awsSqs->deleteMessage($this->queueUrl,$message);
+							
+							//判断是否有回调函数,有的话执行回调告知结果  example ["service_sr","setImportSrSurveyStatus"]
+                            $callbackFun=ArrayHelper::get($data,"callbackFun");
+                            $rpc=BeanFactory::getBean("RpcServerList");
+                            $class=$callbackFun[0];
+                            call_user_func([$rpc->$class,$callbackFun[1]],$result);
                         }
                     }
                 }

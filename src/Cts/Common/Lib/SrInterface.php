@@ -707,4 +707,20 @@ interface SrInterface {
      */
     public function getHistoryNotificationCount():array;
 
+	
+	 /**
+     *
+     * @param array $excelData
+     * @return array
+     */
+    public function importSrSurvey(array $excelData):array;
+
+    /**
+     *
+     * @param array $data
+     * @return array
+     */
+    public function setImportSrSurveyStatusByWechat(array $data):array;
+
+    
 }
