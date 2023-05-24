@@ -46,8 +46,8 @@ class AliSms {
      */
     public function pushSmsMessage($tel, $templateCode = '', $templateParam = []) {
         Log::info("ali start push message:");
-        Log::info($tel);
-        Log::info($templateCode);
+        Log::info("tel:",$tel);
+        Log::info("templateCode:",$templateCode);
         Log::info('templateParam:',serialize($templateParam));
         $sendSmsRequest = new SendSmsRequest(
             [
