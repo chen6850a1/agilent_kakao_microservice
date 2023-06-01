@@ -1219,4 +1219,11 @@ interface WechatInterface
      * @return array
      */
     public function getOriginalIdByType(string $type) :array;
+
+    /**
+     * 通过业务crmId获取业务对应的智齿角色
+     * @param string $employeeId 业务crmid
+     * @return array
+     */
+    public function getSobotDepartmentByCrmId(string $employeeId): array;
 }
