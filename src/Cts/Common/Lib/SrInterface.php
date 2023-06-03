@@ -716,5 +716,11 @@ interface SrInterface {
      */
     public function setImportSrSurveyStatusByWechat(array $data):array;
 
-    
+
+    /**
+     * 获取服务历史消息统计
+     * @return array
+     */
+    public function getHistoryNotificationCount():array;
+
 }
