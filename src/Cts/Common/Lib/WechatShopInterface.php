@@ -1221,4 +1221,28 @@ interface WechatShopInterface {
      * @return array
      */
     public function userUploadPartnumber(array $params): array;
+
+    /**
+     *获取小程序用户绑定的销售
+     * @param array $params
+     * @example {
+     *       page: int
+     *       pageSize: int
+     *       keyword: string
+     *       orderBy: string
+     *       status: string
+     * @return array
+     * @example {
+     *
+     * }
+     */
+    public function getUserBindSales(array $params): array;
+
+    /**
+     * 小程序用户扫码绑定销售
+     *
+     * @param array $params
+     * @return array
+     */
+    public function userBindSales(array $params): array;
 }
