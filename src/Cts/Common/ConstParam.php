@@ -115,6 +115,8 @@ class ConstParam {
     const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH2 = "service_dispatch2"; //服务派工通知[服务状态、仪器序列号、服务单号、派工状态]
     const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH3 = "service_dispatch3"; //服务派工通知[服务状态、仪器序列号、服务单号、快递单号、派工状态]
     const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH4 = "service_dispatch4"; //服务派工通知[仪器序列号、服务单号、工程师姓名、联系电话、派工状态]
+	const WECHAT_PUSH_TEMPLATE_SERVICE_DISPATCH5 = "service_dispatch5";
+
     const WECHAT_PUSH_TEMPLATE_ORDER_CHECK = "order_check"; //订单审批通知	[订单编号、订单名称、关联客户、总金额]
     const WECHAT_PUSH_TEMPLATE_ORDER_CHECK_REFUSE = "order_check_refuse"; //订单审批拒绝通知	[订单编号、订单标题、关联客户、总金额、拒绝原因]
     const WECHAT_PUSH_TEMPLATE_ORDER_CANCELED = "order_canceled"; //订单取消通知	[订单号、订单状态、取消原因]
