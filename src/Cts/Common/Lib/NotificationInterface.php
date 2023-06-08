@@ -52,4 +52,11 @@ interface NotificationInterface {
      * @return array
      */
     public function getOfflineMessageUrl(string $key): array;
+
+    /**
+     * 获取短信短地址里的原始随机数
+     * @param string $key
+     * @return array
+     */
+    public function getOfflineMessageSmsRandomStrByCode(string $key): array;
 }

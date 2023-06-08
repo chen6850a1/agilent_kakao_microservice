@@ -12,6 +12,7 @@ use AlibabaCloud\Tea\Console\Console;
 use \Exception;
 use AlibabaCloud\Tea\Exception\TeaError;
 use Swoft\Log\Helper\CLog;
+use Swoft\Log\Helper\Log;
 use Swoft\Bean\Annotation\Mapping\Bean;
 
 /**
@@ -44,6 +45,10 @@ class AliSms {
      * @return bool
      */
     public function pushSmsMessage($tel, $templateCode = '', $templateParam = []) {
+        Log::info("ali start push message:");
+        Log::info("tel:",$tel);
+        Log::info("templateCode:",$templateCode);
+        Log::info('templateParam:',serialize($templateParam));
         $sendSmsRequest = new SendSmsRequest(
             [
                 "phoneNumbers" => $tel, //手机号(区号可加可不加)
@@ -55,10 +60,10 @@ class AliSms {
         $runtime = new RuntimeOptions([]);
         try {
             $resp = $this->client->sendSmsWithOptions($sendSmsRequest, $runtime);
-            CLog::info("sms code response:" . json_encode($resp->body, JSON_UNESCAPED_UNICODE));
+            Log::info("ali sms send success:" . serialize($resp->body));
             return true;
         } catch (Exception $error) {
-            CLog::info($error->getMessage());
+            Log::info('ali sms send fail:',serialize($error->getMessage()));
             return false;
         }
     }
