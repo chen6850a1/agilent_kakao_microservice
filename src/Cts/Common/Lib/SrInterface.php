@@ -680,5 +680,12 @@ interface SrInterface {
      * @return array
      */
     public function irTags(): array;
+
+    /**
+     * 获取sr对应部门
+     * @param string $srId
+     * @return array
+     */
+    public function getSrDepartment(string $srId): array;
     
 }
